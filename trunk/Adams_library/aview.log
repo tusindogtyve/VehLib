@@ -1,0 +1,122 @@
+! Adams/View 2007 r1 (built Mar 28 2007)
+! Graphics:  OpenGL
+! Using software OpenGL overlay plane emulation
+! Enter a command, '?', or 'help'.
+! Automatically executing Command file aview.cmd.
+! >> !-----------------------------------------------------------
+! >> !  Adams start-up file
+! >> !
+! >> ! Revision Date  Modifier
+! >> ! 0.1  12.12-2007 jensbmadsen@suer-danfoss.com
+! >> !
+! >> !-----------------------------------------------------------
+! >> 
+! >> !--- Create library structure
+! >> library create library=.SauerDanfoss
+! >>  library create library=.SauerDanfoss.dboxes
+! >>  library create library=.SauerDanfoss.macros
+! >>  library create library=.SauerDanfoss.variables
+! >> 
+! >> 
+! >> 
+! >> !--- Add S-D button to the Main menu ---
+! >> interface menu create  &
+! &>    menu_name = .gui.main.mbar.SD  &
+! &>    enabled = yes  &
+! &>    help_text = "Sauer-Danfoss simulation tools"  &
+! &>    label = "Sauer-Danfoss Tools"
+! >> 
+! >>    
+! >>    !Example how to read in a macro
+! >> 
+! >> macro read  &
+! &>    macro_name = mac_sd_cre_ass  &
+! &>    file_name =(eval(getenv("MDI_SD_SITE")//"/mac_cre_ass.cmd"))  &
+! &>    user_entered_command = "create_assembly"  &
+! &>    wrap_in_undo = yes  &
+! &>    create_panel = yes
+! ERROR:  Unable to open file named '/mac_cre_ass.cmd'.
+! Verify correctness of name and make sure that read permissions are on.
+! >> 
+! >> 
+! >> !--- Load enviroment setup
+! >>  file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/reloaded.cmd"))
+! ERROR:  Adams/View could not open the command file '/reloaded.cmd' for reading.
+! >>     
+! >> 
+! ERROR:  ---------------------------------------------------------------------
+! ERROR:  Error detected on line number 16, character 36 of aviewAS.cmd.
+! ERROR:  The Library 'SauerDanfoss' already exists.
+! ERROR:  The command was not executed.
+! ERROR:  >> library create library=.SauerDanfoss
+! ERROR:  ---------------------------------------------------------------------
+! ERROR:  ---------------------------------------------------------------------
+! ERROR:  Error detected on line number 17, character 44 of aviewAS.cmd.
+! ERROR:  The Library 'dboxes' already exists.
+! ERROR:  The command was not executed.
+! ERROR:  >>  library create library=.SauerDanfoss.dboxes
+! ERROR:  ---------------------------------------------------------------------
+! ERROR:  ---------------------------------------------------------------------
+! ERROR:  Error detected on line number 18, character 44 of aviewAS.cmd.
+! ERROR:  The Library 'macros' already exists.
+! ERROR:  The command was not executed.
+! ERROR:  >>  library create library=.SauerDanfoss.macros
+! ERROR:  ---------------------------------------------------------------------
+! ERROR:  ---------------------------------------------------------------------
+! ERROR:  Error detected on line number 19, character 47 of aviewAS.cmd.
+! ERROR:  The Library 'variables' already exists.
+! ERROR:  The command was not executed.
+! ERROR:  >>  library create library=.SauerDanfoss.variables
+! ERROR:  ---------------------------------------------------------------------
+interface field set field=message strings="" action=replace
+interface field set field=message strings="" action=replace
+interface dialog_box undisplay dialog_box_name = .gui.msg_box
+! Check changed db now, so that we can suppress the confusing 'continue with read' later
+! Do not do anything before DB_CHANGED() and nothing after file bin read so that DB_CHANGED() is not confused
+if cond=( DB_CHANGED() && db_default(.system_defaults, "model") != (none) )
+   var set var=.mdi.file_menu_tmp_name str="MODEL_1"
+   if cond=( DB_EXISTS(".mdi.LAST_DATABASE_NAME"))
+      if cond=(!str_is_space(.mdi.LAST_DATABASE_NAME))
+         var set var=.mdi.file_menu_tmp_name str=(eval(.mdi.LAST_DATABASE_NAME))
+      end
+   end
+   var set var = .mdi.file_menu_status &
+      int = 2
+   if cond=( .mdi.file_menu_status != 3 )
+      if cond=( .mdi.file_menu_status == 1 )
+         file binary write file = (eval( .mdi.file_menu_tmp_name ))
+      end
+   end
+else
+   var set var=.mdi.file_menu_status int=0
+end
+var set var=.mdi.file_menu_tmp_name str=""
+var set var=.mdi.mdi_aview_bin str=""
+if cond=( .mdi.file_menu_status != 3 )
+   if cond=( file_exists( "./aview.bin" ) )
+      var set var = .mdi.file_menu_status &
+         int = (eval(alert("Warning", "A default database file 'aview.bin' exists in the current working directory.","Read this local file","Use installation file", "Cancel", 1)))
+      if cond=( .mdi.file_menu_status == 1 )
+         var set var=.mdi.file_menu_tmp_name str="aview"
+      elseif cond=( .mdi.file_menu_status == 2 )
+         if cond=(.mdi.mdi_aview_bin != "")
+            var set var=.mdi.file_menu_tmp_name str=(eval(.mdi.mdi_aview_bin))
+         else
+            var set var=.mdi.file_menu_tmp_name str=(eval( getenv( "aview_bindir" )//"/aview.bin" ))
+         end
+      else
+         var set var=.mdi.file_menu_tmp_name str=""
+      end
+   else
+      if cond=(.mdi.mdi_aview_bin != "")
+         var set var=.mdi.file_menu_tmp_name str=(eval(.mdi.mdi_aview_bin))
+      else
+         var set var=.mdi.file_menu_tmp_name str="aview"
+      end
+   end
+end
+if cond=( .mdi.file_menu_tmp_name != "" )
+   file bin read file="aview" alert=no
+   file com rea fil=aviewAS
+end
+quit conf=no
