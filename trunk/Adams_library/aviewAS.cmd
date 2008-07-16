@@ -1,5 +1,5 @@
 !-----------------------------------------------------------------------!
-! Start up file for SD specialized Adams install			!
+! 			aviewAS.cmd					!
 !									!
 ! History:								!
 ! Dec-19-2007	Final version				AAU-student	!
@@ -86,3 +86,4 @@ macro read  &
    wrap_in_undo = no  &
    create_panel = no
 
+!__________________________Done AviewAS.cmd________________!

@@ -1,6 +1,6 @@
 !
 interface dialog_box create  &
-   dialog_box_name = .SauerDanfoss.dboxes.dbox_MarkerOriAlongAxis  &
+   dialog_box_name = .SDlib_plugin.dboxes.dbox_MarkerOriAlongAxis  &
    location = 864.0, 49.0  &
    height = 173.0  &
    width = 289.0  &
@@ -16,7 +16,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_MarkerOriAlongAxis.button_1  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_MarkerOriAlongAxis.button_1  &
    location = 209.0, 144.0  &
    height = 25.0  &
    width = 76.0  &
@@ -27,7 +27,7 @@ interface push_button create  &
    commands = "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_MarkerOriAlongAxis.button_2  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_MarkerOriAlongAxis.button_2  &
    location = 53.0, 144.0  &
    height = 25.0  &
    width = 76.0  &
@@ -38,7 +38,7 @@ interface push_button create  &
    commands = "interface dialog execute dialog=$_parent undisp=yes"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_MarkerOriAlongAxis.field_1  &
+   field_name = .SDlib_plugin.dboxes.dbox_MarkerOriAlongAxis.field_1  &
    location = 155.0, 31.0  &
    height = 25.0  &
    width = 130.0  &
@@ -54,7 +54,7 @@ interface field create  &
    type_filter = marker
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_MarkerOriAlongAxis.label_1  &
+   label_name = .SDlib_plugin.dboxes.dbox_MarkerOriAlongAxis.label_1  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 149.0  &
@@ -65,7 +65,7 @@ interface label create  &
    text = "Parametrize this marker"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_MarkerOriAlongAxis.label_10  &
+   label_name = .SDlib_plugin.dboxes.dbox_MarkerOriAlongAxis.label_10  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 281.0  &
@@ -76,7 +76,7 @@ interface label create  &
    text = "Select the marker for the parametrization"
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_MarkerOriAlongAxis.button_3  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_MarkerOriAlongAxis.button_3  &
    location = 131.0, 144.0  &
    height = 25.0  &
    width = 76.0  &
@@ -87,7 +87,7 @@ interface push_button create  &
    commands = "interface dialog execute dialog=$_parent undisp=no"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_MarkerOriAlongAxis.label_11  &
+   label_name = .SDlib_plugin.dboxes.dbox_MarkerOriAlongAxis.label_11  &
    location = 4.0, 114.0  &
    height = 25.0  &
    width = 149.0  &
@@ -98,7 +98,7 @@ interface label create  &
    text = "Towards this marker"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_MarkerOriAlongAxis.field_3  &
+   field_name = .SDlib_plugin.dboxes.dbox_MarkerOriAlongAxis.field_3  &
    location = 155.0, 114.0  &
    height = 25.0  &
    width = 130.0  &
@@ -114,7 +114,7 @@ interface field create  &
    type_filter = marker
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_MarkerOriAlongAxis.label_9_2_2  &
+   label_name = .SDlib_plugin.dboxes.dbox_MarkerOriAlongAxis.label_9_2_2  &
    location = 4.0, 60.0  &
    height = 25.0  &
    width = 281.0  &
@@ -125,7 +125,7 @@ interface label create  &
    text = "Along axis to which marker"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_MarkerOriAlongAxis.label_11_2  &
+   label_name = .SDlib_plugin.dboxes.dbox_MarkerOriAlongAxis.label_11_2  &
    location = 4.0, 87.0  &
    height = 25.0  &
    width = 149.0  &
@@ -136,7 +136,7 @@ interface label create  &
    text = "Orient this axis (x,y or z)"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_MarkerOriAlongAxis.field_3_2  &
+   field_name = .SDlib_plugin.dboxes.dbox_MarkerOriAlongAxis.field_3_2  &
    location = 155.0, 87.0  &
    height = 25.0  &
    width = 130.0  &
@@ -152,7 +152,7 @@ interface field create  &
    add_quotes = no
 !
 interface separator create  &
-   separator_name = .SauerDanfoss.dboxes.dbox_MarkerOriAlongAxis.sep_1  &
+   separator_name = .SDlib_plugin.dboxes.dbox_MarkerOriAlongAxis.sep_1  &
    location = 4.0, 58.0  &
    width = 281.0  &
    units = pixel  &

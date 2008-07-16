@@ -58,7 +58,7 @@ interface dialog_box create  &
                         "! it is examined if a new model should be imported or an existing should be edited",  &
                         "if condition=((db_exists (\"DV_model_to_change\")) || (db_exists (eval(NewModelName[1])//\".\"//\"dv_width\")))",  &
                         "else",  &
-                        "  file command read file=testmodel",  &
+                        "  file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")// \"testmodel\"))",  &
                         "  model copy &",  &
                         "     model_name = testmodel &",  &
                         "     new_model_name = (eval(MainModelName[1]//\".\"//NewModelName[1])) &",  &

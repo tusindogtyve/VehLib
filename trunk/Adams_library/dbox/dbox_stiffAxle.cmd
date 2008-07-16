@@ -1,6 +1,6 @@
 !
 interface dialog_box create  &
-   dialog_box_name = .SauerDanfoss.dboxes.dbox_stiffAxle  &
+   dialog_box_name = .SDlib_plugin.dboxes.dbox_stiffAxle  &
    location = 6.0, 12.0  &
    height = 226.0  &
    width = 331.0  &
@@ -95,7 +95,7 @@ interface dialog_box create  &
                         "if condition=((db_exists (\"DV_model_to_change\")) || (db_exists (eval($_self.NewModelName[1])//\".\"//\"dv_width\")))",  &
                         "else",  &
                         "  ! read the exported model.",  &
-                        "  file command read file=\"Level3/Steering/stiffaxle\"",  &
+                        "  file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/Steering/stiffaxle\"))",  &
                         "",  &
                         "  !Rename som markers",  &
                         "  entity modify entity=MKR_wheel_RL new_entity_name=MKR_wheel_$'field_20'L_axle",  &
@@ -235,7 +235,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_stiffAxle.button_5  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_stiffAxle.button_5  &
    location = 251.0, 197.0  &
    height = 25.0  &
    width = 76.0  &
@@ -249,7 +249,7 @@ interface push_button create  &
               "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_stiffAxle.button_6  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_stiffAxle.button_6  &
    location = 173.0, 197.0  &
    height = 25.0  &
    width = 76.0  &
@@ -261,7 +261,7 @@ interface push_button create  &
               "interface dialog display dialog= $_parent"
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_stiffAxle.button_7  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_stiffAxle.button_7  &
    location = 95.0, 197.0  &
    height = 25.0  &
    width = 76.0  &
@@ -276,7 +276,7 @@ interface push_button create  &
               "createdbox"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_stiffAxle.label_1  &
+   label_name = .SDlib_plugin.dboxes.dbox_stiffAxle.label_1  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 210.0  &
@@ -287,7 +287,7 @@ interface label create  &
    text = "Main model name:"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_stiffAxle.label_2  &
+   label_name = .SDlib_plugin.dboxes.dbox_stiffAxle.label_2  &
    location = 4.0, 139.0  &
    height = 25.0  &
    width = 200.0  &
@@ -298,7 +298,7 @@ interface label create  &
    text = "Distance between wheels"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_stiffAxle.label_3  &
+   label_name = .SDlib_plugin.dboxes.dbox_stiffAxle.label_3  &
    location = 4.0, 166.0  &
    height = 25.0  &
    width = 200.0  &
@@ -309,7 +309,7 @@ interface label create  &
    text = "Radius"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_stiffAxle.field_18  &
+   field_name = .SDlib_plugin.dboxes.dbox_stiffAxle.field_18  &
    location = 217.0, 4.0  &
    height = 25.0  &
    width = 110.0  &
@@ -326,7 +326,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_stiffAxle.field_2  &
+   field_name = .SDlib_plugin.dboxes.dbox_stiffAxle.field_2  &
    location = 251.0, 139.0  &
    height = 25.0  &
    width = 76.0  &
@@ -343,7 +343,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_stiffAxle.field_3  &
+   field_name = .SDlib_plugin.dboxes.dbox_stiffAxle.field_3  &
    location = 251.0, 166.0  &
    height = 25.0  &
    width = 76.0  &
@@ -360,7 +360,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_stiffAxle.label_4  &
+   label_name = .SDlib_plugin.dboxes.dbox_stiffAxle.label_4  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 210.0  &
@@ -371,7 +371,7 @@ interface label create  &
    text = "Name of sub model:"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_stiffAxle.label_5  &
+   label_name = .SDlib_plugin.dboxes.dbox_stiffAxle.label_5  &
    location = 4.0, 112.0  &
    height = 25.0  &
    width = 200.0  &
@@ -382,7 +382,7 @@ interface label create  &
    text = "Axle number (1 = front axle)"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_stiffAxle.field_19  &
+   field_name = .SDlib_plugin.dboxes.dbox_stiffAxle.field_19  &
    location = 217.0, 58.0  &
    height = 25.0  &
    width = 110.0  &
@@ -399,7 +399,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_stiffAxle.field_20  &
+   field_name = .SDlib_plugin.dboxes.dbox_stiffAxle.field_20  &
    location = 251.0, 112.0  &
    height = 25.0  &
    width = 76.0  &
@@ -418,7 +418,7 @@ interface field create  &
    lower_limit = 0.0
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_stiffAxle.label_6  &
+   label_name = .SDlib_plugin.dboxes.dbox_stiffAxle.label_6  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 210.0  &
@@ -429,7 +429,7 @@ interface label create  &
    text = "Old name of sub model:"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_stiffAxle.label_7  &
+   label_name = .SDlib_plugin.dboxes.dbox_stiffAxle.label_7  &
    location = 4.0, 85.0  &
    height = 25.0  &
    width = 210.0  &
@@ -440,7 +440,7 @@ interface label create  &
    text = "Sub model that contains a chassis"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_stiffAxle.field_1  &
+   field_name = .SDlib_plugin.dboxes.dbox_stiffAxle.field_1  &
    location = 217.0, 31.0  &
    height = 25.0  &
    width = 110.0  &
@@ -456,7 +456,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_stiffAxle.field_4  &
+   field_name = .SDlib_plugin.dboxes.dbox_stiffAxle.field_4  &
    location = 217.0, 85.0  &
    height = 25.0  &
    width = 110.0  &
@@ -472,5 +472,5 @@ interface field create  &
    type_filter = model
 !
 variable create  &
-   variable_name = .SauerDanfoss.dboxes.dbox_stiffAxle.path  &
+   variable_name = .SDlib_plugin.dboxes.dbox_stiffAxle.path  &
    string_value = ".MODEL_1.rear_axle"

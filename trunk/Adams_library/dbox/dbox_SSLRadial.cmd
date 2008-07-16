@@ -1,6 +1,6 @@
 !
 interface dialog_box create  &
-   dialog_box_name = .SauerDanfoss.dboxes.dbox_SSLRadial  &
+   dialog_box_name = .SDlib_plugin.dboxes.dbox_SSLRadial  &
    location = 868.0, 5.0  &
    height = 581.0  &
    width = 401.0  &
@@ -99,7 +99,7 @@ interface dialog_box create  &
                         "if condition=((db_exists (\"DV_model_to_change\")) || (db_exists (eval($_self.NewModelName[1])//\".\"//\"Dv_size_link2\")))",  &
                         "else",  &
                         "  ! read the exported model.",  &
-                        "  file command read file=\"Level3/Loader/SSLRadial\"",  &
+                        "  file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/Loader/SSLRadial\"))",  &
                         "  model copy &",  &
                         "     model_name = SSLRadial &",  &
                         "     new_model_name = (eval($_self.MainModelName[1]//\".\"//$_self.NewModelName[1])) &",  &
@@ -243,7 +243,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_SSLRadial.button_1  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_SSLRadial.button_1  &
    location = 321.0, 552.0  &
    height = 25.0  &
    width = 76.0  &
@@ -257,7 +257,7 @@ interface push_button create  &
               "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_SSLRadial.button_2  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_SSLRadial.button_2  &
    location = 243.0, 552.0  &
    height = 25.0  &
    width = 76.0  &
@@ -269,7 +269,7 @@ interface push_button create  &
               "interface dialog display dialog= $_parent"
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_SSLRadial.button_3  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_SSLRadial.button_3  &
    location = 165.0, 552.0  &
    height = 25.0  &
    width = 76.0  &
@@ -284,7 +284,7 @@ interface push_button create  &
               "createdbox"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_1  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_1  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 214.0  &
@@ -295,7 +295,7 @@ interface label create  &
    text = "Main model name:"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_2  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_2  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 214.0  &
@@ -306,7 +306,7 @@ interface label create  &
    text = "Old sub model name"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_3  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_3  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 214.0  &
@@ -317,7 +317,7 @@ interface label create  &
    text = "New sub model name:"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_4  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_4  &
    location = 4.0, 85.0  &
    height = 25.0  &
    width = 214.0  &
@@ -328,7 +328,7 @@ interface label create  &
    text = "Sub model that contains a chassis"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_main  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_main  &
    location = 280.0, 4.0  &
    height = 25.0  &
    width = 116.0  &
@@ -344,7 +344,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_old  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_old  &
    location = 280.0, 31.0  &
    height = 25.0  &
    width = 116.0  &
@@ -360,7 +360,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_newName  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_newName  &
    location = 280.0, 58.0  &
    height = 25.0  &
    width = 116.0  &
@@ -376,7 +376,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_csModel  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_csModel  &
    location = 280.0, 85.0  &
    height = 25.0  &
    width = 116.0  &
@@ -392,7 +392,7 @@ interface field create  &
    type_filter = model
 !
 interface separator create  &
-   separator_name = .SauerDanfoss.dboxes.dbox_SSLRadial.sep_1  &
+   separator_name = .SDlib_plugin.dboxes.dbox_SSLRadial.sep_1  &
    location = 4.0, 112.0  &
    height = 4.0  &
    width = 392.0  &
@@ -401,7 +401,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_1  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_1  &
    location = 320.0, 118.0  &
    height = 25.0  &
    width = 76.0  &
@@ -418,7 +418,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_2  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_2  &
    location = 320.0, 145.0  &
    height = 25.0  &
    width = 76.0  &
@@ -435,7 +435,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_3  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_3  &
    location = 320.0, 172.0  &
    height = 25.0  &
    width = 76.0  &
@@ -452,7 +452,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_4  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_4  &
    location = 320.0, 199.0  &
    height = 25.0  &
    width = 76.0  &
@@ -469,7 +469,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_5  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_5  &
    location = 320.0, 226.0  &
    height = 25.0  &
    width = 76.0  &
@@ -486,7 +486,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_6  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_6  &
    location = 320.0, 253.0  &
    height = 25.0  &
    width = 76.0  &
@@ -503,7 +503,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_7  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_7  &
    location = 320.0, 280.0  &
    height = 25.0  &
    width = 76.0  &
@@ -520,7 +520,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_8  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_8  &
    location = 320.0, 307.0  &
    height = 25.0  &
    width = 76.0  &
@@ -537,7 +537,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_11  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_11  &
    location = 320.0, 334.0  &
    height = 25.0  &
    width = 76.0  &
@@ -554,7 +554,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_12  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_12  &
    location = 320.0, 361.0  &
    height = 25.0  &
    width = 76.0  &
@@ -571,7 +571,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_13  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_13  &
    location = 320.0, 388.0  &
    height = 25.0  &
    width = 76.0  &
@@ -588,7 +588,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_14  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_14  &
    location = 320.0, 415.0  &
    height = 25.0  &
    width = 76.0  &
@@ -605,7 +605,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_15  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_15  &
    location = 320.0, 442.0  &
    height = 25.0  &
    width = 76.0  &
@@ -622,7 +622,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_16  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_16  &
    location = 320.0, 469.0  &
    height = 25.0  &
    width = 76.0  &
@@ -639,7 +639,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_17  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_17  &
    location = 320.0, 496.0  &
    height = 25.0  &
    width = 76.0  &
@@ -656,7 +656,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_SSLRadial.field_18  &
+   field_name = .SDlib_plugin.dboxes.dbox_SSLRadial.field_18  &
    location = 320.0, 523.0  &
    height = 25.0  &
    width = 76.0  &
@@ -673,7 +673,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_5  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_5  &
    location = 4.0, 118.0  &
    height = 25.0  &
    width = 231.0  &
@@ -684,7 +684,7 @@ interface label create  &
    text = "ArmMount -> Point 3"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_6  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_6  &
    location = 4.0, 145.0  &
    height = 25.0  &
    width = 231.0  &
@@ -695,7 +695,7 @@ interface label create  &
    text = "CylinderMount -> Point 3"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_7  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_7  &
    location = 4.0, 172.0  &
    height = 25.0  &
    width = 231.0  &
@@ -706,7 +706,7 @@ interface label create  &
    text = "ArmMount -> Point 4"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_8  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_8  &
    location = 4.0, 199.0  &
    height = 25.0  &
    width = 231.0  &
@@ -717,7 +717,7 @@ interface label create  &
    text = "CylinderMount -> Point 4"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_9  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_9  &
    location = 4.0, 226.0  &
    height = 25.0  &
    width = 231.0  &
@@ -728,7 +728,7 @@ interface label create  &
    text = "Distance 4-5 x"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_10  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_10  &
    location = 4.0, 253.0  &
    height = 25.0  &
    width = 231.0  &
@@ -739,7 +739,7 @@ interface label create  &
    text = "Distance 4-5 z"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_11  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_11  &
    location = 4.0, 280.0  &
    height = 25.0  &
    width = 231.0  &
@@ -750,7 +750,7 @@ interface label create  &
    text = "Length of the bucket's link"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_12  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_12  &
    location = 4.0, 307.0  &
    height = 25.0  &
    width = 231.0  &
@@ -761,7 +761,7 @@ interface label create  &
    text = "Loader width"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_15  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_15  &
    location = 4.0, 334.0  &
    height = 25.0  &
    width = 231.0  &
@@ -772,7 +772,7 @@ interface label create  &
    text = "Minimum length of the arm cylinders"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_16  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_16  &
    location = 4.0, 361.0  &
    height = 25.0  &
    width = 231.0  &
@@ -783,7 +783,7 @@ interface label create  &
    text = "Maximum length of the arm cylinders"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_17  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_17  &
    location = 4.0, 388.0  &
    height = 25.0  &
    width = 231.0  &
@@ -794,7 +794,7 @@ interface label create  &
    text = "Initial length of the arm cylinders"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_18  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_18  &
    location = 4.0, 415.0  &
    height = 25.0  &
    width = 231.0  &
@@ -805,7 +805,7 @@ interface label create  &
    text = "Minimum length of the bucket cylinders"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_19  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_19  &
    location = 4.0, 442.0  &
    height = 25.0  &
    width = 231.0  &
@@ -816,7 +816,7 @@ interface label create  &
    text = "Maximum length of the bucket cylinders"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_20  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_20  &
    location = 4.0, 469.0  &
    height = 25.0  &
    width = 231.0  &
@@ -827,7 +827,7 @@ interface label create  &
    text = "Initial length of the bucket cylinders"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_21  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_21  &
    location = 4.0, 496.0  &
    height = 25.0  &
    width = 231.0  &
@@ -838,7 +838,7 @@ interface label create  &
    text = "Radius of all cylinders"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_SSLRadial.label_22  &
+   label_name = .SDlib_plugin.dboxes.dbox_SSLRadial.label_22  &
    location = 4.0, 523.0  &
    height = 25.0  &
    width = 231.0  &
