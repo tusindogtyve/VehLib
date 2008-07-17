@@ -1,7 +1,7 @@
 !
 interface dialog_box create  &
-   dialog_box_name = .SDlib_plugin.dboxes.dbox_Stabi1  &
-   location = 639.0, 91.0  &
+   dialog_box_name = .SauerDanfoss.dboxes.dbox_Stabi1  &
+   location = 2.0, 67.0  &
    height = 578.0  &
    width = 387.0  &
    units = pixel  &
@@ -9,7 +9,7 @@ interface dialog_box create  &
    vert_resizing = scale_all  &
    title = "Modifications to Stabilizer sub model"  &
    iconifiable = no  &
-   start_commands = "int field set field=.SDlib_plugin.dboxes.dbox_BHPlate1.field_12 string=(eval(db_default( .system_defaults, \"model\")))",  &
+   start_commands = "int field set field=.SauerDanfoss.dboxes.dbox_BHPlate1.field_12 string=(eval(db_default( .system_defaults, \"model\")))",  &
                     "",  &
                     "! These variables holds the names of the models.",  &
                     "var cre var = $_self.NewModelName string_value = \"\"",  &
@@ -62,10 +62,6 @@ interface dialog_box create  &
                      "  var del var = $_self.OldModelName",  &
                      "end",  &
                      "",  &
-		     !------ return view to main model
-                     "default model model=(eval($_self.MainModelName))",  &
-                     "model display fit_to_view=no",  &
-		     !------
                      "if condition = (db_exists(\"$_self.MainModelName\"))",  &
                      "  var del var = $_self.MainModelName",  &
                      "end"  &
@@ -91,7 +87,7 @@ interface dialog_box create  &
                         "if condition=((db_exists (\"DV_model_to_change\")) || (db_exists (eval($_self.NewModelName[1])//\".\"//\"dv_width\")))",  &
                         "else",  &
                         "  ! read the exported model.",  &
-                        "  file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/Stabilizer/Stabi1\"))",  &
+                        "  file command read file=\"Level3/Stabilizer/Stabi1\"",  &
                         "  model copy &",  &
                         "     model_name = Stabi1 &",  &
                         "     new_model_name = (eval($_self.MainModelName[1]//\".\"//$_self.NewModelName[1])) &",  &
@@ -202,16 +198,21 @@ interface dialog_box create  &
                         "",  &
                         "! If a chassis exists, the stabilizer is merged to the chassis",  &
                         "if condition=(db_exists (\"$field_19.PART_Cs\"))",  &
-                        "if condition=(db_exists (\"$field_18.Part_To_Cs\"))",  &
-                        "part merge rigid_body part_name= $field_18.Part_To_Cs into_part= $field_19.PART_Cs",  &
-                        "end",  &
+                        "  if condition=(db_exists (\"$field_18.Part_To_Cs\"))",  &
+                        "    part merge rigid_body part_name= $field_18.Part_To_Cs into_part= $field_19.PART_Cs",  &
+                        "  end",  &
+                        "  ! Locate the stabilizers relative to the stabilizer marker...",  &
+                        "  marker modify &",  &
+                        "     marker_name = ($field_18.ground.Mkr_Master) &",  &
+                        "        location = (LOC_RELATIVE_TO( {0,0,0} , $'field_19'.ground.MKR_slave_stabi))&",  &
+                        "     orientation = (ORI_RELATIVE_TO( {0,0,0} , $'field_19'.ground.MKR_slave_stabi))",  &
                         "end"  &
    decorate = yes  &
    resizable = yes  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_Stabi1.button_1  &
+   push_button_name = .SauerDanfoss.dboxes.dbox_Stabi1.button_1  &
    location = 307.0, 549.0  &
    height = 25.0  &
    width = 76.0  &
@@ -225,7 +226,7 @@ interface push_button create  &
               "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_Stabi1.button_2  &
+   push_button_name = .SauerDanfoss.dboxes.dbox_Stabi1.button_2  &
    location = 229.0, 549.0  &
    height = 25.0  &
    width = 76.0  &
@@ -237,7 +238,7 @@ interface push_button create  &
               "interface dialog display dialog= $_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_Stabi1.button_3  &
+   push_button_name = .SauerDanfoss.dboxes.dbox_Stabi1.button_3  &
    location = 151.0, 549.0  &
    height = 25.0  &
    width = 76.0  &
@@ -249,10 +250,10 @@ interface push_button create  &
               "if condition = (db_exists(\"dv_model_to_change\"))",  &
               "  var del var = dv_model_to_change",  &
               "end",  &
-              "file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/dbox/createdbox\"))"
+              "createdbox"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_1  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_1  &
    location = 4.0, 114.0  &
    height = 25.0  &
    width = 255.0  &
@@ -263,7 +264,7 @@ interface label create  &
    text = "y-dist between legs [m]"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_3  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_3  &
    location = 4.0, 168.0  &
    height = 25.0  &
    width = 255.0  &
@@ -274,7 +275,7 @@ interface label create  &
    text = "Width of the central of the leg [m]"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_4  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_4  &
    location = 4.0, 195.0  &
    height = 25.0  &
    width = 255.0  &
@@ -285,7 +286,7 @@ interface label create  &
    text = "Height of the plate [m]"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_4_2  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_4_2  &
    location = 4.0, 249.0  &
    height = 25.0  &
    width = 255.0  &
@@ -296,7 +297,7 @@ interface label create  &
    text = "Depth of the plate [m]"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_4_3  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_4_3  &
    location = 4.0, 141.0  &
    height = 25.0  &
    width = 255.0  &
@@ -307,7 +308,7 @@ interface label create  &
    text = "Angle to legs from forward [Deg]"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_4_2_2  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_4_2_2  &
    location = 4.0, 222.0  &
    height = 25.0  &
    width = 255.0  &
@@ -318,7 +319,7 @@ interface label create  &
    text = "Width of the plate [m]"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_1  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_1  &
    location = 261.0, 114.0  &
    height = 25.0  &
    width = 122.0  &
@@ -335,7 +336,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_2  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_2  &
    location = 261.0, 141.0  &
    height = 25.0  &
    width = 122.0  &
@@ -352,7 +353,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_3  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_3  &
    location = 261.0, 168.0  &
    height = 25.0  &
    width = 122.0  &
@@ -369,7 +370,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_4  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_4  &
    location = 261.0, 195.0  &
    height = 25.0  &
    width = 122.0  &
@@ -386,7 +387,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_6  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_6  &
    location = 261.0, 222.0  &
    height = 25.0  &
    width = 122.0  &
@@ -403,7 +404,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_7  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_7  &
    location = 261.0, 249.0  &
    height = 25.0  &
    width = 122.0  &
@@ -420,7 +421,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_5  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_5  &
    location = 4.0, 386.0  &
    height = 25.0  &
    width = 379.0  &
@@ -431,7 +432,7 @@ interface label create  &
    text = "Data for the stabilizer cylinders"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_6  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_6  &
    location = 4.0, 413.0  &
    height = 25.0  &
    width = 255.0  &
@@ -442,7 +443,7 @@ interface label create  &
    text = "Min. Length [m]"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_7  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_7  &
    location = 4.0, 440.0  &
    height = 25.0  &
    width = 255.0  &
@@ -453,7 +454,7 @@ interface label create  &
    text = "Max. Length [m]"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_8  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_8  &
    location = 4.0, 494.0  &
    height = 25.0  &
    width = 255.0  &
@@ -464,7 +465,7 @@ interface label create  &
    text = "Cylinder radius [m]"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_9  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_9  &
    location = 4.0, 521.0  &
    height = 25.0  &
    width = 255.0  &
@@ -475,7 +476,7 @@ interface label create  &
    text = "Piston radius [m]"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_8  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_8  &
    location = 261.0, 413.0  &
    height = 25.0  &
    width = 122.0  &
@@ -492,7 +493,7 @@ interface field create  &
    add_quotes = no
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_Stabi1.sep_2  &
+   separator_name = .SauerDanfoss.dboxes.dbox_Stabi1.sep_2  &
    location = 4.0, 384.0  &
    width = 379.0  &
    units = pixel  &
@@ -500,7 +501,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_9  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_9  &
    location = 261.0, 440.0  &
    height = 25.0  &
    width = 122.0  &
@@ -517,7 +518,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_10  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_10  &
    location = 261.0, 494.0  &
    height = 25.0  &
    width = 122.0  &
@@ -534,7 +535,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_11  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_11  &
    location = 261.0, 521.0  &
    height = 25.0  &
    width = 122.0  &
@@ -551,7 +552,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_10  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_10  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 255.0  &
@@ -562,7 +563,7 @@ interface label create  &
    text = "Main model name"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_12  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_12  &
    location = 261.0, 4.0  &
    height = 25.0  &
    width = 122.0  &
@@ -578,7 +579,7 @@ interface field create  &
    add_quotes = no
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_Stabi1.sep_3  &
+   separator_name = .SauerDanfoss.dboxes.dbox_Stabi1.sep_3  &
    location = 4.0, 112.0  &
    width = 379.0  &
    units = pixel  &
@@ -586,7 +587,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_2  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_2  &
    location = 4.0, 467.0  &
    height = 25.0  &
    width = 255.0  &
@@ -597,7 +598,7 @@ interface label create  &
    text = "Ini. Length [m]"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_5  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_5  &
    location = 261.0, 467.0  &
    height = 25.0  &
    width = 122.0  &
@@ -614,7 +615,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_11  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_11  &
    location = 4.0, 276.0  &
    height = 25.0  &
    width = 255.0  &
@@ -625,7 +626,7 @@ interface label create  &
    text = "Coordinates, cyl. mount on Cs (x,y,z) [m]"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_12  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_12  &
    location = 4.0, 303.0  &
    height = 25.0  &
    width = 255.0  &
@@ -636,7 +637,7 @@ interface label create  &
    text = "Coordinates, cyl. mount on leg (x,y,z) [m]"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_13  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_13  &
    location = 261.0, 276.0  &
    height = 25.0  &
    width = 122.0  &
@@ -653,7 +654,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_14  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_14  &
    location = 261.0, 303.0  &
    height = 25.0  &
    width = 122.0  &
@@ -670,7 +671,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_15  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_15  &
    location = 261.0, 330.0  &
    height = 25.0  &
    width = 122.0  &
@@ -687,7 +688,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_13  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_13  &
    location = 4.0, 330.0  &
    height = 25.0  &
    width = 255.0  &
@@ -698,7 +699,7 @@ interface label create  &
    text = "x-coordinate of plate joint [m]"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_16  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_16  &
    location = 261.0, 357.0  &
    height = 25.0  &
    width = 122.0  &
@@ -715,7 +716,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_14  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_14  &
    location = 4.0, 357.0  &
    height = 25.0  &
    width = 255.0  &
@@ -726,7 +727,7 @@ interface label create  &
    text = "z-coordinate of plate joint [m]"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_17  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_17  &
    location = 261.0, 31.0  &
    height = 25.0  &
    width = 122.0  &
@@ -742,7 +743,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_18  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_18  &
    location = 261.0, 58.0  &
    height = 25.0  &
    width = 122.0  &
@@ -758,7 +759,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Stabi1.field_19  &
+   field_name = .SauerDanfoss.dboxes.dbox_Stabi1.field_19  &
    location = 261.0, 85.0  &
    height = 25.0  &
    width = 122.0  &
@@ -774,7 +775,7 @@ interface field create  &
    type_filter = model
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_15  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_15  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 255.0  &
@@ -785,7 +786,7 @@ interface label create  &
    text = "Old name of sub model"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_16  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_16  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 255.0  &
@@ -796,7 +797,7 @@ interface label create  &
    text = "Name of sub model"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Stabi1.label_17  &
+   label_name = .SauerDanfoss.dboxes.dbox_Stabi1.label_17  &
    location = 4.0, 85.0  &
    height = 25.0  &
    width = 255.0  &

@@ -1,8 +1,8 @@
 !
 interface dialog_box create  &
    dialog_box_name = .SauerDanfoss.dboxes.dbox_cylinder  &
-   location = 644.0, 137.0  &
-   height = 333.0  &
+   location = 519.0, 5.0  &
+   height = 366.0  &
    width = 290.0  &
    units = pixel  &
    horiz_resizing = scale_all  &
@@ -16,7 +16,7 @@ interface dialog_box create  &
 !
 interface push_button create  &
    push_button_name = .SauerDanfoss.dboxes.dbox_cylinder.button_1  &
-   location = 210.0, 304.0  &
+   location = 210.0, 337.0  &
    height = 25.0  &
    width = 76.0  &
    units = pixel  &
@@ -27,7 +27,7 @@ interface push_button create  &
 !
 interface push_button create  &
    push_button_name = .SauerDanfoss.dboxes.dbox_cylinder.button_2  &
-   location = 132.0, 304.0  &
+   location = 132.0, 337.0  &
    height = 25.0  &
    width = 76.0  &
    units = pixel  &
@@ -38,7 +38,7 @@ interface push_button create  &
 !
 interface push_button create  &
    push_button_name = .SauerDanfoss.dboxes.dbox_cylinder.button_3  &
-   location = 54.0, 304.0  &
+   location = 54.0, 337.0  &
    height = 25.0  &
    width = 76.0  &
    units = pixel  &
@@ -103,6 +103,22 @@ interface push_button create  &
               "  marker_name = MKR_$'field_2'_pis_slave  &",  &
               "     location = (LOC_RELATIVE_TO( {0,0,0} , $'field_9' ))",  &
               "end",  &
+              "",  &
+              "!!! The joint of the piston part is made",  &
+              "constraint create joint Spherical &",  &
+              "    joint_name= $field_1.Jt_$'field_2'_Pis &",  &
+              "    i_marker_name= $'field_9' &",  &
+              "    j_marker_name= MKR_$'field_2'_pis_slave ",  &
+              "constraint attribute constraint_name= $field_1.Jt_$'field_2'_pis name_vis=off",  &
+              "group modify group=SELECT_LIST object= $field_1.Jt_$'field_2'_pis",  &
+              "",  &
+              "!!! The joint of the cylinder part is made",  &
+              "constraint create joint Spherical &",  &
+              "    joint_name= $field_1.Jt_$'field_2'_Cyl &",  &
+              "    i_marker_name= $'field_8' &",  &
+              "    j_marker_name= MKR_$'field_2'_cyl_master ",  &
+              "constraint attribute constraint_name= $field_1.Jt_$'field_2'_Cyl name_vis=off",  &
+              "group modify group=SELECT_LIST object= $field_1.Jt_$'field_2'_Cyl",  &
               "",  &
               "",  &
               "model display fit_to_view=yes",  &

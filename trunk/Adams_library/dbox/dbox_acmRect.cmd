@@ -1,6 +1,6 @@
 !
 interface dialog_box create  &
-   dialog_box_name = .SDlib_plugin.dboxes.dbox_acmRect  &
+   dialog_box_name = .SauerDanfoss.dboxes.dbox_acmRect  &
    location = 19.0, 140.0  &
    height = 633.0  &
    width = 507.0  &
@@ -77,10 +77,6 @@ interface dialog_box create  &
                      "  var del var = $_self.OldModelName",  &
                      "end",  &
                      "",  &
-		     !------ return view to main model
-                     "default model model=(eval($_self.MainModelName))",  &
-                     "model display fit_to_view=no",  &
-		     !------
                      "if condition = (db_exists(\"$_self.MainModelName\"))",  &
                      "  var del var = $_self.MainModelName",  &
                      "end"  &
@@ -113,7 +109,7 @@ interface dialog_box create  &
                         "if condition=((db_exists (\"DV_model_to_change\")) || (db_exists (eval($_self.NewModelName[1])//\".\"//\"dv_width\")))",  &
                         "else",  &
                         "  ! read the exported model.",  &
-                        "  file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/Steering/acmRect\"))",  &
+                        "  file command read file=\"Level3/Steering/acmRect\"",  &
                         "",  &
                         "  !Rename som markers",  &
                         "  entity modify entity=MKR_wheel_FL new_entity_name=MKR_wheel_$'field_20'L_axle",  &
@@ -259,14 +255,14 @@ interface dialog_box create  &
                         "  variable modify variable=(eval($_self.path[1]//\".DV_camber\"))       real=$field_16",  &
                         "  variable modify variable=(eval($_self.path[1]//\".DV_caster\"))       real=$field_17",  &
                         "else",  &
-                        "!  mdi SDlib_plugin.dboxes_utl_alert_box_1 type=\"Error\" text=\"Wrong (Name of sub model) or (number of axle)\"",  &
+                        "!  mdi SauerDanfoss.dboxes_utl_alert_box_1 type=\"Error\" text=\"Wrong (Name of sub model) or (number of axle)\"",  &
                         "end"  &
    decorate = yes  &
    resizable = yes  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_acmRect.button_1  &
+   push_button_name = .SauerDanfoss.dboxes.dbox_acmRect.button_1  &
    location = 427.0, 604.0  &
    height = 25.0  &
    width = 76.0  &
@@ -280,7 +276,7 @@ interface push_button create  &
               "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_acmRect.button_2  &
+   push_button_name = .SauerDanfoss.dboxes.dbox_acmRect.button_2  &
    location = 271.0, 604.0  &
    height = 25.0  &
    width = 76.0  &
@@ -292,10 +288,10 @@ interface push_button create  &
               "if condition = (db_exists(\"dv_model_to_change\"))",  &
               "  var del var = dv_model_to_change",  &
               "end",  &
-              "file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/dbox/createdbox\"))"
+              "createdbox"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_1  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_1  &
    location = 4.0, 141.0  &
    height = 25.0  &
    width = 414.0  &
@@ -306,7 +302,7 @@ interface label create  &
    text = "Vertical distance from center of differential to chassis mount"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_2  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_2  &
    location = 4.0, 168.0  &
    height = 25.0  &
    width = 414.0  &
@@ -318,7 +314,7 @@ interface label create  &
           "Horizontal distance from center of differential to front of steering unit"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_3  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_3  &
    location = 4.0, 195.0  &
    height = 25.0  &
    width = 414.0  &
@@ -329,7 +325,7 @@ interface label create  &
    text = "Width of front axle"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_4  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_4  &
    location = 4.0, 249.0  &
    height = 25.0  &
    width = 414.0  &
@@ -340,7 +336,7 @@ interface label create  &
    text = "AckermannX"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_5  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_5  &
    location = 4.0, 276.0  &
    height = 25.0  &
    width = 414.0  &
@@ -351,7 +347,7 @@ interface label create  &
    text = "AckermannY"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_6  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_6  &
    location = 4.0, 303.0  &
    height = 25.0  &
    width = 414.0  &
@@ -362,7 +358,7 @@ interface label create  &
    text = "AckermannZ"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_7  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_7  &
    location = 4.0, 357.0  &
    height = 25.0  &
    width = 414.0  &
@@ -373,7 +369,7 @@ interface label create  &
    text = "Position of cylinder (x)"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_8  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_8  &
    location = 4.0, 384.0  &
    height = 25.0  &
    width = 414.0  &
@@ -384,7 +380,7 @@ interface label create  &
    text = "Position of cylinder (z)"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_9  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_9  &
    location = 4.0, 330.0  &
    height = 25.0  &
    width = 414.0  &
@@ -395,7 +391,7 @@ interface label create  &
    text = "Max tilt angle of front axle (degrees)"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_10  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_10  &
    location = 4.0, 411.0  &
    height = 25.0  &
    width = 414.0  &
@@ -406,7 +402,7 @@ interface label create  &
    text = "Cylinder, max length"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_11  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_11  &
    location = 4.0, 438.0  &
    height = 25.0  &
    width = 414.0  &
@@ -417,7 +413,7 @@ interface label create  &
    text = "Cylinder, min length"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_12  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_12  &
    location = 4.0, 492.0  &
    height = 25.0  &
    width = 414.0  &
@@ -428,7 +424,7 @@ interface label create  &
    text = "Cylinder, radius"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_13  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_13  &
    location = 4.0, 465.0  &
    height = 25.0  &
    width = 414.0  &
@@ -439,7 +435,7 @@ interface label create  &
    text = "Cylinder, initial length"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_14  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_14  &
    location = 4.0, 519.0  &
    height = 25.0  &
    width = 414.0  &
@@ -450,7 +446,7 @@ interface label create  &
    text = "Cylinder, piston rod radius"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_15  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_15  &
    location = 4.0, 546.0  &
    height = 25.0  &
    width = 414.0  &
@@ -461,7 +457,7 @@ interface label create  &
    text = "Camber"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_16  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_16  &
    location = 4.0, 573.0  &
    height = 25.0  &
    width = 414.0  &
@@ -472,7 +468,7 @@ interface label create  &
    text = "Caster"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_1  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_1  &
    location = 427.0, 139.0  &
    height = 25.0  &
    width = 76.0  &
@@ -489,7 +485,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_2  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_2  &
    location = 427.0, 166.0  &
    height = 25.0  &
    width = 76.0  &
@@ -506,7 +502,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_3  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_3  &
    location = 427.0, 193.0  &
    height = 25.0  &
    width = 76.0  &
@@ -523,7 +519,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_4  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_4  &
    location = 427.0, 220.0  &
    height = 25.0  &
    width = 76.0  &
@@ -540,7 +536,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_5  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_5  &
    location = 427.0, 247.0  &
    height = 25.0  &
    width = 76.0  &
@@ -557,7 +553,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_6  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_6  &
    location = 427.0, 274.0  &
    height = 25.0  &
    width = 76.0  &
@@ -574,7 +570,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_7  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_7  &
    location = 427.0, 301.0  &
    height = 25.0  &
    width = 76.0  &
@@ -591,7 +587,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_8  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_8  &
    location = 427.0, 328.0  &
    height = 25.0  &
    width = 76.0  &
@@ -608,7 +604,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_9  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_9  &
    location = 427.0, 355.0  &
    height = 25.0  &
    width = 76.0  &
@@ -625,7 +621,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_10  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_10  &
    location = 427.0, 382.0  &
    height = 25.0  &
    width = 76.0  &
@@ -642,7 +638,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_11  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_11  &
    location = 427.0, 409.0  &
    height = 25.0  &
    width = 76.0  &
@@ -659,7 +655,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_12  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_12  &
    location = 427.0, 436.0  &
    height = 25.0  &
    width = 76.0  &
@@ -676,7 +672,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_13  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_13  &
    location = 427.0, 463.0  &
    height = 25.0  &
    width = 76.0  &
@@ -693,7 +689,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_14  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_14  &
    location = 427.0, 490.0  &
    height = 25.0  &
    width = 76.0  &
@@ -710,7 +706,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_15  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_15  &
    location = 427.0, 517.0  &
    height = 25.0  &
    width = 76.0  &
@@ -727,7 +723,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_16  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_16  &
    location = 427.0, 544.0  &
    height = 25.0  &
    width = 76.0  &
@@ -744,7 +740,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_17  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_17  &
    location = 4.0, 222.0  &
    height = 25.0  &
    width = 414.0  &
@@ -755,7 +751,7 @@ interface label create  &
    text = "Distance between center of wheels"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_17  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_17  &
    location = 427.0, 571.0  &
    height = 25.0  &
    width = 76.0  &
@@ -772,7 +768,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_18  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_18  &
    location = 368.0, 4.0  &
    height = 25.0  &
    width = 135.0  &
@@ -789,7 +785,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_18  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_18  &
    location = 4.0, 4.0  &
    height = 27.0  &
    width = 343.0  &
@@ -800,7 +796,7 @@ interface label create  &
    text = "Main model name:"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_acmRect.button_4  &
+   push_button_name = .SauerDanfoss.dboxes.dbox_acmRect.button_4  &
    location = 349.0, 604.0  &
    height = 25.0  &
    width = 76.0  &
@@ -812,7 +808,7 @@ interface push_button create  &
               "interface dialog display dialog= $_parent"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_19  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_19  &
    location = 4.0, 60.0  &
    height = 25.0  &
    width = 343.0  &
@@ -823,7 +819,7 @@ interface label create  &
    text = "Name of sub model"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_19  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_19  &
    location = 368.0, 58.0  &
    height = 25.0  &
    width = 135.0  &
@@ -840,7 +836,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_20  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_20  &
    location = 4.0, 114.0  &
    height = 25.0  &
    width = 414.0  &
@@ -851,7 +847,7 @@ interface label create  &
    text = "Number of axle (1 = front axle, 2 = next axle...)"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_20  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_20  &
    location = 427.0, 112.0  &
    height = 25.0  &
    width = 76.0  &
@@ -870,7 +866,7 @@ interface field create  &
    lower_limit = 0.0
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_26  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_26  &
    location = 4.0, 33.0  &
    height = 25.0  &
    width = 343.0  &
@@ -881,7 +877,7 @@ interface label create  &
    text = "Old name of sub model:"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_21  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_21  &
    location = 368.0, 31.0  &
    height = 25.0  &
    width = 135.0  &
@@ -897,7 +893,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_acmRect.label_21  &
+   label_name = .SauerDanfoss.dboxes.dbox_acmRect.label_21  &
    location = 4.0, 87.0  &
    height = 25.0  &
    width = 343.0  &
@@ -908,7 +904,7 @@ interface label create  &
    text = "Sub model that contains a chassis"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_acmRect.field_22  &
+   field_name = .SauerDanfoss.dboxes.dbox_acmRect.field_22  &
    location = 368.0, 85.0  &
    height = 25.0  &
    width = 135.0  &
@@ -924,5 +920,5 @@ interface field create  &
    type_filter = model
 !
 variable create  &
-   variable_name = .SDlib_plugin.dboxes.dbox_acmRect.path  &
+   variable_name = .SauerDanfoss.dboxes.dbox_acmRect.path  &
    string_value = ".MODEL_1.steering"

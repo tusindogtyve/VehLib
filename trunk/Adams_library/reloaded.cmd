@@ -8,23 +8,21 @@
 !-----------------------------------------------------------------------!
 
 
-
-model create model="MODEL_1" 
-
-!------------- Set directions -----------------------------
-var set var=.MDI.up_axis      str="Z_pos"
-var set var=.MDI.forward_axis str="X_pos"
+if cond = (db_exists("Model_1")==0)
+	model create model="MODEL_1" 
+end
 
 
+!!! Set the view and grid
+view manage orient view=bottom up_axis=(.MDI.up_axis) forward_axis=(.MDI.forward_axis)
 int grid modify orient=(eval(convert_angles({0,-90d,0},"BODY313"))) view_normal=no
 
-view manage orient view=bottom up_axis=(.MDI.up_axis) forward_axis=(.MDI.forward_axis)
 
 !!! Set units.
 default units length=meter mass=kg force=newton time=Second angle=degrees frequency=hz
 
 !!! Set gravity.
-force create body gravitational gravity = gravity &
+force modify body gravitational gravity = gravity &
       x_comp = 0.0 &
       y_comp = 0.0 &
       z_comp = -9.80665
@@ -36,7 +34,7 @@ library create library=.SDlib_plugin.macros
 library create library=.SDlib_plugin.variables
 
 !!! Read the menu.
-interface menubar read menubar=.gui.main.mbar file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/sauer-danfoss.mnu"))
+interface menubar read menubar=.gui.main.mbar file="sauer-danfoss.mnu"
 
 !!! Read dialog boxes.
 file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_acmCircular.cmd"))
@@ -48,10 +46,9 @@ file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_stiffAxl
 file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_BH1_cyl.cmd"))
 file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_BH1.cmd"))
 file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_BHPlate1.cmd"))
-!file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox_CaseLoader.cmd"))
 file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_Loader1.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_cylinder.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_differential.cmd"))
+file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/level2/dbox_cylinder.cmd"))
+file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/level2/dbox_differential.cmd"))
 file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_SSLRadial.cmd"))
 file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_SSLVertical.cmd"))
 file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_MarkerLoc.cmd"))
@@ -63,19 +60,24 @@ file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_Stabi1.c
 file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_driveline.cmd"))
 file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_testmodel.cmd"))
 file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/arrayShow.cmd"))
+file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_TelBoom.cmd"))
+file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_template.cmd"))
+file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_Add_spherical_joint.cmd"))
+file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_Add_revolute_joint.cmd"))
+file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_backhoe.cmd"))
+
 
 macro read  &
-   macro_name = .SDlib_plugin.macros.skriv  &
-   file_name = (eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/arrayShow.cmd"))  &
+   macro_name = writeArray  &
+   file_name = "writeArray.cmd"  &
    wrap_in_undo = no  &
    create_panel = no
 
 macro read  &
-   macro_name = .SDlib_plugin.macros.createDbox  &
-   file_name = (eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/createDbox.cmd"))  &
+   macro_name = createDbox  &
+   file_name = "createDbox.cmd"  &
    wrap_in_undo = no  &
    create_panel = no
-
 
 
 ! Create load/unload macros for the plugin: 
@@ -98,6 +100,3 @@ macro create &
                               " entity delete entity_name = .gui.main.mbar.SauerDanfoss", &
                               "end" 
 
-
-!file binary write file_name = "SDlib_plugin.bin" &
-!	entity_name = .SDlib_plugin, .gui.main.mbar.SauerDanfoss

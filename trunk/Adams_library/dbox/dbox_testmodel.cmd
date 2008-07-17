@@ -36,10 +36,6 @@ interface dialog_box create  &
                      "  var del var = OldModelName",  &
                      "end",  &
                      "",  &
-		     !------ return view to main model
-                     "default model model=(eval($_self.MainModelName))",  &
-                     "model display fit_to_view=no",  &
-		     !------
                      "if condition = (db_exists(\"MainModelName\"))",  &
                      "  var del var = MainModelName",  &
                      "end"  &
@@ -62,7 +58,7 @@ interface dialog_box create  &
                         "! it is examined if a new model should be imported or an existing should be edited",  &
                         "if condition=((db_exists (\"DV_model_to_change\")) || (db_exists (eval(NewModelName[1])//\".\"//\"dv_width\")))",  &
                         "else",  &
-                        "  file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")// \"testmodel\"))",  &
+                        "  file command read file=testmodel",  &
                         "  model copy &",  &
                         "     model_name = testmodel &",  &
                         "     new_model_name = (eval(MainModelName[1]//\".\"//NewModelName[1])) &",  &
@@ -163,7 +159,7 @@ interface push_button create  &
               "if condition = (db_exists(\"dv_model_to_change\"))",  &
               "  var del var = dv_model_to_change",  &
               "end",  &
-              "file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/dbox/createdbox\"))"
+              "createdbox"
 !
 interface field create  &
    field_name = .gui.dbox_testmodel.field_1  &

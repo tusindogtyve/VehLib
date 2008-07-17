@@ -117,6 +117,12 @@ marker create  &
    location = 0.0, 0.0, 0.4  &
    orientation = 0.0d, 0.0d, 0.0d
 !
+marker create  &
+   marker_name = .cs4w.ground.Mkr_slave_stabi  &
+   adams_id = 13  &
+   location = -0.4, 0.0, 0.5  &
+   orientation = 0.0d, 0.0d, 0.0d
+!
 part create rigid_body mass_properties  &
    part_name = .cs4w.ground  &
    material_type = .cs4w.steel
@@ -280,6 +286,30 @@ variable create  &
    delta_type = relative  &
    real_value = -0.1
 !
+variable create  &
+   variable_name = .cs4w.DV_imp_rear  &
+   units = "no_units"  &
+   range = -1.0, 1.0  &
+   use_allowed_values = no  &
+   delta_type = relative  &
+   real_value = -0.4, 0.0, 0.5
+!
+variable create  &
+   variable_name = .cs4w.DV_imp_front  &
+   units = "no_units"  &
+   range = -1.0, 1.0  &
+   use_allowed_values = no  &
+   delta_type = relative  &
+   real_value = 2.0, 0.0, 0.8
+!
+variable create  &
+   variable_name = .cs4w.DV_imp_stabi  &
+   units = "no_units"  &
+   range = -1.0, 1.0  &
+   use_allowed_values = no  &
+   delta_type = relative  &
+   real_value = -0.4, 0.0, 0.1
+!
 !--------------------------- Expression definitions ---------------------------!
 !
 !
@@ -331,14 +361,14 @@ marker modify  &
 marker modify  &
    marker_name = .cs4w.ground.MKR_slave_RearImp  &
    location =   &
-      (LOC_RELATIVE_TO({-0.4, 0, 0.5}, .cs4w.ground.MKR_master))  &
+      (LOC_RELATIVE_TO({.cs4w.DV_imp_rear}, .cs4w.ground.MKR_master))  &
    orientation =   &
       (ORI_RELATIVE_TO({0.0, 0.0, 0.0}, .cs4w.ground.MKR_master))
 !
 marker modify  &
    marker_name = .cs4w.ground.MKR_slave_frontImp  &
    location =   &
-      (LOC_RELATIVE_TO({2.0, 0, 0.8}, .cs4w.ground.MKR_master))  &
+      (LOC_RELATIVE_TO({.cs4w.DV_imp_front}, .cs4w.ground.MKR_master))  &
    orientation =   &
       (ORI_RELATIVE_TO({0.0, 0.0, 0.0}, .cs4w.ground.MKR_master))
 !
@@ -348,6 +378,11 @@ marker modify  &
       (LOC_RELATIVE_TO({0, 0, 0}, .cs4w.ground.MKR_master))  &
    orientation =   &
       (ORI_RELATIVE_TO({0, 0, 0}, .cs4w.ground.MKR_master))
+!
+marker modify  &
+   marker_name = .cs4w.ground.Mkr_slave_stabi  &
+   location =   &
+      (LOC_RELATIVE_TO({.cs4w.DV_imp_stabi}, .cs4w.ground.MKR_master))
 !
 marker modify  &
    marker_name = .cs4w.PART_Cs.MARKER_8  &
@@ -389,6 +424,18 @@ material modify  &
    material_name = .cs4w.steel  &
    youngs_modulus = (2.07E+011(Newton/meter**2))  &
    density = (7801.0(kg/meter**3))
+!
+variable modify  &
+   variable_name = .cs4w.DV_imp_rear  &
+   real_value = ({-0.4, 0, 0.5})
+!
+variable modify  &
+   variable_name = .cs4w.DV_imp_front  &
+   real_value = ({2.0, 0, 0.8})
+!
+variable modify  &
+   variable_name = .cs4w.DV_imp_stabi  &
+   real_value = ({-0.4, 0, 0.1})
 !
 model display  &
    model_name = cs4w

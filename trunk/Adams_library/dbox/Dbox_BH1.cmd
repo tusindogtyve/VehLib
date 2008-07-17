@@ -1,6 +1,6 @@
 !
 interface dialog_box create  &
-   dialog_box_name = .SDlib_plugin.dboxes.Dbox_BH1  &
+   dialog_box_name = .SauerDanfoss.dboxes.Dbox_BH1  &
    location = 877.0, 115.0  &
    height = 528.0  &
    width = 395.0  &
@@ -9,7 +9,7 @@ interface dialog_box create  &
    vert_resizing = scale_all  &
    title = "Backhoe 1"  &
    iconifiable = no  &
-   start_commands = "int field set field=.SDlib_plugin.dboxes.dbox_BH1.field_20 string=(eval(db_default( .system_defaults, \"model\")))",  &
+   start_commands = "int field set field=.SauerDanfoss.dboxes.dbox_BH1.field_20 string=(eval(db_default( .system_defaults, \"model\")))",  &
                     "",  &
                     "! These variables holds the names of the models.",  &
                     "var cre var = $_self.NewModelName string_value = \"\"",  &
@@ -46,10 +46,6 @@ interface dialog_box create  &
                      "  var del var = $_self.OldModelName",  &
                      "end",  &
                      "",  &
-		     !------ return view to main model
-                     "default model model=(eval($_self.MainModelName))",  &
-                     "model display fit_to_view=no",  &
-		     !------
                      "if condition = (db_exists(\"$_self.MainModelName\"))",  &
                      "  var del var = $_self.MainModelName",  &
                      "end"  &
@@ -75,7 +71,7 @@ interface dialog_box create  &
                         "if condition=((db_exists (\"DV_model_to_change\")) || (db_exists (eval($_self.NewModelName[1])//\".\"//\"dv_width\")))",  &
                         "else",  &
                         "  ! read the exported model.",  &
-                        "  file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/Backhoe/BH1\"))",  &
+                        "  file command read file=\"Level3/Backhoe/BH1\"",  &
                         "  model copy &",  &
                         "     model_name = BH1 &",  &
                         "     new_model_name = (eval($_self.MainModelName[1]//\".\"//$_self.NewModelName[1])) &",  &
@@ -220,7 +216,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.Dbox_BH1.button_1  &
+   push_button_name = .SauerDanfoss.dboxes.Dbox_BH1.button_1  &
    location = 315.0, 499.0  &
    height = 25.0  &
    width = 76.0  &
@@ -234,7 +230,7 @@ interface push_button create  &
               "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.Dbox_BH1.button_3  &
+   push_button_name = .SauerDanfoss.dboxes.Dbox_BH1.button_3  &
    location = 159.0, 499.0  &
    height = 25.0  &
    width = 76.0  &
@@ -246,10 +242,10 @@ interface push_button create  &
               "if condition = (db_exists(\"dv_model_to_change\"))",  &
               "  var del var = dv_model_to_change",  &
               "end",  &
-              "file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/dbox/createdbox\"))"
+              "createdbox"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_2  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_2  &
    location = 4.0, 197.0  &
    height = 25.0  &
    width = 138.0  &
@@ -260,7 +256,7 @@ interface label create  &
    text = "Boom_P1"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_4  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_4  &
    location = 4.0, 224.0  &
    height = 25.0  &
    width = 138.0  &
@@ -271,7 +267,7 @@ interface label create  &
    text = "Boom_P2"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_6  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_6  &
    location = 4.0, 251.0  &
    height = 25.0  &
    width = 138.0  &
@@ -282,7 +278,7 @@ interface label create  &
    text = "Boom_P3"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_8  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_8  &
    location = 4.0, 278.0  &
    height = 25.0  &
    width = 138.0  &
@@ -293,7 +289,7 @@ interface label create  &
    text = "Stick_In_P1"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_1  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_1  &
    location = 144.0, 197.0  &
    height = 25.0  &
    width = 122.0  &
@@ -310,7 +306,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_2  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_2  &
    location = 268.0, 197.0  &
    height = 25.0  &
    width = 122.0  &
@@ -327,7 +323,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_3  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_3  &
    location = 144.0, 224.0  &
    height = 25.0  &
    width = 122.0  &
@@ -344,7 +340,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_4  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_4  &
    location = 268.0, 224.0  &
    height = 25.0  &
    width = 122.0  &
@@ -361,7 +357,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_5  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_5  &
    location = 144.0, 251.0  &
    height = 25.0  &
    width = 122.0  &
@@ -378,7 +374,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_6  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_6  &
    location = 268.0, 251.0  &
    height = 25.0  &
    width = 122.0  &
@@ -395,7 +391,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_7  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_7  &
    location = 144.0, 278.0  &
    height = 25.0  &
    width = 122.0  &
@@ -412,7 +408,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_8  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_8  &
    location = 268.0, 278.0  &
    height = 25.0  &
    width = 122.0  &
@@ -429,7 +425,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_9  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_9  &
    location = 144.0, 305.0  &
    height = 25.0  &
    width = 122.0  &
@@ -446,7 +442,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_10  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_10  &
    location = 4.0, 305.0  &
    height = 25.0  &
    width = 138.0  &
@@ -457,7 +453,7 @@ interface label create  &
    text = "Stick_In_P2"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_10  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_10  &
    location = 268.0, 305.0  &
    height = 25.0  &
    width = 122.0  &
@@ -474,7 +470,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_11  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_11  &
    location = 144.0, 332.0  &
    height = 25.0  &
    width = 122.0  &
@@ -491,7 +487,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_12  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_12  &
    location = 4.0, 332.0  &
    height = 25.0  &
    width = 138.0  &
@@ -502,7 +498,7 @@ interface label create  &
    text = "Stick_Out_P1"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_12  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_12  &
    location = 268.0, 332.0  &
    height = 25.0  &
    width = 122.0  &
@@ -519,7 +515,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_13  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_13  &
    location = 144.0, 359.0  &
    height = 25.0  &
    width = 122.0  &
@@ -536,7 +532,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_14  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_14  &
    location = 268.0, 359.0  &
    height = 25.0  &
    width = 122.0  &
@@ -553,7 +549,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_15  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_15  &
    location = 144.0, 386.0  &
    height = 25.0  &
    width = 122.0  &
@@ -570,7 +566,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_16  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_16  &
    location = 268.0, 386.0  &
    height = 25.0  &
    width = 122.0  &
@@ -587,7 +583,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_17  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_17  &
    location = 280.0, 415.0  &
    height = 25.0  &
    width = 110.0  &
@@ -604,7 +600,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_18  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_18  &
    location = 280.0, 442.0  &
    height = 25.0  &
    width = 110.0  &
@@ -621,7 +617,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_19  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_19  &
    location = 280.0, 469.0  &
    height = 25.0  &
    width = 110.0  &
@@ -638,7 +634,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_22  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_22  &
    location = 4.0, 359.0  &
    height = 25.0  &
    width = 138.0  &
@@ -649,7 +645,7 @@ interface label create  &
    text = "Stick_Out_P2"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_24  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_24  &
    location = 4.0, 386.0  &
    height = 25.0  &
    width = 138.0  &
@@ -660,7 +656,7 @@ interface label create  &
    text = "Stick_Out_P3"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_26  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_26  &
    location = 4.0, 415.0  &
    height = 25.0  &
    width = 274.0  &
@@ -671,7 +667,7 @@ interface label create  &
    text = "Length of link 1"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_27  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_27  &
    location = 4.0, 442.0  &
    height = 25.0  &
    width = 274.0  &
@@ -682,7 +678,7 @@ interface label create  &
    text = "Length of link 2"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_28  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_28  &
    location = 4.0, 469.0  &
    height = 25.0  &
    width = 274.0  &
@@ -693,7 +689,7 @@ interface label create  &
    text = "Length of link 3"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_33  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_33  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 262.0  &
@@ -704,7 +700,7 @@ interface label create  &
    text = "Main model name"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_32  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_32  &
    location = 4.0, 114.0  &
    height = 25.0  &
    width = 262.0  &
@@ -715,7 +711,7 @@ interface label create  &
    text = "Dist_x: Boom mount -> Cyl. mount"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_34  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_34  &
    location = 4.0, 141.0  &
    height = 25.0  &
    width = 262.0  &
@@ -726,7 +722,7 @@ interface label create  &
    text = "Dist_z: Boom mount -> Cyl. mount"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_33  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_33  &
    location = 268.0, 114.0  &
    height = 25.0  &
    width = 122.0  &
@@ -743,7 +739,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_34  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_34  &
    location = 268.0, 141.0  &
    height = 25.0  &
    width = 122.0  &
@@ -760,7 +756,7 @@ interface field create  &
    add_quotes = no
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.Dbox_BH1.button_4  &
+   push_button_name = .SauerDanfoss.dboxes.Dbox_BH1.button_4  &
    location = 237.0, 499.0  &
    height = 25.0  &
    width = 76.0  &
@@ -772,7 +768,7 @@ interface push_button create  &
               "interface dialog display dialog= $_parent"
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.Dbox_BH1.sep_1  &
+   separator_name = .SauerDanfoss.dboxes.Dbox_BH1.sep_1  &
    location = 4.0, 413.0  &
    width = 386.0  &
    units = pixel  &
@@ -780,7 +776,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.Dbox_BH1.sep_2  &
+   separator_name = .SauerDanfoss.dboxes.Dbox_BH1.sep_2  &
    location = 4.0, 112.0  &
    width = 386.0  &
    units = pixel  &
@@ -788,7 +784,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.Dbox_BH1.sep_3  &
+   separator_name = .SauerDanfoss.dboxes.Dbox_BH1.sep_3  &
    location = 4.0, 168.0  &
    width = 386.0  &
    units = pixel  &
@@ -796,7 +792,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.Dbox_BH1.button_2  &
+   push_button_name = .SauerDanfoss.dboxes.Dbox_BH1.button_2  &
    location = 61.0, 499.0  &
    height = 25.0  &
    width = 96.0  &
@@ -811,7 +807,7 @@ interface push_button create  &
               "interface dialog display dialog= Dbox_BH1_cyl"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_13  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_13  &
    location = 4.0, 170.0  &
    height = 25.0  &
    width = 138.0  &
@@ -822,7 +818,7 @@ interface label create  &
    text = "Triangulation of point:"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_14  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_14  &
    location = 144.0, 170.0  &
    height = 25.0  &
    width = 122.0  &
@@ -833,7 +829,7 @@ interface label create  &
    text = "From cylinder mount"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_15  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_15  &
    location = 268.0, 170.0  &
    height = 25.0  &
    width = 122.0  &
@@ -844,7 +840,7 @@ interface label create  &
    text = "From boom mount"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_20  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_20  &
    location = 268.0, 4.0  &
    height = 25.0  &
    width = 122.0  &
@@ -860,7 +856,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_21  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_21  &
    location = 268.0, 31.0  &
    height = 25.0  &
    width = 122.0  &
@@ -876,7 +872,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_22  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_22  &
    location = 268.0, 58.0  &
    height = 25.0  &
    width = 122.0  &
@@ -892,7 +888,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.Dbox_BH1.field_24  &
+   field_name = .SauerDanfoss.dboxes.Dbox_BH1.field_24  &
    location = 268.0, 85.0  &
    height = 25.0  &
    width = 122.0  &
@@ -908,7 +904,7 @@ interface field create  &
    type_filter = model
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_16  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_16  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 262.0  &
@@ -919,7 +915,7 @@ interface label create  &
    text = "Old name of sub model"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_17  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_17  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 262.0  &
@@ -930,7 +926,7 @@ interface label create  &
    text = "Name of sub model"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.Dbox_BH1.label_19  &
+   label_name = .SauerDanfoss.dboxes.Dbox_BH1.label_19  &
    location = 4.0, 85.0  &
    height = 25.0  &
    width = 262.0  &

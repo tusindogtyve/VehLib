@@ -1,6 +1,6 @@
 !
 interface dialog_box create  &
-   dialog_box_name = .SDlib_plugin.dboxes.dbox_driveline  &
+   dialog_box_name = .SauerDanfoss.dboxes.dbox_driveline  &
    location = 11.0, 89.0  &
    height = 447.0  &
    width = 374.0  &
@@ -64,10 +64,6 @@ interface dialog_box create  &
                      "  var del var = $_self.OldModelName",  &
                      "end",  &
                      "",  &
-		     !------ return view to main model
-                     "default model model=(eval($_self.MainModelName))",  &
-                     "model display fit_to_view=no",  &
-		     !------
                      "if condition = (db_exists(\"$_self.MainModelName\"))",  &
                      "  var del var = $_self.MainModelName",  &
                      "end"  &
@@ -100,7 +96,7 @@ interface dialog_box create  &
                         "if condition=((db_exists (\"DV_model_to_change\")) || (db_exists (eval($_self.NewModelName[1])//\".\"//\"dv_width\")))",  &
                         "else",  &
                         "  ! read the exported model.",  &
-                        "  file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/driveline/fourWD_cDiff\"))",  &
+                        "  file command read file=\"Level3/driveline/fourWD_cDiff\"",  &
                         "  model copy &",  &
                         "     model_name = fourWD_cDiff &",  &
                         "     new_model_name = (eval($_self.MainModelName[1]//\".\"//$_self.NewModelName[1])) &",  &
@@ -180,10 +176,10 @@ interface dialog_box create  &
                         "",  &
                         "    !!! Calculate wheelbase",  &
                         "    if condition=(db_exists (\"$'field_1'.ground.MKR_slave_axle_2_used\"))",  &
-                        "      variable modify variable = (eval($_self.path[1]//\".DV_diff_wheelbase\"))  real = (($'field_1'.ground.DV_Cs_dst_x_wheel_base**2 + $'field_1'.ground.DV_Cs_dst_z_axle_1**2)**0.5)",  &
+                        "      variable modify variable = (eval($_self.path[1]//\".DV_wheelbase\"))  real = (($'field_1'.DV_Cs_dst_x_wheel_base**2 + $'field_1'.DV_Cs_dst_z_axle_1**2)**0.5)",  &
                         "    end",  &
                         "    if condition=(db_exists (\"$'field_1'.ground.MKR_slave_axle_2\"))",  &
-                        "      variable modify variable = (eval($_self.path[1]//\".DV_diff_wheelbase\"))  real = (($'field_1'.ground.DV_Cs_dst_x_wheel_base**2 + $'field_1'.ground.DV_Cs_dst_z_axle_1**2)**0.5)",  &
+                        "      variable modify variable = (eval($_self.path[1]//\".DV_wheelbase\"))  real = (($'field_1'.DV_Cs_dst_x_wheel_base**2 + $'field_1'.DV_Cs_dst_z_axle_1**2)**0.5)",  &
                         "    end",  &
                         "else",  &
                         " ! mdi gui_utl_alert_box_1 type=\"Error\" text=\"Wrong Name of sub model\"",  &
@@ -245,7 +241,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_driveline.button_1  &
+   push_button_name = .SauerDanfoss.dboxes.dbox_driveline.button_1  &
    location = 294.0, 418.0  &
    height = 25.0  &
    width = 76.0  &
@@ -259,7 +255,7 @@ interface push_button create  &
               "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_driveline.button_2  &
+   push_button_name = .SauerDanfoss.dboxes.dbox_driveline.button_2  &
    location = 216.0, 418.0  &
    height = 25.0  &
    width = 76.0  &
@@ -271,7 +267,7 @@ interface push_button create  &
               "interface dialog display dialog= $_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_driveline.button_3  &
+   push_button_name = .SauerDanfoss.dboxes.dbox_driveline.button_3  &
    location = 138.0, 418.0  &
    height = 25.0  &
    width = 76.0  &
@@ -283,10 +279,10 @@ interface push_button create  &
               "if condition = (db_exists(\"dv_model_to_change\"))",  &
               "  var del var = dv_model_to_change",  &
               "end",  &
-              "file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/dbox/createdbox\"))"
+              "createdbox"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_driveline.label_24  &
+   label_name = .SauerDanfoss.dboxes.dbox_driveline.label_24  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 192.0  &
@@ -297,7 +293,7 @@ interface label create  &
    text = "Main model name:"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_driveline.label_25  &
+   label_name = .SauerDanfoss.dboxes.dbox_driveline.label_25  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 192.0  &
@@ -308,7 +304,7 @@ interface label create  &
    text = "New name of sub model:"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_driveline.field_18  &
+   field_name = .SauerDanfoss.dboxes.dbox_driveline.field_18  &
    location = 232.0, 4.0  &
    height = 25.0  &
    width = 138.0  &
@@ -325,7 +321,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_driveline.field_19  &
+   field_name = .SauerDanfoss.dboxes.dbox_driveline.field_19  &
    location = 232.0, 58.0  &
    height = 25.0  &
    width = 138.0  &
@@ -342,7 +338,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_driveline.label_26  &
+   label_name = .SauerDanfoss.dboxes.dbox_driveline.label_26  &
    location = 4.0, 112.0  &
    height = 25.0  &
    width = 288.0  &
@@ -353,7 +349,7 @@ interface label create  &
    text = "Gear ratio of center differential"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_driveline.label_27  &
+   label_name = .SauerDanfoss.dboxes.dbox_driveline.label_27  &
    location = 4.0, 139.0  &
    height = 25.0  &
    width = 288.0  &
@@ -364,7 +360,7 @@ interface label create  &
    text = "Gear ratio of front differential"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_driveline.label_28  &
+   label_name = .SauerDanfoss.dboxes.dbox_driveline.label_28  &
    location = 4.0, 166.0  &
    height = 25.0  &
    width = 288.0  &
@@ -375,7 +371,7 @@ interface label create  &
    text = "Gear ratio of rear differential"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_driveline.field_20  &
+   field_name = .SauerDanfoss.dboxes.dbox_driveline.field_20  &
    location = 294.0, 112.0  &
    height = 25.0  &
    width = 76.0  &
@@ -392,7 +388,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_driveline.field_21  &
+   field_name = .SauerDanfoss.dboxes.dbox_driveline.field_21  &
    location = 294.0, 139.0  &
    height = 25.0  &
    width = 76.0  &
@@ -409,7 +405,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_driveline.field_22  &
+   field_name = .SauerDanfoss.dboxes.dbox_driveline.field_22  &
    location = 294.0, 166.0  &
    height = 25.0  &
    width = 76.0  &
@@ -426,7 +422,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_driveline.label_29  &
+   label_name = .SauerDanfoss.dboxes.dbox_driveline.label_29  &
    location = 4.0, 193.0  &
    height = 25.0  &
    width = 288.0  &
@@ -437,7 +433,7 @@ interface label create  &
    text = "Radius of drive shaft"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_driveline.label_30  &
+   label_name = .SauerDanfoss.dboxes.dbox_driveline.label_30  &
    location = 4.0, 220.0  &
    height = 25.0  &
    width = 288.0  &
@@ -448,7 +444,7 @@ interface label create  &
    text = "Radius of wheel shafts"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_driveline.label_31  &
+   label_name = .SauerDanfoss.dboxes.dbox_driveline.label_31  &
    location = 4.0, 247.0  &
    height = 25.0  &
    width = 288.0  &
@@ -459,7 +455,7 @@ interface label create  &
    text = "Length of wheel shafts"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_driveline.label_32  &
+   label_name = .SauerDanfoss.dboxes.dbox_driveline.label_32  &
    location = 4.0, 274.0  &
    height = 25.0  &
    width = 288.0  &
@@ -470,7 +466,7 @@ interface label create  &
    text = "Radius of center differental housing"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_driveline.label_33  &
+   label_name = .SauerDanfoss.dboxes.dbox_driveline.label_33  &
    location = 4.0, 301.0  &
    height = 25.0  &
    width = 288.0  &
@@ -481,7 +477,7 @@ interface label create  &
    text = "Radius of front differental housing"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_driveline.label_34  &
+   label_name = .SauerDanfoss.dboxes.dbox_driveline.label_34  &
    location = 4.0, 328.0  &
    height = 25.0  &
    width = 288.0  &
@@ -492,7 +488,7 @@ interface label create  &
    text = "Radius of rear differental housing"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_driveline.field_23  &
+   field_name = .SauerDanfoss.dboxes.dbox_driveline.field_23  &
    location = 294.0, 193.0  &
    height = 25.0  &
    width = 76.0  &
@@ -509,7 +505,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_driveline.field_24  &
+   field_name = .SauerDanfoss.dboxes.dbox_driveline.field_24  &
    location = 294.0, 220.0  &
    height = 25.0  &
    width = 76.0  &
@@ -526,7 +522,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_driveline.field_25  &
+   field_name = .SauerDanfoss.dboxes.dbox_driveline.field_25  &
    location = 294.0, 247.0  &
    height = 25.0  &
    width = 76.0  &
@@ -543,7 +539,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_driveline.field_26  &
+   field_name = .SauerDanfoss.dboxes.dbox_driveline.field_26  &
    location = 294.0, 274.0  &
    height = 25.0  &
    width = 76.0  &
@@ -560,7 +556,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_driveline.field_27  &
+   field_name = .SauerDanfoss.dboxes.dbox_driveline.field_27  &
    location = 294.0, 301.0  &
    height = 25.0  &
    width = 76.0  &
@@ -577,7 +573,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_driveline.field_28  &
+   field_name = .SauerDanfoss.dboxes.dbox_driveline.field_28  &
    location = 294.0, 328.0  &
    height = 25.0  &
    width = 76.0  &
@@ -594,7 +590,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_driveline.label_35  &
+   label_name = .SauerDanfoss.dboxes.dbox_driveline.label_35  &
    location = 4.0, 361.0  &
    height = 25.0  &
    width = 288.0  &
@@ -605,7 +601,7 @@ interface label create  &
    text = "Stiffness of drive shaft"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_driveline.label_36  &
+   label_name = .SauerDanfoss.dboxes.dbox_driveline.label_36  &
    location = 4.0, 388.0  &
    height = 25.0  &
    width = 288.0  &
@@ -616,7 +612,7 @@ interface label create  &
    text = "Damping of drive shaft"
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_driveline.sep_1  &
+   separator_name = .SauerDanfoss.dboxes.dbox_driveline.sep_1  &
    location = 4.0, 355.0  &
    height = 4.0  &
    width = 366.0  &
@@ -625,7 +621,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_driveline.field_29  &
+   field_name = .SauerDanfoss.dboxes.dbox_driveline.field_29  &
    location = 294.0, 361.0  &
    height = 25.0  &
    width = 76.0  &
@@ -642,7 +638,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_driveline.field_30  &
+   field_name = .SauerDanfoss.dboxes.dbox_driveline.field_30  &
    location = 294.0, 388.0  &
    height = 25.0  &
    width = 76.0  &
@@ -659,7 +655,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_driveline.label_1  &
+   label_name = .SauerDanfoss.dboxes.dbox_driveline.label_1  &
    location = 4.0, 85.0  &
    height = 25.0  &
    width = 214.0  &
@@ -670,7 +666,7 @@ interface label create  &
    text = "Sub model that contains a chassis"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_driveline.field_1  &
+   field_name = .SauerDanfoss.dboxes.dbox_driveline.field_1  &
    location = 232.0, 85.0  &
    height = 25.0  &
    width = 138.0  &
@@ -686,7 +682,7 @@ interface field create  &
    type_filter = model
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_driveline.label_2  &
+   label_name = .SauerDanfoss.dboxes.dbox_driveline.label_2  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 192.0  &
@@ -697,7 +693,7 @@ interface label create  &
    text = "Old name of sub model:"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_driveline.field_2  &
+   field_name = .SauerDanfoss.dboxes.dbox_driveline.field_2  &
    location = 232.0, 31.0  &
    height = 25.0  &
    width = 138.0  &
@@ -713,5 +709,5 @@ interface field create  &
    add_quotes = no
 !
 variable create  &
-   variable_name = .SDlib_plugin.dboxes.dbox_driveline.path  &
-   string_value = ".telehandler.Driveline"
+   variable_name = .SauerDanfoss.dboxes.dbox_driveline.path  &
+   string_value = ".MODEL_1.Driveline"

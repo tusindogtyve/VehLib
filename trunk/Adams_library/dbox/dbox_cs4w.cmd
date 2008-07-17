@@ -1,8 +1,8 @@
 !
 interface dialog_box create  &
-   dialog_box_name = .SDlib_plugin.dboxes.dbox_cs4w  &
+   dialog_box_name = .SauerDanfoss.dboxes.dbox_cs4w  &
    location = 4.0, 63.0  &
-   height = 758.0  &
+   height = 533.0  &
    width = 380.0  &
    units = pixel  &
    horiz_resizing = scale_all  &
@@ -36,11 +36,6 @@ interface dialog_box create  &
                      "  var del var = $_self.OldModelName",  &
                      "end",  &
                      "",  &
-		     !------ return view to main model
-                     "default model model=(eval($_self.MainModelName))",  &
-                     "model display fit_to_view=no",  &
-		     !------
-                     "",  &
                      "if condition = (db_exists(\"$_self.MainModelName\"))",  &
                      "  var del var = $_self.MainModelName",  &
                      "end"  &
@@ -63,7 +58,7 @@ interface dialog_box create  &
                         "! it is examined if a new model should be imported or an existing should be edited",  &
                         "if condition=((db_exists (\"DV_model_to_change\")) || (db_exists (eval($_self.NewModelName[1])//\".\"//\"dv_width\")))",  &
                         "else",  &
-                        "  file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/Chassis/cs4w\"))",  &
+                        "  file command read file=\"Level3/Chassis/cs4w\"",  &
                         "  model copy &",  &
                         "     model_name = cs4w &",  &
                         "     new_model_name = (eval($_self.MainModelName[1]//\".\"//$_self.NewModelName[1])) &",  &
@@ -121,7 +116,7 @@ interface dialog_box create  &
                         "  atire road create &",  &
                         "          road_name = testTrack&",  &
                         "               part = (eval($_self.MainModelName[1]//\".ground\"))&",  &
-                        "   road_property_file = (eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/road/mdi_2d_flat.rdf\")) &",  &
+                        "   road_property_file = \"Level3/road/mdi_2d_flat.rdf\" &",  &
                         "           graphics = on &",  &
                         "           location = 0.0,0.0,0.0 &",  &
                         "        orientation = 0,0,0",  &
@@ -144,20 +139,29 @@ interface dialog_box create  &
                         "  var mod var = (eval(eval($_self.Tak[1]).DV_Cs_dst_x_Rbox)        ) real = ($field_7)",  &
                         "  var mod var = (eval(eval($_self.Tak[1]).DV_Cs_dst_y_Rbox)        ) real = ($field_8)",  &
                         "  var mod var = (eval(eval($_self.Tak[1]).DV_Cs_dst_z_Rbox)        ) real = ($field_9)",  &
+                        "  var mod var = (eval(eval($_self.Tak[1]).DV_imp_rear)             ) real = ($field_11)",  &
+                        "  var mod var = (eval(eval($_self.Tak[1]).DV_imp_front)            ) real = ($field_10)",  &
+                        "  var mod var = (eval(eval($_self.Tak[1]).DV_imp_stabi)            ) real = ($field_12)",  &
                         "  var mod var = (eval(eval($_self.Tak[1]).DV_Cs_dst_z_axle_1)      ) real = ($field_16)",  &
                         "  var mod var = (eval(eval($_self.Tak[1]).DV_Cs_dst_z_axle2_boxMKR)) real = ($field_17)",  &
                         "  ",  &
                         "  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",  &
-                        "  !!! Place the front attatchment marker ----------------------------",  &
-                        "  marker modify &",  &
-                        "  marker_name = (eval(eval($_self.Tak[1]).ground.MKR_slave_frontImp)) &",  &
-                        "      location = (LOC_RELATIVE_TO( {$'field_10',$'field_11',$'field_12'} , eval(eval($_self.Tak[1]).ground.MKR_master) ))",  &
+                        "  !!! Place the front implement marker ------------------------------",  &
+                        "!  marker modify &",  &
+                        "!  marker_name = (eval(eval($_self.Tak[1]).ground.MKR_slave_frontImp)) &",  &
+                        "!      location = (LOC_RELATIVE_TO( {$'field_10'} , eval(eval($_self.Tak[1]).ground.MKR_master) ))",  &
                         "",  &
                         "  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",  &
-                        "  !!! Place the rear attatchment marker -----------------------------",  &
-                        "  marker modify &",  &
-                        "  marker_name = (eval(eval($_self.Tak[1]).ground.MKR_slave_RearImp)) &",  &
-                        "      location = (LOC_RELATIVE_TO( {$'field_13',$'field_14',$'field_15'} , eval(eval($_self.Tak[1]).ground.MKR_master) ))",  &
+                        "  !!! Place the rear implement marker -------------------------------",  &
+                        "!  marker modify &",  &
+                        "!  marker_name = (eval(eval($_self.Tak[1]).ground.MKR_slave_RearImp)) &",  &
+                        "!      location = (LOC_RELATIVE_TO( {$'field_11'} , eval(eval($_self.Tak[1]).ground.MKR_master) ))",  &
+                        "",  &
+                        "  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",  &
+                        "  !!! Place the stabilizer legs -------------------------------------",  &
+                        "!  marker modify &",  &
+                        "!  marker_name = (eval(eval($_self.Tak[1]).ground.MKR_slave_RearImp)) &",  &
+                        "!      location = (LOC_RELATIVE_TO( {$'field_12'} , eval(eval($_self.Tak[1]).ground.MKR_master) ))",  &
                         "  ",  &
                         "  model display model_name = (eval($_self.MainModelName[1]//\".\"//$_self.NewModelName[1]))",  &
                         "",  &
@@ -171,7 +175,7 @@ interface dialog_box create  &
                         "        Ixx_Iyy = 10.0 &",  &
                         "        Izz = 12.0 &",  &
                         "        center_offset = 0.0 &",  &
-                        "        tire_property_file = (eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/wheels/$option_4\")) &",  &
+                        "        tire_property_file = \"Level3/wheels/$option_4\" &",  &
                         "        road_name = (eval($_self.MainModelName[1]//\".testTrack\")) &",  &
                         "        location = (LOC_RELATIVE_TO({0, 0, 0}, eval(eval($_self.Tak[1]).ground.MKR_wheel_2L))) &",  &
                         "        orientation = (ORI_RELATIVE_TO({0, 90, 0}, eval(eval($_self.Tak[1]).ground.MKR_wheel_2L))) &",  &
@@ -187,7 +191,7 @@ interface dialog_box create  &
                         "        Ixx_Iyy = 10 &",  &
                         "        Izz = 12 &",  &
                         "        center_offset = 0 &",  &
-                        "        tire_property_file = (eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/wheels/$option_4\")) &",  &
+                        "        tire_property_file = \"Level3/wheels/$option_4\" &",  &
                         "        road_name = (eval($_self.MainModelName[1]//\".testTrack\")) &",  &
                         "        location = (LOC_RELATIVE_TO( {0,0,0} , eval(eval($_self.Tak[1]).ground.MKR_wheel_2L) )) &",  &
                         "        orientation = (ORI_RELATIVE_TO( {0,90,0} , eval(eval($_self.Tak[1]).ground.MKR_wheel_2L) )) &",  &
@@ -204,7 +208,7 @@ interface dialog_box create  &
                         "        Ixx_Iyy = 10.0 &",  &
                         "        Izz = 12.0 &",  &
                         "        center_offset = 0.0 &",  &
-                        "        tire_property_file = (eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/wheels/$option_4\")) &",  &
+                        "        tire_property_file = \"Level3/wheels/$option_4\" &",  &
                         "        road_name = (eval($_self.MainModelName[1]//\".testTrack\"))&",  &
                         "        location = (LOC_RELATIVE_TO({0, 0, 0}, eval(eval($_self.Tak[1]).ground.MKR_wheel_2R))) &",  &
                         "        orientation = (ORI_RELATIVE_TO({0, 90, 0}, eval(eval($_self.Tak[1]).ground.MKR_wheel_2R))) &",  &
@@ -220,7 +224,7 @@ interface dialog_box create  &
                         "        Ixx_Iyy = 10 &",  &
                         "        Izz = 12 &",  &
                         "        center_offset = 0 &",  &
-                        "        tire_property_file = (eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/wheels/$option_4\")) &",  &
+                        "        tire_property_file = \"Level3/wheels/$option_4\" &",  &
                         "        road_name = (eval($_self.MainModelName[1]//\".testTrack\")) &",  &
                         "        location = (LOC_RELATIVE_TO( {0,0,0} , eval(eval($_self.Tak[1]).ground.MKR_wheel_2R) )) &",  &
                         "        orientation = (ORI_RELATIVE_TO( {0,90,0} , eval(eval($_self.Tak[1]).ground.MKR_wheel_2R) ))&",  &
@@ -237,7 +241,7 @@ interface dialog_box create  &
                         "        Ixx_Iyy = 10.0 &",  &
                         "        Izz = 12.0 &",  &
                         "        center_offset = 0.0 &",  &
-                        "        tire_property_file = (eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/wheels/$option_3\")) &",  &
+                        "        tire_property_file = \"Level3/wheels/$option_3\" &",  &
                         "        road_name = (eval($_self.MainModelName[1]//\".testTrack\"))&",  &
                         "        location = (LOC_RELATIVE_TO({0, 0, 0}, eval(eval($_self.Tak[1]).ground.MKR_wheel_1L))) &",  &
                         "        orientation = (ORI_RELATIVE_TO({0, 90, 0}, eval(eval($_self.Tak[1]).ground.MKR_wheel_1L))) &",  &
@@ -253,7 +257,7 @@ interface dialog_box create  &
                         "        Ixx_Iyy = 10 &",  &
                         "        Izz = 12 &",  &
                         "        center_offset = 0 &",  &
-                        "        tire_property_file = (eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/wheels/$option_3\")) &",  &
+                        "        tire_property_file = \"Level3/wheels/$option_3\" &",  &
                         "        road_name = (eval($_self.MainModelName[1]//\".testTrack\")) &",  &
                         "        location = (LOC_RELATIVE_TO( {0,0,0} , eval(eval($_self.Tak[1]).ground.MKR_wheel_1L) )) &",  &
                         "        orientation = (ORI_RELATIVE_TO( {0,90,0} , eval(eval($_self.Tak[1]).ground.MKR_wheel_1L) )) &",  &
@@ -270,7 +274,7 @@ interface dialog_box create  &
                         "        Ixx_Iyy = 10.0 &",  &
                         "        Izz = 12.0 &",  &
                         "        center_offset = 0.0 &",  &
-                        "        tire_property_file = (eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/wheels/$option_3\")) &",  &
+                        "        tire_property_file = \"Level3/wheels/$option_3\" &",  &
                         "        road_name = (eval($_self.MainModelName[1]//\".testTrack\")) &",  &
                         "        location = (LOC_RELATIVE_TO({0, 0, 0}, eval(eval($_self.Tak[1]).ground.MKR_wheel_1R))) &",  &
                         "        orientation = (ORI_RELATIVE_TO({0, 90, 0}, eval(eval($_self.Tak[1]).ground.MKR_wheel_1R))) &",  &
@@ -286,7 +290,7 @@ interface dialog_box create  &
                         "        Ixx_Iyy = 10 &",  &
                         "        Izz = 12 &",  &
                         "        center_offset = 0 &",  &
-                        "        tire_property_file = (eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/wheels/$option_3\")) &",  &
+                        "        tire_property_file = \"Level3/wheels/$option_3\" &",  &
                         "        road_name = (eval($_self.MainModelName[1]//\".testTrack\")) &",  &
                         "        location = (LOC_RELATIVE_TO( {0,0,0} , eval(eval($_self.Tak[1]).ground.MKR_wheel_1R) )) &",  &
                         "        orientation = (ORI_RELATIVE_TO( {0,90,0} , eval(eval($_self.Tak[1]).ground.MKR_wheel_1R) )) &",  &
@@ -300,7 +304,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_1  &
+   label_name = .SauerDanfoss.dboxes.dbox_cs4w.label_1  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 152.0  &
@@ -311,7 +315,7 @@ interface label create  &
    text = "New name of submodel:"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_2  &
+   label_name = .SauerDanfoss.dboxes.dbox_cs4w.label_2  &
    location = 4.0, 85.0  &
    height = 25.0  &
    width = 284.0  &
@@ -322,7 +326,7 @@ interface label create  &
    text = "Wheel base"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_3  &
+   label_name = .SauerDanfoss.dboxes.dbox_cs4w.label_3  &
    location = 4.0, 112.0  &
    height = 25.0  &
    width = 284.0  &
@@ -333,7 +337,7 @@ interface label create  &
    text = "From rear axle to between boxes"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_4  &
+   label_name = .SauerDanfoss.dboxes.dbox_cs4w.label_4  &
    location = 4.0, 139.0  &
    height = 25.0  &
    width = 284.0  &
@@ -344,7 +348,7 @@ interface label create  &
    text = "Length of front box"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_5  &
+   label_name = .SauerDanfoss.dboxes.dbox_cs4w.label_5  &
    location = 4.0, 166.0  &
    height = 25.0  &
    width = 284.0  &
@@ -355,7 +359,7 @@ interface label create  &
    text = "Width of front box"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_6  &
+   label_name = .SauerDanfoss.dboxes.dbox_cs4w.label_6  &
    location = 4.0, 193.0  &
    height = 25.0  &
    width = 284.0  &
@@ -366,7 +370,7 @@ interface label create  &
    text = "Height of front box"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_7  &
+   label_name = .SauerDanfoss.dboxes.dbox_cs4w.label_7  &
    location = 4.0, 247.0  &
    height = 25.0  &
    width = 284.0  &
@@ -377,7 +381,7 @@ interface label create  &
    text = "Width of rear box"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_8  &
+   label_name = .SauerDanfoss.dboxes.dbox_cs4w.label_8  &
    location = 4.0, 274.0  &
    height = 25.0  &
    width = 284.0  &
@@ -388,7 +392,7 @@ interface label create  &
    text = "Height of rear box"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_9  &
+   label_name = .SauerDanfoss.dboxes.dbox_cs4w.label_9  &
    location = 4.0, 220.0  &
    height = 25.0  &
    width = 284.0  &
@@ -398,30 +402,8 @@ interface label create  &
    justified = left  &
    text = "Length of rear box"
 !
-interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_10  &
-   location = 2.0, 355.0  &
-   height = 25.0  &
-   width = 158.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   justified = left  &
-   text = "Select front axle"
-!
-interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_11  &
-   location = 2.0, 382.0  &
-   height = 25.0  &
-   width = 158.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   justified = left  &
-   text = "Select rear axle"
-!
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_1  &
+   field_name = .SauerDanfoss.dboxes.dbox_cs4w.field_1  &
    location = 232.0, 58.0  &
    height = 25.0  &
    width = 144.0  &
@@ -434,16 +416,16 @@ interface field create  &
    required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
-   commands = "variable modify variable_name=.SDlib_plugin.dboxes.dbox_cs4w.Tak&",  &
-              "    string_value = (STR_INSERT (eval(.SDlib_plugin.dboxes.dbox_cs4w.modelName.string_value), \"$field_1\", (STR_LENGTH (eval(.SDlib_plugin.dboxes.dbox_cs4w.modelName.string_value))+1)))",  &
+   commands = "variable modify variable_name=.sauerdanfoss.dboxes.dbox_cs4w.Tak&",  &
+              "    string_value = (STR_INSERT (eval(.sauerdanfoss.dboxes.dbox_cs4w.modelName.string_value), \"$field_1\", (STR_LENGTH (eval(.sauerdanfoss.dboxes.dbox_cs4w.modelName.string_value))+1)))",  &
               "",  &
-              "int field set field = .SDlib_plugin.dboxes.dbox_cs4w.field_18&",  &
-              "    string = (eval(.SDlib_plugin.dboxes.dbox_cs4w.Tak.string_value))"  &
+              "int field set field = .SauerDanfoss.dboxes.dbox_cs4w.field_18&",  &
+              "    string = (eval(.sauerdanfoss.dboxes.dbox_cs4w.Tak.string_value))"  &
    string_type = literal  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_2  &
+   field_name = .SauerDanfoss.dboxes.dbox_cs4w.field_2  &
    location = 300.0, 85.0  &
    height = 25.0  &
    width = 76.0  &
@@ -460,7 +442,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_3  &
+   field_name = .SauerDanfoss.dboxes.dbox_cs4w.field_3  &
    location = 300.0, 112.0  &
    height = 25.0  &
    width = 76.0  &
@@ -477,7 +459,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_4  &
+   field_name = .SauerDanfoss.dboxes.dbox_cs4w.field_4  &
    location = 300.0, 139.0  &
    height = 25.0  &
    width = 76.0  &
@@ -494,7 +476,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_5  &
+   field_name = .SauerDanfoss.dboxes.dbox_cs4w.field_5  &
    location = 300.0, 166.0  &
    height = 25.0  &
    width = 76.0  &
@@ -511,7 +493,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_6  &
+   field_name = .SauerDanfoss.dboxes.dbox_cs4w.field_6  &
    location = 300.0, 193.0  &
    height = 25.0  &
    width = 76.0  &
@@ -528,7 +510,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_7  &
+   field_name = .SauerDanfoss.dboxes.dbox_cs4w.field_7  &
    location = 300.0, 220.0  &
    height = 25.0  &
    width = 76.0  &
@@ -545,7 +527,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_8  &
+   field_name = .SauerDanfoss.dboxes.dbox_cs4w.field_8  &
    location = 300.0, 247.0  &
    height = 25.0  &
    width = 76.0  &
@@ -562,7 +544,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_9  &
+   field_name = .SauerDanfoss.dboxes.dbox_cs4w.field_9  &
    location = 300.0, 274.0  &
    height = 25.0  &
    width = 76.0  &
@@ -578,57 +560,29 @@ interface field create  &
    string_type = literal  &
    add_quotes = no
 !
-interface option_menu create  &
-   option_menu_name = .SDlib_plugin.dboxes.dbox_cs4w.option_1  &
-   location = 162.0, 355.0  &
-   height = 25.0  &
-   width = 150.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   choices = "ackermann, round", "ackermann, rectangular",  &
-             "ackermann, for telehandler", "Stiff axle"  &
-   current_choice = "ackermann, rectangular"  &
-   values = ".SDlib_plugin.dboxes.dbox_acmCircular",  &
-            ".SDlib_plugin.dboxes.dbox_acmRect",  &
-            ".SDlib_plugin.dboxes.dbox_acmTeleF", "dbox_stiffAxle"
-!
-interface option_menu create  &
-   option_menu_name = .SDlib_plugin.dboxes.dbox_cs4w.option_2  &
-   location = 162.0, 382.0  &
-   height = 25.0  &
-   width = 150.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   choices = "ackermann, round", "ackermann, rectangular", "Stiff axle"  &
-   current_choice = "ackermann, rectangular"  &
-   values = ".SDlib_plugin.dboxes.dbox_acmCircular",  &
-            ".SDlib_plugin.dboxes.dbox_acmRect", "dbox_stiffAxle"
-!
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_cs4w.button_1  &
-   location = 87.0, 730.0  &
+   push_button_name = .SauerDanfoss.dboxes.dbox_cs4w.button_1  &
+   location = 87.0, 500.0  &
    height = 25.0  &
    width = 76.0  &
    units = pixel  &
    horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
+   vert_resizing = attach_bottom  &
    label = "OK"  &
    commands = "interface dialog execute dialog=$_parent undisp=yes",  &
               "if condition = (db_exists(\"dv_model_to_change\"))",  &
               "  var del var = dv_model_to_change",  &
               "end",  &
-              "file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/dbox/createdbox\"))"
+              "createdbox"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_cs4w.button_2  &
-   location = 243.0, 730.0  &
+   push_button_name = .SauerDanfoss.dboxes.dbox_cs4w.button_2  &
+   location = 243.0, 500.0  &
    height = 25.0  &
    width = 76.0  &
    units = pixel  &
    horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
+   vert_resizing = attach_bottom  &
    label = "Close"  &
    commands = "if condition = (db_exists(\"dv_model_to_change\"))",  &
               "  var del var = dv_model_to_change",  &
@@ -636,8 +590,8 @@ interface push_button create  &
               "interface dialog undisplay dialog=$_parent"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_12  &
-   location = 2.0, 409.0  &
+   label_name = .SauerDanfoss.dboxes.dbox_cs4w.label_12  &
+   location = 2.0, 355.0  &
    height = 25.0  &
    width = 158.0  &
    units = pixel  &
@@ -647,8 +601,8 @@ interface label create  &
    text = "Front wheel type"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_13  &
-   location = 2.0, 436.0  &
+   label_name = .SauerDanfoss.dboxes.dbox_cs4w.label_13  &
+   location = 2.0, 382.0  &
    height = 25.0  &
    width = 158.0  &
    units = pixel  &
@@ -658,8 +612,8 @@ interface label create  &
    text = "Rear wheel type"
 !
 interface option_menu create  &
-   option_menu_name = .SDlib_plugin.dboxes.dbox_cs4w.option_3  &
-   location = 162.0, 409.0  &
+   option_menu_name = .SauerDanfoss.dboxes.dbox_cs4w.option_3  &
+   location = 162.0, 355.0  &
    height = 25.0  &
    width = 150.0  &
    units = pixel  &
@@ -670,8 +624,8 @@ interface option_menu create  &
    values = "caseFrontWheel.tir", "caseRearWheel.tir"
 !
 interface option_menu create  &
-   option_menu_name = .SDlib_plugin.dboxes.dbox_cs4w.option_4  &
-   location = 162.0, 436.0  &
+   option_menu_name = .SauerDanfoss.dboxes.dbox_cs4w.option_4  &
+   location = 162.0, 382.0  &
    height = 25.0  &
    width = 150.0  &
    units = pixel  &
@@ -682,43 +636,41 @@ interface option_menu create  &
    values = "caseRearWheel.tir", "caseFrontWheel.tir"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_cs4w.button_3  &
-   location = 165.0, 730.0  &
+   push_button_name = .SauerDanfoss.dboxes.dbox_cs4w.button_3  &
+   location = 165.0, 500.0  &
    height = 25.0  &
    width = 76.0  &
    units = pixel  &
    horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
+   vert_resizing = attach_bottom  &
    label = "Apply"  &
    commands = "interface dialog execute dialog=$_parent undisp=yes",  &
               "interface dialog display dialog=$_parent"
 !
-interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_cs4w.button_4  &
-   location = 328.0, 355.0  &
+interface label create  &
+   label_name = .SauerDanfoss.dboxes.dbox_cs4w.label_14  &
+   location = 2.0, 409.0  &
    height = 25.0  &
-   width = 46.0  &
+   width = 238.0  &
    units = pixel  &
    horiz_resizing = attach_left  &
    vert_resizing = attach_top  &
-   label = "Go"  &
-   commands = "!!!Open dialog box for front axle ------------------------------------------",  &
-              "interface dialog display dialog= $option_1"
-!
-interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_cs4w.button_5  &
-   location = 328.0, 382.0  &
-   height = 25.0  &
-   width = 46.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   label = "Go"  &
-   commands = "!!!Open dialog box for rear axle ------------------------------------------",  &
-              "interface dialog display dialog= $option_2"
+   justified = left  &
+   text = "Position of front implement (x,y,z) [m]"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_14  &
+   label_name = .SauerDanfoss.dboxes.dbox_cs4w.label_15  &
+   location = 2.0, 436.0  &
+   height = 25.0  &
+   width = 238.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "Position of rear implement (x,y,z) [m]"
+!
+interface label create  &
+   label_name = .SauerDanfoss.dboxes.dbox_cs4w.label_16  &
    location = 2.0, 463.0  &
    height = 25.0  &
    width = 238.0  &
@@ -726,67 +678,19 @@ interface label create  &
    horiz_resizing = attach_left  &
    vert_resizing = attach_top  &
    justified = left  &
-   text = "Position of front attatchment (x)"
-!
-interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_15  &
-   location = 2.0, 490.0  &
-   height = 25.0  &
-   width = 238.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   justified = left  &
-   text = "Position of front attatchment (y)"
-!
-interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_16  &
-   location = 2.0, 517.0  &
-   height = 25.0  &
-   width = 238.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   justified = left  &
-   text = "Position of front attatchment (z)"
-!
-interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_17  &
-   location = 2.0, 544.0  &
-   height = 25.0  &
-   width = 154.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   justified = left  &
-   text = "Select submodel"
-!
-interface option_menu create  &
-   option_menu_name = .SDlib_plugin.dboxes.dbox_cs4w.option_5  &
-   location = 136.0, 571.0  &
-   height = 25.0  &
-   width = 172.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   choices = "Front loader (BH)", "Skid steer loader (vertical)",  &
-             "Skid steer loader (radial)"  &
-   current_choice = "Front loader (BH)"  &
-   values = ".SDlib_plugin.dboxes.dbox_Loader1",  &
-            ".SDlib_plugin.dboxes.dbox_sslvertical",  &
-            ".SDlib_plugin.dboxes.dbox_sslradial"
+   text = "Position of stabilizers (x,y,z) [m]"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_10  &
-   location = 298.0, 463.0  &
+   field_name = .SauerDanfoss.dboxes.dbox_cs4w.field_10  &
+   location = 264.0, 409.0  &
    height = 25.0  &
-   width = 76.0  &
+   width = 112.0  &
    units = pixel  &
    horiz_resizing = attach_left  &
    vert_resizing = attach_top  &
    scrollable = no  &
    editable = yes  &
-   preload_strings = "2.0"  &
+   preload_strings = "{2.0,0.0,0.6}"  &
    required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
@@ -794,16 +698,16 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_11  &
-   location = 298.0, 490.0  &
+   field_name = .SauerDanfoss.dboxes.dbox_cs4w.field_11  &
+   location = 264.0, 436.0  &
    height = 25.0  &
-   width = 76.0  &
+   width = 112.0  &
    units = pixel  &
    horiz_resizing = attach_left  &
    vert_resizing = attach_top  &
    scrollable = no  &
    editable = yes  &
-   preload_strings = "0.0"  &
+   preload_strings = "{-0.4,0.0,0.3}"  &
    required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
@@ -811,16 +715,16 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_12  &
-   location = 298.0, 517.0  &
+   field_name = .SauerDanfoss.dboxes.dbox_cs4w.field_12  &
+   location = 264.0, 463.0  &
    height = 25.0  &
-   width = 76.0  &
+   width = 112.0  &
    units = pixel  &
    horiz_resizing = attach_left  &
    vert_resizing = attach_top  &
    scrollable = no  &
    editable = yes  &
-   preload_strings = "0.6"  &
+   preload_strings = "{2.4,0.0,-0.1}"  &
    required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
@@ -828,138 +732,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_18  &
-   location = 2.0, 598.0  &
-   height = 25.0  &
-   width = 236.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   justified = left  &
-   text = "Position of rear attatchment (x)"
-!
-interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_19  &
-   location = 2.0, 625.0  &
-   height = 25.0  &
-   width = 236.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   justified = left  &
-   text = "Position of rear attatchment (y)"
-!
-interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_20  &
-   location = 2.0, 652.0  &
-   height = 25.0  &
-   width = 236.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   justified = left  &
-   text = "Position of rear attatchment (z)"
-!
-interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_21  &
-   location = 2.0, 679.0  &
-   height = 25.0  &
-   width = 154.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   justified = left  &
-   text = "Select rear submodel"
-!
-interface option_menu create  &
-   option_menu_name = .SDlib_plugin.dboxes.dbox_cs4w.option_6  &
-   location = 158.0, 679.0  &
-   height = 25.0  &
-   width = 150.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   choices = "Backhoe (1)", "Backhoe plate (1)", "Unknown backhoe plate"  &
-   current_choice = "Backhoe (1)"  &
-   values = ".SDlib_plugin.dboxes.dbox_BH1",  &
-            ".SDlib_plugin.dboxes.dbox_BHPlate1",  &
-            ".SDlib_plugin.dboxes.dbox_BHPlateNA"
-!
-interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_13  &
-   location = 298.0, 598.0  &
-   height = 25.0  &
-   width = 76.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   scrollable = no  &
-   editable = yes  &
-   preload_strings = "-0.4"  &
-   required = yes  &
-   execute_cmds_on_exit = no  &
-   number_of_values = 1  &
-   string_type = literal  &
-   add_quotes = no
-!
-interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_14  &
-   location = 298.0, 625.0  &
-   height = 25.0  &
-   width = 76.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   scrollable = no  &
-   editable = yes  &
-   preload_strings = "0.0"  &
-   required = yes  &
-   execute_cmds_on_exit = no  &
-   number_of_values = 1  &
-   string_type = literal  &
-   add_quotes = no
-!
-interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_15  &
-   location = 298.0, 652.0  &
-   height = 25.0  &
-   width = 76.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   scrollable = no  &
-   editable = yes  &
-   preload_strings = "0.3"  &
-   required = yes  &
-   execute_cmds_on_exit = no  &
-   number_of_values = 1  &
-   string_type = literal  &
-   add_quotes = no
-!
-interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_cs4w.button_6  &
-   location = 326.0, 544.0  &
-   height = 25.0  &
-   width = 48.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   label = "Go"  &
-   commands = "interface dialog display dialog= $option_5"
-!
-interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_cs4w.button_7  &
-   location = 326.0, 679.0  &
-   height = 25.0  &
-   width = 48.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   label = "Go"  &
-   commands = "interface dialog display dialog= $option_6"
-!
-interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_22  &
+   label_name = .SauerDanfoss.dboxes.dbox_cs4w.label_22  &
    location = 4.0, 301.0  &
    height = 25.0  &
    width = 284.0  &
@@ -970,7 +743,7 @@ interface label create  &
    text = "Height of front axle relative to rear axle"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_23  &
+   label_name = .SauerDanfoss.dboxes.dbox_cs4w.label_23  &
    location = 4.0, 328.0  &
    height = 25.0  &
    width = 284.0  &
@@ -981,7 +754,7 @@ interface label create  &
    text = "z-position of boxes"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_16  &
+   field_name = .SauerDanfoss.dboxes.dbox_cs4w.field_16  &
    location = 300.0, 301.0  &
    height = 25.0  &
    width = 76.0  &
@@ -998,7 +771,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_17  &
+   field_name = .SauerDanfoss.dboxes.dbox_cs4w.field_17  &
    location = 300.0, 328.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1015,7 +788,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_18  &
+   field_name = .SauerDanfoss.dboxes.dbox_cs4w.field_18  &
    location = 232.0, 4.0  &
    height = 25.0  &
    width = 144.0  &
@@ -1031,7 +804,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_19  &
+   field_name = .SauerDanfoss.dboxes.dbox_cs4w.field_19  &
    location = 232.0, 31.0  &
    height = 25.0  &
    width = 144.0  &
@@ -1047,7 +820,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_24  &
+   label_name = .SauerDanfoss.dboxes.dbox_cs4w.label_24  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 152.0  &
@@ -1058,7 +831,7 @@ interface label create  &
    text = "Name of main model"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_25  &
+   label_name = .SauerDanfoss.dboxes.dbox_cs4w.label_25  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 152.0  &
@@ -1067,3 +840,4 @@ interface label create  &
    vert_resizing = attach_top  &
    justified = left  &
    text = "Old name:"
+!

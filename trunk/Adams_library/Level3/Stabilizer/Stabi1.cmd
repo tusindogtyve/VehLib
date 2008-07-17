@@ -454,7 +454,11 @@ marker create  &
    marker_name = .Stabi1.PART_Cyl_L_pis.cm  &
    adams_id = 10  &
    location = -0.6878298796, 0.2413106111, -3.5196082845E-002  &
-   orientation = 32.065569763d, 10.936364847d, -6.7778929178d
+   orientation = 32.065569763d, 10.936364847d, -6.7778929177d
+!
+marker attributes  &
+   marker_name = .Stabi1.PART_Cyl_L_pis.cm  &
+   color = DARK_GRAY
 !
 marker create  &
    marker_name = .Stabi1.PART_Cyl_L_pis.cyl_MKR_4  &
@@ -502,7 +506,7 @@ geometry create shape cylinder  &
 !
 part attributes  &
    part_name = .Stabi1.PART_Cyl_L_pis  &
-   color = WHITE  &
+   color = DARK_GRAY  &
    name_visibility = off
 !
 !-------------------------------- PART_L_Plate --------------------------------!
@@ -1506,7 +1510,7 @@ marker modify  &
 marker modify  &
    marker_name = .Stabi1.ground.Mkr_L_Cyl_Arm  &
    location =   &
-      (LOC_RELATIVE_TO({.Stabi1.DV_CylLeg_xyz[1], 0, .Stabi1.DV_CylLeg_xyz[3]}, .Stabi1.ground.Mkr_Stabi_L_Slave))  &
+      (LOC_RELATIVE_TO({.Stabi1.DV_CylLeg_xyz}, .Stabi1.ground.Mkr_Stabi_L_Slave))  &
    orientation =   &
       (ORI_RELATIVE_TO({0, 0, 0}, .Stabi1.ground.Mkr_Stabi_L_Slave))
 !
@@ -1525,7 +1529,7 @@ marker modify  &
 marker modify  &
    marker_name = .Stabi1.ground.Mkr_R_Cyl_Arm  &
    location =   &
-      (LOC_RELATIVE_TO({.Stabi1.DV_CylLeg_xyz[1], 0, .Stabi1.DV_CylLeg_xyz[3]}, .Stabi1.ground.Mkr_Stabi_R_Slave))  &
+      (LOC_RELATIVE_TO({.Stabi1.DV_CylLeg_xyz}, .Stabi1.ground.Mkr_Stabi_R_Slave))  &
    orientation =   &
       (ORI_RELATIVE_TO({0, 0, 0}, .Stabi1.ground.Mkr_Stabi_R_Slave))
 !
