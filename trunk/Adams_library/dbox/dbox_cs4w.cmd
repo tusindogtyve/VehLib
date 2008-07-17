@@ -619,7 +619,7 @@ interface push_button create  &
               "if condition = (db_exists(\"dv_model_to_change\"))",  &
               "  var del var = dv_model_to_change",  &
               "end",  &
-              "createdbox"
+              "file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/dbox/createdbox\"))"
 !
 interface push_button create  &
    push_button_name = .SDlib_plugin.dboxes.dbox_cs4w.button_2  &

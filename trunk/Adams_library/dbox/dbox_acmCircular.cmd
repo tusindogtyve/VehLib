@@ -292,7 +292,7 @@ interface push_button create  &
               "if condition = (db_exists(\"dv_model_to_change\"))",  &
               "  var del var = dv_model_to_change",  &
               "end",  &
-              "createdbox"
+              "file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/dbox/createdbox\"))"
 !
 interface label create  &
    label_name = .SDlib_plugin.dboxes.dbox_acmCircular.label_1  &

@@ -65,13 +65,13 @@ file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_testmode
 file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/arrayShow.cmd"))
 
 macro read  &
-   macro_name = skriv  &
+   macro_name = .SDlib_plugin.macros.skriv  &
    file_name = (eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/arrayShow.cmd"))  &
    wrap_in_undo = no  &
    create_panel = no
 
 macro read  &
-   macro_name = createDbox  &
+   macro_name = .SDlib_plugin.macros.createDbox  &
    file_name = (eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/createDbox.cmd"))  &
    wrap_in_undo = no  &
    create_panel = no

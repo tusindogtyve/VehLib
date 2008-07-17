@@ -36,6 +36,10 @@ interface dialog_box create  &
                      "  var del var = OldModelName",  &
                      "end",  &
                      "",  &
+		     !------ return view to main model
+                     "default model model=(eval($_self.MainModelName))",  &
+                     "model display fit_to_view=no",  &
+		     !------
                      "if condition = (db_exists(\"MainModelName\"))",  &
                      "  var del var = MainModelName",  &
                      "end"  &
@@ -159,7 +163,7 @@ interface push_button create  &
               "if condition = (db_exists(\"dv_model_to_change\"))",  &
               "  var del var = dv_model_to_change",  &
               "end",  &
-              "createdbox"
+              "file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/dbox/createdbox\"))"
 !
 interface field create  &
    field_name = .gui.dbox_testmodel.field_1  &

@@ -1102,17 +1102,19 @@ MENU1  Sauer &Danfoss
      SEPARATOR2
      BUTTON2  Modif&y sub system
             NAME=diff__1
-            CMD= createDbox
+            CMD= file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/dbox/createdbox\"))
      MENU2  Arrays
           BUTTON3  Select Variable
                  NAME=var
                  CMD=interface dialog display dialog= .SDlib_plugin.dboxes.arrayShow
           BUTTON3  DV_&subs
                  NAME=subs
-                 CMD=writeArray DV=DV_subs
+		 CMD= variable create variable_name=DV String_value=(eval(DV_subs))
+                 CMD=file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/dbox/writeArray\"))		 
           BUTTON3  DV_subs_&dbox
                  NAME=subs__1
-                 CMD=writeArray DV=DV_subs_dbox
+		 CMD= variable create variable_name=DV String_value=(eval(DV_subs_dbox))
+                 CMD=file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/dbox/writeArray\"))		 
      SEPARATOR2
      BUTTON2  &Cylinder
             NAME=cylinder

@@ -9,7 +9,8 @@ interface dialog_box create  &
    vert_resizing = scale_all  &
    title = "showarray"  &
    iconifiable = no  &
-   execution_commands = "writeArray DV=$field_1"  &
+   execution_commands = "DV=$field_1",  &
+			"file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/dbox/writeArray\"))" &			
    decorate = yes  &
    resizable = yes  &
    grab_all_input = no
