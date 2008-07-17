@@ -1,6 +1,6 @@
 !
 interface dialog_box create  &
-   dialog_box_name = .gui.dbox_testmodel  &
+   dialog_box_name = .SDlib_plugin.dboxes.dbox_testmodel  &
    location = 718.0, 71.0  &
    height = 146.0  &
    width = 284.0  &
@@ -17,16 +17,16 @@ interface dialog_box create  &
                     "else",  &
                     "var cre var = MainModelName string_value = (eval(db_default( .system_defaults, \"model\")))",  &
                     "end",  &
-                    "int field set field= .gui.dbox_testmodel.field_4 string = (MainModelName[1])",  &
+                    "int field set field= .SDlib_plugin.dboxes.dbox_testmodel.field_4 string = (MainModelName[1])",  &
                     "",  &
                     "! It is examined, if the purpose is to change an existing model or to import a new one",  &
                     "if condition = (db_exists(\"dv_model_to_change\"))",  &
-                    "int field set field = .gui.dbox_testmodel.field_1 string = (dv_model_to_change[1])",  &
+                    "int field set field = .SDlib_plugin.dboxes.dbox_testmodel.field_1 string = (dv_model_to_change[1])",  &
                     "",  &
                     "! By default, the new name of the model is set to the original name",  &
-                    "int field set field= .gui.dbox_testmodel.field_2 string = $field_1",  &
+                    "int field set field= .SDlib_plugin.dboxes.dbox_testmodel.field_2 string = $field_1",  &
                     "else",  &
-                    "int field set field = .gui.dbox_testmodel.field_1 string = \"\"",  &
+                    "int field set field = .SDlib_plugin.dboxes.dbox_testmodel.field_1 string = \"\"",  &
                     "end"  &
    finish_commands = "if condition = (db_exists(\"NewModelName\"))",  &
                      "  var del var = NewModelName",  &
@@ -36,6 +36,10 @@ interface dialog_box create  &
                      "  var del var = OldModelName",  &
                      "end",  &
                      "",  &
+		     !------ return view to main model
+                     "default model model=(eval($_self.MainModelName))",  &
+                     "model display fit_to_view=no",  &
+		     !------
                      "if condition = (db_exists(\"MainModelName\"))",  &
                      "  var del var = MainModelName",  &
                      "end"  &
@@ -53,12 +57,12 @@ interface dialog_box create  &
                         "end",  &
                         "",  &
                         "! Field 1 is updated, since the model name has been changed. ",  &
-                        "int field set field = .gui.dbox_testmodel.field_1 string = (eval(NewModelName[1]))",  &
+                        "int field set field = .SDlib_plugin.dboxes.dbox_testmodel.field_1 string = (eval(NewModelName[1]))",  &
                         "",  &
                         "! it is examined if a new model should be imported or an existing should be edited",  &
                         "if condition=((db_exists (\"DV_model_to_change\")) || (db_exists (eval(NewModelName[1])//\".\"//\"dv_width\")))",  &
                         "else",  &
-                        "  file command read file=testmodel",  &
+                        "  file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"testmodel.cmd\"))",  &
                         "  model copy &",  &
                         "     model_name = testmodel &",  &
                         "     new_model_name = (eval(MainModelName[1]//\".\"//NewModelName[1])) &",  &
@@ -120,7 +124,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .gui.dbox_testmodel.button_1  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_testmodel.button_1  &
    location = 204.0, 117.0  &
    height = 25.0  &
    width = 76.0  &
@@ -134,7 +138,7 @@ interface push_button create  &
               "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .gui.dbox_testmodel.button_2  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_testmodel.button_2  &
    location = 126.0, 117.0  &
    height = 25.0  &
    width = 76.0  &
@@ -146,7 +150,7 @@ interface push_button create  &
               "interface dialog display dialog= $_parent"
 !
 interface push_button create  &
-   push_button_name = .gui.dbox_testmodel.button_3  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_testmodel.button_3  &
    location = 48.0, 117.0  &
    height = 25.0  &
    width = 76.0  &
@@ -162,7 +166,7 @@ interface push_button create  &
               "createdbox"
 !
 interface field create  &
-   field_name = .gui.dbox_testmodel.field_1  &
+   field_name = .SDlib_plugin.dboxes.dbox_testmodel.field_1  &
    location = 144.0, 33.0  &
    height = 25.0  &
    width = 140.0  &
@@ -178,7 +182,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .gui.dbox_testmodel.label_1  &
+   label_name = .SDlib_plugin.dboxes.dbox_testmodel.label_1  &
    location = 4.0, 60.0  &
    height = 25.0  &
    width = 138.0  &
@@ -189,7 +193,7 @@ interface label create  &
    text = "New model name"
 !
 interface field create  &
-   field_name = .gui.dbox_testmodel.field_2  &
+   field_name = .SDlib_plugin.dboxes.dbox_testmodel.field_2  &
    location = 144.0, 60.0  &
    height = 25.0  &
    width = 140.0  &
@@ -205,7 +209,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .gui.dbox_testmodel.label_2  &
+   label_name = .SDlib_plugin.dboxes.dbox_testmodel.label_2  &
    location = 4.0, 33.0  &
    height = 25.0  &
    width = 138.0  &
@@ -216,7 +220,7 @@ interface label create  &
    text = "Existing model name"
 !
 interface field create  &
-   field_name = .gui.dbox_testmodel.field_3  &
+   field_name = .SDlib_plugin.dboxes.dbox_testmodel.field_3  &
    location = 144.0, 89.0  &
    height = 25.0  &
    width = 140.0  &
@@ -233,7 +237,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .gui.dbox_testmodel.label_3  &
+   label_name = .SDlib_plugin.dboxes.dbox_testmodel.label_3  &
    location = 4.0, 89.0  &
    height = 25.0  &
    width = 138.0  &
@@ -244,7 +248,7 @@ interface label create  &
    text = "Width of the links"
 !
 interface label create  &
-   label_name = .gui.dbox_testmodel.label_4  &
+   label_name = .SDlib_plugin.dboxes.dbox_testmodel.label_4  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 138.0  &
@@ -255,7 +259,7 @@ interface label create  &
    text = "Make a sub model of:"
 !
 interface field create  &
-   field_name = .gui.dbox_testmodel.field_4  &
+   field_name = .SDlib_plugin.dboxes.dbox_testmodel.field_4  &
    location = 144.0, 4.0  &
    height = 25.0  &
    width = 140.0  &
@@ -271,7 +275,7 @@ interface field create  &
    add_quotes = no
 !
 interface separator create  &
-   separator_name = .gui.dbox_testmodel.sep_1  &
+   separator_name = .SDlib_plugin.dboxes.dbox_testmodel.sep_1  &
    location = 4.0, 31.0  &
    width = 280.0  &
    units = pixel  &
@@ -279,7 +283,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface separator create  &
-   separator_name = .gui.dbox_testmodel.sep_2  &
+   separator_name = .SDlib_plugin.dboxes.dbox_testmodel.sep_2  &
    location = 4.0, 87.0  &
    width = 280.0  &
    units = pixel  &

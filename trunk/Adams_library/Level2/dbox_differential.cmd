@@ -1,6 +1,6 @@
 !
 interface dialog_box create  &
-   dialog_box_name = .gui.dbox_differential  &
+   dialog_box_name = .SDlib_plugin.dboxes.dbox_differential  &
    location = 45.0, 187.0  &
    height = 254.0  &
    width = 400.0  &
@@ -9,9 +9,9 @@ interface dialog_box create  &
    vert_resizing = scale_all  &
    title = "dbox_differential"  &
    iconifiable = no  &
-   start_commands = "int field set field=.gui.dbox_differential.field_1 string=(eval(db_default( .system_defaults, \"model\")))"  &
+   start_commands = "int field set field=.SDlib_plugin.dboxes.dbox_differential.field_1 string=(eval(db_default( .system_defaults, \"model\")))"  &
    execution_commands = "! Open the differentila file",  &
-                        "file command read file=\"level2/diff.cmd\"",  &
+                        "file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/level2/diff.cmd\"))",  &
                         "",  &
                         "!!! Update variables",  &
                         "variable modify variable=.diff.DV_diff_gearRatio    real=$field_3",  &
@@ -68,7 +68,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .gui.dbox_differential.button_1  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_differential.button_1  &
    location = 320.0, 225.0  &
    height = 25.0  &
    width = 76.0  &
@@ -79,7 +79,7 @@ interface push_button create  &
    commands = "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .gui.dbox_differential.button_2  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_differential.button_2  &
    location = 242.0, 225.0  &
    height = 25.0  &
    width = 76.0  &
@@ -90,7 +90,7 @@ interface push_button create  &
    commands = "interface dialog execute dialog=$_parent undisp=no"
 !
 interface push_button create  &
-   push_button_name = .gui.dbox_differential.button_3  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_differential.button_3  &
    location = 164.0, 225.0  &
    height = 25.0  &
    width = 76.0  &
@@ -101,7 +101,7 @@ interface push_button create  &
    commands = "interface dialog execute dialog=$_parent undisp=yes"
 !
 interface label create  &
-   label_name = .gui.dbox_differential.label_1  &
+   label_name = .SDlib_plugin.dboxes.dbox_differential.label_1  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 188.0  &
@@ -112,7 +112,7 @@ interface label create  &
    text = "Merge into model"
 !
 interface label create  &
-   label_name = .gui.dbox_differential.label_2  &
+   label_name = .SDlib_plugin.dboxes.dbox_differential.label_2  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 294.0  &
@@ -123,7 +123,7 @@ interface label create  &
    text = "Gear ratio     1:"
 !
 interface label create  &
-   label_name = .gui.dbox_differential.label_3  &
+   label_name = .SDlib_plugin.dboxes.dbox_differential.label_3  &
    location = 4.0, 85.0  &
    height = 25.0  &
    width = 294.0  &
@@ -134,7 +134,7 @@ interface label create  &
    text = "Radius of differential housing"
 !
 interface label create  &
-   label_name = .gui.dbox_differential.label_4  &
+   label_name = .SDlib_plugin.dboxes.dbox_differential.label_4  &
    location = 4.0, 112.0  &
    height = 25.0  &
    width = 294.0  &
@@ -145,7 +145,7 @@ interface label create  &
    text = "Radius of wheel shafts [m]"
 !
 interface label create  &
-   label_name = .gui.dbox_differential.label_5  &
+   label_name = .SDlib_plugin.dboxes.dbox_differential.label_5  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 188.0  &
@@ -156,7 +156,7 @@ interface label create  &
    text = "Name of dfferential after mearge"
 !
 interface label create  &
-   label_name = .gui.dbox_differential.label_6  &
+   label_name = .SDlib_plugin.dboxes.dbox_differential.label_6  &
    location = 4.0, 139.0  &
    height = 25.0  &
    width = 294.0  &
@@ -167,7 +167,7 @@ interface label create  &
    text = "Length of wheel shafts."
 !
 interface field create  &
-   field_name = .gui.dbox_differential.field_1  &
+   field_name = .SDlib_plugin.dboxes.dbox_differential.field_1  &
    location = 270.0, 4.0  &
    height = 25.0  &
    width = 126.0  &
@@ -184,7 +184,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .gui.dbox_differential.field_2  &
+   field_name = .SDlib_plugin.dboxes.dbox_differential.field_2  &
    location = 270.0, 31.0  &
    height = 25.0  &
    width = 126.0  &
@@ -201,7 +201,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .gui.dbox_differential.field_3  &
+   field_name = .SDlib_plugin.dboxes.dbox_differential.field_3  &
    location = 320.0, 58.0  &
    height = 25.0  &
    width = 76.0  &
@@ -218,7 +218,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .gui.dbox_differential.field_4  &
+   field_name = .SDlib_plugin.dboxes.dbox_differential.field_4  &
    location = 320.0, 85.0  &
    height = 25.0  &
    width = 76.0  &
@@ -235,7 +235,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .gui.dbox_differential.field_5  &
+   field_name = .SDlib_plugin.dboxes.dbox_differential.field_5  &
    location = 320.0, 112.0  &
    height = 25.0  &
    width = 76.0  &
@@ -252,7 +252,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .gui.dbox_differential.field_6  &
+   field_name = .SDlib_plugin.dboxes.dbox_differential.field_6  &
    location = 320.0, 139.0  &
    height = 25.0  &
    width = 76.0  &
@@ -269,7 +269,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .gui.dbox_differential.label_10  &
+   label_name = .SDlib_plugin.dboxes.dbox_differential.label_10  &
    location = 4.0, 166.0  &
    height = 25.0  &
    width = 294.0  &
@@ -280,7 +280,7 @@ interface label create  &
    text = "Radius of drive shaft"
 !
 interface label create  &
-   label_name = .gui.dbox_differential.label_11  &
+   label_name = .SDlib_plugin.dboxes.dbox_differential.label_11  &
    location = 4.0, 193.0  &
    height = 25.0  &
    width = 294.0  &
@@ -291,7 +291,7 @@ interface label create  &
    text = "Length of drive shaft"
 !
 interface field create  &
-   field_name = .gui.dbox_differential.field_7  &
+   field_name = .SDlib_plugin.dboxes.dbox_differential.field_7  &
    location = 320.0, 166.0  &
    height = 25.0  &
    width = 76.0  &
@@ -308,7 +308,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .gui.dbox_differential.field_8  &
+   field_name = .SDlib_plugin.dboxes.dbox_differential.field_8  &
    location = 320.0, 193.0  &
    height = 25.0  &
    width = 76.0  &

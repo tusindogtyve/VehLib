@@ -820,7 +820,7 @@ geometry create shape link  &
 geometry create shape shell  &
    shell_name = .BH1.Part_Link3.SHL109  &
    reference_marker = .BH1.Part_Link3.Mkr_BucShell  &
-   file_name = "SHL109.shl"  &
+   file_name = (eval(getenv("MDI_SD_LIBRARY_SITE")//"/Level3/Backhoe/SHL109.shl"))  &
    wireframe_only = no
 !
 part attributes  &

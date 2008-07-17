@@ -977,7 +977,7 @@ geometry create shape link  &
 geometry create shape shell  &
    shell_name = .Loader1.Part_bucket.SHL51  &
    reference_marker = .Loader1.Part_bucket.MAR196  &
-   file_name = "SHL51.shl"  &
+   file_name = (eval(getenv("MDI_SD_LIBRARY_SITE")//"/Level3/Loader/SHL51.shl"))  &
    wireframe_only = no
 !
 part attributes  &

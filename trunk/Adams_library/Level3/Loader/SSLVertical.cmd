@@ -1343,7 +1343,7 @@ geometry create shape link  &
 geometry create shape shell  &
    shell_name = .SSLVertical.Part_bucket.SHL44  &
    reference_marker = .SSLVertical.Part_bucket.MAR163  &
-   file_name = "SHL44.shl"  &
+   file_name = file_name = (eval(getenv("MDI_SD_LIBRARY_SITE")//"/Level3/Loader/SHL44.shl"))  &
    wireframe_only = no
 !
 part attributes  &

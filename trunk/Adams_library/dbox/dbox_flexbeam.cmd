@@ -1,6 +1,6 @@
 !
 interface dialog_box create  &
-   dialog_box_name = .SauerDanfoss.dboxes.dbox_flexbeam  &
+   dialog_box_name = .SDlib_plugin.dboxes.dbox_flexbeam  &
    location = 944.0, 59.0  &
    height = 226.0  &
    width = 288.0  &
@@ -126,7 +126,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_flexbeam.button_1  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_flexbeam.button_1  &
    location = 208.0, 197.0  &
    height = 25.0  &
    width = 76.0  &
@@ -137,7 +137,7 @@ interface push_button create  &
    commands = "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_flexbeam.button_2  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_flexbeam.button_2  &
    location = 130.0, 197.0  &
    height = 25.0  &
    width = 76.0  &
@@ -148,7 +148,7 @@ interface push_button create  &
    commands = "interface dialog execute dialog=$_parent undisp=no"
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_flexbeam.button_3  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_flexbeam.button_3  &
    location = 52.0, 197.0  &
    height = 25.0  &
    width = 76.0  &
@@ -159,7 +159,7 @@ interface push_button create  &
    commands = "interface dialog execute dialog=$_parent undisp=yes"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_flexbeam.label_1  &
+   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_1  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 156.0  &
@@ -170,7 +170,7 @@ interface label create  &
    text = "Name of beam"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_flexbeam.field_1  &
+   field_name = .SDlib_plugin.dboxes.dbox_flexbeam.field_1  &
    location = 162.0, 31.0  &
    height = 25.0  &
    width = 122.0  &
@@ -187,7 +187,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_flexbeam.label_2  &
+   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_2  &
    location = 4.0, 60.0  &
    height = 25.0  &
    width = 156.0  &
@@ -198,7 +198,7 @@ interface label create  &
    text = "Number of segments"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_flexbeam.field_2  &
+   field_name = .SDlib_plugin.dboxes.dbox_flexbeam.field_2  &
    location = 162.0, 60.0  &
    height = 25.0  &
    width = 122.0  &
@@ -215,7 +215,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_flexbeam.label_3  &
+   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_3  &
    location = 4.0, 87.0  &
    height = 25.0  &
    width = 156.0  &
@@ -226,7 +226,7 @@ interface label create  &
    text = "Beam height"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_flexbeam.label_4  &
+   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_4  &
    location = 4.0, 114.0  &
    height = 25.0  &
    width = 156.0  &
@@ -237,7 +237,7 @@ interface label create  &
    text = "Beam width"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_flexbeam.field_3  &
+   field_name = .SDlib_plugin.dboxes.dbox_flexbeam.field_3  &
    location = 162.0, 87.0  &
    height = 25.0  &
    width = 122.0  &
@@ -254,7 +254,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_flexbeam.field_4  &
+   field_name = .SDlib_plugin.dboxes.dbox_flexbeam.field_4  &
    location = 162.0, 114.0  &
    height = 25.0  &
    width = 122.0  &
@@ -271,7 +271,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_flexbeam.field_5  &
+   field_name = .SDlib_plugin.dboxes.dbox_flexbeam.field_5  &
    location = 162.0, 141.0  &
    height = 25.0  &
    width = 122.0  &
@@ -288,7 +288,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_flexbeam.label_5  &
+   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_5  &
    location = 4.0, 141.0  &
    height = 25.0  &
    width = 156.0  &
@@ -299,7 +299,7 @@ interface label create  &
    text = "Beam thickness"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_flexbeam.field_6  &
+   field_name = .SDlib_plugin.dboxes.dbox_flexbeam.field_6  &
    location = 162.0, 4.0  &
    height = 25.0  &
    width = 122.0  &
@@ -315,7 +315,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_flexbeam.label_6  &
+   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_6  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 156.0  &
@@ -326,7 +326,7 @@ interface label create  &
    text = "Create in model"
 !
 interface separator create  &
-   separator_name = .SauerDanfoss.dboxes.dbox_flexbeam.sep_1  &
+   separator_name = .SDlib_plugin.dboxes.dbox_flexbeam.sep_1  &
    location = 4.0, 58.0  &
    width = 280.0  &
    units = pixel  &
@@ -334,7 +334,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_flexbeam.label_7  &
+   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_7  &
    location = 4.0, 168.0  &
    height = 25.0  &
    width = 156.0  &
@@ -345,7 +345,7 @@ interface label create  &
    text = "Area moment of inertia"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_flexbeam.field_7  &
+   field_name = .SDlib_plugin.dboxes.dbox_flexbeam.field_7  &
    location = 162.0, 168.0  &
    height = 25.0  &
    width = 122.0  &

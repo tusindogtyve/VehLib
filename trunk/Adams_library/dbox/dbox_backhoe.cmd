@@ -1,6 +1,6 @@
 !
 interface dialog_box create  &
-   dialog_box_name = .SauerDanfoss.dboxes.dbox_backhoe  &
+   dialog_box_name = .SDlib_plugin.dboxes.dbox_backhoe  &
    location = 25.0, 53.0  &
    height = 879.0  &
    width = 400.0  &
@@ -102,6 +102,10 @@ interface dialog_box create  &
                      "  var del var = OldModelName",  &
                      "end",  &
                      "",  &
+		     !------ return view to main model
+                     "default model model=(eval($_self.MainModelName))",  &
+                     "model display fit_to_view=no",  &
+		     !------
                      "if condition = (db_exists(\"MainModelName\"))",  &
                      "  var del var = MainModelName",  &
                      "end"  &
@@ -139,7 +143,7 @@ interface dialog_box create  &
                         "  ! read the exported model.",  &
                         "  !#####################################################!",  &
                         "  !                REMEMBER TO CHANGE                   !",  &
-                        "  file command read file=\"Level3/Backhoe/backhoe\"",  &
+                        "  file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/Backhoe/backhoe\"))",  &
                         "  !#####################################################!",  &
                         "  model copy &",  &
                         "    !#####################################################!",  &
@@ -295,7 +299,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_backhoe.button_1  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_backhoe.button_1  &
    location = 320.0, 850.0  &
    height = 25.0  &
    width = 76.0  &
@@ -309,7 +313,7 @@ interface push_button create  &
               "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_backhoe.button_2  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_backhoe.button_2  &
    location = 242.0, 850.0  &
    height = 25.0  &
    width = 76.0  &
@@ -321,7 +325,7 @@ interface push_button create  &
               "interface dialog display dialog= $_parent"
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_backhoe.button_3  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_backhoe.button_3  &
    location = 164.0, 850.0  &
    height = 25.0  &
    width = 76.0  &
@@ -336,7 +340,7 @@ interface push_button create  &
               "createdbox"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_1  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_1  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 214.0  &
@@ -347,7 +351,7 @@ interface label create  &
    text = "Main model name:"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_2  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_2  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 214.0  &
@@ -358,7 +362,7 @@ interface label create  &
    text = "Old sub model name"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_3  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_3  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 214.0  &
@@ -369,7 +373,7 @@ interface label create  &
    text = "New sub model name:"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_4  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_4  &
    location = 4.0, 85.0  &
    height = 25.0  &
    width = 214.0  &
@@ -380,7 +384,7 @@ interface label create  &
    text = "Sub model that contains a chassis"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_main  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_main  &
    location = 280.0, 4.0  &
    height = 25.0  &
    width = 116.0  &
@@ -396,7 +400,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_old  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_old  &
    location = 280.0, 31.0  &
    height = 25.0  &
    width = 116.0  &
@@ -412,7 +416,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_newName  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_newName  &
    location = 280.0, 58.0  &
    height = 25.0  &
    width = 116.0  &
@@ -428,7 +432,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_csModel  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_csModel  &
    location = 280.0, 85.0  &
    height = 25.0  &
    width = 116.0  &
@@ -444,7 +448,7 @@ interface field create  &
    type_filter = model
 !
 interface separator create  &
-   separator_name = .SauerDanfoss.dboxes.dbox_backhoe.sep_1  &
+   separator_name = .SDlib_plugin.dboxes.dbox_backhoe.sep_1  &
    location = 4.0, 112.0  &
    height = 4.0  &
    width = 392.0  &
@@ -453,7 +457,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_5  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_5  &
    location = 4.0, 118.0  &
    height = 25.0  &
    width = 258.0  &
@@ -464,7 +468,7 @@ interface label create  &
    text = "DV_Boom_Boomcyl_x"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_6  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_6  &
    location = 4.0, 145.0  &
    height = 25.0  &
    width = 258.0  &
@@ -475,7 +479,7 @@ interface label create  &
    text = "DV_Boom_Boomcyl_y"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_7  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_7  &
    location = 4.0, 172.0  &
    height = 25.0  &
    width = 258.0  &
@@ -486,7 +490,7 @@ interface label create  &
    text = "DV_Boom_Stick_x"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_8  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_8  &
    location = 4.0, 199.0  &
    height = 25.0  &
    width = 258.0  &
@@ -497,7 +501,7 @@ interface label create  &
    text = "DV_Boom_Stickcyl_x"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_9  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_9  &
    location = 4.0, 226.0  &
    height = 25.0  &
    width = 258.0  &
@@ -508,7 +512,7 @@ interface label create  &
    text = "DV_Boom_Stickcyl_y"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_10  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_10  &
    location = 4.0, 253.0  &
    height = 25.0  &
    width = 258.0  &
@@ -519,7 +523,7 @@ interface label create  &
    text = "DV_Boom_Depth"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_11  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_11  &
    location = 4.0, 280.0  &
    height = 25.0  &
    width = 258.0  &
@@ -530,7 +534,7 @@ interface label create  &
    text = "DV_Boom_Width"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_1  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_1  &
    location = 320.0, 118.0  &
    height = 25.0  &
    width = 76.0  &
@@ -547,7 +551,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_2  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_2  &
    location = 320.0, 145.0  &
    height = 25.0  &
    width = 76.0  &
@@ -564,7 +568,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_3  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_3  &
    location = 320.0, 172.0  &
    height = 25.0  &
    width = 76.0  &
@@ -581,7 +585,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_4  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_4  &
    location = 320.0, 199.0  &
    height = 25.0  &
    width = 76.0  &
@@ -598,7 +602,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_5  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_5  &
    location = 320.0, 226.0  &
    height = 25.0  &
    width = 76.0  &
@@ -615,7 +619,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_6  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_6  &
    location = 320.0, 253.0  &
    height = 25.0  &
    width = 76.0  &
@@ -632,7 +636,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_7  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_7  &
    location = 320.0, 280.0  &
    height = 25.0  &
    width = 76.0  &
@@ -649,7 +653,7 @@ interface field create  &
    add_quotes = no
 !
 interface separator create  &
-   separator_name = .SauerDanfoss.dboxes.dbox_backhoe.sep_2  &
+   separator_name = .SDlib_plugin.dboxes.dbox_backhoe.sep_2  &
    location = 4.0, 307.0  &
    height = 4.0  &
    width = 392.0  &
@@ -658,7 +662,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_12  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_12  &
    location = 4.0, 313.0  &
    height = 25.0  &
    width = 258.0  &
@@ -669,7 +673,7 @@ interface label create  &
    text = "DV_Stick_Bucket_x"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_13  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_13  &
    location = 4.0, 340.0  &
    height = 25.0  &
    width = 258.0  &
@@ -680,7 +684,7 @@ interface label create  &
    text = "DV_Stick_Bucketcyl_x"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_14  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_14  &
    location = 4.0, 367.0  &
    height = 25.0  &
    width = 258.0  &
@@ -691,7 +695,7 @@ interface label create  &
    text = "DV_Stick_Bucketcyl_y"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_15  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_15  &
    location = 4.0, 394.0  &
    height = 25.0  &
    width = 258.0  &
@@ -702,7 +706,7 @@ interface label create  &
    text = "DV_Stick_Link1_x"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_16  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_16  &
    location = 4.0, 421.0  &
    height = 25.0  &
    width = 258.0  &
@@ -713,7 +717,7 @@ interface label create  &
    text = "DV_Stick_Link1_y"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_17  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_17  &
    location = 4.0, 448.0  &
    height = 25.0  &
    width = 258.0  &
@@ -724,7 +728,7 @@ interface label create  &
    text = "DV_Stick_Stickcyl_x"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_18  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_18  &
    location = 4.0, 475.0  &
    height = 25.0  &
    width = 258.0  &
@@ -735,7 +739,7 @@ interface label create  &
    text = "DV_Stick_Stickcyl_y"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_19  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_19  &
    location = 4.0, 502.0  &
    height = 25.0  &
    width = 258.0  &
@@ -746,7 +750,7 @@ interface label create  &
    text = "DV_Stick_Depth"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_8  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_8  &
    location = 320.0, 313.0  &
    height = 25.0  &
    width = 76.0  &
@@ -763,7 +767,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_9  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_9  &
    location = 320.0, 340.0  &
    height = 25.0  &
    width = 76.0  &
@@ -780,7 +784,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_10  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_10  &
    location = 320.0, 367.0  &
    height = 25.0  &
    width = 76.0  &
@@ -797,7 +801,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_11  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_11  &
    location = 320.0, 394.0  &
    height = 25.0  &
    width = 76.0  &
@@ -814,7 +818,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_12  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_12  &
    location = 320.0, 421.0  &
    height = 25.0  &
    width = 76.0  &
@@ -831,7 +835,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_13  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_13  &
    location = 320.0, 448.0  &
    height = 25.0  &
    width = 76.0  &
@@ -848,7 +852,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_14  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_14  &
    location = 320.0, 475.0  &
    height = 25.0  &
    width = 76.0  &
@@ -865,7 +869,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_15  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_15  &
    location = 320.0, 502.0  &
    height = 25.0  &
    width = 76.0  &
@@ -882,7 +886,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_20  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_20  &
    location = 4.0, 529.0  &
    height = 25.0  &
    width = 258.0  &
@@ -893,7 +897,7 @@ interface label create  &
    text = "DV_Stick_Width"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_16  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_16  &
    location = 320.0, 529.0  &
    height = 25.0  &
    width = 76.0  &
@@ -910,7 +914,7 @@ interface field create  &
    add_quotes = no
 !
 interface separator create  &
-   separator_name = .SauerDanfoss.dboxes.dbox_backhoe.sep_2_2  &
+   separator_name = .SDlib_plugin.dboxes.dbox_backhoe.sep_2_2  &
    location = 4.0, 556.0  &
    height = 4.0  &
    width = 392.0  &
@@ -919,7 +923,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_21  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_21  &
    location = 4.0, 562.0  &
    height = 25.0  &
    width = 258.0  &
@@ -930,7 +934,7 @@ interface label create  &
    text = "DV_Link1_Length"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_22  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_22  &
    location = 4.0, 589.0  &
    height = 25.0  &
    width = 258.0  &
@@ -941,7 +945,7 @@ interface label create  &
    text = "DV_Link1_Bucketcyl_x"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_23  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_23  &
    location = 4.0, 616.0  &
    height = 25.0  &
    width = 258.0  &
@@ -952,7 +956,7 @@ interface label create  &
    text = "DV_Link1_Bucketcyl_y"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_24  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_24  &
    location = 4.0, 643.0  &
    height = 25.0  &
    width = 258.0  &
@@ -963,7 +967,7 @@ interface label create  &
    text = "DV_Link2_Length"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_25  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_25  &
    location = 4.0, 697.0  &
    height = 25.0  &
    width = 258.0  &
@@ -974,7 +978,7 @@ interface label create  &
    text = "DV_Link_Width"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_26  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_26  &
    location = 4.0, 670.0  &
    height = 25.0  &
    width = 258.0  &
@@ -985,7 +989,7 @@ interface label create  &
    text = "DV_Link_Depth"
 !
 interface separator create  &
-   separator_name = .SauerDanfoss.dboxes.dbox_backhoe.sep_2_3  &
+   separator_name = .SDlib_plugin.dboxes.dbox_backhoe.sep_2_3  &
    location = 4.0, 724.0  &
    height = 4.0  &
    width = 392.0  &
@@ -994,7 +998,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_27  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_27  &
    location = 4.0, 730.0  &
    height = 25.0  &
    width = 258.0  &
@@ -1005,7 +1009,7 @@ interface label create  &
    text = "DV_Bucket_Length"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_17  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_17  &
    location = 320.0, 562.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1022,7 +1026,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_18  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_18  &
    location = 320.0, 589.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1039,7 +1043,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_19  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_19  &
    location = 320.0, 616.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1056,7 +1060,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_20  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_20  &
    location = 320.0, 643.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1073,7 +1077,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_21  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_21  &
    location = 320.0, 670.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1090,7 +1094,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_22  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_22  &
    location = 320.0, 697.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1107,7 +1111,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_23  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_23  &
    location = 320.0, 730.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1124,7 +1128,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_28  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_28  &
    location = 4.0, 763.0  &
    height = 25.0  &
    width = 258.0  &
@@ -1135,7 +1139,7 @@ interface label create  &
    text = "DV_Boom_thete"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_29  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_29  &
    location = 4.0, 790.0  &
    height = 25.0  &
    width = 258.0  &
@@ -1146,7 +1150,7 @@ interface label create  &
    text = "DV_Stick_theta"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_backhoe.label_30  &
+   label_name = .SDlib_plugin.dboxes.dbox_backhoe.label_30  &
    location = 4.0, 817.0  &
    height = 25.0  &
    width = 258.0  &
@@ -1157,7 +1161,7 @@ interface label create  &
    text = "DV_Bucket_theta"
 !
 interface separator create  &
-   separator_name = .SauerDanfoss.dboxes.dbox_backhoe.sep_2_3_2  &
+   separator_name = .SDlib_plugin.dboxes.dbox_backhoe.sep_2_3_2  &
    location = 4.0, 757.0  &
    height = 4.0  &
    width = 392.0  &
@@ -1166,7 +1170,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_24  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_24  &
    location = 320.0, 763.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1183,7 +1187,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_25  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_25  &
    location = 320.0, 790.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1200,7 +1204,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_backhoe.field_26  &
+   field_name = .SDlib_plugin.dboxes.dbox_backhoe.field_26  &
    location = 320.0, 817.0  &
    height = 25.0  &
    width = 76.0  &

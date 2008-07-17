@@ -1,6 +1,6 @@
 !
 interface dialog_box create  &
-   dialog_box_name = .SauerDanfoss.dboxes.dbox_cylinder  &
+   dialog_box_name = .SDlib_plugin.dboxes.dbox_cylinder  &
    location = 519.0, 5.0  &
    height = 366.0  &
    width = 290.0  &
@@ -9,13 +9,13 @@ interface dialog_box create  &
    vert_resizing = scale_all  &
    title = "Cylinder import"  &
    iconifiable = no  &
-   start_commands = "int field set field=.SauerDanfoss.dboxes.dbox_cylinder.field_1 string=(eval(db_default( .system_defaults, \\\"model\\\")))"  &
+   start_commands = "int field set field=.SDlib_plugin.dboxes.dbox_cylinder.field_1 string=(eval(db_default( .system_defaults, \\\"model\\\")))"  &
    decorate = yes  &
    resizable = yes  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_cylinder.button_1  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_cylinder.button_1  &
    location = 210.0, 337.0  &
    height = 25.0  &
    width = 76.0  &
@@ -23,10 +23,10 @@ interface push_button create  &
    horiz_resizing = attach_right  &
    vert_resizing = attach_bottom  &
    label = "Help"  &
-   commands = "interface help SauerDanfoss.dboxes_name=$_parent"
+   commands = "interface help SDlib_plugin.dboxes_name=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_cylinder.button_2  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_cylinder.button_2  &
    location = 132.0, 337.0  &
    height = 25.0  &
    width = 76.0  &
@@ -37,7 +37,7 @@ interface push_button create  &
    commands = "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_cylinder.button_3  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_cylinder.button_3  &
    location = 54.0, 337.0  &
    height = 25.0  &
    width = 76.0  &
@@ -46,7 +46,7 @@ interface push_button create  &
    vert_resizing = attach_bottom  &
    label = "OK"  &
    commands = "! Importing the new cylinderfile",  &
-              "file command read file=\"level2/$'option_1'.cmd\"",  &
+              "file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/level2/$'option_1'.cmd\"))",  &
               "",  &
               "!!! Update variables",  &
               "variable modify variable=.$'option_1'.min_length real=$field_3",  &
@@ -126,7 +126,7 @@ interface push_button create  &
               "interface dialog execute dialog=$_parent undisp=yes"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_cylinder.label_1  &
+   label_name = .SDlib_plugin.dboxes.dbox_cylinder.label_1  &
    location = 4.0, 85.0  &
    height = 25.0  &
    width = 176.0  &
@@ -137,7 +137,7 @@ interface label create  &
    text = "Minimum length"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_cylinder.label_2  &
+   label_name = .SDlib_plugin.dboxes.dbox_cylinder.label_2  &
    location = 4.0, 139.0  &
    height = 25.0  &
    width = 176.0  &
@@ -148,7 +148,7 @@ interface label create  &
    text = "Radius"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_cylinder.label_3  &
+   label_name = .SDlib_plugin.dboxes.dbox_cylinder.label_3  &
    location = 4.0, 112.0  &
    height = 25.0  &
    width = 176.0  &
@@ -159,7 +159,7 @@ interface label create  &
    text = "Maximum length"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_cylinder.field_1  &
+   field_name = .SDlib_plugin.dboxes.dbox_cylinder.field_1  &
    location = 190.0, 31.0  &
    height = 25.0  &
    width = 96.0  &
@@ -176,7 +176,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_cylinder.field_2  &
+   field_name = .SDlib_plugin.dboxes.dbox_cylinder.field_2  &
    location = 190.0, 58.0  &
    height = 25.0  &
    width = 96.0  &
@@ -193,7 +193,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_cylinder.field_3  &
+   field_name = .SDlib_plugin.dboxes.dbox_cylinder.field_3  &
    location = 190.0, 85.0  &
    height = 25.0  &
    width = 96.0  &
@@ -210,7 +210,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_cylinder.label_4  &
+   label_name = .SDlib_plugin.dboxes.dbox_cylinder.label_4  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 176.0  &
@@ -221,7 +221,7 @@ interface label create  &
    text = "Name of cylinder (Cyl_XXXX....)"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_cylinder.field_4  &
+   field_name = .SDlib_plugin.dboxes.dbox_cylinder.field_4  &
    location = 190.0, 112.0  &
    height = 25.0  &
    width = 96.0  &
@@ -238,7 +238,7 @@ interface field create  &
    add_quotes = no
 !
 interface option_menu create  &
-   option_menu_name = .SauerDanfoss.dboxes.dbox_cylinder.option_1  &
+   option_menu_name = .SDlib_plugin.dboxes.dbox_cylinder.option_1  &
    location = 30.0, 4.0  &
    height = 25.0  &
    width = 250.0  &
@@ -250,7 +250,7 @@ interface option_menu create  &
    values = "cyl1", "cyl2"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_cylinder.label_5  &
+   label_name = .SDlib_plugin.dboxes.dbox_cylinder.label_5  &
    location = 4.0, 166.0  &
    height = 25.0  &
    width = 176.0  &
@@ -261,7 +261,7 @@ interface label create  &
    text = "Radius of cylinder"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_cylinder.field_5  &
+   field_name = .SDlib_plugin.dboxes.dbox_cylinder.field_5  &
    location = 190.0, 139.0  &
    height = 25.0  &
    width = 96.0  &
@@ -278,7 +278,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_cylinder.label_7  &
+   label_name = .SDlib_plugin.dboxes.dbox_cylinder.label_7  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 176.0  &
@@ -289,7 +289,7 @@ interface label create  &
    text = "Merge into model:"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_cylinder.label_8  &
+   label_name = .SDlib_plugin.dboxes.dbox_cylinder.label_8  &
    location = 4.0, 193.0  &
    height = 25.0  &
    width = 176.0  &
@@ -300,7 +300,7 @@ interface label create  &
    text = "Radius of piston rod"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_cylinder.field_7  &
+   field_name = .SDlib_plugin.dboxes.dbox_cylinder.field_7  &
    location = 190.0, 193.0  &
    height = 25.0  &
    width = 96.0  &
@@ -317,7 +317,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_cylinder.label_6  &
+   label_name = .SDlib_plugin.dboxes.dbox_cylinder.label_6  &
    location = 4.0, 139.0  &
    height = 25.0  &
    width = 176.0  &
@@ -328,7 +328,7 @@ interface label create  &
    text = "Initial length"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_cylinder.field_6  &
+   field_name = .SDlib_plugin.dboxes.dbox_cylinder.field_6  &
    location = 190.0, 166.0  &
    height = 25.0  &
    width = 96.0  &
@@ -345,7 +345,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_cylinder.label_9  &
+   label_name = .SDlib_plugin.dboxes.dbox_cylinder.label_9  &
    location = 4.0, 220.0  &
    height = 25.0  &
    width = 176.0  &
@@ -356,7 +356,7 @@ interface label create  &
    text = "Cylinder marker"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_cylinder.field_8  &
+   field_name = .SDlib_plugin.dboxes.dbox_cylinder.field_8  &
    location = 190.0, 220.0  &
    height = 25.0  &
    width = 96.0  &
@@ -372,7 +372,7 @@ interface field create  &
    type_filter = marker
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_cylinder.label_10  &
+   label_name = .SDlib_plugin.dboxes.dbox_cylinder.label_10  &
    location = 4.0, 247.0  &
    height = 25.0  &
    width = 176.0  &
@@ -383,7 +383,7 @@ interface label create  &
    text = "Piston marker"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_cylinder.field_9  &
+   field_name = .SDlib_plugin.dboxes.dbox_cylinder.field_9  &
    location = 190.0, 247.0  &
    height = 25.0  &
    width = 96.0  &

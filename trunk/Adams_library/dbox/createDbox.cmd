@@ -1,7 +1,7 @@
 !WRAP_IN_UNDO NO
 !!! Delete the dBox if it exists
-if cond = (db_exists(".sauerdanfoss.dboxes.modelControl"))
-   entity delete entity_name = .sauerdanfoss.dboxes.modelControl
+if cond = (db_exists(".SDlib_plugin.dboxes.modelControl"))
+   entity delete entity_name = .SDlib_plugin.dboxes.modelControl
 end
 !!! n is the number of sub models.
 if cond = (db_exists("DV_subs"))
@@ -19,7 +19,7 @@ else
 end
 !
 interface dialog_box create  &
-   dialog_box_name = .sauerdanfoss.dboxes.modelControl  &
+   dialog_box_name = .SDlib_plugin.dboxes.modelControl  &
    location = 90.0, 120.0  &
    height = (33.0 + n*29) &
    width = 324.0  &
@@ -33,7 +33,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .sauerdanfoss.dboxes.modelControl.button_1  &
+   push_button_name = .SDlib_plugin.dboxes.modelControl.button_1  &
    location = 148.0, (4.0 + n*29)  &
    height = 25.0  &
    width = 172.0  &
@@ -47,7 +47,7 @@ interface push_button create  &
 if cond = (db_exists("DV_subs"))
 for variable_name=i start_value=1 end_value = (rows(DV_subs))
   interface push_button create  &
-    push_button_name = (eval(".sauerdanfoss.dboxes.modelControl.editButton_" // RTOI(i)))  &
+    push_button_name = (eval(".SDlib_plugin.dboxes.modelControl.editButton_" // RTOI(i)))  &
     location = 4.0, (-25.0 + RTOI(i) * 29)  &
     height = 25.0  &
     width = 76.0  &
@@ -69,7 +69,7 @@ for variable_name=i start_value=1 end_value = (rows(DV_subs))
                "interface dialog execute dialog=\$_parent undisp=yes"
   !
 !  interface push_button create  &
-!    push_button_name = (eval(".sauerdanfoss.dboxes.modelControl.deleteButton_" // RTOI(i)))  &
+!    push_button_name = (eval(".SDlib_plugin.dboxes.modelControl.deleteButton_" // RTOI(i)))  &
 !    location = 320.0, (-25.0 + RTOI(i) * 29)  &
 !    height = 25.0  &
 !    width = 76.0  &
@@ -121,7 +121,7 @@ for variable_name=i start_value=1 end_value = (rows(DV_subs))
 !               "createDbox"
   !
   interface field create  &
-    field_name = (eval(".sauerdanfoss.dboxes.modelControl.editField_" // RTOI(i)))  &
+    field_name = (eval(".SDlib_plugin.dboxes.modelControl.editField_" // RTOI(i)))  &
     location = 82.0, (-25.0 + RTOI(i) * 29)  &
     height = 25.0  &
     width = 235.0  &
@@ -140,4 +140,4 @@ end
 end
 var del var=n
 var del var=model_Name
-interface dialog display dialog= .sauerdanfoss.dboxes.modelControl
+interface dialog display dialog= .SDlib_plugin.dboxes.modelControl

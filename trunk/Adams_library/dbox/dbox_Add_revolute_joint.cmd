@@ -1,6 +1,6 @@
 !
 interface dialog_box create  &
-   dialog_box_name = .SauerDanfoss.dboxes.dbox_Add_revolute_joint  &
+   dialog_box_name = .SDlib_plugin.dboxes.dbox_Add_revolute_joint  &
    location = 866.0, 149.0  &
    height = 145.0  &
    width = 276.0  &
@@ -29,7 +29,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_Add_revolute_joint.button_1  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_Add_revolute_joint.button_1  &
    location = 196.0, 116.0  &
    height = 25.0  &
    width = 76.0  &
@@ -40,7 +40,7 @@ interface push_button create  &
    commands = "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_Add_revolute_joint.button_3  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_Add_revolute_joint.button_3  &
    location = 118.0, 116.0  &
    height = 25.0  &
    width = 76.0  &
@@ -51,7 +51,7 @@ interface push_button create  &
    commands = "interface dialog execute dialog=$_parent undisp=yes"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_Add_revolute_joint.label_1  &
+   label_name = .SDlib_plugin.dboxes.dbox_Add_revolute_joint.label_1  &
    location = 4.0, 60.0  &
    height = 25.0  &
    width = 144.0  &
@@ -62,7 +62,7 @@ interface label create  &
    text = "First marker:"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_Add_revolute_joint.label_2  &
+   label_name = .SDlib_plugin.dboxes.dbox_Add_revolute_joint.label_2  &
    location = 4.0, 87.0  &
    height = 25.0  &
    width = 144.0  &
@@ -73,7 +73,7 @@ interface label create  &
    text = "Second marker:"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_Add_revolute_joint.label_3  &
+   label_name = .SDlib_plugin.dboxes.dbox_Add_revolute_joint.label_3  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 144.0  &
@@ -84,7 +84,7 @@ interface label create  &
    text = "Joint name (Jt_XXXX):"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_Add_revolute_joint.field_1  &
+   field_name = .SDlib_plugin.dboxes.dbox_Add_revolute_joint.field_1  &
    location = 150.0, 31.0  &
    height = 25.0  &
    width = 122.0  &
@@ -100,7 +100,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_Add_revolute_joint.field_2  &
+   field_name = .SDlib_plugin.dboxes.dbox_Add_revolute_joint.field_2  &
    location = 150.0, 60.0  &
    height = 25.0  &
    width = 122.0  &
@@ -116,7 +116,7 @@ interface field create  &
    type_filter = marker
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_Add_revolute_joint.field_3  &
+   field_name = .SDlib_plugin.dboxes.dbox_Add_revolute_joint.field_3  &
    location = 150.0, 87.0  &
    height = 25.0  &
    width = 122.0  &
@@ -132,7 +132,7 @@ interface field create  &
    type_filter = marker
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_Add_revolute_joint.label_6  &
+   label_name = .SDlib_plugin.dboxes.dbox_Add_revolute_joint.label_6  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 144.0  &
@@ -143,7 +143,7 @@ interface label create  &
    text = "Add to model:"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_Add_revolute_joint.field_5  &
+   field_name = .SDlib_plugin.dboxes.dbox_Add_revolute_joint.field_5  &
    location = 150.0, 4.0  &
    height = 25.0  &
    width = 122.0  &
@@ -159,7 +159,7 @@ interface field create  &
    type_filter = model
 !
 interface separator create  &
-   separator_name = .SauerDanfoss.dboxes.dbox_Add_revolute_joint.sep_1  &
+   separator_name = .SDlib_plugin.dboxes.dbox_Add_revolute_joint.sep_1  &
    location = 4.0, 58.0  &
    width = 268.0  &
    units = pixel  &

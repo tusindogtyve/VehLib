@@ -1,6 +1,6 @@
 !
 interface dialog_box create  &
-   dialog_box_name = .SauerDanfoss.dboxes.dbox_CaseLoader  &
+   dialog_box_name = .SDlib_plugin.dboxes.dbox_CaseLoader  &
    location = 697.0, 46.0  &
    height = 717.0  &
    width = 306.0  &
@@ -90,6 +90,10 @@ interface dialog_box create  &
                      "  var del var = OldModelName",  &
                      "end",  &
                      "",  &
+		     !------ return view to main model
+                     "default model model=(eval($_self.MainModelName))",  &
+                     "model display fit_to_view=no",  &
+		     !------
                      "if condition = (db_exists(\"MainModelName\"))",  &
                      "  var del var = MainModelName",  &
                      "end"  &
@@ -133,7 +137,7 @@ interface dialog_box create  &
                         "  ! read the exported model.",  &
                         "!#####################################################!",  &
                         "!                REMEMBER TO CHANGE                   !",  &
-                        "  file command read file=\"Level3/Loader/CaseLoader\"",  &
+                        "  file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/Loader/CaseLoader\"))",  &
                         "!#####################################################!",  &
                         "  model copy &",  &
                         "!#####################################################!",  &
@@ -199,7 +203,7 @@ interface dialog_box create  &
                         "if condition=(DB_EXISTS(\"Mkr_CaseLoader_Master\"))",  &
                         "else",  &
                         "",  &
-                        "file command read file=\"level3/Loader/CaseLoader\"",  &
+                        "file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/level3/Loader/CaseLoader\"))",  &
                         " ",  &
                         "model merge &",  &
                         "    model_name = .CaseLoader &",  &
@@ -408,7 +412,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_CaseLoader.button_1  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_CaseLoader.button_1  &
    location = 226.0, 688.0  &
    height = 25.0  &
    width = 76.0  &
@@ -422,7 +426,7 @@ interface push_button create  &
               "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_CaseLoader.button_2  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_CaseLoader.button_2  &
    location = 148.0, 688.0  &
    height = 25.0  &
    width = 76.0  &
@@ -434,7 +438,7 @@ interface push_button create  &
               "interface dialog display dialog= $_parent"
 !
 interface push_button create  &
-   push_button_name = .SauerDanfoss.dboxes.dbox_CaseLoader.button_3  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_CaseLoader.button_3  &
    location = 70.0, 688.0  &
    height = 25.0  &
    width = 76.0  &
@@ -449,7 +453,7 @@ interface push_button create  &
               "createdbox"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_1  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_1  &
    location = 4.0, 104.0  &
    height = 23.0  &
    width = 220.0  &
@@ -460,7 +464,7 @@ interface label create  &
    text = "Armmount -> LoaderArm_P1"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_2  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_2  &
    location = 4.0, 129.0  &
    height = 23.0  &
    width = 220.0  &
@@ -471,7 +475,7 @@ interface label create  &
    text = "Cylindermount -> LoaderArm_P1"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_3  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_3  &
    location = 4.0, 154.0  &
    height = 23.0  &
    width = 220.0  &
@@ -482,7 +486,7 @@ interface label create  &
    text = "Armmount -> LoaderArm_P2"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_4  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_4  &
    location = 4.0, 179.0  &
    height = 23.0  &
    width = 220.0  &
@@ -493,7 +497,7 @@ interface label create  &
    text = "Cylindermount -> LoaderArm_P2"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_5  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_5  &
    location = 4.0, 204.0  &
    height = 23.0  &
    width = 220.0  &
@@ -504,7 +508,7 @@ interface label create  &
    text = "Armmount -> LoaderArm_P3"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_6  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_6  &
    location = 4.0, 229.0  &
    height = 23.0  &
    width = 220.0  &
@@ -515,7 +519,7 @@ interface label create  &
    text = "Cylindermount -> LoaderArm_P3"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_7  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_7  &
    location = 4.0, 254.0  &
    height = 23.0  &
    width = 220.0  &
@@ -526,7 +530,7 @@ interface label create  &
    text = "Armmount -> LoaderArm_P4"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_8  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_8  &
    location = 4.0, 279.0  &
    height = 23.0  &
    width = 220.0  &
@@ -537,7 +541,7 @@ interface label create  &
    text = "Cylindermount -> LoaderArm_P4"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_1  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_1  &
    location = 226.0, 104.0  &
    height = 23.0  &
    width = 76.0  &
@@ -556,7 +560,7 @@ interface field create  &
    lower_limit = 0.0
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_2  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_2  &
    location = 226.0, 129.0  &
    height = 23.0  &
    width = 76.0  &
@@ -573,7 +577,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_3  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_3  &
    location = 226.0, 154.0  &
    height = 23.0  &
    width = 76.0  &
@@ -590,7 +594,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_4  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_4  &
    location = 226.0, 179.0  &
    height = 23.0  &
    width = 76.0  &
@@ -607,7 +611,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_5  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_5  &
    location = 226.0, 204.0  &
    height = 23.0  &
    width = 76.0  &
@@ -624,7 +628,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_6  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_6  &
    location = 226.0, 229.0  &
    height = 23.0  &
    width = 76.0  &
@@ -641,7 +645,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_7  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_7  &
    location = 226.0, 254.0  &
    height = 23.0  &
    width = 76.0  &
@@ -658,7 +662,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_8  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_8  &
    location = 226.0, 279.0  &
    height = 23.0  &
    width = 76.0  &
@@ -675,7 +679,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_9  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_9  &
    location = 226.0, 304.0  &
    height = 23.0  &
    width = 76.0  &
@@ -692,7 +696,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_9  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_9  &
    location = 4.0, 304.0  &
    height = 23.0  &
    width = 220.0  &
@@ -703,7 +707,7 @@ interface label create  &
    text = "Length of link 1"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_10  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_10  &
    location = 4.0, 329.0  &
    height = 23.0  &
    width = 220.0  &
@@ -714,7 +718,7 @@ interface label create  &
    text = "Length of link 2"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_11  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_11  &
    location = 4.0, 354.0  &
    height = 23.0  &
    width = 220.0  &
@@ -725,7 +729,7 @@ interface label create  &
    text = "Length of link 3"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_10  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_10  &
    location = 226.0, 329.0  &
    height = 23.0  &
    width = 76.0  &
@@ -742,7 +746,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_11  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_11  &
    location = 226.0, 354.0  &
    height = 23.0  &
    width = 76.0  &
@@ -759,7 +763,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_12  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_12  &
    location = 4.0, 379.0  &
    height = 23.0  &
    width = 220.0  &
@@ -770,7 +774,7 @@ interface label create  &
    text = "Distance to cylindermount"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_12  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_12  &
    location = 226.0, 379.0  &
    height = 23.0  &
    width = 76.0  &
@@ -787,7 +791,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_13  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_13  &
    location = 4.0, 404.0  &
    height = 23.0  &
    width = 220.0  &
@@ -798,7 +802,7 @@ interface label create  &
    text = "Loader width"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_13  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_13  &
    location = 226.0, 404.0  &
    height = 23.0  &
    width = 76.0  &
@@ -815,7 +819,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_15  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_15  &
    location = 4.0, 458.0  &
    height = 23.0  &
    width = 220.0  &
@@ -826,7 +830,7 @@ interface label create  &
    text = "Height of the bucket"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_16  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_16  &
    location = 4.0, 433.0  &
    height = 23.0  &
    width = 220.0  &
@@ -837,7 +841,7 @@ interface label create  &
    text = "Length of the bucket"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_14  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_14  &
    location = 226.0, 433.0  &
    height = 23.0  &
    width = 76.0  &
@@ -854,7 +858,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_15  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_15  &
    location = 226.0, 458.0  &
    height = 23.0  &
    width = 76.0  &
@@ -871,7 +875,7 @@ interface field create  &
    add_quotes = no
 !
 interface separator create  &
-   separator_name = .SauerDanfoss.dboxes.dbox_CaseLoader.sep_1  &
+   separator_name = .SDlib_plugin.dboxes.dbox_CaseLoader.sep_1  &
    location = 4.0, 429.0  &
    height = 2.0  &
    width = 298.0  &
@@ -880,7 +884,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface separator create  &
-   separator_name = .SauerDanfoss.dboxes.dbox_CaseLoader.sep_2  &
+   separator_name = .SDlib_plugin.dboxes.dbox_CaseLoader.sep_2  &
    location = 4.0, 483.0  &
    height = 2.0  &
    width = 298.0  &
@@ -889,7 +893,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_23  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_23  &
    location = 4.0, 487.0  &
    height = 23.0  &
    width = 220.0  &
@@ -900,7 +904,7 @@ interface label create  &
    text = "Cylinder 1&2 min. length"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_24  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_24  &
    location = 4.0, 512.0  &
    height = 23.0  &
    width = 220.0  &
@@ -911,7 +915,7 @@ interface label create  &
    text = "Cylinder 1&2 max. length"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_25  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_25  &
    location = 4.0, 587.0  &
    height = 23.0  &
    width = 220.0  &
@@ -922,7 +926,7 @@ interface label create  &
    text = "Cylinder 3&4 max. length"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_26  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_26  &
    location = 4.0, 562.0  &
    height = 23.0  &
    width = 220.0  &
@@ -933,7 +937,7 @@ interface label create  &
    text = "Cylinder 3&4 min. length"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_27  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_27  &
    location = 4.0, 637.0  &
    height = 23.0  &
    width = 220.0  &
@@ -944,7 +948,7 @@ interface label create  &
    text = "Radius of all cylinders"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_17  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_17  &
    location = 226.0, 487.0  &
    height = 23.0  &
    width = 76.0  &
@@ -961,7 +965,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_18  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_18  &
    location = 226.0, 512.0  &
    height = 23.0  &
    width = 76.0  &
@@ -978,7 +982,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_19  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_19  &
    location = 226.0, 562.0  &
    height = 23.0  &
    width = 76.0  &
@@ -995,7 +999,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_20  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_20  &
    location = 226.0, 587.0  &
    height = 23.0  &
    width = 76.0  &
@@ -1012,7 +1016,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_21  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_21  &
    location = 226.0, 637.0  &
    height = 23.0  &
    width = 76.0  &
@@ -1029,7 +1033,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_22  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_22  &
    location = 226.0, 537.0  &
    height = 23.0  &
    width = 76.0  &
@@ -1046,7 +1050,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_17  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_17  &
    location = 4.0, 537.0  &
    height = 23.0  &
    width = 220.0  &
@@ -1057,7 +1061,7 @@ interface label create  &
    text = "cylinder 1&2 initial length"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_18  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_18  &
    location = 4.0, 612.0  &
    height = 23.0  &
    width = 220.0  &
@@ -1068,7 +1072,7 @@ interface label create  &
    text = "Cylinder 3&4 initial length"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_19  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_19  &
    location = 4.0, 662.0  &
    height = 23.0  &
    width = 220.0  &
@@ -1079,7 +1083,7 @@ interface label create  &
    text = "Radius of all pistons"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_23  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_23  &
    location = 226.0, 612.0  &
    height = 23.0  &
    width = 76.0  &
@@ -1096,7 +1100,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_24  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_24  &
    location = 226.0, 662.0  &
    height = 23.0  &
    width = 76.0  &
@@ -1113,7 +1117,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_21  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_21  &
    location = 4.0, 4.0  &
    height = 23.0  &
    width = 220.0  &
@@ -1124,7 +1128,7 @@ interface label create  &
    text = "Name of main model"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_26  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_26  &
    location = 226.0, 4.0  &
    height = 23.0  &
    width = 76.0  &
@@ -1140,7 +1144,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_14  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_14  &
    location = 4.0, 29.0  &
    height = 23.0  &
    width = 220.0  &
@@ -1151,7 +1155,7 @@ interface label create  &
    text = "Old name:"
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_20  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_20  &
    location = 4.0, 54.0  &
    height = 23.0  &
    width = 220.0  &
@@ -1162,7 +1166,7 @@ interface label create  &
    text = "New name of submodel:"
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_16  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_16  &
    location = 226.0, 29.0  &
    height = 23.0  &
    width = 76.0  &
@@ -1178,7 +1182,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_25  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_25  &
    location = 226.0, 54.0  &
    height = 23.0  &
    width = 76.0  &
@@ -1194,7 +1198,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SauerDanfoss.dboxes.dbox_CaseLoader.field_27  &
+   field_name = .SDlib_plugin.dboxes.dbox_CaseLoader.field_27  &
    location = 226.0, 79.0  &
    height = 23.0  &
    width = 76.0  &
@@ -1210,7 +1214,7 @@ interface field create  &
    type_filter = model
 !
 interface label create  &
-   label_name = .SauerDanfoss.dboxes.dbox_CaseLoader.label_22  &
+   label_name = .SDlib_plugin.dboxes.dbox_CaseLoader.label_22  &
    location = 4.0, 79.0  &
    height = 23.0  &
    width = 220.0  &

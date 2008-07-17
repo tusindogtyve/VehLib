@@ -1,6 +1,6 @@
 !
 interface dialog_box create  &
-   dialog_box_name = .sauerdanfoss.dboxes.arrayShow  &
+   dialog_box_name = .SDlib_plugin.dboxes.arrayShow  &
    location = 44.0, 105.0  &
    height = 63.0  &
    width = 374.0  &
@@ -15,7 +15,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .sauerdanfoss.dboxes.arrayShow.button_1  &
+   push_button_name = .SDlib_plugin.dboxes.arrayShow.button_1  &
    location = 294.0, 34.0  &
    height = 25.0  &
    width = 76.0  &
@@ -26,7 +26,7 @@ interface push_button create  &
    commands = "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .sauerdanfoss.dboxes.arrayShow.button_2  &
+   push_button_name = .SDlib_plugin.dboxes.arrayShow.button_2  &
    location = 216.0, 34.0  &
    height = 25.0  &
    width = 76.0  &
@@ -37,7 +37,7 @@ interface push_button create  &
    commands = "interface dialog execute dialog=$_parent undisp=yes"
 !
 interface label create  &
-   label_name = .sauerdanfoss.dboxes.arrayShow.label_1  &
+   label_name = .SDlib_plugin.dboxes.arrayShow.label_1  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 127.0  &
@@ -48,7 +48,7 @@ interface label create  &
    text = "Pick an array:"
 !
 interface field create  &
-   field_name = .sauerdanfoss.dboxes.arrayShow.field_1  &
+   field_name = .SDlib_plugin.dboxes.arrayShow.field_1  &
    location = 133.0, 4.0  &
    height = 25.0  &
    width = 235.0  &

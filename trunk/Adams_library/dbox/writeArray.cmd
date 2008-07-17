@@ -1,6 +1,6 @@
 !WRAP_IN_UNDO NO
-if cond = (db_exists(".sauerdanfoss.dboxes.showArray"))
-   entity delete entity_name = .sauerdanfoss.dboxes.showArray
+if cond = (db_exists(".SDlib_plugin.dboxes.showArray"))
+   entity delete entity_name = .SDlib_plugin.dboxes.showArray
 end
 !$DV:t=string:d=DV_subs
 if cond = (db_exists("$DV"))
@@ -15,7 +15,7 @@ else
 end
 !
 interface dialog_box create  &
-   dialog_box_name = .sauerdanfoss.dboxes.showArray  &
+   dialog_box_name = .SDlib_plugin.dboxes.showArray  &
    location = 400.0, 100.0 &
    height = (35.0 + 29*$_self.n)  &
    width = 400.0  &
@@ -29,7 +29,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .sauerdanfoss.dboxes.showArray.closeButton  &
+   push_button_name = .SDlib_plugin.dboxes.showArray.closeButton  &
    location = 320.0, (6.0 + 29 * $_self.n)  &
    height = 25.0  &
    width = 76.0  &
@@ -41,7 +41,7 @@ interface push_button create  &
 !
 for variable_name=$_self.i start_value=1 end_value = ($_self.n)
   interface label create  &
-     label_name = (eval(".sauerdanfoss.dboxes.showArray.contentLabel_" // RTOI($_self.i))) &
+     label_name = (eval(".SDlib_plugin.dboxes.showArray.contentLabel_" // RTOI($_self.i))) &
      location = 56.0, (-25.0 + 29 * $_self.i)  &
      height = 25.0  &
      width = 339.0  &
@@ -52,7 +52,7 @@ for variable_name=$_self.i start_value=1 end_value = ($_self.n)
      text = (eval($DV[$_self.i]))
   !
   interface label create  &
-     label_name = (eval(".sauerdanfoss.dboxes.showArray.numberLabel_" // RTOI($_self.i)))  &
+     label_name = (eval(".SDlib_plugin.dboxes.showArray.numberLabel_" // RTOI($_self.i)))  &
      location = 4.0, (-25.0 + 29 *$_self.i) &
      height = 25.0  &
      width = 46.0  &
@@ -64,4 +64,4 @@ for variable_name=$_self.i start_value=1 end_value = ($_self.n)
 end
 var del var=$_self.n
 var del var=title
-interface dialog display dialog= .sauerdanfoss.dboxes.showArray
+interface dialog display dialog= .SDlib_plugin.dboxes.showArray

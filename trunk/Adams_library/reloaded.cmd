@@ -9,12 +9,14 @@
 
 
 if cond = (db_exists("Model_1")==0)
-	model create model="MODEL_1" 
+	model create model="model_1" 
 end
 
 
 !!! Set the view and grid
-view manage orient view=bottom up_axis=(.MDI.up_axis) forward_axis=(.MDI.forward_axis)
+var set var=.MDI.up_axis      str="Z_pos"
+var set var=.MDI.forward_axis str="X_neg"
+!view manage orient view=bottom up_axis=(.MDI.up_axis) forward_axis=(.MDI.forward_axis)
 int grid modify orient=(eval(convert_angles({0,-90d,0},"BODY313"))) view_normal=no
 
 
@@ -22,11 +24,17 @@ int grid modify orient=(eval(convert_angles({0,-90d,0},"BODY313"))) view_normal=
 default units length=meter mass=kg force=newton time=Second angle=degrees frequency=hz
 
 !!! Set gravity.
-force modify body gravitational gravity = gravity &
-      x_comp = 0.0 &
-      y_comp = 0.0 &
-      z_comp = -9.80665
-
+if cond = (DB_OBJECT_COUNT(DB_CHILDREN( db_default( .system_defaults, "model"), "gravity_field") ) == 0)
+	force create body gravitational gravity = gravity &
+	      x_comp = 0.0 &
+	      y_comp = 0.0 &
+	      z_comp = -9.80665
+else
+        force modify body gravitational gravity = gravity &
+	      x_comp = 0.0 &
+	      y_comp = 0.0 &
+	      z_comp = -9.80665
+end
 
 library create library=.SDlib_plugin
 library create library=.SDlib_plugin.dboxes
@@ -34,7 +42,7 @@ library create library=.SDlib_plugin.macros
 library create library=.SDlib_plugin.variables
 
 !!! Read the menu.
-interface menubar read menubar=.gui.main.mbar file="sauer-danfoss.mnu"
+interface menubar read menubar=.gui.main.mbar file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/sauer-danfoss.mnu"))
 
 !!! Read dialog boxes.
 file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_acmCircular.cmd"))
@@ -68,14 +76,14 @@ file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_backhoe.
 
 
 macro read  &
-   macro_name = writeArray  &
-   file_name = "writeArray.cmd"  &
+   macro_name = .SDlib_plugin.macros.writeArray  &
+   file_name = (eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/writeArray.cmd"))  &
    wrap_in_undo = no  &
    create_panel = no
 
 macro read  &
-   macro_name = createDbox  &
-   file_name = "createDbox.cmd"  &
+   macro_name = .SDlib_plugin.macros.createDbox  &
+   file_name = (eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/createDbox.cmd"))  &
    wrap_in_undo = no  &
    create_panel = no
 
@@ -90,7 +98,24 @@ macro create &
                               "! Read the menu out of the binary into the current gui library", &
                               "  file binary read &", &
                               "    file=(getenv(\"MDI_USER_PLUGIN_DIR\") // \"/SDlib_plugin\") &", &
-                              "    entity= .gui.main.mbar.SauerDanfoss"
+                              "    entity= .gui.main.mbar.SauerDanfoss", &
+			      "  var set var=.MDI.up_axis      str=\"Z_pos\" ", &
+			      "  var set var=.MDI.forward_axis str=\"X_neg\" ", &
+			      " int grid modify orient=(eval(convert_angles({0,-90d,0},'BODY313'))) view_normal=no ", &
+ 			      "  if cond = (db_exists(\"Model_1\")==0) ", &
+			      "		model create model=\"Model_1\" ", & 
+			      "  end ", &
+			      "  if cond = (db_exists('gravity') == 0) ", &
+			      "	     force create body gravitational gravity = gravity & ", &
+			      "      x_comp = 0.0 & ", &
+			      "      y_comp = 0.0 & ", &
+			      "      z_comp = -9.80665 ", &
+			      "  else ", &
+			      "	     force modify body gravitational gravity = gravity & ", &
+			      "      x_comp = 0.0 & ", &
+			      "      y_comp = 0.0 & ", &
+			      "      z_comp = -9.80665 ", &
+			      "  end "
 
 macro create &
       macro=.SDlib_plugin.unload  &

@@ -36,7 +36,7 @@ interface push_button create  &
    label = "Apply"  &
    commands = "if condition=(db_exists (\"MKR_BHPlate_Master\"))",  &
               "else",  &
-              "file command read file=\"level3/Backhoe/BHPlateCase\"",  &
+              "file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/level3/Backhoe/BHPlateCase\"))",  &
               "model merge &",  &
               "   model_name = .BHPlateCase &",  &
               "   into_model_name = $field_12 &",  &
@@ -133,7 +133,7 @@ interface push_button create  &
    label = "OK"  &
    commands = "if condition=(db_exists (\"MKR_BHPlate_Master\"))",  &
               "else",  &
-              "file command read file=\"level3/Backhoe/BHPlateCase\"",  &
+              "file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/level3/Backhoe/BHPlateCase\")",  &
               "model merge &",  &
               "   model_name = .BHPlateCase &",  &
               "   into_model_name = $field_12 &",  &
