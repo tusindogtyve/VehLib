@@ -1,0 +1,2 @@
+interface dialog execute dialog=$_parent undisp=yes
+interface dialog display dialog= $_parent
