@@ -3,10 +3,10 @@
 <MSCPlugin xmlns="http://www.adams.com/:MDI" xmlns:kernel="http://www.adams.com/:kernel">
 
   <kernel:Bibliography>
-    <File schema="plugin" version="0.0.1" publicationDate="2008-11-07 00:00:48 -0500" />
-    <Revision version="1" />
-    <Corporation author="Jens Bay Madsen" URI="http://www.Sauer-Danfoss.com/" />
-    <Author user="jensbmadsen" name="jensbmadsen" />
+    <File schema="plugin" version="1.0" publicationDate="2008-18-07 00:00:48 -0500" />
+    <Revision version="1.0" />
+    <Corporation author="Kabus/Haastrup/Madsen" URI="http://www.Sauer-Danfoss.com/" />
+    <Author user="jensbmadsen" name="Kabus/Haastrup/Madsen" />
     <Environment hostName="Unkown" operatingSystem="Windows" />
     <Application name="MSC.ADAMS" version="2007.R1" />
   </kernel:Bibliography>
@@ -16,7 +16,7 @@
       <![CDATA[Site macro loader plug-in.]]>
     </Description>
     <Version>1</Version>
-    <Author>Jens Bay Madsen</Author>
+    <Author>Kabus/Haastrup/Madsen</Author>
     <Type>Public</Type>
     <LicenseFeature></LicenseFeature>
     <ValidWith>aview</ValidWith>  
