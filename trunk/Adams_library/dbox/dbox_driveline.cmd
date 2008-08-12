@@ -1,7 +1,7 @@
 !
 interface dialog_box create  &
    dialog_box_name = .SDlib_plugin.dboxes.dbox_driveline  &
-   location = 11.0, 89.0  &
+   location = 657.0, 125.0  &
    height = 447.0  &
    width = 374.0  &
    units = pixel  &
@@ -64,10 +64,8 @@ interface dialog_box create  &
                      "  var del var = $_self.OldModelName",  &
                      "end",  &
                      "",  &
-		     !------ return view to main model
                      "default model model=(eval($_self.MainModelName))",  &
                      "model display fit_to_view=no",  &
-		     !------
                      "if condition = (db_exists(\"$_self.MainModelName\"))",  &
                      "  var del var = $_self.MainModelName",  &
                      "end"  &
@@ -335,10 +333,10 @@ interface field create  &
    scrollable = no  &
    editable = yes  &
    preload_strings = "Driveline"  &
-   required = no  &
+   required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
-   string_type = literal  &
+   string_type = alpha_numeric  &
    add_quotes = no
 !
 interface label create  &

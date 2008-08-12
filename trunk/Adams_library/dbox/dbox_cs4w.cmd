@@ -1,7 +1,7 @@
 !
 interface dialog_box create  &
    dialog_box_name = .SDlib_plugin.dboxes.dbox_cs4w  &
-   location = 4.0, 63.0  &
+   location = 601.0, 63.0  &
    height = 533.0  &
    width = 380.0  &
    units = pixel  &
@@ -36,11 +36,9 @@ interface dialog_box create  &
                      "  var del var = $_self.OldModelName",  &
                      "end",  &
                      "",  &
-		     !------ return view to main model
                      "default model model=(eval($_self.MainModelName))",  &
                      "model display fit_to_view=no",  &
-		     "view manage orient view=iso up_axis=(.MDI.up_axis) forward_axis=(.MDI.forward_axis)", &
-		     !------
+                     "! view manage orient view=iso up_axis=(.MDI.up_axis) forward_axis=(.MDI.forward_axis)",  &
                      "if condition = (db_exists(\"$_self.MainModelName\"))",  &
                      "  var del var = $_self.MainModelName",  &
                      "end"  &
@@ -180,7 +178,7 @@ interface dialog_box create  &
                         "        Ixx_Iyy = 10.0 &",  &
                         "        Izz = 12.0 &",  &
                         "        center_offset = 0.0 &",  &
-                        "        tire_property_file = (eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/wheels/$option_4\")) &",  &
+                        "        tire_property_file = (eval($field_13)) &",  &
                         "        road_name = (eval($_self.MainModelName[1]//\".testTrack\")) &",  &
                         "        location = (LOC_RELATIVE_TO({0, 0, 0}, eval(eval($_self.Tak[1]).ground.MKR_wheel_2L))) &",  &
                         "        orientation = (ORI_RELATIVE_TO({0, 90, 0}, eval(eval($_self.Tak[1]).ground.MKR_wheel_2L))) &",  &
@@ -196,7 +194,7 @@ interface dialog_box create  &
                         "        Ixx_Iyy = 10 &",  &
                         "        Izz = 12 &",  &
                         "        center_offset = 0 &",  &
-                        "        tire_property_file = (eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/wheels/$option_4\")) &",  &
+                        "        tire_property_file = (eval($field_13)) &",  &
                         "        road_name = (eval($_self.MainModelName[1]//\".testTrack\")) &",  &
                         "        location = (LOC_RELATIVE_TO( {0,0,0} , eval(eval($_self.Tak[1]).ground.MKR_wheel_2L) )) &",  &
                         "        orientation = (ORI_RELATIVE_TO( {0,90,0} , eval(eval($_self.Tak[1]).ground.MKR_wheel_2L) )) &",  &
@@ -213,7 +211,7 @@ interface dialog_box create  &
                         "        Ixx_Iyy = 10.0 &",  &
                         "        Izz = 12.0 &",  &
                         "        center_offset = 0.0 &",  &
-                        "        tire_property_file = (eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/wheels/$option_4\")) &",  &
+                        "        tire_property_file = (eval($field_13)) &",  &
                         "        road_name = (eval($_self.MainModelName[1]//\".testTrack\"))&",  &
                         "        location = (LOC_RELATIVE_TO({0, 0, 0}, eval(eval($_self.Tak[1]).ground.MKR_wheel_2R))) &",  &
                         "        orientation = (ORI_RELATIVE_TO({0, 90, 0}, eval(eval($_self.Tak[1]).ground.MKR_wheel_2R))) &",  &
@@ -229,7 +227,7 @@ interface dialog_box create  &
                         "        Ixx_Iyy = 10 &",  &
                         "        Izz = 12 &",  &
                         "        center_offset = 0 &",  &
-                        "        tire_property_file = (eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/wheels/$option_4\")) &",  &
+                        "        tire_property_file = (eval($field_13)) &",  &
                         "        road_name = (eval($_self.MainModelName[1]//\".testTrack\")) &",  &
                         "        location = (LOC_RELATIVE_TO( {0,0,0} , eval(eval($_self.Tak[1]).ground.MKR_wheel_2R) )) &",  &
                         "        orientation = (ORI_RELATIVE_TO( {0,90,0} , eval(eval($_self.Tak[1]).ground.MKR_wheel_2R) ))&",  &
@@ -246,7 +244,7 @@ interface dialog_box create  &
                         "        Ixx_Iyy = 10.0 &",  &
                         "        Izz = 12.0 &",  &
                         "        center_offset = 0.0 &",  &
-                        "        tire_property_file = (eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/wheels/$option_3\")) &",  &
+                        "        tire_property_file = (eval($field_15)) &",  &
                         "        road_name = (eval($_self.MainModelName[1]//\".testTrack\"))&",  &
                         "        location = (LOC_RELATIVE_TO({0, 0, 0}, eval(eval($_self.Tak[1]).ground.MKR_wheel_1L))) &",  &
                         "        orientation = (ORI_RELATIVE_TO({0, 90, 0}, eval(eval($_self.Tak[1]).ground.MKR_wheel_1L))) &",  &
@@ -262,7 +260,7 @@ interface dialog_box create  &
                         "        Ixx_Iyy = 10 &",  &
                         "        Izz = 12 &",  &
                         "        center_offset = 0 &",  &
-                        "        tire_property_file = (eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/wheels/$option_3\")) &",  &
+                        "        tire_property_file = (eval($field_15)) &",  &
                         "        road_name = (eval($_self.MainModelName[1]//\".testTrack\")) &",  &
                         "        location = (LOC_RELATIVE_TO( {0,0,0} , eval(eval($_self.Tak[1]).ground.MKR_wheel_1L) )) &",  &
                         "        orientation = (ORI_RELATIVE_TO( {0,90,0} , eval(eval($_self.Tak[1]).ground.MKR_wheel_1L) )) &",  &
@@ -279,7 +277,7 @@ interface dialog_box create  &
                         "        Ixx_Iyy = 10.0 &",  &
                         "        Izz = 12.0 &",  &
                         "        center_offset = 0.0 &",  &
-                        "        tire_property_file = (eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/wheels/$option_3\")) &",  &
+                        "        tire_property_file = (eval($field_15)) &",  &
                         "        road_name = (eval($_self.MainModelName[1]//\".testTrack\")) &",  &
                         "        location = (LOC_RELATIVE_TO({0, 0, 0}, eval(eval($_self.Tak[1]).ground.MKR_wheel_1R))) &",  &
                         "        orientation = (ORI_RELATIVE_TO({0, 90, 0}, eval(eval($_self.Tak[1]).ground.MKR_wheel_1R))) &",  &
@@ -295,7 +293,7 @@ interface dialog_box create  &
                         "        Ixx_Iyy = 10 &",  &
                         "        Izz = 12 &",  &
                         "        center_offset = 0 &",  &
-                        "        tire_property_file = (eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/wheels/$option_3\")) &",  &
+                        "        tire_property_file = (eval($field_15)) &",  &
                         "        road_name = (eval($_self.MainModelName[1]//\".testTrack\")) &",  &
                         "        location = (LOC_RELATIVE_TO( {0,0,0} , eval(eval($_self.Tak[1]).ground.MKR_wheel_1R) )) &",  &
                         "        orientation = (ORI_RELATIVE_TO( {0,90,0} , eval(eval($_self.Tak[1]).ground.MKR_wheel_1R) )) &",  &
@@ -426,7 +424,7 @@ interface field create  &
               "",  &
               "int field set field = .SDlib_plugin.dboxes.dbox_cs4w.field_18&",  &
               "    string = (eval(.SDlib_plugin.dboxes.dbox_cs4w.Tak.string_value))"  &
-   string_type = literal  &
+   string_type = alpha_numeric  &
    add_quotes = no
 !
 interface field create  &
@@ -615,30 +613,6 @@ interface label create  &
    vert_resizing = attach_top  &
    justified = left  &
    text = "Rear wheel type"
-!
-interface option_menu create  &
-   option_menu_name = .SDlib_plugin.dboxes.dbox_cs4w.option_3  &
-   location = 162.0, 355.0  &
-   height = 25.0  &
-   width = 150.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   choices = "Front wheel", "Rear wheel"  &
-   current_choice = "Front wheel"  &
-   values = "caseFrontWheel.tir", "caseRearWheel.tir"
-!
-interface option_menu create  &
-   option_menu_name = .SDlib_plugin.dboxes.dbox_cs4w.option_4  &
-   location = 162.0, 382.0  &
-   height = 25.0  &
-   width = 150.0  &
-   units = pixel  &
-   horiz_resizing = attach_left  &
-   vert_resizing = attach_top  &
-   choices = "Rear wheel", "Front wheel"  &
-   current_choice = "Front wheel"  &
-   values = "caseRearWheel.tir", "caseFrontWheel.tir"
 !
 interface push_button create  &
    push_button_name = .SDlib_plugin.dboxes.dbox_cs4w.button_3  &
@@ -846,3 +820,36 @@ interface label create  &
    justified = left  &
    text = "Old name:"
 !
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_15  &
+   location = 162.0, 355.0  &
+   height = 25.0  &
+   width = 150.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   file_type = any_file  &
+   filter = "*.tir"  &
+   alert_on_overwrite = no
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_13  &
+   location = 162.0, 382.0  &
+   height = 25.0  &
+   width = 150.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   file_type = any_file  &
+   filter = "*.tir"  &
+   alert_on_overwrite = no

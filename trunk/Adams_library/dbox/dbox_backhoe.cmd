@@ -1,7 +1,7 @@
 !
 interface dialog_box create  &
    dialog_box_name = .SDlib_plugin.dboxes.dbox_backhoe  &
-   location = 25.0, 53.0  &
+   location = 25.0, 51.0  &
    height = 879.0  &
    width = 400.0  &
    units = pixel  &
@@ -102,10 +102,8 @@ interface dialog_box create  &
                      "  var del var = OldModelName",  &
                      "end",  &
                      "",  &
-		     !------ return view to main model
                      "default model model=(eval($_self.MainModelName))",  &
                      "model display fit_to_view=no",  &
-		     !------
                      "if condition = (db_exists(\"MainModelName\"))",  &
                      "  var del var = MainModelName",  &
                      "end"  &
@@ -428,7 +426,7 @@ interface field create  &
    required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
-   string_type = literal  &
+   string_type = alpha_numeric  &
    add_quotes = no
 !
 interface field create  &
@@ -1219,4 +1217,3 @@ interface field create  &
    number_of_values = 1  &
    string_type = literal  &
    add_quotes = no
-!

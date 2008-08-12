@@ -54,10 +54,8 @@ interface dialog_box create  &
                      "  var del var = OldModelName",  &
                      "end",  &
                      "",  &
-		     !------ return view to main model
                      "default model model=(eval($_self.MainModelName))",  &
                      "model display fit_to_view=no",  &
-		     !------
                      "if condition = (db_exists(\"MainModelName\"))",  &
                      "  var del var = MainModelName",  &
                      "end"  &
@@ -309,7 +307,7 @@ interface field create  &
    required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
-   string_type = literal  &
+   string_type = alpha_numeric  &
    add_quotes = no
 !
 interface field create  &

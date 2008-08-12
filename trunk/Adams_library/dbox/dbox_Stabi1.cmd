@@ -62,10 +62,8 @@ interface dialog_box create  &
                      "  var del var = $_self.OldModelName",  &
                      "end",  &
                      "",  &
-		     !------ return view to main model
                      "default model model=(eval($_self.MainModelName))",  &
                      "model display fit_to_view=no",  &
-		     !------
                      "if condition = (db_exists(\"$_self.MainModelName\"))",  &
                      "  var del var = $_self.MainModelName",  &
                      "end"  &
@@ -667,7 +665,7 @@ interface field create  &
    vert_resizing = attach_top  &
    scrollable = no  &
    editable = yes  &
-   preload_strings = "0.26, 0.02, 0.37"  &
+   preload_strings = "0.3, 0.0, 0.1"  &
    required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
