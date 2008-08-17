@@ -1,7 +1,7 @@
 !
 interface dialog_box create  &
    dialog_box_name = .SDlib_plugin.dboxes.dbox_differential  &
-   location = 727.0, 203.0  &
+   location = 678.0, 154.0  &
    height = 254.0  &
    width = 400.0  &
    units = pixel  &
@@ -153,7 +153,7 @@ interface label create  &
    horiz_resizing = attach_left  &
    vert_resizing = attach_top  &
    justified = left  &
-   text = "Name of dfferential after mearge"
+   text = "Name of dfferential after merge"
 !
 interface label create  &
    label_name = .SDlib_plugin.dboxes.dbox_differential.label_6  &

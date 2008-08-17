@@ -1,7 +1,7 @@
 !
 interface dialog_box create  &
    dialog_box_name = .SDlib_plugin.dboxes.dbox_acmTeleF  &
-   location = 589.0, 98.0  &
+   location = 526.0, 98.0  &
    height = 597.0  &
    width = 746.0  &
    units = pixel  &
@@ -454,7 +454,7 @@ interface field create  &
    vert_resizing = attach_top  &
    scrollable = no  &
    editable = yes  &
-   required = no  &
+   required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
    object_type = old_object  &

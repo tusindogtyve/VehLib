@@ -27,7 +27,9 @@ interface dialog_box create  &
                     "  int field set field= $_self.field_1 string = $field_19",  &
                     "else",  &
                     "  int field set field = $_self.field_19 string = \"\"",  &
-                    "end"  &
+                    "end",  &
+		    "int field modify field= $_self.field_13 directory = (eval(getenv('MDI_SD_LIBRARY_SITE')//'/Level3/Wheels'))", &
+		    "int field modify field= $_self.field_15 directory = (eval(getenv('MDI_SD_LIBRARY_SITE')//'/Level3/Wheels'))" &
    finish_commands = "if condition = (db_exists(\"$_self.NewModelName\"))",  &
                      "  var del var = $_self.NewModelName",  &
                      "end",  &
@@ -824,32 +826,36 @@ interface field create  &
    field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_15  &
    location = 162.0, 355.0  &
    height = 25.0  &
-   width = 150.0  &
+   width = 214.0  &
    units = pixel  &
    horiz_resizing = attach_left  &
    vert_resizing = attach_top  &
    scrollable = no  &
    editable = yes  &
+   preload_strings = "Browse for tire file"  &
    required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
    file_type = any_file  &
+   !directory = (eval(getenv('MDI_SD_LIBRARY_SITE')//'/Level3/Wheels')) &
    filter = "*.tir"  &
-   alert_on_overwrite = no
+   alert_on_overwrite = no 
 !
 interface field create  &
    field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_13  &
    location = 162.0, 382.0  &
    height = 25.0  &
-   width = 150.0  &
+   width = 214.0  &
    units = pixel  &
    horiz_resizing = attach_left  &
    vert_resizing = attach_top  &
    scrollable = no  &
    editable = yes  &
+   preload_strings = "Browse for tire file"  &
    required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
    file_type = any_file  &
+   !directory = (eval(getenv('MDI_SD_LIBRARY_SITE')//'/Level3/Wheels')) &
    filter = "*.tir"  &
-   alert_on_overwrite = no
+   alert_on_overwrite = no 

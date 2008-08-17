@@ -189,7 +189,7 @@ interface field create  &
    required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
-   string_type = alpha_numeric  &
+   string_type = literal  &
    add_quotes = no
 !
 interface field create  &

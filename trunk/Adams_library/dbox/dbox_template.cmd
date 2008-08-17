@@ -1,7 +1,7 @@
 !
 interface dialog_box create  &
    dialog_box_name = .SDlib_plugin.dboxes.dbox_template  &
-   location = 44.0, 113.0  &
+   location = 743.0, 128.0  &
    height = 375.0  &
    width = 400.0  &
    units = pixel  &
@@ -320,7 +320,7 @@ interface field create  &
    vert_resizing = attach_top  &
    scrollable = no  &
    editable = yes  &
-   required = no  &
+   required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
    object_type = old_object  &

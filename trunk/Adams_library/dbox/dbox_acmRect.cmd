@@ -915,7 +915,7 @@ interface field create  &
    vert_resizing = attach_top  &
    scrollable = no  &
    editable = yes  &
-   required = no  &
+   required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
    object_type = old_object  &
