@@ -1112,7 +1112,7 @@ MENU1  Sauer &Danfoss
      MENU2  Arrays
           BUTTON3  Select Variable
                  NAME=var
-                 CMD=interface dialog display dialog= .SDlib_plugin.dboxes.arrayShow
+                 CMD= interface dialog display dialog= .SDlib_plugin.dboxes.arrayShow 
           BUTTON3  DV_&subs
                  NAME=subs
                  CMD=writeArray DV=DV_subs
@@ -1141,7 +1141,7 @@ MENU1  Sauer &Danfoss
                  NAME=stiffaxlef
                  CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_stiffAxle
      MENU2  &Backhoe
-          BUTTON3  &Case Backhoe
+          BUTTON3  &Backhoe
                  NAME=backhoe
                  CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_BH1
           BUTTON3  Backhoe &plate 1

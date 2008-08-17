@@ -42,7 +42,7 @@ library create library=.SDlib_plugin.macros
 library create library=.SDlib_plugin.variables
 
 !!! Read the menu.
-interface menubar read menubar=.gui.main.mbar file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/sauer-danfoss.mnu"))
+interface menubar read menubar=.gui.main.mbar file=(eval(getenv("MDI_SD_DEVTOOLS")//"/sauer-danfoss.mnu"))
 
 !!! Read dialog boxes.
 file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_acmCircular.cmd"))
@@ -72,7 +72,7 @@ file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_TelBoom.
 file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_template.cmd"))
 file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_Add_spherical_joint.cmd"))
 file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_Add_revolute_joint.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_backhoe.cmd"))
+!file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_backhoe.cmd"))
 
 
 macro read  &
