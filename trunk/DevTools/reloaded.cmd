@@ -45,45 +45,45 @@ library create library=.SDlib_plugin.variables
 interface menubar read menubar=.gui.main.mbar file=(eval(getenv("MDI_SD_DEVTOOLS")//"/sauer-danfoss.mnu"))
 
 !!! Read dialog boxes.
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_acmCircular.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_acmRect.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_acmTeleF.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_BHPlate2.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_cs4w.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_stiffAxle.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_BH1_cyl.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_BH1.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_BHPlate1.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_Loader1.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/level2/dbox_cylinder.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/level2/dbox_differential.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_SSLRadial.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_SSLVertical.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_MarkerLoc.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_MarkerClone.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_MarkerOrialongaxis.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_MarkerOrientrelativeto.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_MarkerLocOri.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_Stabi1.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_driveline.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_testmodel.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/arrayShow.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_TelBoom.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_template.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_Add_spherical_joint.cmd"))
-file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_Add_revolute_joint.cmd"))
-!file command read file=(eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/dbox_backhoe.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_acmCircular.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_acmRect.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_acmTeleF.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_BHPlate2.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_cs4w.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_stiffAxle.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_BH1_cyl.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_BH1.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_BHPlate1.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Loader1.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_cylinder.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_differential.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_SSLRadial.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_SSLVertical.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerLoc.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerClone.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerOrialongaxis.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerOrientrelativeto.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerLocOri.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Stabi1.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_driveline.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_testmodel.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/arrayShow.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_TelBoom.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_template.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Add_spherical_joint.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Add_revolute_joint.cmd"))
+!file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_backhoe.cmd"))
 
 
 macro read  &
    macro_name = .SDlib_plugin.macros.writeArray  &
-   file_name = (eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/writeArray.cmd"))  &
+   file_name = (eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/writeArray.cmd"))  &
    wrap_in_undo = no  &
    create_panel = no
 
 macro read  &
    macro_name = .SDlib_plugin.macros.createDbox  &
-   file_name = (eval(getenv("MDI_SD_LIBRARY_SITE")//"/dbox/createDbox.cmd"))  &
+   file_name = (eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/createDbox.cmd"))  &
    wrap_in_undo = no  &
    create_panel = no
 
