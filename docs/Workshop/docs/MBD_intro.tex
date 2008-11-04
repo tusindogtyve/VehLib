@@ -1,0 +1,50 @@
+\par	This chapter will provide an introduction to the basics of formulating the equations of Multi-Body Dynamics
+	(MBD) for numerical solving. The equations are based on the field of classic physics, i.e. Newtons famous equations
+	of force equillibrium, but with emphasis on formulating the equations to fit solving by nummerical methods.
+
+	
+\section{Introduction}	
+\par Multi-Body Dynamics describes the combined kinetics and kinematics of systems consisting of one or more bodies.
+	These bodies may be connected in various ways, and furthermore exerted to various external applied forces and 
+	torques. Multi-Body Dynamics describes planar (2D) as well as spatial (3D) system, and while simple planar 
+	systems can be handled without the use of advanced tools like Msc.Adams, the complexity of 3D systems 
+	causes most people to loose track of the set of equations.
+\par In traditional MBD all bodies (or links) are considered rigid, but with mass and dimension properties. A 
+	beam has a mass, a mass moment of inertia and physical dimensions - but the flexibility is usually not 
+	taken into account. 
+	
+\subsection{Basic entities in MBD}
+\par There exist three typical terms that are frequently reffered when discussing MBD; bodies, constraints and applied
+	forces.
+
+\subsubsection{Body}
+\par The term body refers to the physical element of any given size. Several attributes are related to a body. 
+	First of all a body has a mass, thus it has a mass moment of inertia and a center of gravity. It would
+	typically also have some special points of interest. These points may be location of links with other bodies
+	or the point of action for any external applied force or torque.
+\subsubsection{Constraint}
+\par Constraints limits the degrees of freedom for a mechanical system. It provides a way to formulate various
+	kinds of joints, contacts etc. A constraint will typically formulate a given relation between two points
+	on different bodies.
+\subsubsection{Applied forces}
+\par Bodies and constraints formulate a kinematic system i.e. a mechanical system described as a mechanism. If
+	one of the bodies are set in motion, the constraints will determine the motion of the remaining system. 
+	Applied foreces and torques are the input to the systemj. The applied forces and torques will accelerate
+	the bodies, the acceleration will change the configuation of the system and the constraints will transfer
+	reaction forces in joints from body to body and the system moves as a kinetic system within the kinematic
+	boundaries.
+	
+	
+
+
+
+\section{Basic equations of motion}
+
+\section{Concept of reference frames}
+\subsection{Descriptive vectors}
+
+\section{Formulating equation for numerical solving}
+
+\subsection{Rotation matrix}
+
+\section{Rotation sequence method}
