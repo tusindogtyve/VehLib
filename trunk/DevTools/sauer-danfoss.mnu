@@ -1120,6 +1120,14 @@ MENU1  Sauer &Danfoss
                  NAME=subs__1
                  CMD=writeArray DV=DV_subs_dbox
      SEPARATOR2
+     MENU2 Flex
+	  BUTTON3 Beam element
+		NAME=var
+		CMD= interface dialog display dialog= .SDlib_plugin.dboxes.dbox_flexbeam
+	  BUTTON3 Beam contact
+		NAME=var
+		CMD= interface dialog display dialog= .SDlib_plugin.dboxes.dbox_flexbeam_contact
+     SEPARATOR2
      BUTTON2  &Cylinder
             NAME=cylinder
             CMD= interface dialog display dialog= .SDlib_plugin.dboxes.dbox_cylinder

@@ -72,6 +72,8 @@ file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_TelBoom.cmd"
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_template.cmd"))
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Add_spherical_joint.cmd"))
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Add_revolute_joint.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_flexbeam.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_flexbeam_contact.cmd"))
 !file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_backhoe.cmd"))
 
 
@@ -86,6 +88,12 @@ macro read  &
    file_name = (eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/createDbox.cmd"))  &
    wrap_in_undo = no  &
    create_panel = no
+
+macro read &
+	macro_name = .SDlib_plugin.macros.AreaInertia &
+	file_name = (eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/AreaInertia.cmd")) &
+	wrap_in_undo = no &
+	create_panel = no
 
 
 ! Create load/unload macros for the plugin: 
