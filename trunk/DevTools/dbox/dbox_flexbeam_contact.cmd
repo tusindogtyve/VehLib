@@ -90,8 +90,11 @@ interface dialog_box create  &
                         "      j_part_name= ground &",  &
                         "      ref_marker_name= (eval(\"PART_$'InnerBeam'_\" // RTOI(i) //\".\"// \"Mkr_Segment_\" //RTOI(i))) &",  &
                         "      user_function = (eval(RTOI(i))),(eval($_self.endMarker).ID),(eval($_self.jMarker).ID),(eval($_self.k1Marker).ID),(eval($_self.k2Marker).ID),(eval($_self.k3Marker).ID),(DV_$'InnerBeam'_length),1",  &
-			"      routine = \"SDlib_plugin::GFOSUB\" &",	&
+			"      !routine = \"SDlib_plugin::GFOSUB\" &",	&
                         "  !",  &
+			"  force modify direct general_force &", &
+			"	general_force_name=(eval($ModelName//\".\"// \"Contact_$'InnerBeam'_$'OuterBeam'_Seg_\" //RTOI(i))) &",  &
+			"	routine = \"SDlib_plugin::GFOSUB\" ", &
                         "  !Nice color",  &
                         "  force attributes force_name=(eval($ModelName//\".\"// \"Contact_$'InnerBeam'_$'OuterBeam'_Seg_\" //RTOI(i)))&",  &
                         "      color=YELLOW",  &
@@ -156,7 +159,10 @@ interface dialog_box create  &
                         "      j_part_name= ground &",  &
                         "      ref_marker_name= (eval(\"PART_$'OuterBeam'_\" // RTOI(i) //\".\"// \"Mkr_Segment_\" //RTOI(i))) &",  &
                         "      user_function = (eval(RTOI(i))),(PART_$'InnerBeam'_1.Mkr_Segment_1.ID),(eval($_self.jMarker.object_value).ID),(eval($_self.k1Marker).ID),(eval($_self.k2Marker).ID),(eval($_self.k3Marker).ID),(DV_$'OuterBeam'_length),0",  &
-			"      routine = \"SDlib_plugin::GFOSUB\" &",	&
+			"      !routine = \"SDlib_plugin::GFOSUB\" &",	&
+			"  force modify direct general_force &", &
+			"      general_force_name=(eval($ModelName//\".\"// \"Contact_$'OuterBeam'_$'InnerBeam'_Seg_\" //RTOI(i))) &",  &
+			"	routine = \"SDlib_plugin::GFOSUB\" ", &
                         "  !",  &
                         "  !Nice color",  &
                         "  force attributes force_name=(eval($ModelName//\".\"// \"Contact_$'OuterBeam'_$'InnerBeam'_Seg_\" //RTOI(i)))&",  &
