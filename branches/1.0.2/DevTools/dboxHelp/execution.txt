@@ -1,0 +1,101 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! INSTRUCTIONS                               !
+! Main model field in this code = $field_18  !
+! Old name field in this code   = $field_19  !
+! New name field in this code   = $field_1   !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Get the new name of the sub model
+!#####################################################!
+!                REMEMBER TO CHANGE                   !
+var mod var = $_self.NewModelName string_value = $field_1
+!#####################################################!
+
+! If there is a old sub model put the name in a variable
+!#####################################################!
+!                REMEMBER TO CHANGE                   !
+if cond = ((STR_IS_SPACE("$field_19"))==0)
+ var mod var = $_self.OldModelName string_value = $field_19
+!#####################################################!
+else 
+ var mod var = $_self.OldModelName string_value = ""
+end
+
+! if the name is changed, the model is renamed:
+if condition = (STR_Compare( $_self.OldModelName[1], $_self.NewModelName[1]) != 0 && ((STR_IS_SPACE($_self.OldModelName[1]))==0) )
+  entity modify entity = (eval($_self.MainModelName[1]//"."//$_self.OldModelName[1])) new = (eval($_self.MainModelName[1]//"."//$_self.NewModelName[1]))
+end
+
+! The old model field is updated, since the model name has been changed.
+!#####################################################!
+!                REMEMBER TO CHANGE                   !
+int field set field = $_self.field_19 string = (eval($_self.NewModelName[1]))
+!#####################################################!
+
+! it is examined if a new model should be imported or an existing should be edited
+if condition=((db_exists ("DV_model_to_change")) || (db_exists (eval($_self.NewModelName[1])//"."//"dv_width")))
+else
+  ! read the exported model.
+!#####################################################!
+!                REMEMBER TO CHANGE                   !
+  file command read file="Level3/Chassis/cs4w"
+!#####################################################!
+  model copy &
+!#####################################################!
+!                REMEMBER TO CHANGE                   !
+     model_name = cs4w &
+!#####################################################!
+     new_model_name = (eval($_self.MainModelName[1]//"."//$_self.NewModelName[1])) &
+     view_name = main.front
+!#####################################################!
+!                REMEMBER TO CHANGE                   !
+  model delete model=cs4w
+!#####################################################!
+
+end 
+
+!!! The stuff for pressing OK and Apply
+if condition = (db_exists("DV_model_to_change"))
+  var mod var = DV_subs &
+      index = (eval(DV_model_to_change[2])) &
+      string_value = (eval(NewModelName[1]))
+
+  var mod var = DV_model_to_change &
+     index = 1 &
+     string_value = (eval($_self.NewModelName[1]))
+else
+  if condition = (db_exists("DV_subs"))
+    var mod var = DV_subs &
+        index = (rows(DV_subs)+1) &
+        string_value = (eval($_self.NewModelName[1]))
+
+    var cre var = DV_model_to_change &
+       index = 1 &
+       string_value = (eval($_self.NewModelName[1]))
+    var mod var = DV_model_to_change &
+       index = 2 &
+       string_value = (rows(DV_subs)+1)
+  else
+    var cre var = (eval($_self.MainModelName[1])//"."//"DV_subs") &
+        index = 1 &
+        string_value = (eval($_self.NewModelName[1]))
+
+    var cre var = DV_model_to_change &
+       index = 1 &
+       string_value = (eval($_self.NewModelName[1]))
+    var mod var = DV_model_to_change &
+       index = 2 &
+       string_value = (1)
+  end
+  if condition = (db_exists("DV_subs_dbox"))
+    var mod var = DV_subs_dbox &
+        index = (rows(DV_subs_dbox)+1) &
+        string_value = (eval($_self))
+  else
+    var cre var = (eval($_self.MainModelName[1])//"."//"DV_subs_dbox") &
+        index = 1 &
+        string_value = (eval($_self))
+  end
+end
+
+! Below follows the code of the dialog box 
