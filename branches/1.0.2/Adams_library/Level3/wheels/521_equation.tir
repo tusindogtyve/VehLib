@@ -1,0 +1,57 @@
+$---------------------------------------------------------------------MDI_HEADER
+[MDI_HEADER]
+ FILE_TYPE     =  'tir'
+ FILE_VERSION  =  3.0
+ FILE_FORMAT   =  'ASCII'
+(COMMENTS)
+{comment_string}
+'Tire      - XXXXXX'
+'Pressure  - XXXXXX'
+'Test Date - XXXXXX'
+'Test tire'
+$--------------------------------------------------------------------------units
+[UNITS]
+ LENGTH              = 'mm'
+ FORCE               = 'newton'
+ ANGLE               = 'rad'
+ MASS                = 'kg'
+ TIME                = 'second'
+$-------------------------------------------------------------------------model
+[MODEL]
+! use mode 	1	2	3	4	11	12	13	14
+! ------------------------------------------------------------------------
+! smoothing			X	X			X	X
+! combined		X		X		X		X
+! transient                                     X       X       X       X
+!
+ PROPERTY_FILE_FORMAT    = '5.2.1'
+ USE_MODE                =  1
+$---------------------------------------------------------------------dimension
+[DIMENSION]
+ UNLOADED_RADIUS         = 504.0
+ WIDTH                   = 405.0
+ ASPECT_RATIO            = 0.6
+ RIM_RADIUS              = 250
+ RIM_WIDTH               = 400
+$---------------------------------------------------------------------parameters
+!
+ VERTICAL_FORCE_METHOD = POINT_FOLLOWER
+ LATERAL_FORCE_METHOD  = EQUATION
+!
+ vertical_stiffness = 206.0
+ vertical_stiffness_exponent = 1.1
+ vertical_damping   = 2.06
+!
+ lateral_stiffness  = 50
+ cornering_stiffness_coefficient = 50
+!
+ Mu_Static           = 0.95
+ Mu_Dynamic          = 0.75
+ Mu_Static_Velocity  = 3000
+ Mu_Dynamic_Velocity = 6000
+!
+ rolling_resistance_coefficient = 0.01
+!
+ EQUIVALENT_PLANE_ANGLE= 100
+ EQUIVALENT_PLANE_INCREMENTS= 50
+!
