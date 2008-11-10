@@ -73,7 +73,8 @@ file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_template.cmd
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Add_spherical_joint.cmd"))
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Add_revolute_joint.cmd"))
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_flexbeam.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_flexbeam_contact.cmd"))
+!file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_flexbeam_contact.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_flexbeam_contact2.cmd"))
 !file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_backhoe.cmd"))
 
 
