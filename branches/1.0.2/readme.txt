@@ -1,4 +1,4 @@
-SDlib_plugin Version 1.0.1		July 18 2008
+SDlib_plugin Version 1.0.2		Nov 10 2008
 
 This Adams plugin provides the tools for building  
 various off-road vehicles for the purpose of co-simu-
@@ -50,8 +50,29 @@ DEVELOPER INSTALLATION
 
 
 
+RELEASE NOTES v1.0.2
 
-RELEASE NOTES
+
+This version of the plugin is build with Win32 version of
+Adams 2008r1.
+
+This library is updated with two new dboxes for creating
+flexible beam elements and to create a translational 
+constraint for flexible elements within eachother.
+This new tool is not yet incorporated into any library
+components.
+
+Note: As this is a plugin, Adams does not need an explicit
+statement of the .dll during startup. The .dll is
+placed in the plugin directory - and Adams will automatically
+look for .dll's in this directory. Only difference 
+is to ad SDlib_plugin::GFOSUB to fx. a general force
+statement using a user written subroutine.
+
+
+--------------------  ¤¤  -------------------
+
+RELEASE NOTES v1.0.1
 
 This update for the first release of the Adams/View
 vehicle library solves a couple of bugs, but is mainly
@@ -107,8 +128,3 @@ done by:
    effect and are working.
 
 
-
-
-KNOWN ISSUES:
-# DLL's for the flex and telescopic tools are not yet 
-  included in the plugin.
