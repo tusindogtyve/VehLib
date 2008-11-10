@@ -1,5 +1,0 @@
-interface dialog execute dialog=$_parent undisp=yes
-if condition = (db_exists("dv_model_to_change"))
-  var del var = dv_model_to_change
-end
-createdbox
