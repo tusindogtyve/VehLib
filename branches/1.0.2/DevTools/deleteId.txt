@@ -1,0 +1,13 @@
+The program deleteID can be used for deleting id's from a .cmd -file.
+The adams id's might give problems, therefore it is better to delete them.
+
+To use the program:
+Java has to be installed on the computer: if not http://java.com/en/download/index.jsp
+Place the .cmd -file in the same directory as the program.
+Start a command prompt.
+Navigate to the folder where both the program and the file is located
+In the command prompt write:
+    java deleteID somefile
+  where somefile is the name of the .cmd -file without .cmd
+  Remember java is case sensitive.
+A file where all id's is deleted is placed in the folder.
