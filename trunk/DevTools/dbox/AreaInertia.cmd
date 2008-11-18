@@ -69,8 +69,7 @@ if cond=("$sectionType" == "hex")
 	var cre var=$_self.Iyfi real = (($_self.bi**3 * $_self.Hsi)/(12.0))
 	!
 	!Calculate the area moment of inertia of the profile
-	var cre var=$_self.iyy real=(eval(2.0*($_self.Ixt+$_self.At*$_self.dt**2) + $_self.Ixf -
-	2.0*($_self.Ixti+$_self.Ati*$_self.dti**2) - $_self.Ixfi))
+	var cre var=$_self.iyy real=(eval(2.0*($_self.Ixt+$_self.At*$_self.dt**2) + $_self.Ixf - 2.0*($_self.Ixti+$_self.Ati*$_self.dti**2) - $_self.Ixfi))
 	var cre var=$_self.izz real=(eval(2.0*$_self.Iyt + $_self.Iyf - 2.0*$_self.Iyti - $_self.Iyfi))
 	!
 	!Calculate the torsion constant, or Ixx, or torsional shape factor, or torsional stiffness coefficient.

@@ -51,6 +51,24 @@ data_element create variable  &
    initial_condition = 0.0  &
    function = ""
 !
+data_element create variable  &
+   variable_name = .cyl1.SV_ForceStatic  &
+   adams_id = 5  &
+   initial_condition = 0.0  &
+   function = ""
+!
+data_element create variable  &
+   variable_name = .cyl1.SV_cylPa  &
+   adams_id = 6  &
+   initial_condition = 0.0  &
+   function = ""
+!
+data_element create variable  &
+   variable_name = .cyl1.SV_cylPb  &
+   adams_id = 7  &
+   initial_condition = 0.0  &
+   function = ""
+!
 !--------------------------------- Materials ----------------------------------!
 !
 !
@@ -240,6 +258,17 @@ part attributes  &
    color = DARK_GRAY  &
    name_visibility = off
 !
+!--------------------------------- Equations ----------------------------------!
+!
+!
+part create equation differential_equation  &
+   differential_equation_name = .cyl1.DIFF_ForceStatic  &
+   adams_id = 1  &
+   initial_condition = 0.0  &
+   function = ""  &
+   implicit = off  &
+   static_hold = off
+!
 !----------------------------------- Joints -----------------------------------!
 !
 !
@@ -343,13 +372,30 @@ data_element modify variable  &
    variable_name = .cyl1.cylVel  &
    function = "VZ( .cyl1.PART_pis.cyl_MKR_3, .cyl1.PART_cyl.MKR_cyl_master, .cyl1.PART_cyl.MKR_cyl_master, .cyl1.PART_cyl.MKR_cyl_master)"
 !
+data_element modify variable  &
+   variable_name = .cyl1.SV_ForceStatic  &
+   function = "DIF(.cyl1.DIFF_ForceStatic)"
+!
+data_element modify variable  &
+   variable_name = .cyl1.SV_cylPa  &
+   function = "0"
+!
+data_element modify variable  &
+   variable_name = .cyl1.SV_cylPb  &
+   function = "0"
+!
+part modify equation differential_equation  &
+   differential_equation_name = .cyl1.DIFF_ForceStatic  &
+   function = "IF(MODE-5:0,1,0)*(.cyl1.ini_length-DM(.cyl1.PART_pis.cyl_MKR_3, .cyl1.PART_cyl.MKR_cyl_master))"
+!
 force modify direct single_component_force  &
    single_component_force_name = .cyl1.endforce  &
    function = "VARVAL( .cyl1.cylForce) + ",  &
               "BISTOP( ",  &
               "DZ( .cyl1.PART_pis.cyl_MKR_3, .cyl1.PART_cyl.MKR_cyl_master, .cyl1.PART_cyl.MKR_cyl_master) , ",  &
               "VZ( .cyl1.PART_pis.cyl_MKR_3, .cyl1.PART_cyl.MKR_cyl_master, .cyl1.PART_cyl.MKR_cyl_master, .cyl1.PART_cyl.MKR_cyl_master) , ",  &
-              ".cyl1.min_length , .cyl1.max_length , 50e6 , 1.0 , 20e6 , 0.01 )"
+              ".cyl1.min_length , .cyl1.max_length , 50e6 , 1.0 , 20e6 , 0.01 ) +",  &
+              "VARVAL(.cyl1.SV_ForceStatic)*IF(MODE-5:0,1,0)"
 !
 !--------------------------- Expression definitions ---------------------------!
 !
@@ -357,10 +403,10 @@ force modify direct single_component_force  &
 defaults coordinate_system  &
    default_coordinate_system = ground
 !
-geometry modify shape cylinder  &
-   cylinder_name = .cyl1.PART_cyl.CYLINDER  &
-   length = (.cyl1.min_length - .cyl1.rc)  &
-   radius = (.cyl1.rc)
+material modify  &
+   material_name = .cyl1.steel  &
+   youngs_modulus = (2.07E+011(Newton/meter**2))  &
+   density = (7801.0(kg/meter**3))
 !
 marker modify  &
    marker_name = .cyl1.PART_cyl.cyl_MKR_2  &
@@ -372,11 +418,6 @@ marker modify  &
 !
 defaults coordinate_system  &
    default_coordinate_system = .cyl1.ground
-!
-geometry modify shape cylinder  &
-   cylinder_name = .cyl1.PART_cyl.CYLINDER_2  &
-   length = (.cyl1.rc * 2)  &
-   radius = (.cyl1.rc)
 !
 marker modify  &
    marker_name = .cyl1.PART_cyl.cyl_MKR_6  &
@@ -400,6 +441,16 @@ marker modify  &
 defaults coordinate_system  &
    default_coordinate_system = .cyl1.ground
 !
+geometry modify shape cylinder  &
+   cylinder_name = .cyl1.PART_cyl.CYLINDER  &
+   length = (.cyl1.min_length - .cyl1.rc)  &
+   radius = (.cyl1.rc)
+!
+geometry modify shape cylinder  &
+   cylinder_name = .cyl1.PART_cyl.CYLINDER_2  &
+   length = (.cyl1.rc * 2)  &
+   radius = (.cyl1.rc)
+!
 marker modify  &
    marker_name = .cyl1.PART_pis.cyl_MKR_3  &
    location =   &
@@ -411,11 +462,6 @@ marker modify  &
 defaults coordinate_system  &
    default_coordinate_system = .cyl1.ground
 !
-geometry modify shape cylinder  &
-   cylinder_name = .cyl1.PART_pis.CYLINDER_3  &
-   length = (.cyl1.min_length)  &
-   radius = (.cyl1.rp)
-!
 marker modify  &
    marker_name = .cyl1.PART_pis.cyl_MKR_4  &
    location =   &
@@ -426,11 +472,6 @@ marker modify  &
 !
 defaults coordinate_system  &
    default_coordinate_system = .cyl1.ground
-!
-geometry modify shape cylinder  &
-   cylinder_name = .cyl1.PART_pis.CYLINDER_4  &
-   length = (.cyl1.rc * 2)  &
-   radius = (.cyl1.rc)
 !
 marker modify  &
    marker_name = .cyl1.PART_pis.cyl_MKR_5  &
@@ -454,10 +495,15 @@ marker modify  &
 defaults coordinate_system  &
    default_coordinate_system = .cyl1.ground
 !
-material modify  &
-   material_name = .cyl1.steel  &
-   youngs_modulus = (2.07E+011(Newton/meter**2))  &
-   density = (7801.0(kg/meter**3))
+geometry modify shape cylinder  &
+   cylinder_name = .cyl1.PART_pis.CYLINDER_3  &
+   length = (.cyl1.min_length)  &
+   radius = (.cyl1.rp)
+!
+geometry modify shape cylinder  &
+   cylinder_name = .cyl1.PART_pis.CYLINDER_4  &
+   length = (.cyl1.rc * 2)  &
+   radius = (.cyl1.rc)
 !
 model display  &
    model_name = cyl1

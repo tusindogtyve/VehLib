@@ -45,21 +45,21 @@ library create library=.SDlib_plugin.variables
 interface menubar read menubar=.gui.main.mbar file=(eval(getenv("MDI_SD_DEVTOOLS")//"/sauer-danfoss.mnu"))
 
 !!! Read dialog boxes.
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_acmCircular.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_acmRect.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_acmTeleF.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_BHPlate2.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_cs4w.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_stiffAxle.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_BH1_cyl.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_BH1.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_BHPlate1.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Loader1.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_cylinder.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_differential.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_SSLRadial.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_SSLVertical.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerLoc.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_acmCircular.cmd"))	! Ackermann axle, round appearance, symmetric cylinder
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_acmRect.cmd"))	! Ackermann axle, square appearance, symmetric cylinder
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_acmTeleF.cmd"))	! Ackermann axle, Merlo telehandler
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_BHPlate2.cmd"))	! Slewing mechanism, bakchoe
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_cs4w.cmd"))		! Chassis w. 4 wheels + road
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_stiffAxle.cmd"))	! Rigid axle
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_BH1_cyl.cmd"))	! ?
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_BH1.cmd"))		! ?
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_BHPlate1.cmd"))	! Slewing mechanism, bakhoe
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Loader1.cmd"))	! Loader
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_cylinder.cmd"))	! Cylinder
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_differential.cmd"))	! Driveline
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_SSLRadial.cmd"))	! SSL loader type 1
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_SSLVertical.cmd"))	! SSL loader type 2
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerLoc.cmd"))	! 
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerClone.cmd"))
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerOrialongaxis.cmd"))
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerOrientrelativeto.cmd"))
@@ -73,8 +73,8 @@ file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_template.cmd
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Add_spherical_joint.cmd"))
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Add_revolute_joint.cmd"))
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_flexbeam.cmd"))
-!file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_flexbeam_contact.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_flexbeam_contact2.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_contact_at_beam_elements"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_flexbeam_contact.cmd"))
 !file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_backhoe.cmd"))
 
 

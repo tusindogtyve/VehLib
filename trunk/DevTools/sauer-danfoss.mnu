@@ -1126,7 +1126,10 @@ MENU1  Sauer &Danfoss
 		CMD= interface dialog display dialog= .SDlib_plugin.dboxes.dbox_flexbeam
 	  BUTTON3 Beam contact
 		NAME=var
-		CMD= interface dialog display dialog= .SDlib_plugin.dboxes.dbox_flexbeam_contact2
+		CMD= interface dialog display dialog= .SDlib_plugin.dboxes.dbox_flexbeam_contact
+	  BUTTON3 Beam contact proper
+		NAME=var
+		CMD= interface dialog display dialog= .SDlib_plugin.dboxes.dbox_contact_at_beam_elements
      SEPARATOR2
      BUTTON2  &Cylinder
             NAME=cylinder

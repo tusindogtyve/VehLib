@@ -63,6 +63,9 @@ interface push_button create  &
               "entity modify entity = .$'option_1'.CylPos new = .$'option_1'.SV_Cyl_$'field_2'_P",  &
               "entity modify entity = .$'option_1'.CylVel new = .$'option_1'.SV_Cyl_$'field_2'_V",  &
               "entity modify entity = .$'option_1'.CylForce new = .$'option_1'.SV_Cyl_$'field_2'_F",  &
+	      "entity modify entity = .$'option_1'.SV_ForceStatic new = .$'option_1'.SV_cyl_$'field_2'_Fstatic", &
+	      "entity modify entity = .$'option_1'.SV_cylPa new = .$'option_1'.SV_cyl_$'field_2'_pa", &
+	      "entity modify entity = .$'option_1'.SV_cylPb new = .$'option_1'.SV_cyl_$'field_2'_pb", &
               "",  &
               "!!! Rename design variables",  &
               "entity modify entity = .$'option_1'.min_length new = .$'option_1'.DV_Cyl_$'field_2'_min_length",  &
@@ -80,7 +83,15 @@ interface push_button create  &
               "!!! Rename markers",  &
               "entity modify entity = .$'option_1'.PART_Cyl_$'field_2'_cyl.MKR_cyl_master new = .$'option_1'.PART_Cyl_$'field_2'_cyl.MKR_$'field_2'_cyl_master",  &
               "entity modify entity = .$'option_1'.PART_Cyl_$'field_2'_pis.cyl_MKR_3 new = .$'option_1'.PART_Cyl_$'field_2'_pis.MKR_$'field_2'_pis_slave",  &
+	      "",  &
+	      " !!! Rename Diff equation ",  &
+	      " entity modify entity = .$'option_1'.DIFF_ForceStatic new = .$'option_1'.DIFF_cyl_$'field_2'_ForceStatic", & 
               "",  &
+	     ! " !!! Modify force "
+	     ! " force modify direct single_component_force &",  &
+	     ! "    single_component_force =  .$'option_1'.F_Cyl_$'field_2'_force &",  &
+	     ! "     function = VARVAL( cylForce) + BISTOP( DZ( cyl_MKR_3, MKR_cyl_master, MKR_cyl_master) , VZ( cyl_MKR_3, MKR_cyl_master, MKR_cyl_master, MKR_cyl_master) , min_length , max_length , 50e6 , 1.0 , 20e6 , 0.01 ) + VARVAL(SV_ForceStatic)*IF(MODE-5:0,1,0)",  &
+	      "",  &
               "model merge &",  &
               "    model_name = .$option_1 &",  &
               "    into_model_name = $field_1 &",  &

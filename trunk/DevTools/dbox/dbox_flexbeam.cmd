@@ -1,9 +1,9 @@
 !
 interface dialog_box create  &
    dialog_box_name = .SDlib_plugin.dboxes.dbox_flexbeam  &
-   location = 982.0, 63.0  &
-   height = 683.0  &
-   width = 289.0  &
+   location = 969.0, 63.0  &
+   height = 690.0  &
+   width = 302.0  &
    units = pixel  &
    horiz_resizing = scale_all  &
    vert_resizing = scale_all  &
@@ -27,10 +27,17 @@ interface dialog_box create  &
                         "",  &
                         "  marker cre marker= (ground//\".\"//\"Mkr_$'field_1'_Slave\") &",  &
                         "    location = 1,0,0 &",  &
-                        "    orientation = (ORI_RELATIVE_TO( {0,0,0} , (\"ground\" //\".\"// \"Mkr_$'field_1'_Master\") ))",  &
+!                        "    orientation = (ORI_RELATIVE_TO( {0,0,0} , (\"ground\" //\".\"// \"Mkr_$'field_1'_Master\") ))",  &
+                        "    orientation = (ORI_RELATIVE_TO( {0,0,0} , (ground.Mkr_$'field_1'_Master) ))",  &
                         "",  &
-                        "  marker mod marker= (ground//\".\"//\"Mkr_$'field_1'_Master\") &",  &
-                        "    orientation = (ORI_IN_PLANE((ground//\".\"//\"Mkr_$'field_1'_Master\") , (\"ground\" //\".\"//\"Mkr_$'field_1'_Slave\") , (ground//\".\"//\"MKR_$'field_1'_RotationControl\"), \"x_xz\"))",  &
+!                        "  marker mod marker= (ground//\".\"//\"Mkr_$'field_1'_Master\") &",  &
+                        "  marker mod marker= ($'field_6'.ground.Mkr_$'field_1'_Master) &",  &
+!                        "    orientation = (ORI_IN_PLANE((ground//\".\"//\"Mkr_$'field_1'_Master\") , (\"ground\" //\".\"//\"Mkr_$'field_1'_Slave\") , (ground//\".\"//\"MKR_$'field_1'_RotationControl\"), \"x_xz\"))",  &
+                        "    orientation = (ORI_IN_PLANE(($'field_6'.ground.Mkr_$'field_1'_Master) , ($'field_6.ground.Mkr_$'field_1'_Slave) , ($'field_6'.ground.MKR_$'field_1'_RotationControl), \"x_xz\"))",  &
+			"",  &
+!			"  marker mod marker= (ground//\".\"//\"Mkr_$'field_1'_Slave\")  &",  &
+			"  marker mod marker= ($'field_6'.ground.Mkr_$'field_1'_Slave)  &",  &
+			"    location = (LOC_RELATIVE_TO( {$field_7,0,0} , $'field_6'.ground.Mkr_$'field_1'_Master)) ",  &
                         "end",  &
                         "",  &
                         "if cond=(db_exists(\"$field_6.DV_$'field_1'_height\"))",  &
@@ -378,7 +385,7 @@ interface dialog_box create  &
 !
 interface push_button create  &
    push_button_name = .SDlib_plugin.dboxes.dbox_flexbeam.button_1  &
-   location = 209.0, 654.0  &
+   location = 222.0, 661.0  &
    height = 25.0  &
    width = 76.0  &
    units = pixel  &
@@ -389,7 +396,7 @@ interface push_button create  &
 !
 interface push_button create  &
    push_button_name = .SDlib_plugin.dboxes.dbox_flexbeam.button_2  &
-   location = 131.0, 654.0  &
+   location = 144.0, 661.0  &
    height = 25.0  &
    width = 76.0  &
    units = pixel  &
@@ -400,7 +407,7 @@ interface push_button create  &
 !
 interface push_button create  &
    push_button_name = .SDlib_plugin.dboxes.dbox_flexbeam.button_3  &
-   location = 53.0, 654.0  &
+   location = 66.0, 661.0  &
    height = 25.0  &
    width = 76.0  &
    units = pixel  &
@@ -470,7 +477,7 @@ interface field create  &
    vert_resizing = attach_top  &
    scrollable = no  &
    editable = yes  &
-   preload_strings = "4"  &
+   preload_strings = "9"  &
    required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
@@ -513,8 +520,10 @@ interface field create  &
    required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
-   string_type = literal  &
-   add_quotes = no
+   numeric_type = real  &
+   upper_check = none  &
+   lower_check = gt  &
+   lower_limit = 0.0
 !
 interface field create  &
    field_name = .SDlib_plugin.dboxes.dbox_flexbeam.field_4  &
@@ -530,8 +539,10 @@ interface field create  &
    required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
-   string_type = literal  &
-   add_quotes = no
+   numeric_type = real  &
+   upper_check = none  &
+   lower_check = gt  &
+   lower_limit = 0.0
 !
 interface field create  &
    field_name = .SDlib_plugin.dboxes.dbox_flexbeam.field_5  &
@@ -547,8 +558,10 @@ interface field create  &
    required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
-   string_type = literal  &
-   add_quotes = no
+   numeric_type = real  &
+   upper_check = none  &
+   lower_check = gt  &
+   lower_limit = 0.0
 !
 interface label create  &
    label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_5  &
@@ -643,8 +656,10 @@ interface field create  &
    required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
-   string_type = literal  &
-   add_quotes = no
+   numeric_type = real  &
+   upper_check = none  &
+   lower_check = gt  &
+   lower_limit = 0.0
 !
 interface label create  &
    label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_10  &
@@ -659,7 +674,7 @@ interface label create  &
 !
 interface container create  &
    container_name = .SDlib_plugin.dboxes.dbox_flexbeam.cont_rect  &
-   location = 4.0, 251.0  &
+   location = 4.0, 285.0  &
    height = 365.0  &
    width = 281.0  &
    units = pixel  &
@@ -679,14 +694,15 @@ interface label create  &
 !
 interface label create  &
    label_name = .SDlib_plugin.dboxes.dbox_flexbeam.cont_rect.label_16  &
-   location = 4.0, 31.0  &
+   location = 4.0, 34.0  &
    height = 327.0  &
    width = 272.0  &
    units = pixel  &
    horiz_resizing = attach_left  &
    vert_resizing = attach_top  &
    justified = left  &
-   icon_file = "flexbeam/rect_profile"
+!   icon_file = "(eval(getenv(\"MDI_USER_PLUGIN_DIR\")// \" /myplugin/IconFiles/rect \"))"
+   icon_file = "F:\Arbejde\1.0.2\DevTools\dbox\rect"
 !
 interface container create  &
    container_name = .SDlib_plugin.dboxes.dbox_flexbeam.cont_hex  &
@@ -749,11 +765,12 @@ interface label create  &
    horiz_resizing = attach_left  &
    vert_resizing = attach_top  &
    justified = center  &
-   icon_file = "flexbeam/hex_profile"
+   icon_file = "F:\Arbejde\1.0.2\DevTools\dbox\hex"
 !
 interface separator create  &
    separator_name = .SDlib_plugin.dboxes.dbox_flexbeam.sep_2  &
-   location = 4.0, 249.0  &
+   location = 4.0, 279.0  &
+   height = 2.0  &
    width = 281.0  &
    units = pixel  &
    horiz_resizing = attach_left  &
@@ -769,3 +786,33 @@ interface label create  &
    vert_resizing = attach_top  &
    justified = left  &
    text = "Beam profile properties"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_7  &
+   location = 4.0, 250.0  &
+   height = 25.0  &
+   width = 219.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "Length of beam"
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_flexbeam.field_7  &
+   location = 225.0, 250.0  &
+   height = 25.0  &
+   width = 60.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "2.0"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = none  &
+   lower_check = gt  &
+   lower_limit = 0.0
