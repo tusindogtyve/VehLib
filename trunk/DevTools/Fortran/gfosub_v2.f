@@ -1,5 +1,30 @@
-      SUBROUTINE GFOSUB(ID, TIME, PAR, NPAR, DFLAG,
+SUBROUTINE GFOSUB(ID, TIME, PAR, NPAR, DFLAG,
      &                  IFLAG, RESULT)
+
+C This file is part of SDlib_plugin.
+C    
+C  Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
+C
+C Permission is hereby granted, free of charge, to any person obtaining
+C a copy of this software and associated documentation files (the
+C "Software"), to deal in the Software without restriction, including
+C without limitation the rights to use, copy, modify, merge, publish,
+C distribute, sublicense, and/or sell copies of the Software, and to
+C permit persons to whom the Software is furnished to do so, subject to
+C the following conditions:
+C
+C The above copyright notice and this permission notice shall be
+C included in all copies or substantial portions of the Software.
+C 
+C THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+C EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+C MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+C NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+C LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+C OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+C WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
 C
 C === Type and dimension statements =======================
 C
