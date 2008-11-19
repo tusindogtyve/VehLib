@@ -1,11 +1,30 @@
-!-----------------------------------------------------------------------!
-! Start up file for SD specialized Adams install			!
-!									!
-! History:								!
-! Dec-19-2007	Final version				AAU-student	!
-! Jan-03-2007	Added setting of directions		JBM		!
-!									!
-!-----------------------------------------------------------------------!
+! This file is part of SDlib_plugin.
+!    
+!    SDlib_plugin is a Adams/view customized plugin for creating and 
+!    assembling off-road vehicles. The intention of the library is to
+!    crate models with the target of co-simulation.
+!
+!    Copyright (C) 2008 Sauer-danfoss Inc. (http://www.sauer-danfoss.com)
+!
+!    SDlib_plugin is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+!
+!    SDlib_plugin is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+!
+!    You should have received a copy of the GNU General Public License
+!    along with SDlib_plugin.  If not, see <http://www.gnu.org/licenses/>.
+!
+! Contact information:
+!	Sauer-Danfoss
+!	Nordborgvej 81 
+!	6430 Denmark
+!	att. Systems and Application Engineering
+
 
 
 if cond = (db_exists("Model_1")==0)
@@ -59,45 +78,48 @@ file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_cylinder.cmd
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_differential.cmd"))	! Driveline
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_SSLRadial.cmd"))	! SSL loader type 1
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_SSLVertical.cmd"))	! SSL loader type 2
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerLoc.cmd"))	! 
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerClone.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerOrialongaxis.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerOrientrelativeto.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerLocOri.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Stabi1.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_driveline.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_testmodel.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/arrayShow.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_TelBoom.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_template.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Add_spherical_joint.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Add_revolute_joint.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_flexbeam.cmd"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_contact_at_beam_elements"))
-file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_flexbeam_contact.cmd"))
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerLoc.cmd"))	! Marker loc
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerClone.cmd"))	! Marker clone
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerOrialongaxis.cmd"))		! Marker orientation along
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerOrientrelativeto.cmd"))	! Marker orientation relative
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_MarkerLocOri.cmd"))	! Marker locate and orientate
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Stabi1.cmd"))	! Merlo telehandler stabilizers
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_driveline.cmd"))	! Driveline
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_testmodel.cmd"))	! Empty test model
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/arrayShow.cmd"))		! Macro to display edit sub-model dbox
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_TelBoom.cmd"))	! Telehandler boom v.1
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_template.cmd"))	! Dbox template
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Add_spherical_joint.cmd"))	! Spherical joint
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Add_revolute_joint.cmd"))	! Revolute joint
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_flexbeam.cmd"))		! Generate flexible beam (finite segment)
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_contact_at_beam_elements"))	! Contact between flexible beams
+!file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_flexbeam_contact.cmd"))
 !file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_backhoe.cmd"))
 
 
-macro read  &
+! Write array macro, called by arrayshow
+macro read  & 
    macro_name = .SDlib_plugin.macros.writeArray  &
    file_name = (eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/writeArray.cmd"))  &
    wrap_in_undo = no  &
    create_panel = no
 
-macro read  &
+! Create dbox macro, called by arrayshow 
+macro read  & 
    macro_name = .SDlib_plugin.macros.createDbox  &
    file_name = (eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/createDbox.cmd"))  &
    wrap_in_undo = no  &
    create_panel = no
 
-macro read &
+! Macro to calculate areaInertia of flexbeam
+macro read & 
 	macro_name = .SDlib_plugin.macros.AreaInertia &
 	file_name = (eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/AreaInertia.cmd")) &
 	wrap_in_undo = no &
 	create_panel = no
 
 
-! Create load/unload macros for the plugin: 
+! Load plugin macro 
 macro create &
       macro=.SDlib_plugin.load  &
       wrap_in_undo=No &
@@ -125,7 +147,7 @@ macro create &
 			      "      y_comp = 0.0 & ", &
 			      "      z_comp = -9.80665 ", &
 			      "  end "
-
+! Unload plugin macro
 macro create &
       macro=.SDlib_plugin.unload  &
       wrap_in_undo=No &
