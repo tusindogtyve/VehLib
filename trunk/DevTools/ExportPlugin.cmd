@@ -21,5 +21,5 @@
 ! OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 ! WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-file binary write file_name = "SDlib_plugin.bin" &
+file binary write file_name = "../Adams_library/myplugins/SDlib_plugin.bin" &
 	entity_name = .SDlib_plugin, .gui.main.mbar.SauerDanfoss

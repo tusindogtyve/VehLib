@@ -13,12 +13,9 @@
 
   <Plugin>
     <Description>
-      <![CDATA[Site macro loader plug-in.]]>
-    </Description>
-    <Version>1.0.2</Version>
-    <Author>Sauer-Danfoss</Author>
-    <Type>Public</Type>
-    <LicenseFeature>Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
+      <![CDATA[Off-road vehicle library
+	  
+Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -38,7 +35,12 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-</LicenseFeature>
+]]>
+    </Description>
+    <Version>1.0.2</Version>
+    <Author>Sauer-Danfoss</Author>
+    <Type>Public</Type>
+    <LicenseFeature></LicenseFeature>
     <ValidWith>aview</ValidWith>  
   </Plugin>
 
