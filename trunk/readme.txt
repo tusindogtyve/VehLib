@@ -1,4 +1,4 @@
-SDlib_plugin Version 1.0.1		July 18 2008
+SDlib_plugin Version 1.0.1		Nov 18 2008
 
 This Adams plugin provides the tools for building  
 various off-road vehicles for the purpose of co-simu-
