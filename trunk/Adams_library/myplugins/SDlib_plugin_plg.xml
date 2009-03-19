@@ -3,12 +3,12 @@
 <MSCPlugin xmlns="http://www.adams.com/:MDI" xmlns:kernel="http://www.adams.com/:kernel">
 
   <kernel:Bibliography>
-    <File schema="plugin" version="1.0.2" publicationDate="2008-18-07 00:00:48 -0500" />
-    <Revision version="1.0.2" />
+    <File schema="plugin" version="1.0.3" publicationDate="2009-18-03 00:00:48 -0500" />
+    <Revision version="1.0.3" />
     <Corporation author="Sauer-Danfoss" URI="http://www.Sauer-Danfoss.com/" />
     <Author user="jensbmadsen" name="Sauer-Danfoss" />
     <Environment hostName="Unkown" operatingSystem="Windows" />
-    <Application name="MSC.ADAMS" version="2008.R1" />
+    <Application name="MDADAMS" version="2009.R4" />
   </kernel:Bibliography>
 
   <Plugin>
