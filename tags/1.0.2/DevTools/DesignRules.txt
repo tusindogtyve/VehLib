@@ -1,0 +1,29 @@
+DESIGN RULES
+
+Marker:
+- Master marker of the model is named MKR_master.
+- Other markers are named by ADAMS default or MKR_slave_*, where * is replaced by a descriptive name.
+- Master marker of sub model is located in the mittle between the wheels. (applies to axles)
+- Master marker of sub model of rear axle follows master marker of the model, master marker of model is made along with the chassis.
+- Master marker of sub model of front axle follows slave marker: MKR_slave_wheelBase.
+- Name of marker where wheels are to be located is MKR_subModel_wheel_FR, where subModel is name of steering sub model and FR refers to 'front right'
+- Name of marker on wheels is ???
+
+Carakteristic parameters
+- Wheelbase is controled by chassis.
+- Distance between wheels (y) is controlled by steering mechanism sub model.
+
+State variables
+- Naming of state variables follows: SV_subModel_cylName_F, where subModel is replaced by the name of the sub model, cylName is replaced by name of cylinder, and F can be replaced by P og V (F = force, P = position, V = velocity)
+
+Parts
+
+Design variables
+
+
+
+
+Controlling Equilibrium Values When Using System Elements
+During a static simulation, Adams/Solver finds equilibrium values for user-defined differential variables (differential equations, general state equations, linear state equations, and transfer functions), as well as for the displacement and force variables. The equilibrium values it finds change the initial conditions for subsequent simulations. To help you control the static simulation results, Adams/View provides an option that you can set to keep the values constant. This option is called static hold. Static hold retains the user-specified initial conditions as the static equilibrium values.
+If you do not set static hold, Adams/Solver sets the time derivatives of the user-defined variables to zero during a static simulation, and uses the user-supplied initial-condition values only as initial guesses for the static solution. Generally, the final equilibrium values are not the same as the initial condition values. Adams/Solver then uses the equilibrium values of the user-defined variables as the initial values for any subsequent simulation, just as with the equilibrium displacement and force values.
+If you do set static hold, Adams/Solver retains the user-specified initial conditions as the static equilibrium values. Therefore, the final equilibrium values are the same as the user-specified initial conditions. Note that this does not guarantee that the time derivatives of the user-defined variable are zero after a static simulation.

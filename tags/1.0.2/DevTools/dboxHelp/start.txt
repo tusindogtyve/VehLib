@@ -1,0 +1,58 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! INSTRUCTIONS                               !
+! Main model field in this code = $field_18  !
+! Old name field in this code   = $field_19  !
+! New name field in this code   = $field_1   !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if condition = (db_exists("NewModelName"))
+  var del var = NewModelName
+end
+
+if condition = (db_exists("OldModelName"))
+  var del var = OldModelName
+end
+
+if condition = (db_exists("MainModelName"))
+  var del var = MainModelName
+end
+! These variables holds the names of the models.
+var cre var = $_self.NewModelName string_value = ""
+var cre var = $_self.OldModelName string_value = ""
+
+! Find the name of the main model.
+if cond = (db_ANCESTOR(db_default( .system_defaults, "model"),"model") != (none))
+  var cre var = $_self.MainModelName string_value = (eval(db_ANCESTOR(db_default( .system_defaults, "model"),"model")))
+else
+  var cre var = $_self.MainModelName string_value = (eval(db_default( .system_defaults, "model")))
+end
+!#####################################################!
+!                REMEMBER TO CHANGE                   !
+int field set field= $_self.field_18 string = ($_self.MainModelName[1])
+!#####################################################!
+
+! It is examined, if the purpose is to change an existing model or to import a new one
+if condition = (db_exists("dv_model_to_change"))
+  !Find the old name of the submodel
+  !#####################################################!
+  !                REMEMBER TO CHANGE                   !
+  int field set field = $_self.field_19 string = (dv_model_to_change[1])
+  !#####################################################!
+  ! By default, the new name of the model is set to the original name
+  !#####################################################!
+  !                REMEMBER TO CHANGE                   !
+  int field set field= $_self.field_1 string = $field_19
+  !#####################################################!
+
+  ! Read the values that was used last time for this sub model
+  !#####################################################!
+  !                REMEMBER TO CHANGE                   !
+  int field set field = $_self.field_? string = ($'field_18.$'field_1'.DV_csZ)
+  !#####################################################!
+
+else
+  !There is no old model name...
+!#####################################################!
+!                REMEMBER TO CHANGE                   !
+  int field set field = $_self.field_19 string = ""
+!#####################################################!
+end
