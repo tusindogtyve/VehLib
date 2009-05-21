@@ -1,3 +1,0 @@
-@echo Link dll... 
-@echo ______________________________________________
-adams07r1 cr-u n user.obj -n gfosub_c.dll
