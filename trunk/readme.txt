@@ -1,4 +1,4 @@
-SDlib_plugin Version 1.0.1		Nov 18 2008
+SDlib_plugin Version 1.0.2		Nov 10 2008
 
 This Adams plugin provides the tools for building  
 various off-road vehicles for the purpose of co-simu-
@@ -50,8 +50,29 @@ DEVELOPER INSTALLATION
 
 
 
+RELEASE NOTES v1.0.2
 
-RELEASE NOTES
+
+This version of the plugin is build with Win32 version of
+Adams 2008r1.
+
+This library is updated with two new dboxes for creating
+flexible beam elements and to create a translational 
+constraint for flexible elements within eachother.
+This new tool is not yet incorporated into any library
+components.
+
+Note: As this is a plugin, Adams does not need an explicit
+statement of the .dll during startup. The .dll is
+placed in the plugin directory - and Adams will automatically
+look for .dll's in this directory. Only difference 
+is to ad SDlib_plugin::GFOSUB to fx. a general force
+statement using a user written subroutine.
+
+
+--------------------  ¤¤  -------------------
+
+RELEASE NOTES v1.0.1
 
 This update for the first release of the Adams/View
 vehicle library solves a couple of bugs, but is mainly
@@ -107,33 +128,3 @@ done by:
    effect and are working.
 
 
-
-
-KNOWN ISSUES:
-# DLL's for the flex and telescopic tools are not yet 
-  included in the plugin.
-
-
-
-LICENSE:
-
-Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
