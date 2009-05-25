@@ -1,6 +1,5 @@
 ﻿SDlib_plugin Version 1.0.2		Nov 10 2008
 
-
 This Adams plugin provides the tools for building  
 various off-road vehicles for the purpose of co-simu-
 lation with Matlab/Simulink.
