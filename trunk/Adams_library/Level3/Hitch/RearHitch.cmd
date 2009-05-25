@@ -109,12 +109,14 @@ data_element create variable  &
 !
 material create  &
    material_name = .Model_1.steel  &
+   adams_id = 4  &
    youngs_modulus = 2.07E+011  &
    poissons_ratio = 0.29  &
    density = 7801.0
 !
 material create  &
    material_name = .Model_1.steel_2  &
+   adams_id = 3  &
    youngs_modulus = 2.07E+011  &
    poissons_ratio = 0.29  &
    density = 7801.0
@@ -156,6 +158,12 @@ marker create  &
    location = 0.0, 0.0, 0.0  &
    orientation = 0.0d, 0.0d, 0.0d
 !
+marker create  &
+   marker_name = .Model_1.ground.MARKER_94  &
+   adams_id = 94  &
+   location = 0.1147810219, 0.0, -0.3468978102  &
+   orientation = -90.0d, 0.0d, 0.0d
+!
 !---------------------------------- MainBody ----------------------------------!
 !
 !
@@ -181,6 +189,7 @@ marker create  &
 !
 marker create  &
    marker_name = .Model_1.MainBody.cm  &
+   adams_id = 95  &
    location = 0.1147810219, 0.0, -0.3468978102  &
    orientation = 90.0d, 0.0d, 1.0034442014d
 !
@@ -272,6 +281,36 @@ marker create  &
    marker_name = .Model_1.MainBody.MARKER_75  &
    adams_id = 75  &
    location = 0.15, 0.45, -0.7  &
+   orientation = -90.0d, 0.0d, 0.0d
+!
+marker create  &
+   marker_name = .Model_1.MainBody.ChainL  &
+   adams_id = 85  &
+   location = 0.0, -0.6, -0.9  &
+   orientation = 0.0d, 0.0d, 0.0d
+!
+marker create  &
+   marker_name = .Model_1.MainBody.ChainR  &
+   adams_id = 86  &
+   location = 0.0, 0.6, -0.9  &
+   orientation = 0.0d, 0.0d, 0.0d
+!
+marker create  &
+   marker_name = .Model_1.MainBody.MARKER_90  &
+   adams_id = 90  &
+   location = 0.0, -0.6, -0.9  &
+   orientation = 0.0d, 0.0d, 0.0d
+!
+marker create  &
+   marker_name = .Model_1.MainBody.MARKER_92  &
+   adams_id = 92  &
+   location = 0.0, 0.6, -0.9  &
+   orientation = 0.0d, 0.0d, 0.0d
+!
+marker create  &
+   marker_name = .Model_1.MainBody.MARKER_93  &
+   adams_id = 93  &
+   location = 0.1147810219, 0.0, -0.3468978102  &
    orientation = -90.0d, 0.0d, 0.0d
 !
 part create rigid_body mass_properties  &
@@ -477,6 +516,7 @@ marker create  &
 !
 marker create  &
    marker_name = .Model_1.LowerLinkL.cm  &
+   adams_id = 97  &
    location = 0.5149924874, -0.6427490352, -0.7  &
    orientation = 89.999999988d, 58.3467785901d, 7.2171044101E-008d
 !
@@ -515,6 +555,18 @@ marker create  &
    adams_id = 77  &
    location = 0.5, -0.65, -0.7  &
    orientation = -90.0d, 0.0d, 0.0d
+!
+marker create  &
+   marker_name = .Model_1.LowerLinkL.Chain  &
+   adams_id = 87  &
+   location = 0.4631250987, -0.6157639656, -0.7  &
+   orientation = 89.999999988d, 58.3467785901d, 7.2171044101E-008d
+!
+marker create  &
+   marker_name = .Model_1.LowerLinkL.MARKER_89  &
+   adams_id = 89  &
+   location = 0.4631250987, -0.6157639656, -0.7  &
+   orientation = 0.0d, 0.0d, 0.0d
 !
 part create rigid_body mass_properties  &
    part_name = .Model_1.LowerLinkL  &
@@ -570,21 +622,6 @@ part attributes  &
    color = MAGENTA  &
    name_visibility = off
 !
-!---------------------------------- ground_2 ----------------------------------!
-!
-!
-defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
-!
-part create rigid_body name_and_position  &
-   part_name = .Model_1.ground_2  &
-   adams_id = 3  &
-   location = 0.0, 0.0, 0.0  &
-   orientation = 0.0d, 0.0d, 0.0d
-!
-defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground_2
-!
 !---------------------------------- TopLinkL ----------------------------------!
 !
 !
@@ -610,6 +647,7 @@ marker create  &
 !
 marker create  &
    marker_name = .Model_1.TopLinkL.cm  &
+   adams_id = 96  &
    location = 0.1498642316, -0.5853911821, 0.0  &
    orientation = 89.999999993d, 76.1682372679d, -6.8433127589E-009d
 !
@@ -725,37 +763,7 @@ geometry create shape link  &
 part attributes  &
    part_name = .Model_1.TopLinkL  &
    color = MAIZE  &
-   visibility = on
-!
-!----------------------------------- PART_7 -----------------------------------!
-!
-!
-defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
-!
-part create rigid_body name_and_position  &
-   part_name = .Model_1.PART_7  &
-   adams_id = 7  &
-   location = 0.0, 0.0, 0.0  &
-   orientation = 0.0d, 0.0d, 0.0d
-!
-defaults coordinate_system  &
-   default_coordinate_system = .Model_1.PART_7
-!
-! ****** Markers for current part ******
-!
-marker create  &
-   marker_name = .Model_1.PART_7.cm  &
-   location = 0.2, -0.45, -0.7  &
-   orientation = -1.8163737166E-008d, -90.0d, 0.0d
-!
-part create rigid_body mass_properties  &
-   part_name = .Model_1.PART_7  &
-   material_type = .Model_1.steel
-!
-part attributes  &
-   part_name = .Model_1.PART_7  &
-   color = RED  &
+   visibility = on  &
    name_visibility = off
 !
 !--------------------------------- LowerLinkR ---------------------------------!
@@ -828,6 +836,18 @@ marker create  &
    adams_id = 81  &
    location = 0.5, 0.65, -0.7  &
    orientation = -90.0d, 0.0d, 0.0d
+!
+marker create  &
+   marker_name = .Model_1.LowerLinkR.Chain  &
+   adams_id = 88  &
+   location = 0.4631250987, 0.6157639656, -0.7  &
+   orientation = -89.999999988d, 58.3467785901d, 179.9999999804d
+!
+marker create  &
+   marker_name = .Model_1.LowerLinkR.MARKER_91  &
+   adams_id = 91  &
+   location = 0.4631250987, 0.6157639656, -0.7  &
+   orientation = 0.0d, 0.0d, 0.0d
 !
 part create rigid_body mass_properties  &
    part_name = .Model_1.LowerLinkR  &
@@ -914,6 +934,7 @@ marker create  &
 !
 marker create  &
    marker_name = .Model_1.LinkageL.cm  &
+   adams_id = 99  &
    location = 0.5, -0.65, -0.35  &
    orientation = 180.0d, 0.0d, -89.9999881099d
 !
@@ -978,6 +999,7 @@ marker create  &
 !
 marker create  &
    marker_name = .Model_1.LinkageR.cm  &
+   adams_id = 100  &
    location = 0.5, 0.65, -0.35  &
    orientation = 180.0d, 0.0d, -89.9999881099d
 !
@@ -1347,6 +1369,7 @@ part create equation differential_equation  &
 !
 constraint create joint spherical  &
    joint_name = .Model_1.Jt_HitchL_Pis  &
+   adams_id = 13  &
    i_marker_name = .Model_1.TopLinkL.Mkr_CylMount  &
    j_marker_name = .Model_1.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave
 !
@@ -1366,6 +1389,7 @@ constraint attributes  &
 !
 constraint create joint spherical  &
    joint_name = .Model_1.Jt_HitchL_Cyl  &
+   adams_id = 14  &
    i_marker_name = .Model_1.MainBody.CylL1  &
    j_marker_name = .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master
 !
@@ -1375,6 +1399,7 @@ constraint attributes  &
 !
 constraint create joint spherical  &
    joint_name = .Model_1.Jt_HitchR_Pis  &
+   adams_id = 15  &
    i_marker_name = .Model_1.TopLinkR.Mkr_CylMount  &
    j_marker_name = .Model_1.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave
 !
@@ -1394,6 +1419,7 @@ constraint attributes  &
 !
 constraint create joint spherical  &
    joint_name = .Model_1.Jt_HitchR_Cyl  &
+   adams_id = 16  &
    i_marker_name = .Model_1.MainBody.CylR1  &
    j_marker_name = .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master
 !
@@ -1481,8 +1507,27 @@ constraint attributes  &
    constraint_name = .Model_1.JOINT_11  &
    name_visibility = off
 !
+constraint create joint fixed  &
+   joint_name = .Model_1.JOINT_12  &
+   adams_id = 12  &
+   i_marker_name = .Model_1.MainBody.MARKER_93  &
+   j_marker_name = .Model_1.ground.MARKER_94
+!
+constraint attributes  &
+   constraint_name = .Model_1.JOINT_12  &
+   name_visibility = off
+!
 !----------------------------------- Forces -----------------------------------!
 !
+!
+force create direct single_component_force  &
+   single_component_force_name = .Model_1.SFORCE_ChainL  &
+   adams_id = 3  &
+   type_of_freedom = translational  &
+   i_marker_name = .Model_1.LowerLinkL.MARKER_89  &
+   j_marker_name = .Model_1.MainBody.MARKER_90  &
+   action_only = off  &
+   function = ""
 !
 force create direct single_component_force  &
    single_component_force_name = .Model_1.F_Cyl_HitchL_force  &
@@ -1502,18 +1547,44 @@ force create direct single_component_force  &
    action_only = off  &
    function = ""
 !
+force create direct single_component_force  &
+   single_component_force_name = .Model_1.SFORCE_ChainR  &
+   adams_id = 4  &
+   type_of_freedom = translational  &
+   i_marker_name = .Model_1.LowerLinkR.MARKER_91  &
+   j_marker_name = .Model_1.MainBody.MARKER_92  &
+   action_only = off  &
+   function = ""
+!
 !----------------------------- Simulation Scripts -----------------------------!
 !
 !
 simulation script create  &
    sim_script_name = .Model_1.Last_Sim  &
-   commands =   &
-              "simulation single_run transient type=auto_select end_time=0.5 number_of_steps=100 model_name=.cyl1 initial_static=no"
+   commands = "simulation single_run equilibrium model_name=.Model_1"
 !
 simulation script create  &
    sim_script_name = .Model_1.Last_Sim_2  &
    commands =   &
               "simulation single_run transient type=auto_select end_time=0.5 number_of_steps=100 model_name=.cyl1 initial_static=no"
+!
+!------------------------------ Dynamic Graphics ------------------------------!
+!
+!
+defaults coordinate_system  &
+   default_coordinate_system = .Model_1.ground
+!
+geometry create shape force  &
+   force_name = .Model_1.SFORCE_3_force_graphic_1  &
+   adams_id = 100  &
+   force_element_name = .Model_1.SFORCE_ChainL  &
+   applied_at_marker_name = .Model_1.LowerLinkL.MARKER_89
+!
+geometry create shape force  &
+   force_name = .Model_1.SFORCE_4_force_graphic_1  &
+   adams_id = 101  &
+   force_element_name = .Model_1.SFORCE_ChainR  &
+   applied_at_marker_name = .Model_1.LowerLinkR.MARKER_91
 !
 !---------------------------------- Accgrav -----------------------------------!
 !
@@ -1754,6 +1825,54 @@ variable create  &
    delta_type = relative  &
    real_value = 4.0E-002
 !
+variable create  &
+   variable_name = .Model_1.DV_ChainX  &
+   units = "no_units"  &
+   range = -1.0, 1.0  &
+   use_allowed_values = no  &
+   delta_type = relative  &
+   real_value = 0.0
+!
+variable create  &
+   variable_name = .Model_1.DV_ChainY  &
+   units = "length"  &
+   range = -1.0, 1.0  &
+   use_allowed_values = no  &
+   delta_type = relative  &
+   real_value = 1.2
+!
+variable create  &
+   variable_name = .Model_1.DV_ChainZ  &
+   units = "length"  &
+   range = -1.0, 1.0  &
+   use_allowed_values = no  &
+   delta_type = relative  &
+   real_value = 0.9
+!
+variable create  &
+   variable_name = .Model_1.DV_LowerLinkChain  &
+   units = "length"  &
+   range = -1.0, 1.0  &
+   use_allowed_values = no  &
+   delta_type = relative  &
+   real_value = 0.27
+!
+variable create  &
+   variable_name = .Model_1.DV_ChainMax  &
+   units = "length"  &
+   range = -1.0, 1.0  &
+   use_allowed_values = no  &
+   delta_type = relative  &
+   real_value = 0.35
+!
+variable create  &
+   variable_name = .Model_1.DV_ChainMin  &
+   units = "length"  &
+   range = -1.0, 1.0  &
+   use_allowed_values = no  &
+   delta_type = relative  &
+   real_value = 0.2
+!
 !---------------------------- Function definitions ----------------------------!
 !
 !
@@ -1814,6 +1933,10 @@ part modify equation differential_equation  &
    function = "IF(MODE-5:0,1,0)*(.Model_1.DV_Cyl_HitchR_ini_length-DM(.Model_1.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))"
 !
 force modify direct single_component_force  &
+   single_component_force_name = .Model_1.SFORCE_ChainL  &
+   function = "BISTOP( DM(.Model_1.LowerLinkL.Chain, .Model_1.MainBody.ChainL),VR(.Model_1.LowerLinkL.Chain, .Model_1.MainBody.ChainL) , .Model_1.DV_ChainMin , .Model_1.DV_ChainMax , 1e5 , 1.1 , 2.5e3 , 1e-3 )"
+!
+force modify direct single_component_force  &
    single_component_force_name = .Model_1.F_Cyl_HitchL_force  &
    function = "VARVAL( .Model_1.SV_Cyl_HitchL_F) + ",  &
               "BISTOP( ",  &
@@ -1830,6 +1953,10 @@ force modify direct single_component_force  &
               "VZ( .Model_1.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master) , ",  &
               ".Model_1.DV_Cyl_HitchR_min_length , .Model_1.DV_Cyl_HitchR_max_length , 50e6 , 1.0 , 20e6 , 0.01 ) +",  &
               "VARVAL(.Model_1.SV_cyl_HitchR_Fstatic)*IF(MODE-5:0,1,0)"
+!
+force modify direct single_component_force  &
+   single_component_force_name = .Model_1.SFORCE_ChainR  &
+   function = "BISTOP( DM(.Model_1.LowerLinkR.Chain, .Model_1.MainBody.ChainR),VR(.Model_1.LowerLinkR.Chain, .Model_1.MainBody.ChainR) ,.Model_1.DV_ChainMin , .Model_1.DV_ChainMax  , 1e5 , 1.1 , 2.5e3 , 1e-3 )"
 !
 !--------------------------- Expression definitions ---------------------------!
 !
@@ -1965,6 +2092,24 @@ geometry modify shape block  &
       (.Model_1.DV_CylMountOffsetX - .Model_1.DV_BottLinkMountOffsetX),  &
       (-0.1meter),  &
       (.Model_1.DV_CylMountBodyWidth)
+!
+marker modify  &
+   marker_name = .Model_1.MainBody.ChainL  &
+   location =   &
+      (LOC_RELATIVE_TO({.Model_1.DV_ChainX, -.Model_1.DV_ChainY / 2, -.Model_1.DV_ChainZ}, .Model_1.ground.Mkr_master))  &
+   relative_to = .Model_1.MainBody
+!
+defaults coordinate_system  &
+   default_coordinate_system = .Model_1.ground
+!
+marker modify  &
+   marker_name = .Model_1.MainBody.ChainR  &
+   location =   &
+      (LOC_RELATIVE_TO({.Model_1.DV_ChainX, .Model_1.DV_ChainY / 2, -.Model_1.DV_ChainZ}, .Model_1.ground.Mkr_master))  &
+   relative_to = .Model_1.MainBody
+!
+defaults coordinate_system  &
+   default_coordinate_system = .Model_1.ground
 !
 material modify  &
    material_name = .Model_1.steel_2  &
@@ -2292,6 +2437,17 @@ defaults coordinate_system  &
    default_coordinate_system = .Model_1.ground
 !
 marker modify  &
+   marker_name = .Model_1.LowerLinkL.Chain  &
+   location =   &
+      (LOC_RELATIVE_TO({.Model_1.DV_LowerLinkChain, 0, 0}, .Model_1.LowerLinkL.MARKER_32))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkL.cm))  &
+   relative_to = .Model_1.LowerLinkL
+!
+defaults coordinate_system  &
+   default_coordinate_system = .Model_1.ground
+!
+marker modify  &
    marker_name = .Model_1.LowerLinkR.MARKER_30  &
    location =   &
       (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.POINT_51))  &
@@ -2376,6 +2532,17 @@ marker modify  &
    marker_name = .Model_1.LowerLinkR.MARKER_81  &
    location =   &
       (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.LinkagePoint))  &
+   relative_to = .Model_1.LowerLinkR
+!
+defaults coordinate_system  &
+   default_coordinate_system = .Model_1.ground
+!
+marker modify  &
+   marker_name = .Model_1.LowerLinkR.Chain  &
+   location =   &
+      (LOC_RELATIVE_TO({.Model_1.DV_LowerLinkChain, 0, 0}, .Model_1.LowerLinkR.MARKER_32))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.cm))  &
    relative_to = .Model_1.LowerLinkR
 !
 defaults coordinate_system  &
@@ -2701,6 +2868,14 @@ geometry modify shape cylinder  &
    cylinder_name = .Model_1.PART_Cyl_HitchR_pis.CYLINDER_4  &
    length = (.Model_1.DV_Cyl_HitchR_rc * 2)  &
    radius = (.Model_1.DV_Cyl_HitchR_rc)
+!
+geometry modify shape force  &
+   force_name = .Model_1.SFORCE_3_force_graphic_1  &
+   applied_at_marker_name = (.Model_1.SFORCE_ChainL.i)
+!
+geometry modify shape force  &
+   force_name = .Model_1.SFORCE_4_force_graphic_1  &
+   applied_at_marker_name = (.Model_1.SFORCE_ChainR.i)
 !
 model display  &
    model_name = Model_1
