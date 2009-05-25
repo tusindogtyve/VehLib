@@ -158,12 +158,6 @@ marker create  &
    location = 0.0, 0.0, 0.0  &
    orientation = 0.0d, 0.0d, 0.0d
 !
-marker create  &
-   marker_name = .Model_1.ground.MARKER_94  &
-   adams_id = 94  &
-   location = 0.1147810219, 0.0, -0.3468978102  &
-   orientation = -90.0d, 0.0d, 0.0d
-!
 !---------------------------------- MainBody ----------------------------------!
 !
 !
@@ -272,14 +266,14 @@ marker create  &
    orientation = -90.0d, 0.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.MARKER_73  &
-   adams_id = 73  &
+   marker_name = .Model_1.MainBody.MARKER_102  &
+   adams_id = 102  &
    location = 0.15, -0.45, -0.7  &
    orientation = -90.0d, 0.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.MARKER_75  &
-   adams_id = 75  &
+   marker_name = .Model_1.MainBody.MARKER_104  &
+   adams_id = 104  &
    location = 0.15, 0.45, -0.7  &
    orientation = -90.0d, 0.0d, 0.0d
 !
@@ -306,12 +300,6 @@ marker create  &
    adams_id = 92  &
    location = 0.0, 0.6, -0.9  &
    orientation = 0.0d, 0.0d, 0.0d
-!
-marker create  &
-   marker_name = .Model_1.MainBody.MARKER_93  &
-   adams_id = 93  &
-   location = 0.1147810219, 0.0, -0.3468978102  &
-   orientation = -90.0d, 0.0d, 0.0d
 !
 part create rigid_body mass_properties  &
    part_name = .Model_1.MainBody  &
@@ -521,6 +509,12 @@ marker create  &
    orientation = 89.999999988d, 58.3467785901d, 7.2171044101E-008d
 !
 marker create  &
+   marker_name = .Model_1.LowerLinkL.MARKER_101  &
+   adams_id = 101  &
+   location = 0.15, -0.45, -0.7  &
+   orientation = -90.0d, 0.0d, 0.0d
+!
+marker create  &
    marker_name = .Model_1.LowerLinkL.MARKER_32  &
    adams_id = 32  &
    location = 0.25, -0.45, -0.7  &
@@ -543,12 +537,6 @@ marker create  &
    adams_id = 35  &
    location = 0.9, -0.8, -0.7  &
    orientation = 0.0d, 0.0d, 0.0d
-!
-marker create  &
-   marker_name = .Model_1.LowerLinkL.MARKER_74  &
-   adams_id = 74  &
-   location = 0.15, -0.45, -0.7  &
-   orientation = -90.0d, 0.0d, 0.0d
 !
 marker create  &
    marker_name = .Model_1.LowerLinkL.MARKER_77  &
@@ -620,6 +608,7 @@ geometry create shape link  &
 part attributes  &
    part_name = .Model_1.LowerLinkL  &
    color = MAGENTA  &
+   visibility = on  &
    name_visibility = off
 !
 !---------------------------------- TopLinkL ----------------------------------!
@@ -826,8 +815,8 @@ marker create  &
    orientation = 0.0d, 0.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkR.MARKER_76  &
-   adams_id = 76  &
+   marker_name = .Model_1.LowerLinkR.MARKER_103  &
+   adams_id = 103  &
    location = 0.15, 0.45, -0.7  &
    orientation = -90.0d, 0.0d, 0.0d
 !
@@ -1448,26 +1437,6 @@ constraint attributes  &
    name_visibility = off
 !
 constraint create joint spherical  &
-   joint_name = .Model_1.JOINT_6  &
-   adams_id = 6  &
-   i_marker_name = .Model_1.MainBody.MARKER_73  &
-   j_marker_name = .Model_1.LowerLinkL.MARKER_74
-!
-constraint attributes  &
-   constraint_name = .Model_1.JOINT_6  &
-   name_visibility = off
-!
-constraint create joint spherical  &
-   joint_name = .Model_1.JOINT_7  &
-   adams_id = 7  &
-   i_marker_name = .Model_1.MainBody.MARKER_75  &
-   j_marker_name = .Model_1.LowerLinkR.MARKER_76
-!
-constraint attributes  &
-   constraint_name = .Model_1.JOINT_7  &
-   name_visibility = off
-!
-constraint create joint spherical  &
    joint_name = .Model_1.JOINT_8  &
    adams_id = 8  &
    i_marker_name = .Model_1.LowerLinkL.MARKER_77  &
@@ -1507,18 +1476,32 @@ constraint attributes  &
    constraint_name = .Model_1.JOINT_11  &
    name_visibility = off
 !
-constraint create joint fixed  &
-   joint_name = .Model_1.JOINT_12  &
-   adams_id = 12  &
-   i_marker_name = .Model_1.MainBody.MARKER_93  &
-   j_marker_name = .Model_1.ground.MARKER_94
-!
-constraint attributes  &
-   constraint_name = .Model_1.JOINT_12  &
-   name_visibility = off
-!
 !----------------------------------- Forces -----------------------------------!
 !
+!
+force create element_like bushing  &
+   bushing_name = .Model_1.BUSHING_1  &
+   adams_id = 1  &
+   i_marker_name = .Model_1.LowerLinkL.MARKER_101  &
+   j_marker_name = .Model_1.MainBody.MARKER_102  &
+   damping = 1.2E+005, 1.2E+005, 1.2E+005  &
+   stiffness = 4.7E+006, 4.7E+006, 4.7E+006  &
+   force_preload = 0.0, 0.0, 0.0  &
+   tdamping = 2000.0943951024, 20.0043951024, 2.0943951024  &
+   tstiffness = 8000.72664626, 8000.72664626, 2.72664626  &
+   torque_preload = 0.0, 0.0, 0.0
+!
+force create element_like bushing  &
+   bushing_name = .Model_1.BUSHING_2  &
+   adams_id = 2  &
+   i_marker_name = .Model_1.LowerLinkR.MARKER_103  &
+   j_marker_name = .Model_1.MainBody.MARKER_104  &
+   damping = 1.2E+005, 1.2E+005, 1.2E+005  &
+   stiffness = 4.7E+006, 4.7E+006, 4.7E+006  &
+   force_preload = 0.0, 0.0, 0.0  &
+   tdamping = 2000.0943951024, 20.0043951024, 2.0943951024  &
+   tstiffness = 8000.72664626, 8000.72664626, 2.72664626  &
+   torque_preload = 0.0, 0.0, 0.0
 !
 force create direct single_component_force  &
    single_component_force_name = .Model_1.SFORCE_ChainL  &
@@ -1561,7 +1544,9 @@ force create direct single_component_force  &
 !
 simulation script create  &
    sim_script_name = .Model_1.Last_Sim  &
-   commands = "simulation single_run equilibrium model_name=.Model_1"
+   commands = "simulation single_run equilibrium model_name=.Model_1",  &
+              "simulation single_run equilibrium model_name=.Model_1",  &
+              "simulation single_run transient type=auto_select end_time=5.0 number_of_steps=500 model_name=.Model_1 initial_static=no"
 !
 simulation script create  &
    sim_script_name = .Model_1.Last_Sim_2  &
@@ -1585,6 +1570,18 @@ geometry create shape force  &
    adams_id = 101  &
    force_element_name = .Model_1.SFORCE_ChainR  &
    applied_at_marker_name = .Model_1.LowerLinkR.MARKER_91
+!
+geometry create shape force  &
+   force_name = .Model_1.BUSHING_1_force_graphic_1  &
+   adams_id = 102  &
+   force_element_name = .Model_1.BUSHING_1  &
+   applied_at_marker_name = .Model_1.LowerLinkL.MARKER_101
+!
+geometry create shape force  &
+   force_name = .Model_1.BUSHING_2_force_graphic_1  &
+   adams_id = 103  &
+   force_element_name = .Model_1.BUSHING_2  &
+   applied_at_marker_name = .Model_1.LowerLinkR.MARKER_103
 !
 !---------------------------------- Accgrav -----------------------------------!
 !
@@ -2111,6 +2108,24 @@ marker modify  &
 defaults coordinate_system  &
    default_coordinate_system = .Model_1.ground
 !
+marker modify  &
+   marker_name = .Model_1.MainBody.MARKER_102  &
+   location =   &
+      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkL.POINT_51))  &
+   relative_to = .Model_1.MainBody
+!
+defaults coordinate_system  &
+   default_coordinate_system = .Model_1.ground
+!
+marker modify  &
+   marker_name = .Model_1.MainBody.MARKER_104  &
+   location =   &
+      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.POINT_51))  &
+   relative_to = .Model_1.MainBody
+!
+defaults coordinate_system  &
+   default_coordinate_system = .Model_1.ground
+!
 material modify  &
    material_name = .Model_1.steel_2  &
    youngs_modulus = (2.07E+011(Newton/meter**2))  &
@@ -2448,6 +2463,15 @@ defaults coordinate_system  &
    default_coordinate_system = .Model_1.ground
 !
 marker modify  &
+   marker_name = .Model_1.LowerLinkL.MARKER_101  &
+   location =   &
+      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkL.POINT_51))  &
+   relative_to = .Model_1.LowerLinkL
+!
+defaults coordinate_system  &
+   default_coordinate_system = .Model_1.ground
+!
+marker modify  &
    marker_name = .Model_1.LowerLinkR.MARKER_30  &
    location =   &
       (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.POINT_51))  &
@@ -2543,6 +2567,15 @@ marker modify  &
       (LOC_RELATIVE_TO({.Model_1.DV_LowerLinkChain, 0, 0}, .Model_1.LowerLinkR.MARKER_32))  &
    orientation =   &
       (ORI_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.cm))  &
+   relative_to = .Model_1.LowerLinkR
+!
+defaults coordinate_system  &
+   default_coordinate_system = .Model_1.ground
+!
+marker modify  &
+   marker_name = .Model_1.LowerLinkR.MARKER_103  &
+   location =   &
+      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.POINT_51))  &
    relative_to = .Model_1.LowerLinkR
 !
 defaults coordinate_system  &
@@ -2876,6 +2909,52 @@ geometry modify shape force  &
 geometry modify shape force  &
    force_name = .Model_1.SFORCE_4_force_graphic_1  &
    applied_at_marker_name = (.Model_1.SFORCE_ChainR.i)
+!
+force modify element_like bushing  &
+   bushing_name = .Model_1.BUSHING_1  &
+   damping =   &
+      (1.2E+005(newton-sec/meter)),  &
+      (1.2E+005(newton-sec/meter)),  &
+      (1.2E+005(newton-sec/meter))  &
+   stiffness =   &
+      (4.7E+006(newton/meter)),  &
+      (4.7E+006(newton/meter)),  &
+      (4.7E+006(newton/meter))  &
+   tdamping =   &
+      (2000.0943951024(newton-meter-sec/deg)),  &
+      (20.0043951024(newton-meter-sec/deg)),  &
+      (2.0943951024(newton-meter-sec/deg))  &
+   tstiffness =   &
+      (8000.72664626(newton-meter/deg)),  &
+      (8000.72664626(newton-meter/deg)),  &
+      (2.72664626(newton-meter/deg))
+!
+geometry modify shape force  &
+   force_name = .Model_1.BUSHING_1_force_graphic_1  &
+   applied_at_marker_name = (.Model_1.BUSHING_1.i)
+!
+force modify element_like bushing  &
+   bushing_name = .Model_1.BUSHING_2  &
+   damping =   &
+      (1.2E+005(newton-sec/meter)),  &
+      (1.2E+005(newton-sec/meter)),  &
+      (1.2E+005(newton-sec/meter))  &
+   stiffness =   &
+      (4.7E+006(newton/meter)),  &
+      (4.7E+006(newton/meter)),  &
+      (4.7E+006(newton/meter))  &
+   tdamping =   &
+      (2000.0943951024(newton-meter-sec/deg)),  &
+      (20.0043951024(newton-meter-sec/deg)),  &
+      (2.0943951024(newton-meter-sec/deg))  &
+   tstiffness =   &
+      (8000.72664626(newton-meter/deg)),  &
+      (8000.72664626(newton-meter/deg)),  &
+      (2.72664626(newton-meter/deg))
+!
+geometry modify shape force  &
+   force_name = .Model_1.BUSHING_2_force_graphic_1  &
+   applied_at_marker_name = (.Model_1.BUSHING_2.i)
 !
 model display  &
    model_name = Model_1
