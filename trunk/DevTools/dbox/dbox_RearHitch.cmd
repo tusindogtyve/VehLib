@@ -1,35 +1,13 @@
-! This file is part of SDlib_plugin.
-!    
-! Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
-! 
-!  Permission is hereby granted, free of charge, to any person obtaining
-!  a copy of this software and associated documentation files (the
-!  "Software"), to deal in the Software without restriction, including
-!  without limitation the rights to use, copy, modify, merge, publish,
-!  distribute, sublicense, and/or sell copies of the Software, and to
-!  permit persons to whom the Software is furnished to do so, subject to
-!  the following conditions:
-!
-!  The above copyright notice and this permission notice shall be
-!  included in all copies or substantial portions of the Software.
-! 
-!  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-!  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-!  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-!  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-!  LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-!  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-!  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 !
 interface dialog_box create  &
-   dialog_box_name = .SDlib_plugin.dboxes.dbox_template  &
-   location = 743.0, 128.0  &
-   height = 375.0  &
-   width = 400.0  &
+   dialog_box_name = .SDlib_plugin.dboxes.dbox_RearHitch  &
+   location = 645.0, 44.0  &
+   height = 625.0  &
+   width = 498.0  &
    units = pixel  &
    horiz_resizing = scale_all  &
    vert_resizing = scale_all  &
-   title = "dbox_template"  &
+   title = "dbox_RearHitch"  &
    iconifiable = no  &
    start_commands = "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",  &
                     "! INSTRUCTIONS                                   !",  &
@@ -200,8 +178,8 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_template.button_1  &
-   location = 320.0, 346.0  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_RearHitch.button_1  &
+   location = 418.0, 596.0  &
    height = 25.0  &
    width = 76.0  &
    units = pixel  &
@@ -214,8 +192,8 @@ interface push_button create  &
               "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_template.button_2  &
-   location = 242.0, 346.0  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_RearHitch.button_2  &
+   location = 340.0, 596.0  &
    height = 25.0  &
    width = 76.0  &
    units = pixel  &
@@ -226,8 +204,8 @@ interface push_button create  &
               "interface dialog display dialog= $_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_template.button_3  &
-   location = 164.0, 346.0  &
+   push_button_name = .SDlib_plugin.dboxes.dbox_RearHitch.button_3  &
+   location = 262.0, 596.0  &
    height = 25.0  &
    width = 76.0  &
    units = pixel  &
@@ -241,7 +219,7 @@ interface push_button create  &
               "createdbox"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_template.label_1  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_1  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 214.0  &
@@ -252,7 +230,7 @@ interface label create  &
    text = "Main model name:"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_template.label_2  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_2  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 214.0  &
@@ -263,7 +241,7 @@ interface label create  &
    text = "Old sub model name"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_template.label_3  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_3  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 214.0  &
@@ -274,7 +252,7 @@ interface label create  &
    text = "New sub model name:"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_template.label_4  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_4  &
    location = 4.0, 85.0  &
    height = 25.0  &
    width = 214.0  &
@@ -285,8 +263,8 @@ interface label create  &
    text = "Sub model that contains a chassis"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_template.field_main  &
-   location = 280.0, 4.0  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_main  &
+   location = 375.0, 4.0  &
    height = 25.0  &
    width = 116.0  &
    units = pixel  &
@@ -301,8 +279,8 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_template.field_old  &
-   location = 280.0, 31.0  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_old  &
+   location = 375.0, 31.0  &
    height = 25.0  &
    width = 116.0  &
    units = pixel  &
@@ -317,8 +295,8 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_template.field_newName  &
-   location = 280.0, 58.0  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_newName  &
+   location = 375.0, 58.0  &
    height = 25.0  &
    width = 116.0  &
    units = pixel  &
@@ -333,8 +311,8 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_template.field_csModel  &
-   location = 280.0, 85.0  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_csModel  &
+   location = 375.0, 85.0  &
    height = 25.0  &
    width = 116.0  &
    units = pixel  &
@@ -349,10 +327,303 @@ interface field create  &
    type_filter = model
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_template.sep_1  &
+   separator_name = .SDlib_plugin.dboxes.dbox_RearHitch.sep_1  &
    location = 4.0, 112.0  &
    height = 4.0  &
-   width = 392.0  &
+   width = 488.0  &
    units = pixel  &
    horiz_resizing = attach_left  &
    vert_resizing = attach_top
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_5  &
+   location = 4.0, 155.0  &
+   height = 25.0  &
+   width = 112.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "3 point carriers"
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_1  &
+   location = 208.0, 153.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.9"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_2  &
+   location = 308.0, 153.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.7"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_3  &
+   location = 406.0, 153.0  &
+   height = 27.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.0"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_6  &
+   location = 208.0, 123.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "Width"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_7  &
+   location = 308.0, 123.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "Offset Z"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_8  &
+   location = 406.0, 124.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "Offset X"
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_2_2  &
+   location = 308.0, 186.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.0"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_3_2  &
+   location = 406.0, 186.0  &
+   height = 27.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.0"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_1_2  &
+   location = 208.0, 186.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.9"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_5_2  &
+   location = 4.0, 188.0  &
+   height = 25.0  &
+   width = 112.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "3 point top linkage"
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_2_3  &
+   location = 308.0, 220.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.5"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_3_3  &
+   location = 406.0, 220.0  &
+   height = 27.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.2"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_1_3  &
+   location = 208.0, 220.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_5_3  &
+   location = 4.0, 222.0  &
+   height = 25.0  &
+   width = 168.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "3 point cylinder mounts"
+!
+interface separator create  &
+   separator_name = .SDlib_plugin.dboxes.dbox_RearHitch.sep_2  &
+   location = 4.0, 250.0  &
+   height = 4.0  &
+   width = 488.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top
+!
+interface tab_container create  &
+   tab_container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1  &
+   location = 8.0, 260.0  &
+   height = 273.0  &
+   width = 474.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   current_choice = "Tab 1"
+!
+interface container create  &
+   container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1  &
+   height = 19.0  &
+   width = 445.0  &
+   units = pixel  &
+   horiz_resizing = scale_all  &
+   vert_resizing = scale_all  &
+   tab_label = "Tab 1"
+!
+interface container create  &
+   container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_2  &
+   height = 243.0  &
+   width = 470.0  &
+   units = pixel  &
+   horiz_resizing = scale_all  &
+   vert_resizing = scale_all  &
+   tab_label = "Tab 2"
+!
+interface container create  &
+   container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3  &
+   height = 243.0  &
+   width = 470.0  &
+   units = pixel  &
+   horiz_resizing = scale_all  &
+   vert_resizing = scale_all  &
+   tab_label = "Tab 3"
+
