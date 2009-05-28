@@ -174,7 +174,7 @@ interface dialog_box create  &
                         "end",  &
                         "!"  &
    decorate = yes  &
-   resizable = yes  &
+   resizable = no  &
    grab_all_input = no
 !
 interface push_button create  &
@@ -593,8 +593,8 @@ interface separator create  &
 interface tab_container create  &
    tab_container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1  &
    location = 8.0, 260.0  &
-   height = 273.0  &
-   width = 474.0  &
+   height = 327.0  &
+   width = 482.0  &
    units = pixel  &
    horiz_resizing = attach_left  &
    vert_resizing = attach_top  &
@@ -602,28 +602,389 @@ interface tab_container create  &
 !
 interface container create  &
    container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1  &
-   height = 19.0  &
-   width = 445.0  &
+   height = 21.0  &
+   width = 449.0  &
    units = pixel  &
    horiz_resizing = scale_all  &
    vert_resizing = scale_all  &
-   tab_label = "Tab 1"
+   tab_label = "Upper carrier"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_2  &
+   location = 308.0, 2.0  &
+   height = 292.0  &
+   width = 168.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   icon_file =   &
+               "C://Documents and Settings//jensbmadsen//My Documents//SDlib_pluginMedia//trunk//Adams_library//Level3//Hitch//RearHitch.bmp"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3  &
+   location = 50.0, 2.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "A"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_2  &
+   location = 50.0, 29.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "B"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_3  &
+   location = 50.0, 56.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "C"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_4  &
+   location = 50.0, 83.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "D"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_5  &
+   location = 50.0, 110.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "D"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_6  &
+   location = 50.0, 137.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "E"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_7  &
+   location = 50.0, 164.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "F"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_8  &
+   location = 50.0, 191.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "G"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_9  &
+   location = 50.0, 218.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "H"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_10  &
+   location = 50.0, 245.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "I"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_11  &
+   location = 50.0, 272.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "J"
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_1  &
+   location = 70.0, 2.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_2  &
+   location = 70.0, 29.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_3  &
+   location = 70.0, 56.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_4  &
+   location = 70.0, 83.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_5  &
+   location = 70.0, 110.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_6  &
+   location = 70.0, 137.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_7  &
+   location = 70.0, 164.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_8  &
+   location = 70.0, 191.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_9  &
+   location = 70.0, 218.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_10  &
+   location = 70.0, 245.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_11  &
+   location = 70.0, 272.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = 0.0
 !
 interface container create  &
    container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_2  &
-   height = 243.0  &
-   width = 470.0  &
+   height = 270.0  &
+   width = 474.0  &
    units = pixel  &
    horiz_resizing = scale_all  &
    vert_resizing = scale_all  &
-   tab_label = "Tab 2"
+   tab_label = "Upper Carrier Z"
 !
 interface container create  &
    container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3  &
-   height = 243.0  &
-   width = 470.0  &
+   height = 270.0  &
+   width = 474.0  &
    units = pixel  &
    horiz_resizing = scale_all  &
    vert_resizing = scale_all  &
-   tab_label = "Tab 3"
-
+   tab_label = "Lower Carrier"
+!
+interface container create  &
+   container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_4  &
+   height = 270.0  &
+   width = 474.0  &
+   units = pixel  &
+   horiz_resizing = scale_all  &
+   vert_resizing = scale_all  &
+   tab_label = "Lower Carrier Z"
