@@ -1,3 +1,27 @@
+! This file is part of SDlib_plugin.
+!    
+! Copyright (c) 2009 Sauer-Danfoss http://www.sauer-danfoss.com
+! 
+!  Permission is hereby granted, free of charge, to any person obtaining
+!  a copy of this software and associated documentation files (the
+!  "Software"), to deal in the Software without restriction, including
+!  without limitation the rights to use, copy, modify, merge, publish,
+!  distribute, sublicense, and/or sell copies of the Software, and to
+!  permit persons to whom the Software is furnished to do so, subject to
+!  the following conditions:
+!
+!  The above copyright notice and this permission notice shall be
+!  included in all copies or substantial portions of the Software.
+! 
+!  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+!  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+!  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+!  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+!  LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+!  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+!  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+!
+
 !
 interface dialog_box create  &
    dialog_box_name = .SDlib_plugin.dboxes.dbox_RearHitch  &
@@ -37,10 +61,10 @@ interface dialog_box create  &
                     "  !#####################################################!",  &
                     "  !                REMEMBER TO CHANGE                   !",  &
                     "  ! Read the values that was used last time for this sub model",  &
-                    "  int field set field = $_self.field_? &",  &
-                    "      string = ($'field_main.$'field_newName'.DV_someName1)",  &
-                    "  int field set field = $_self.field_? &",  &
-                    "      string = ($'field_main.$'field_newName'.DV_someName2)",  &
+                    "  !int field set field = $_self.field_? &",  &
+                    "  !    string = ($'field_main.$'field_newName'.DV_someName1)",  &
+                    "  !int field set field = $_self.field_? &",  &
+                    "  !    string = ($'field_main.$'field_newName'.DV_someName2)",  &
                     "  !#####################################################!",  &
                     "else",  &
                     "  !There is no old model name...",  &
@@ -93,18 +117,18 @@ interface dialog_box create  &
                         "  ! read the exported model.",  &
                         "  !#####################################################!",  &
                         "  !                REMEMBER TO CHANGE                   !",  &
-                        "  file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/Type/submodel\")) ",  &
+                        "  file command read file=(eval(getenv(\"MDI_SD_LIBRARY_SITE\")//\"/Level3/Hitch/RearHitch\")) ",  &
                         "  !#####################################################!",  &
                         "  model copy &",  &
                         "    !#####################################################!",  &
                         "    !                REMEMBER TO CHANGE                   !",  &
-                        "     model_name = submodel &",  &
+                        "     model_name = RearHitch &",  &
                         "    !#####################################################!",  &
                         "     new_model_name = (eval($_self.MainModelName[1]//\".\"//$_self.NewModelName[1])) &",  &
                         "     view_name = main.front",  &
                         "  !#####################################################!",  &
                         "  !                REMEMBER TO CHANGE                   !",  &
-                        "  model delete model=submodel",  &
+                        "  model delete model=RearHitch",  &
                         "  !#####################################################!",  &
                         "",  &
                         "end ",  &
@@ -152,26 +176,27 @@ interface dialog_box create  &
                         "",  &
                         "! Below follows the code of the dialog box ",  &
                         "",  &
-                        "if condition=((db_exists(\"$'field_csModel'.part_cs\")) && db_exists (\"$'field_main'.$'field_newName'.PART_to_cs\"))",  &
+                        "if condition=((db_exists(\"$'field_csModel'.part_cs\")) && db_exists (\"$'field_main'.$'field_newName'.MainBody\"))",  &
                         "    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",  &
                         "    !!! Place this sub model. -----------------------------------------",  &
                         "    marker modify &",  &
-                        "     marker_name = ($'field_main'.$'field_newName'.ground.MKR_master) &",  &
-                        "        location = (LOC_RELATIVE_TO( {0,0,0} , $'field_csModel'.ground.MKR_slave_frontImp))&",  &
-                        "     orientation = (ORI_RELATIVE_TO( {0,0,0} , $'field_csModel'.ground.MKR_slave_frontImp))",  &
+                        "     marker_name = ($'field_main'.$'field_newName'.ground.Mkr_master) &",  &
+                        "        location = (LOC_RELATIVE_TO( {0,0,0} , $'field_csModel'.ground.MKR_slave_RearImp))&",  &
+                        "     orientation = (ORI_RELATIVE_TO( {180,0,0} , $'field_csModel'.ground.MKR_slave_RearImp))",  &
                         "",  &
                         "    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",  &
                         "    !!! attach the sub model to the chassis ---------------------------",  &
-                        "    part merge rigid_body part_name=($'field_main'.$'field_newName'.PART_to_cs) &",  &
+                        "    part merge rigid_body part_name=($'field_main'.$'field_newName'.MainBody) &",  &
                         "    into_part=($'field_csModel'.PART_Cs)",  &
                         "end",  &
                         "!#####################################################!",  &
                         "!                REMEMBER TO CHANGE                   !",  &
-                        "if condition=(db_exists(\"$'field_main'.$'field_newName'.DV_someName1\"))",  &
-                        "  var mod var=$'field_main'.$'field_newName'.DV_someName1 real=$field_?",  &
-                        "  var mod var=$'field_main'.$'field_newName'.DV_someName2 real=$field_?",  &
+                        "!if condition=(db_exists(\"$'field_main'.$'field_newName'.DV_someName1\"))",  &
+                        "!  !var mod var=$'field_main'.$'field_newName'.DV_someName1 real=$field_1",  &
+                        "!  !var mod var=$'field_main'.$'field_newName'.DV_someName2 real=$field_1",  &
+			"!end",  &
                         "!#####################################################!",  &
-                        "end",  &
+			" point modify point_name =$'field_main'.$'field_newName'.ToplinkL.POINT_1 location=-(eval($field_1+$field_2)),($field_t1_1),0 ",  &
                         "!"  &
    decorate = yes  &
    resizable = no  &
@@ -364,7 +389,7 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface field create  &
    field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_2  &
@@ -384,7 +409,7 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface field create  &
    field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_3  &
@@ -404,7 +429,7 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface label create  &
    label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_6  &
@@ -440,7 +465,7 @@ interface label create  &
    text = "Offset X"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_2_2  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_4  &
    location = 308.0, 186.0  &
    height = 25.0  &
    width = 76.0  &
@@ -457,10 +482,10 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_3_2  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_5  &
    location = 406.0, 186.0  &
    height = 27.0  &
    width = 76.0  &
@@ -477,10 +502,10 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_1_2  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_6  &
    location = 208.0, 186.0  &
    height = 25.0  &
    width = 76.0  &
@@ -497,7 +522,7 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface label create  &
    label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_5_2  &
@@ -511,7 +536,7 @@ interface label create  &
    text = "3 point top linkage"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_2_3  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_7  &
    location = 308.0, 220.0  &
    height = 25.0  &
    width = 76.0  &
@@ -528,10 +553,10 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_3_3  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_8  &
    location = 406.0, 220.0  &
    height = 27.0  &
    width = 76.0  &
@@ -548,10 +573,10 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_1_3  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_9  &
    location = 208.0, 220.0  &
    height = 25.0  &
    width = 76.0  &
@@ -568,7 +593,7 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface label create  &
    label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_5_3  &
@@ -598,7 +623,7 @@ interface tab_container create  &
    units = pixel  &
    horiz_resizing = attach_left  &
    vert_resizing = attach_top  &
-   current_choice = "Tab 1"
+   current_choice = "Upper Carrier Z"
 !
 interface container create  &
    container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1  &
@@ -611,15 +636,15 @@ interface container create  &
 !
 interface label create  &
    label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_2  &
-   location = 308.0, 2.0  &
+   location = 250.0, 2.0  &
    height = 292.0  &
-   width = 168.0  &
+   width = 186.0  &
    units = pixel  &
    horiz_resizing = attach_left  &
    vert_resizing = attach_top  &
    justified = left  &
    icon_file =   &
-               "C://Documents and Settings//jensbmadsen//My Documents//SDlib_pluginMedia//trunk//Adams_library//Level3//Hitch//RearHitch.bmp"
+               "C://Documents and Settings//jensbmadsen//My Documents//SDlib_pluginMedia//trunk//Adams_library//Level3//Hitch//RearHitch.png"
 !
 interface label create  &
    label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3  &
@@ -743,7 +768,7 @@ interface label create  &
    text = "J"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_1  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_1  &
    location = 70.0, 2.0  &
    height = 25.0  &
    width = 76.0  &
@@ -760,10 +785,10 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_2  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_2  &
    location = 70.0, 29.0  &
    height = 25.0  &
    width = 76.0  &
@@ -780,10 +805,10 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_3  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_3  &
    location = 70.0, 56.0  &
    height = 25.0  &
    width = 76.0  &
@@ -800,10 +825,10 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_4  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_4  &
    location = 70.0, 83.0  &
    height = 25.0  &
    width = 76.0  &
@@ -820,10 +845,10 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_5  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_5  &
    location = 70.0, 110.0  &
    height = 25.0  &
    width = 76.0  &
@@ -840,10 +865,10 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_6  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_6  &
    location = 70.0, 137.0  &
    height = 25.0  &
    width = 76.0  &
@@ -860,10 +885,10 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_7  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_7  &
    location = 70.0, 164.0  &
    height = 25.0  &
    width = 76.0  &
@@ -880,10 +905,10 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_8  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_8  &
    location = 70.0, 191.0  &
    height = 25.0  &
    width = 76.0  &
@@ -900,10 +925,10 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_9  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_9  &
    location = 70.0, 218.0  &
    height = 25.0  &
    width = 76.0  &
@@ -920,10 +945,10 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_10  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_10  &
    location = 70.0, 245.0  &
    height = 25.0  &
    width = 76.0  &
@@ -940,10 +965,10 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_11  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_11  &
    location = 70.0, 272.0  &
    height = 25.0  &
    width = 76.0  &
@@ -960,7 +985,7 @@ interface field create  &
    upper_check = lt  &
    upper_limit = 2.0  &
    lower_check = gt  &
-   lower_limit = 0.0
+   lower_limit = -0.5
 !
 interface container create  &
    container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_2  &
@@ -971,6 +996,49 @@ interface container create  &
    vert_resizing = scale_all  &
    tab_label = "Upper Carrier Z"
 !
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_2.label_2  &
+   location = 250.0, 2.0  &
+   height = 292.0  &
+   width = 68.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   icon_file =   &
+               "C://Documents and Settings//jensbmadsen//My Documents//SDlib_pluginMedia//trunk//Adams_library//Level3//Hitch//RearHitchZ.png"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_2.label_3  &
+   location = 50.0, 2.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "A"
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_2.field_t2_1  &
+   location = 70.0, 2.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = -0.5
+!
 interface container create  &
    container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3  &
    height = 270.0  &
@@ -980,6 +1048,359 @@ interface container create  &
    vert_resizing = scale_all  &
    tab_label = "Lower Carrier"
 !
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_2  &
+   location = 250.0, 2.0  &
+   height = 292.0  &
+   width = 198.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   icon_file =   &
+               "C://Documents and Settings//jensbmadsen//My Documents//SDlib_pluginMedia//trunk//Adams_library//Level3//Hitch//RearHitchLower.png"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3  &
+   location = 50.0, 2.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "A"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_2  &
+   location = 50.0, 29.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "B"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_3  &
+   location = 50.0, 56.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "C"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_4  &
+   location = 50.0, 83.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "D"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_5  &
+   location = 50.0, 110.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "D"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_6  &
+   location = 50.0, 137.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "E"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_7  &
+   location = 50.0, 164.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "F"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_8  &
+   location = 50.0, 191.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "G"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_9  &
+   location = 50.0, 218.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "H"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_10  &
+   location = 50.0, 245.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "I"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_11  &
+   location = 50.0, 272.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "J"
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_1  &
+   location = 70.0, 2.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = -0.5
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_2  &
+   location = 70.0, 29.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = -0.5
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_3  &
+   location = 70.0, 56.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = -0.5
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_4  &
+   location = 70.0, 83.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = -0.5
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_5  &
+   location = 70.0, 110.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = -0.5
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_6  &
+   location = 70.0, 137.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = -0.5
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_7  &
+   location = 70.0, 164.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = -0.5
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_8  &
+   location = 70.0, 191.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = -0.5
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_9  &
+   location = 70.0, 218.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = -0.5
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_10  &
+   location = 70.0, 245.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = -0.5
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_11  &
+   location = 70.0, 272.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = -0.5
+!
 interface container create  &
    container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_4  &
    height = 270.0  &
@@ -988,3 +1409,46 @@ interface container create  &
    horiz_resizing = scale_all  &
    vert_resizing = scale_all  &
    tab_label = "Lower Carrier Z"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_4.label_2  &
+   location = 250.0, 2.0  &
+   height = 292.0  &
+   width = 58.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   icon_file =   &
+               "C://Documents and Settings//jensbmadsen//My Documents//SDlib_pluginMedia//trunk//Adams_library//Level3//Hitch//RearHitchLowerZ.png"
+!
+interface label create  &
+   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_4.label_3  &
+   location = 50.0, 2.0  &
+   height = 25.0  &
+   width = 15.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   justified = left  &
+   text = "A"
+!
+interface field create  &
+   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_4.field_t4_1  &
+   location = 70.0, 2.0  &
+   height = 25.0  &
+   width = 76.0  &
+   units = pixel  &
+   horiz_resizing = attach_left  &
+   vert_resizing = attach_top  &
+   scrollable = no  &
+   editable = yes  &
+   preload_strings = "0.75"  &
+   required = yes  &
+   execute_cmds_on_exit = no  &
+   number_of_values = 1  &
+   numeric_type = real  &
+   upper_check = lt  &
+   upper_limit = 2.0  &
+   lower_check = gt  &
+   lower_limit = -0.5

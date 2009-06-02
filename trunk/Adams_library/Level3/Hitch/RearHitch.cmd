@@ -11,7 +11,7 @@ defaults units  &
 !
 defaults units  &
    coordinate_system_type = cartesian  &
-   orientation_type = body123
+   orientation_type = body313
 !
 !------------------------ Default Attributes for Model ------------------------!
 !
@@ -27,7 +27,7 @@ defaults attributes  &
 !
 !
 model create  &
-   model_name = Model_1
+   model_name = RearHitch
 !
 view erase
 !
@@ -35,71 +35,71 @@ view erase
 !
 !
 data_element create variable  &
-   variable_name = .Model_1.SV_Cyl_HitchL_F  &
+   variable_name = .RearHitch.SV_Cyl_HitchL_F  &
    adams_id = 2  &
    function = ""
 !
 data_element create variable  &
-   variable_name = .Model_1.SV_Cyl_HitchL_P  &
+   variable_name = .RearHitch.SV_Cyl_HitchL_P  &
    adams_id = 3  &
    initial_condition = 0.0  &
    function = ""
 !
 data_element create variable  &
-   variable_name = .Model_1.SV_Cyl_HitchL_V  &
+   variable_name = .RearHitch.SV_Cyl_HitchL_V  &
    adams_id = 4  &
    initial_condition = 0.0  &
    function = ""
 !
 data_element create variable  &
-   variable_name = .Model_1.SV_cyl_HitchL_Fstatic  &
+   variable_name = .RearHitch.SV_cyl_HitchL_Fstatic  &
    adams_id = 5  &
    initial_condition = 0.0  &
    function = ""
 !
 data_element create variable  &
-   variable_name = .Model_1.SV_cyl_HitchL_pa  &
+   variable_name = .RearHitch.SV_cyl_HitchL_pa  &
    adams_id = 6  &
    initial_condition = 0.0  &
    function = ""
 !
 data_element create variable  &
-   variable_name = .Model_1.SV_cyl_HitchL_pb  &
+   variable_name = .RearHitch.SV_cyl_HitchL_pb  &
    adams_id = 7  &
    initial_condition = 0.0  &
    function = ""
 !
 data_element create variable  &
-   variable_name = .Model_1.SV_Cyl_HitchR_F  &
+   variable_name = .RearHitch.SV_Cyl_HitchR_F  &
    adams_id = 8  &
    function = ""
 !
 data_element create variable  &
-   variable_name = .Model_1.SV_Cyl_HitchR_P  &
+   variable_name = .RearHitch.SV_Cyl_HitchR_P  &
    adams_id = 9  &
    initial_condition = 0.0  &
    function = ""
 !
 data_element create variable  &
-   variable_name = .Model_1.SV_Cyl_HitchR_V  &
+   variable_name = .RearHitch.SV_Cyl_HitchR_V  &
    adams_id = 10  &
    initial_condition = 0.0  &
    function = ""
 !
 data_element create variable  &
-   variable_name = .Model_1.SV_cyl_HitchR_Fstatic  &
+   variable_name = .RearHitch.SV_cyl_HitchR_Fstatic  &
    adams_id = 11  &
    initial_condition = 0.0  &
    function = ""
 !
 data_element create variable  &
-   variable_name = .Model_1.SV_cyl_HitchR_pa  &
+   variable_name = .RearHitch.SV_cyl_HitchR_pa  &
    adams_id = 12  &
    initial_condition = 0.0  &
    function = ""
 !
 data_element create variable  &
-   variable_name = .Model_1.SV_cyl_HitchR_pb  &
+   variable_name = .RearHitch.SV_cyl_HitchR_pb  &
    adams_id = 13  &
    initial_condition = 0.0  &
    function = ""
@@ -108,28 +108,28 @@ data_element create variable  &
 !
 !
 material create  &
-   material_name = .Model_1.steel  &
+   material_name = .RearHitch.steel  &
    adams_id = 4  &
    youngs_modulus = 2.07E+011  &
    poissons_ratio = 0.29  &
    density = 7801.0
 !
 material create  &
-   material_name = .Model_1.steel_2  &
+   material_name = .RearHitch.steel_2  &
    adams_id = 3  &
    youngs_modulus = 2.07E+011  &
    poissons_ratio = 0.29  &
    density = 7801.0
 !
 material create  &
-   material_name = .Model_1.steel_3  &
+   material_name = .RearHitch.steel_3  &
    adams_id = 1  &
    youngs_modulus = 2.07E+011  &
    poissons_ratio = 0.29  &
    density = 7801.0
 !
 material create  &
-   material_name = .Model_1.steel_4  &
+   material_name = .RearHitch.steel_4  &
    adams_id = 2  &
    youngs_modulus = 2.07E+011  &
    poissons_ratio = 0.29  &
@@ -148,185 +148,185 @@ defaults model  &
    part_name = ground
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 ! ****** Markers for current part ******
 !
 marker create  &
-   marker_name = .Model_1.ground.Mkr_master  &
+   marker_name = .RearHitch.ground.Mkr_master  &
    adams_id = 2  &
    location = 0.0, 0.0, 0.0  &
-   orientation = 0.0d, 0.0d, 0.0d
+   orientation = 180.0d, 0.0d, 0.0d
 !
 !---------------------------------- MainBody ----------------------------------!
 !
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 part create rigid_body name_and_position  &
-   part_name = .Model_1.MainBody  &
+   part_name = .RearHitch.MainBody  &
    adams_id = 2  &
    location = 0.0, 0.0, 0.0  &
    orientation = 0.0d, 0.0d, 0.0d
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.MainBody
+   default_coordinate_system = .RearHitch.MainBody
 !
 ! ****** Markers for current part ******
 !
 marker create  &
-   marker_name = .Model_1.MainBody.MARKER_11  &
+   marker_name = .RearHitch.MainBody.MARKER_11  &
    adams_id = 1  &
-   location = 0.0, -0.45, 0.0  &
-   orientation = -90.0d, 0.0d, 0.0d
-!
-marker create  &
-   marker_name = .Model_1.MainBody.cm  &
-   adams_id = 95  &
-   location = 0.1147810219, 0.0, -0.3468978102  &
-   orientation = 90.0d, 0.0d, 1.0034442014d
-!
-marker create  &
-   marker_name = .Model_1.MainBody.TopLinkR1  &
-   adams_id = 3  &
    location = 0.0, 0.45, 0.0  &
-   orientation = 0.0d, 0.0d, 0.0d
+   orientation = 180.0d, 0.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.TopLinkL1  &
-   adams_id = 4  &
+   marker_name = .RearHitch.MainBody.cm  &
+   adams_id = 95  &
+   location = -0.1147810219, 0.0, -0.3541970803  &
+   orientation = 0.0d, 90.0d, 357.6306386952d
+!
+marker create  &
+   marker_name = .RearHitch.MainBody.TopLinkR  &
+   adams_id = 3  &
    location = 0.0, -0.45, 0.0  &
-   orientation = 0.0d, 0.0d, 0.0d
+   orientation = 180.0d, 0.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.BottLinkR1  &
+   marker_name = .RearHitch.MainBody.TopLinkL  &
+   adams_id = 4  &
+   location = 0.0, 0.45, 0.0  &
+   orientation = 180.0d, 0.0d, 0.0d
+!
+marker create  &
+   marker_name = .RearHitch.MainBody.BottLinkR  &
    adams_id = 5  &
-   location = 0.15, 0.45, -0.7  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.15, -0.45, -0.7  &
+   orientation = 180.0d, 0.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.BottLinkL1  &
+   marker_name = .RearHitch.MainBody.BottLinkL  &
    adams_id = 6  &
-   location = 0.15, -0.45, -0.7  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.15, 0.45, -0.7  &
+   orientation = 180.0d, 0.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.CylL1  &
+   marker_name = .RearHitch.MainBody.CylL  &
    adams_id = 7  &
-   location = 0.25, -0.525, -0.5  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.25, 0.525, -0.5  &
+   orientation = 180.0d, 0.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.CylR1  &
+   marker_name = .RearHitch.MainBody.CylR  &
    adams_id = 8  &
-   location = 0.25, 0.525, -0.5  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.25, -0.525, -0.5  &
+   orientation = 180.0d, 0.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.MARKER_91  &
+   marker_name = .RearHitch.MainBody.MARKER_91  &
    adams_id = 9  &
-   location = 0.0, -7.0E-002, 0.0  &
-   orientation = -90.0d, 0.0d, 0.0d
+   location = 0.0, 7.0E-002, 0.0  &
+   orientation = 180.0d, 0.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.MARKER_13  &
+   marker_name = .RearHitch.MainBody.MARKER_13  &
    adams_id = 13  &
-   location = 0.2, -0.525, -0.55  &
-   orientation = -90.0d, 0.0d, 0.0d
+   location = -0.2, 0.525, -0.55  &
+   orientation = 180.0d, 0.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.TopLink11  &
+   marker_name = .RearHitch.MainBody.TopLink1  &
    adams_id = 10  &
-   location = 0.3, 0.0, 0.0  &
+   location = -0.3, 0.0, 0.0  &
    orientation = 0.0d, 0.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.TopLink21  &
+   marker_name = .RearHitch.MainBody.TopLink2  &
    adams_id = 11  &
-   location = 0.3, 0.0, -5.0E-002  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.3, 0.0, -5.0E-002  &
+   orientation = 180.0d, 0.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.TopLink31  &
+   marker_name = .RearHitch.MainBody.TopLink3  &
    adams_id = 12  &
-   location = 0.3, 0.0, -0.1  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.3, 0.0, -0.1  &
+   orientation = 180.0d, 0.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.MARKER_69  &
+   marker_name = .RearHitch.MainBody.MARKER_69  &
    adams_id = 69  &
    location = 0.0, -0.45, 0.0  &
-   orientation = -90.0d, 0.0d, 0.0d
+   orientation = 180.0d, 90.0d, 180.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.MARKER_71  &
+   marker_name = .RearHitch.MainBody.MARKER_71  &
    adams_id = 71  &
    location = 0.0, 0.45, 0.0  &
-   orientation = -90.0d, 0.0d, 0.0d
+   orientation = 180.0d, 90.0d, 180.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.MARKER_102  &
+   marker_name = .RearHitch.MainBody.MARKER_102  &
    adams_id = 102  &
-   location = 0.15, -0.45, -0.7  &
-   orientation = -90.0d, 0.0d, 0.0d
+   location = -0.15, 0.45, -0.7  &
+   orientation = 180.0d, 90.0d, 180.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.MARKER_104  &
+   marker_name = .RearHitch.MainBody.MARKER_104  &
    adams_id = 104  &
-   location = 0.15, 0.45, -0.7  &
-   orientation = -90.0d, 0.0d, 0.0d
+   location = -0.15, -0.45, -0.7  &
+   orientation = 180.0d, 90.0d, 180.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.ChainL  &
+   marker_name = .RearHitch.MainBody.ChainL  &
    adams_id = 85  &
-   location = 0.0, -0.6, -0.9  &
-   orientation = 0.0d, 0.0d, 0.0d
-!
-marker create  &
-   marker_name = .Model_1.MainBody.ChainR  &
-   adams_id = 86  &
    location = 0.0, 0.6, -0.9  &
-   orientation = 0.0d, 0.0d, 0.0d
+   orientation = 180.0d, 0.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.MARKER_90  &
+   marker_name = .RearHitch.MainBody.ChainR  &
+   adams_id = 86  &
+   location = 0.0, -0.6, -0.9  &
+   orientation = 180.0d, 0.0d, 0.0d
+!
+marker create  &
+   marker_name = .RearHitch.MainBody.MARKER_90  &
    adams_id = 90  &
    location = 0.0, -0.6, -0.9  &
    orientation = 0.0d, 0.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.MainBody.MARKER_92  &
+   marker_name = .RearHitch.MainBody.MARKER_92  &
    adams_id = 92  &
    location = 0.0, 0.6, -0.9  &
    orientation = 0.0d, 0.0d, 0.0d
 !
 part create rigid_body mass_properties  &
-   part_name = .Model_1.MainBody  &
-   material_type = .Model_1.steel
+   part_name = .RearHitch.MainBody  &
+   material_type = .RearHitch.steel
 !
 ! ****** Graphics for current part ******
 !
 geometry create shape block  &
-   block_name = .Model_1.MainBody.BOX_11  &
+   block_name = .RearHitch.MainBody.BOX_11  &
    adams_id = 1  &
-   corner_marker = .Model_1.MainBody.MARKER_11  &
-   diag_corner_coords = 0.2, 0.7, 0.9
+   corner_marker = .RearHitch.MainBody.MARKER_11  &
+   diag_corner_coords = 0.2, 0.9, -0.7
 !
 geometry create shape block  &
-   block_name = .Model_1.MainBody.BOX_21  &
+   block_name = .RearHitch.MainBody.BOX_21  &
    adams_id = 2  &
-   corner_marker = .Model_1.MainBody.MARKER_91  &
-   diag_corner_coords = 0.35, 0.15, 0.14
+   corner_marker = .RearHitch.MainBody.MARKER_91  &
+   diag_corner_coords = 0.35, 0.14, -0.15
 !
 geometry create shape block  &
-   block_name = .Model_1.MainBody.BOX_3  &
+   block_name = .RearHitch.MainBody.BOX_3  &
    adams_id = 3  &
-   corner_marker = .Model_1.MainBody.MARKER_13  &
-   diag_corner_coords = 0.1, -0.1, 1.05
+   corner_marker = .RearHitch.MainBody.MARKER_13  &
+   diag_corner_coords = 0.1, 1.05, -0.1
 !
 part attributes  &
-   part_name = .Model_1.MainBody  &
+   part_name = .RearHitch.MainBody  &
    color = CYAN  &
    name_visibility = off
 !
@@ -334,113 +334,113 @@ part attributes  &
 !
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 part create rigid_body name_and_position  &
-   part_name = .Model_1.TopLinkR  &
+   part_name = .RearHitch.TopLinkR  &
    adams_id = 5  &
    location = 0.0, 0.0, 0.0  &
    orientation = 0.0d, 0.0d, 0.0d
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.TopLinkR
+   default_coordinate_system = .RearHitch.TopLinkR
 !
 ! ****** Markers for current part ******
 !
 marker create  &
-   marker_name = .Model_1.TopLinkR.MARKER_2  &
+   marker_name = .RearHitch.TopLinkR.MARKER_2  &
    adams_id = 22  &
-   location = 0.0, 0.45, 0.0  &
-   orientation = 90.0d, 0.0d, 0.0d
+   location = 0.0, -0.45, 0.0  &
+   orientation = 180.0d, 90.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkR.cm  &
+   marker_name = .RearHitch.TopLinkR.cm  &
    adams_id = 23  &
-   location = 0.1498642316, 0.5853911821, 0.0  &
-   orientation = -89.9999999933d, 76.1682372679d, -179.9999999034d
+   location = -0.1516501389, -0.5841546951, 0.0  &
+   orientation = 103.162971859d, 89.9999999988d, 2.2755863058E-008d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkR.MARKER_3  &
+   marker_name = .RearHitch.TopLinkR.MARKER_3  &
    adams_id = 24  &
-   location = -5.0E-002, 0.6, 0.0  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = 5.0E-002, -0.6, 0.0  &
+   orientation = 180.0d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkR.MARKER_4  &
+   marker_name = .RearHitch.TopLinkR.MARKER_4  &
    adams_id = 25  &
-   location = 0.2, 0.6, 0.0  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.2, -0.6, 0.0  &
+   orientation = 180.0d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkR.MARKER_5  &
+   marker_name = .RearHitch.TopLinkR.MARKER_5  &
    adams_id = 26  &
-   location = 0.2, 0.6, 0.0  &
-   orientation = 0.0d, 0.0d, 14.0362434679d
+   location = -0.2, -0.6, 0.0  &
+   orientation = 191.309932474d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkR.MARKER_6  &
+   marker_name = .RearHitch.TopLinkR.MARKER_6  &
    adams_id = 27  &
-   location = 0.4, 0.65, 0.0  &
-   orientation = 0.0d, 0.0d, 14.0362434679d
+   location = -0.45, -0.65, 0.0  &
+   orientation = 191.309932474d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkR.MARKER_7  &
+   marker_name = .RearHitch.TopLinkR.MARKER_7  &
    adams_id = 28  &
-   location = 0.4, 0.65, 0.0  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.45, -0.65, 0.0  &
+   orientation = 180.0d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkR.MARKER_8  &
+   marker_name = .RearHitch.TopLinkR.MARKER_8  &
    adams_id = 29  &
-   location = 0.5, 0.65, 0.0  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.5, -0.65, 0.0  &
+   orientation = 180.0d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkR.Mkr_CylMount  &
+   marker_name = .RearHitch.TopLinkR.Mkr_CylMount  &
    adams_id = 48  &
-   location = 0.33, 0.635, 0.0  &
+   location = -0.33, -0.635, 0.0  &
    orientation = 0.0d, 0.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkR.MARKER_72  &
+   marker_name = .RearHitch.TopLinkR.MARKER_72  &
    adams_id = 72  &
    location = 0.0, 0.45, 0.0  &
-   orientation = -90.0d, 0.0d, 0.0d
+   orientation = 180.0d, 90.0d, 180.0d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkR.MARKER_83  &
+   marker_name = .RearHitch.TopLinkR.MARKER_83  &
    adams_id = 83  &
-   location = 0.5, 0.65, 0.0  &
-   orientation = -90.0d, 0.0d, 0.0d
+   location = -0.5, -0.65, 0.0  &
+   orientation = 180.0d, 90.0d, 180.0d
 !
 part create rigid_body mass_properties  &
-   part_name = .Model_1.TopLinkR  &
-   material_type = .Model_1.steel_2
+   part_name = .RearHitch.TopLinkR  &
+   material_type = .RearHitch.steel_2
 !
 ! ****** Points for current part ******
 !
 point create  &
-   point_name = .Model_1.TopLinkR.POINT_2  &
-   location = 0.2, 0.6, 0.0
+   point_name = .RearHitch.TopLinkR.POINT_2  &
+   location = -0.2, -0.6, 0.0
 !
 point create  &
-   point_name = .Model_1.TopLinkR.POINT_3  &
-   location = 0.4, 0.65, 0.0
+   point_name = .RearHitch.TopLinkR.POINT_3  &
+   location = -0.45, -0.65, 0.0
 !
 point create  &
-   point_name = .Model_1.TopLinkR.POINT_4  &
-   location = 0.5, 0.65, 0.0
+   point_name = .RearHitch.TopLinkR.POINT_4  &
+   location = -0.5, -0.65, 0.0
 !
 point create  &
-   point_name = .Model_1.TopLinkR.POINT_1  &
-   location = -5.0E-002, 0.6, 0.0
+   point_name = .RearHitch.TopLinkR.POINT_1  &
+   location = 5.0E-002, -0.6, 0.0
 !
 ! ****** Graphics for current part ******
 !
 geometry create shape cylinder  &
-   cylinder_name = .Model_1.TopLinkR.CYLINDER_1  &
+   cylinder_name = .RearHitch.TopLinkR.CYLINDER_1  &
    adams_id = 40  &
-   center_marker = .Model_1.TopLinkR.MARKER_2  &
+   center_marker = .RearHitch.TopLinkR.MARKER_2  &
    angle_extent = 360.0  &
    length = -0.15  &
    radius = 7.5E-002  &
@@ -448,28 +448,28 @@ geometry create shape cylinder  &
    segment_count_for_ends = 20
 !
 geometry create shape link  &
-   link_name = .Model_1.TopLinkR.LINK_6  &
-   i_marker = .Model_1.TopLinkR.MARKER_3  &
-   j_marker = .Model_1.TopLinkR.MARKER_4  &
+   link_name = .RearHitch.TopLinkR.LINK_6  &
+   i_marker = .RearHitch.TopLinkR.MARKER_3  &
+   j_marker = .RearHitch.TopLinkR.MARKER_4  &
    width = 5.0E-002  &
    depth = 0.14
 !
 geometry create shape link  &
-   link_name = .Model_1.TopLinkR.LINK_7  &
-   i_marker = .Model_1.TopLinkR.MARKER_5  &
-   j_marker = .Model_1.TopLinkR.MARKER_6  &
+   link_name = .RearHitch.TopLinkR.LINK_7  &
+   i_marker = .RearHitch.TopLinkR.MARKER_5  &
+   j_marker = .RearHitch.TopLinkR.MARKER_6  &
    width = 5.0E-002  &
    depth = 0.14
 !
 geometry create shape link  &
-   link_name = .Model_1.TopLinkR.LINK_8  &
-   i_marker = .Model_1.TopLinkR.MARKER_7  &
-   j_marker = .Model_1.TopLinkR.MARKER_8  &
+   link_name = .RearHitch.TopLinkR.LINK_8  &
+   i_marker = .RearHitch.TopLinkR.MARKER_7  &
+   j_marker = .RearHitch.TopLinkR.MARKER_8  &
    width = 5.0E-002  &
    depth = 0.14
 !
 part attributes  &
-   part_name = .Model_1.TopLinkR  &
+   part_name = .RearHitch.TopLinkR  &
    color = MAIZE  &
    name_visibility = off
 !
@@ -477,136 +477,142 @@ part attributes  &
 !
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 part create rigid_body name_and_position  &
-   part_name = .Model_1.LowerLinkL  &
+   part_name = .RearHitch.LowerLinkL  &
    adams_id = 6  &
    location = 0.0, 0.0, 0.0  &
    orientation = 0.0d, 0.0d, 0.0d
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.LowerLinkL
+   default_coordinate_system = .RearHitch.LowerLinkL
 !
 ! ****** Markers for current part ******
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkL.MARKER_30  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_30  &
    adams_id = 30  &
-   location = 0.15, -0.45, -0.7  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.15, 0.45, -0.7  &
+   orientation = 180.0d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkL.MARKER_31  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_31  &
    adams_id = 31  &
-   location = 0.25, -0.45, -0.7  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.25, 0.45, -0.7  &
+   orientation = 180.0d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkL.cm  &
+   marker_name = .RearHitch.LowerLinkL.cm  &
    adams_id = 97  &
-   location = 0.5149924874, -0.6427490352, -0.7  &
-   orientation = 89.999999988d, 58.3467785901d, 7.2171044101E-008d
+   location = -0.5149924874, 0.6427490352, -0.7  &
+   orientation = 58.3467785901d, 89.9999999959d, 8.1148694634E-009d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkL.MARKER_101  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_101  &
    adams_id = 101  &
-   location = 0.15, -0.45, -0.7  &
-   orientation = -90.0d, 0.0d, 0.0d
+   location = -0.15, 0.45, -0.7  &
+   orientation = 180.0d, 90.0d, 180.0d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkL.MARKER_32  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_32  &
    adams_id = 32  &
-   location = 0.25, -0.45, -0.7  &
-   orientation = 0.0d, 0.0d, -37.8749836511d
+   location = -0.25, 0.45, -0.7  &
+   orientation = 142.1250163489d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkL.MARKER_33  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_33  &
    adams_id = 33  &
-   location = 0.7, -0.8, -0.7  &
-   orientation = 0.0d, 0.0d, -37.8749836511d
+   location = -0.7, 0.8, -0.7  &
+   orientation = 142.1250163489d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkL.MARKER_34  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_34  &
    adams_id = 34  &
-   location = 0.7, -0.8, -0.7  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.7, 0.8, -0.7  &
+   orientation = 180.0d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkL.MARKER_35  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_35  &
    adams_id = 35  &
-   location = 0.9, -0.8, -0.7  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.9, 0.8, -0.7  &
+   orientation = 180.0d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkL.MARKER_77  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_105  &
+   adams_id = 105  &
+   location = -0.15, 0.45, -0.7  &
+   orientation = 180.0d, 0.0d, 0.0d
+!
+marker create  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_77  &
    adams_id = 77  &
-   location = 0.5, -0.65, -0.7  &
-   orientation = -90.0d, 0.0d, 0.0d
+   location = -0.5, 0.66, -0.7  &
+   orientation = 180.0d, 90.0d, 180.0d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkL.Chain  &
+   marker_name = .RearHitch.LowerLinkL.Chain  &
    adams_id = 87  &
-   location = 0.4631250987, -0.6157639656, -0.7  &
-   orientation = 89.999999988d, 58.3467785901d, 7.2171044101E-008d
+   location = -0.4631250987, 0.6157639656, -0.7  &
+   orientation = 58.3467785901d, 89.9999999959d, 8.1148694634E-009d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkL.MARKER_89  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_89  &
    adams_id = 89  &
-   location = 0.4631250987, -0.6157639656, -0.7  &
+   location = -0.4631250987, -0.6157639656, -0.7  &
    orientation = 0.0d, 0.0d, 0.0d
 !
 part create rigid_body mass_properties  &
-   part_name = .Model_1.LowerLinkL  &
-   material_type = .Model_1.steel
+   part_name = .RearHitch.LowerLinkL  &
+   material_type = .RearHitch.steel
 !
 ! ****** Points for current part ******
 !
 point create  &
-   point_name = .Model_1.LowerLinkL.POINT_51  &
-   location = 0.15, -0.45, -0.7
+   point_name = .RearHitch.LowerLinkL.POINT_51  &
+   location = -0.15, 0.45, -0.7
 !
 point create  &
-   point_name = .Model_1.LowerLinkL.POINT_52  &
-   location = 0.25, -0.45, -0.7
+   point_name = .RearHitch.LowerLinkL.POINT_52  &
+   location = -0.25, 0.45, -0.7
 !
 point create  &
-   point_name = .Model_1.LowerLinkL.POINT_53  &
-   location = 0.7, -0.8, -0.7
+   point_name = .RearHitch.LowerLinkL.POINT_53  &
+   location = -0.7, 0.8, -0.7
 !
 point create  &
-   point_name = .Model_1.LowerLinkL.POINT_54  &
-   location = 0.9, -0.8, -0.7
+   point_name = .RearHitch.LowerLinkL.POINT_54  &
+   location = -0.9, 0.8, -0.7
 !
 point create  &
-   point_name = .Model_1.LowerLinkL.LinkagePoint  &
-   location = 0.5, -0.65, -0.7
+   point_name = .RearHitch.LowerLinkL.LinkagePoint  &
+   location = -0.5, 0.66, -0.7
 !
 ! ****** Graphics for current part ******
 !
 geometry create shape link  &
-   link_name = .Model_1.LowerLinkL.LINK_54  &
-   i_marker = .Model_1.LowerLinkL.MARKER_30  &
-   j_marker = .Model_1.LowerLinkL.MARKER_31  &
+   link_name = .RearHitch.LowerLinkL.LINK_54  &
+   i_marker = .RearHitch.LowerLinkL.MARKER_30  &
+   j_marker = .RearHitch.LowerLinkL.MARKER_31  &
    width = 5.0E-002  &
    depth = 0.14
 !
 geometry create shape link  &
-   link_name = .Model_1.LowerLinkL.LINK_55  &
-   i_marker = .Model_1.LowerLinkL.MARKER_32  &
-   j_marker = .Model_1.LowerLinkL.MARKER_33  &
+   link_name = .RearHitch.LowerLinkL.LINK_55  &
+   i_marker = .RearHitch.LowerLinkL.MARKER_32  &
+   j_marker = .RearHitch.LowerLinkL.MARKER_33  &
    width = 5.0E-002  &
    depth = 0.14
 !
 geometry create shape link  &
-   link_name = .Model_1.LowerLinkL.LINK_56  &
-   i_marker = .Model_1.LowerLinkL.MARKER_34  &
-   j_marker = .Model_1.LowerLinkL.MARKER_35  &
+   link_name = .RearHitch.LowerLinkL.LINK_56  &
+   i_marker = .RearHitch.LowerLinkL.MARKER_34  &
+   j_marker = .RearHitch.LowerLinkL.MARKER_35  &
    width = 5.0E-002  &
    depth = 0.14
 !
 part attributes  &
-   part_name = .Model_1.LowerLinkL  &
+   part_name = .RearHitch.LowerLinkL  &
    color = MAGENTA  &
    visibility = on  &
    name_visibility = off
@@ -615,113 +621,113 @@ part attributes  &
 !
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 part create rigid_body name_and_position  &
-   part_name = .Model_1.TopLinkL  &
+   part_name = .RearHitch.TopLinkL  &
    adams_id = 4  &
    location = 0.0, 0.0, 0.0  &
    orientation = 0.0d, 0.0d, 0.0d
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.TopLinkL
+   default_coordinate_system = .RearHitch.TopLinkL
 !
 ! ****** Markers for current part ******
 !
 marker create  &
-   marker_name = .Model_1.TopLinkL.MARKER_2  &
+   marker_name = .RearHitch.TopLinkL.MARKER_2  &
    adams_id = 15  &
-   location = 0.0, -0.45, 0.0  &
-   orientation = 90.0d, 0.0d, 0.0d
+   location = 0.0, 0.45, 0.0  &
+   orientation = 180.0d, 90.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkL.cm  &
+   marker_name = .RearHitch.TopLinkL.cm  &
    adams_id = 96  &
-   location = 0.1498642316, -0.5853911821, 0.0  &
-   orientation = 89.999999993d, 76.1682372679d, -6.8433127589E-009d
+   location = -0.1516501389, 0.5841546951, 0.0  &
+   orientation = 76.837028141d, 89.9999999988d, 359.9999999081d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkL.MARKER_3  &
+   marker_name = .RearHitch.TopLinkL.MARKER_3  &
    adams_id = 16  &
-   location = -5.0E-002, -0.6, 0.0  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = 5.0E-002, 0.6, 0.0  &
+   orientation = 180.0d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkL.MARKER_4  &
+   marker_name = .RearHitch.TopLinkL.MARKER_4  &
    adams_id = 17  &
-   location = 0.2, -0.6, 0.0  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.2, 0.6, 0.0  &
+   orientation = 180.0d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkL.MARKER_5  &
+   marker_name = .RearHitch.TopLinkL.MARKER_5  &
    adams_id = 18  &
-   location = 0.2, -0.6, 0.0  &
-   orientation = 0.0d, 0.0d, -14.0362434679d
+   location = -0.2, 0.6, 0.0  &
+   orientation = 168.690067526d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkL.MARKER_6  &
+   marker_name = .RearHitch.TopLinkL.MARKER_6  &
    adams_id = 19  &
-   location = 0.4, -0.65, 0.0  &
-   orientation = 0.0d, 0.0d, -14.0362434679d
+   location = -0.45, 0.65, 0.0  &
+   orientation = 168.690067526d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkL.MARKER_7  &
+   marker_name = .RearHitch.TopLinkL.MARKER_7  &
    adams_id = 20  &
-   location = 0.4, -0.65, 0.0  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.45, 0.65, 0.0  &
+   orientation = 180.0d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkL.MARKER_8  &
+   marker_name = .RearHitch.TopLinkL.MARKER_8  &
    adams_id = 21  &
-   location = 0.5, -0.65, 0.0  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.5, 0.65, 0.0  &
+   orientation = 180.0d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkL.Mkr_CylMount  &
+   marker_name = .RearHitch.TopLinkL.Mkr_CylMount  &
    adams_id = 47  &
-   location = 0.33, -0.635, 0.0  &
+   location = -0.33, 0.635, 0.0  &
    orientation = 0.0d, 0.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkL.MARKER_70  &
+   marker_name = .RearHitch.TopLinkL.MARKER_70  &
    adams_id = 70  &
    location = 0.0, -0.45, 0.0  &
-   orientation = -90.0d, 0.0d, 0.0d
+   orientation = 180.0d, 90.0d, 180.0d
 !
 marker create  &
-   marker_name = .Model_1.TopLinkL.MARKER_79  &
+   marker_name = .RearHitch.TopLinkL.MARKER_79  &
    adams_id = 79  &
-   location = 0.5, -0.65, 0.0  &
-   orientation = -90.0d, 0.0d, 0.0d
+   location = -0.5, 0.65, 0.0  &
+   orientation = 180.0d, 90.0d, 180.0d
 !
 part create rigid_body mass_properties  &
-   part_name = .Model_1.TopLinkL  &
-   material_type = .Model_1.steel_2
+   part_name = .RearHitch.TopLinkL  &
+   material_type = .RearHitch.steel_2
 !
 ! ****** Points for current part ******
 !
 point create  &
-   point_name = .Model_1.TopLinkL.POINT_2  &
-   location = 0.2, -0.6, 0.0
+   point_name = .RearHitch.TopLinkL.POINT_2  &
+   location = -0.2, 0.6, 0.0
 !
 point create  &
-   point_name = .Model_1.TopLinkL.POINT_3  &
-   location = 0.4, -0.65, 0.0
+   point_name = .RearHitch.TopLinkL.POINT_3  &
+   location = -0.45, 0.65, 0.0
 !
 point create  &
-   point_name = .Model_1.TopLinkL.POINT_4  &
-   location = 0.5, -0.65, 0.0
+   point_name = .RearHitch.TopLinkL.POINT_4  &
+   location = -0.5, 0.65, 0.0
 !
 point create  &
-   point_name = .Model_1.TopLinkL.POINT_1  &
-   location = -5.0E-002, -0.6, 0.0
+   point_name = .RearHitch.TopLinkL.POINT_1  &
+   location = 5.0E-002, 0.6, 0.0
 !
 ! ****** Graphics for current part ******
 !
 geometry create shape cylinder  &
-   cylinder_name = .Model_1.TopLinkL.CYLINDER_1  &
+   cylinder_name = .RearHitch.TopLinkL.CYLINDER_1  &
    adams_id = 4  &
-   center_marker = .Model_1.TopLinkL.MARKER_2  &
+   center_marker = .RearHitch.TopLinkL.MARKER_2  &
    angle_extent = 360.0  &
    length = 0.15  &
    radius = 7.5E-002  &
@@ -729,28 +735,28 @@ geometry create shape cylinder  &
    segment_count_for_ends = 20
 !
 geometry create shape link  &
-   link_name = .Model_1.TopLinkL.LINK_6  &
-   i_marker = .Model_1.TopLinkL.MARKER_3  &
-   j_marker = .Model_1.TopLinkL.MARKER_4  &
+   link_name = .RearHitch.TopLinkL.LINK_6  &
+   i_marker = .RearHitch.TopLinkL.MARKER_3  &
+   j_marker = .RearHitch.TopLinkL.MARKER_4  &
    width = 5.0E-002  &
    depth = 0.14
 !
 geometry create shape link  &
-   link_name = .Model_1.TopLinkL.LINK_7  &
-   i_marker = .Model_1.TopLinkL.MARKER_5  &
-   j_marker = .Model_1.TopLinkL.MARKER_6  &
+   link_name = .RearHitch.TopLinkL.LINK_7  &
+   i_marker = .RearHitch.TopLinkL.MARKER_5  &
+   j_marker = .RearHitch.TopLinkL.MARKER_6  &
    width = 5.0E-002  &
    depth = 0.14
 !
 geometry create shape link  &
-   link_name = .Model_1.TopLinkL.LINK_8  &
-   i_marker = .Model_1.TopLinkL.MARKER_7  &
-   j_marker = .Model_1.TopLinkL.MARKER_8  &
+   link_name = .RearHitch.TopLinkL.LINK_8  &
+   i_marker = .RearHitch.TopLinkL.MARKER_7  &
+   j_marker = .RearHitch.TopLinkL.MARKER_8  &
    width = 5.0E-002  &
    depth = 0.14
 !
 part attributes  &
-   part_name = .Model_1.TopLinkL  &
+   part_name = .RearHitch.TopLinkL  &
    color = MAIZE  &
    visibility = on  &
    name_visibility = off
@@ -759,136 +765,142 @@ part attributes  &
 !
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 part create rigid_body name_and_position  &
-   part_name = .Model_1.LowerLinkR  &
+   part_name = .RearHitch.LowerLinkR  &
    adams_id = 8  &
    location = 0.0, 0.0, 0.0  &
    orientation = 0.0d, 0.0d, 0.0d
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.LowerLinkR
+   default_coordinate_system = .RearHitch.LowerLinkR
 !
 ! ****** Markers for current part ******
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkR.cm  &
+   marker_name = .RearHitch.LowerLinkR.cm  &
    adams_id = 36  &
-   location = 0.5149924874, 0.6427490352, -0.7  &
-   orientation = -89.999999988d, 58.3467785901d, 179.9999999804d
+   location = -0.5149924874, -0.6427490352, -0.7  &
+   orientation = 121.6532214099d, 89.9999999959d, 359.9999999598d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkR.MARKER_30  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_30  &
    adams_id = 37  &
-   location = 0.15, 0.45, -0.7  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.15, -0.45, -0.7  &
+   orientation = 180.0d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkR.MARKER_31  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_31  &
    adams_id = 38  &
-   location = 0.25, 0.45, -0.7  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.25, -0.45, -0.7  &
+   orientation = 180.0d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkR.MARKER_32  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_32  &
    adams_id = 39  &
-   location = 0.25, 0.45, -0.7  &
-   orientation = 0.0d, 0.0d, 37.8749836511d
+   location = -0.25, -0.45, -0.7  &
+   orientation = 217.8749836511d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkR.MARKER_33  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_33  &
    adams_id = 40  &
-   location = 0.7, 0.8, -0.7  &
-   orientation = 0.0d, 0.0d, 37.8749836511d
+   location = -0.7, -0.8, -0.7  &
+   orientation = 217.8749836511d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkR.MARKER_34  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_34  &
    adams_id = 41  &
-   location = 0.7, 0.8, -0.7  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.7, -0.8, -0.7  &
+   orientation = 180.0d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkR.MARKER_35  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_35  &
    adams_id = 42  &
-   location = 0.9, 0.8, -0.7  &
-   orientation = 0.0d, 0.0d, 0.0d
+   location = -0.9, -0.8, -0.7  &
+   orientation = 180.0d, 180.0d, 0.0d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkR.MARKER_103  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_103  &
    adams_id = 103  &
-   location = 0.15, 0.45, -0.7  &
-   orientation = -90.0d, 0.0d, 0.0d
+   location = -0.15, -0.45, -0.7  &
+   orientation = 180.0d, 90.0d, 180.0d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkR.MARKER_81  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_81  &
    adams_id = 81  &
-   location = 0.5, 0.65, -0.7  &
-   orientation = -90.0d, 0.0d, 0.0d
+   location = -0.5, -0.66, -0.7  &
+   orientation = 180.0d, 90.0d, 180.0d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkR.Chain  &
+   marker_name = .RearHitch.LowerLinkR.Chain  &
    adams_id = 88  &
-   location = 0.4631250987, 0.6157639656, -0.7  &
-   orientation = -89.999999988d, 58.3467785901d, 179.9999999804d
+   location = -0.4631250987, -0.6157639656, -0.7  &
+   orientation = 121.6532214099d, 89.9999999959d, 359.9999999598d
 !
 marker create  &
-   marker_name = .Model_1.LowerLinkR.MARKER_91  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_91  &
    adams_id = 91  &
-   location = 0.4631250987, 0.6157639656, -0.7  &
+   location = -0.4631250987, 0.6157639656, -0.7  &
    orientation = 0.0d, 0.0d, 0.0d
+!
+marker create  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_105  &
+   adams_id = 106  &
+   location = -0.15, -0.45, -0.7  &
+   orientation = 180.0d, 0.0d, 0.0d
 !
 part create rigid_body mass_properties  &
-   part_name = .Model_1.LowerLinkR  &
-   material_type = .Model_1.steel
+   part_name = .RearHitch.LowerLinkR  &
+   material_type = .RearHitch.steel
 !
 ! ****** Points for current part ******
 !
 point create  &
-   point_name = .Model_1.LowerLinkR.POINT_51  &
-   location = 0.15, 0.45, -0.7
+   point_name = .RearHitch.LowerLinkR.POINT_51  &
+   location = -0.15, -0.45, -0.7
 !
 point create  &
-   point_name = .Model_1.LowerLinkR.POINT_52  &
-   location = 0.25, 0.45, -0.7
+   point_name = .RearHitch.LowerLinkR.POINT_52  &
+   location = -0.25, -0.45, -0.7
 !
 point create  &
-   point_name = .Model_1.LowerLinkR.POINT_53  &
-   location = 0.7, 0.8, -0.7
+   point_name = .RearHitch.LowerLinkR.POINT_53  &
+   location = -0.7, -0.8, -0.7
 !
 point create  &
-   point_name = .Model_1.LowerLinkR.POINT_54  &
-   location = 0.9, 0.8, -0.7
+   point_name = .RearHitch.LowerLinkR.POINT_54  &
+   location = -0.9, -0.8, -0.7
 !
 point create  &
-   point_name = .Model_1.LowerLinkR.LinkagePoint  &
-   location = 0.5, 0.65, -0.7
+   point_name = .RearHitch.LowerLinkR.LinkagePoint  &
+   location = -0.5, -0.66, -0.7
 !
 ! ****** Graphics for current part ******
 !
 geometry create shape link  &
-   link_name = .Model_1.LowerLinkR.LINK_54  &
-   i_marker = .Model_1.LowerLinkR.MARKER_30  &
-   j_marker = .Model_1.LowerLinkR.MARKER_31  &
+   link_name = .RearHitch.LowerLinkR.LINK_54  &
+   i_marker = .RearHitch.LowerLinkR.MARKER_30  &
+   j_marker = .RearHitch.LowerLinkR.MARKER_31  &
    width = 5.0E-002  &
    depth = 0.14
 !
 geometry create shape link  &
-   link_name = .Model_1.LowerLinkR.LINK_55  &
-   i_marker = .Model_1.LowerLinkR.MARKER_32  &
-   j_marker = .Model_1.LowerLinkR.MARKER_33  &
+   link_name = .RearHitch.LowerLinkR.LINK_55  &
+   i_marker = .RearHitch.LowerLinkR.MARKER_32  &
+   j_marker = .RearHitch.LowerLinkR.MARKER_33  &
    width = 5.0E-002  &
    depth = 0.14
 !
 geometry create shape link  &
-   link_name = .Model_1.LowerLinkR.LINK_56  &
-   i_marker = .Model_1.LowerLinkR.MARKER_34  &
-   j_marker = .Model_1.LowerLinkR.MARKER_35  &
+   link_name = .RearHitch.LowerLinkR.LINK_56  &
+   i_marker = .RearHitch.LowerLinkR.MARKER_34  &
+   j_marker = .RearHitch.LowerLinkR.MARKER_35  &
    width = 5.0E-002  &
    depth = 0.14
 !
 part attributes  &
-   part_name = .Model_1.LowerLinkR  &
+   part_name = .RearHitch.LowerLinkR  &
    color = MAGENTA  &
    name_visibility = off
 !
@@ -896,64 +908,64 @@ part attributes  &
 !
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 part create rigid_body name_and_position  &
-   part_name = .Model_1.LinkageL  &
+   part_name = .RearHitch.LinkageL  &
    adams_id = 9  &
    location = 0.0, 0.0, 0.0  &
    orientation = 0.0d, 0.0d, 0.0d
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.LinkageL
+   default_coordinate_system = .RearHitch.LinkageL
 !
 ! ****** Markers for current part ******
 !
 marker create  &
-   marker_name = .Model_1.LinkageL.MARKER_43  &
+   marker_name = .RearHitch.LinkageL.MARKER_43  &
    adams_id = 43  &
-   location = 0.5, -0.65, 0.0  &
-   orientation = 0.0d, 90.0d, 0.0d
+   location = -0.5, 0.65, 0.0  &
+   orientation = 90.0d, 90.0d, 270.8184554617d
 !
 marker create  &
-   marker_name = .Model_1.LinkageL.MARKER_44  &
+   marker_name = .RearHitch.LinkageL.MARKER_44  &
    adams_id = 44  &
-   location = 0.5, -0.65, -0.7  &
-   orientation = 0.0d, 90.0d, 0.0d
+   location = -0.5, 0.66, -0.7  &
+   orientation = 90.0d, 90.0d, 270.8184554617d
 !
 marker create  &
-   marker_name = .Model_1.LinkageL.cm  &
+   marker_name = .RearHitch.LinkageL.cm  &
    adams_id = 99  &
-   location = 0.5, -0.65, -0.35  &
-   orientation = 180.0d, 0.0d, -89.9999881099d
+   location = -0.5, 0.655, -0.35  &
+   orientation = 179.999999297d, 179.1815445383d, 90.0000059204d
 !
 marker create  &
-   marker_name = .Model_1.LinkageL.MARKER_78  &
+   marker_name = .RearHitch.LinkageL.MARKER_78  &
    adams_id = 78  &
-   location = 0.5, -0.65, -0.7  &
-   orientation = -90.0d, 0.0d, 0.0d
+   location = -0.5, 0.66, -0.7  &
+   orientation = 180.0d, 90.0d, 180.0d
 !
 marker create  &
-   marker_name = .Model_1.LinkageL.MARKER_80  &
+   marker_name = .RearHitch.LinkageL.MARKER_80  &
    adams_id = 80  &
-   location = 0.5, -0.65, 0.0  &
-   orientation = -90.0d, 0.0d, 0.0d
+   location = -0.5, 0.65, 0.0  &
+   orientation = 180.0d, 90.0d, 180.0d
 !
 part create rigid_body mass_properties  &
-   part_name = .Model_1.LinkageL  &
-   material_type = .Model_1.steel
+   part_name = .RearHitch.LinkageL  &
+   material_type = .RearHitch.steel
 !
 ! ****** Graphics for current part ******
 !
 geometry create shape link  &
-   link_name = .Model_1.LinkageL.LINK_92  &
-   i_marker = .Model_1.LinkageL.MARKER_43  &
-   j_marker = .Model_1.LinkageL.MARKER_44  &
+   link_name = .RearHitch.LinkageL.LINK_92  &
+   i_marker = .RearHitch.LinkageL.MARKER_43  &
+   j_marker = .RearHitch.LinkageL.MARKER_44  &
    width = 5.0E-002  &
    depth = 5.0E-002
 !
 part attributes  &
-   part_name = .Model_1.LinkageL  &
+   part_name = .RearHitch.LinkageL  &
    color = GREEN  &
    name_visibility = off
 !
@@ -961,64 +973,64 @@ part attributes  &
 !
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 part create rigid_body name_and_position  &
-   part_name = .Model_1.LinkageR  &
+   part_name = .RearHitch.LinkageR  &
    adams_id = 10  &
    location = 0.0, 0.0, 0.0  &
    orientation = 0.0d, 0.0d, 0.0d
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.LinkageR
+   default_coordinate_system = .RearHitch.LinkageR
 !
 ! ****** Markers for current part ******
 !
 marker create  &
-   marker_name = .Model_1.LinkageR.MARKER_45  &
+   marker_name = .RearHitch.LinkageR.MARKER_45  &
    adams_id = 45  &
-   location = 0.5, 0.65, 0.0  &
-   orientation = 0.0d, 90.0d, 0.0d
+   location = -0.5, -0.65, 0.0  &
+   orientation = 90.0d, 90.0d, 269.1815445383d
 !
 marker create  &
-   marker_name = .Model_1.LinkageR.MARKER_46  &
+   marker_name = .RearHitch.LinkageR.MARKER_46  &
    adams_id = 46  &
-   location = 0.5, 0.65, -0.7  &
-   orientation = 0.0d, 90.0d, 0.0d
+   location = -0.5, -0.66, -0.7  &
+   orientation = 90.0d, 90.0d, 269.1815445383d
 !
 marker create  &
-   marker_name = .Model_1.LinkageR.cm  &
+   marker_name = .RearHitch.LinkageR.cm  &
    adams_id = 100  &
-   location = 0.5, 0.65, -0.35  &
-   orientation = 180.0d, 0.0d, -89.9999881099d
+   location = -0.5, -0.655, -0.35  &
+   orientation = 7.0177962695E-007d, 179.1815445383d, 270.000007325d
 !
 marker create  &
-   marker_name = .Model_1.LinkageR.MARKER_82  &
+   marker_name = .RearHitch.LinkageR.MARKER_82  &
    adams_id = 82  &
-   location = 0.5, 0.65, -0.7  &
-   orientation = -90.0d, 0.0d, 0.0d
+   location = -0.5, -0.66, -0.7  &
+   orientation = 180.0d, 90.0d, 180.0d
 !
 marker create  &
-   marker_name = .Model_1.LinkageR.MARKER_84  &
+   marker_name = .RearHitch.LinkageR.MARKER_84  &
    adams_id = 84  &
-   location = 0.5, 0.65, 0.0  &
-   orientation = -90.0d, 0.0d, 0.0d
+   location = -0.5, -0.65, 0.0  &
+   orientation = 180.0d, 90.0d, 180.0d
 !
 part create rigid_body mass_properties  &
-   part_name = .Model_1.LinkageR  &
-   material_type = .Model_1.steel
+   part_name = .RearHitch.LinkageR  &
+   material_type = .RearHitch.steel
 !
 ! ****** Graphics for current part ******
 !
 geometry create shape link  &
-   link_name = .Model_1.LinkageR.LINK_94  &
-   i_marker = .Model_1.LinkageR.MARKER_45  &
-   j_marker = .Model_1.LinkageR.MARKER_46  &
+   link_name = .RearHitch.LinkageR.LINK_94  &
+   i_marker = .RearHitch.LinkageR.MARKER_45  &
+   j_marker = .RearHitch.LinkageR.MARKER_46  &
    width = 5.0E-002  &
    depth = 5.0E-002
 !
 part attributes  &
-   part_name = .Model_1.LinkageR  &
+   part_name = .RearHitch.LinkageR  &
    color = GREEN  &
    name_visibility = off
 !
@@ -1026,59 +1038,59 @@ part attributes  &
 !
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 part create rigid_body name_and_position  &
-   part_name = .Model_1.PART_Cyl_HitchL_cyl  &
+   part_name = .RearHitch.PART_Cyl_HitchL_cyl  &
    adams_id = 11  &
    location = 0.0, 0.0, 0.0  &
    orientation = 0.0d, 0.0d, 0.0d
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.PART_Cyl_HitchL_cyl
+   default_coordinate_system = .RearHitch.PART_Cyl_HitchL_cyl
 !
 ! ****** Markers for current part ******
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master  &
+   marker_name = .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master  &
    adams_id = 49  &
-   location = 0.25, -0.525, -0.5  &
-   orientation = 12.4074185274d, 8.8813926566d, -1.9453431856d
+   location = -0.25, 0.525, -0.5  &
+   orientation = 216.0273733851d, 15.2178956985d, 142.994607936d
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchL_cyl.cm  &
+   marker_name = .RearHitch.PART_Cyl_HitchL_cyl.cm  &
    adams_id = 50  &
-   location = 0.2637361272, -0.5438871749, -0.414149205  &
-   orientation = 12.4074185274d, 8.8813926566d, -1.9453431856d
+   location = -0.2637361272, 0.5438871749, -0.414149205  &
+   orientation = 216.0273733852d, 15.2178956984d, 142.994607936d
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchL_cyl.cyl_MKR_2  &
+   marker_name = .RearHitch.PART_Cyl_HitchL_cyl.cyl_MKR_2  &
    adams_id = 51  &
-   location = 0.2525154332, -0.451709425, -0.4842785428  &
-   orientation = 102.1069652012d, -1.9220098262d, -8.8864325542d
+   location = -0.2474845668, 0.598290575, -0.5157214572  &
+   orientation = 358.0343017818d, 77.8999492371d, 9.2986357219d
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchL_cyl.cyl_MKR_6  &
+   marker_name = .RearHitch.PART_Cyl_HitchL_cyl.cyl_MKR_6  &
    adams_id = 52  &
-   location = 0.25, -0.525, -0.5  &
-   orientation = 12.4074185274d, 8.8813926566d, -1.9453431856d
+   location = -0.25, 0.525, -0.5  &
+   orientation = 216.0273733851d, 15.2178956985d, 142.994607936d
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchL_cyl.cyl_MKR_11  &
+   marker_name = .RearHitch.PART_Cyl_HitchL_cyl.cyl_MKR_11  &
    adams_id = 53  &
-   location = 0.25, -0.525, -0.5  &
-   orientation = 12.4074185274d, 8.8813926566d, -1.9453431856d
+   location = -0.25, 0.525, -0.5  &
+   orientation = 216.0273733851d, 15.2178956985d, 142.994607936d
 !
 part create rigid_body mass_properties  &
-   part_name = .Model_1.PART_Cyl_HitchL_cyl  &
-   material_type = .Model_1.steel_3
+   part_name = .RearHitch.PART_Cyl_HitchL_cyl  &
+   material_type = .RearHitch.steel_3
 !
 ! ****** Graphics for current part ******
 !
 geometry create shape cylinder  &
-   cylinder_name = .Model_1.PART_Cyl_HitchL_cyl.CYLINDER  &
+   cylinder_name = .RearHitch.PART_Cyl_HitchL_cyl.CYLINDER  &
    adams_id = 92  &
-   center_marker = .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master  &
+   center_marker = .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master  &
    angle_extent = 360.0  &
    length = 0.275  &
    radius = 7.5E-002  &
@@ -1086,9 +1098,9 @@ geometry create shape cylinder  &
    segment_count_for_ends = 20
 !
 geometry create shape cylinder  &
-   cylinder_name = .Model_1.PART_Cyl_HitchL_cyl.CYLINDER_2  &
+   cylinder_name = .RearHitch.PART_Cyl_HitchL_cyl.CYLINDER_2  &
    adams_id = 93  &
-   center_marker = .Model_1.PART_Cyl_HitchL_cyl.cyl_MKR_2  &
+   center_marker = .RearHitch.PART_Cyl_HitchL_cyl.cyl_MKR_2  &
    angle_extent = 360.0  &
    length = 0.15  &
    radius = 7.5E-002  &
@@ -1096,7 +1108,7 @@ geometry create shape cylinder  &
    segment_count_for_ends = 20
 !
 part attributes  &
-   part_name = .Model_1.PART_Cyl_HitchL_cyl  &
+   part_name = .RearHitch.PART_Cyl_HitchL_cyl  &
    color = YELLOW  &
    name_visibility = off
 !
@@ -1104,59 +1116,59 @@ part attributes  &
 !
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 part create rigid_body name_and_position  &
-   part_name = .Model_1.PART_Cyl_HitchL_pis  &
+   part_name = .RearHitch.PART_Cyl_HitchL_pis  &
    adams_id = 12  &
    location = 0.0, 0.0, 0.0  &
    orientation = 0.0d, 0.0d, 0.0d
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.PART_Cyl_HitchL_pis
+   default_coordinate_system = .RearHitch.PART_Cyl_HitchL_pis
 !
 ! ****** Markers for current part ******
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave  &
+   marker_name = .RearHitch.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave  &
    adams_id = 54  &
-   location = 0.33, -0.635, 0.0  &
-   orientation = -167.5925814726d, -8.8813926566d, 1.9453431856d
+   location = -0.33, 0.635, 0.0  &
+   orientation = 36.0273733851d, 164.7821043015d, 37.005392064d
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchL_pis.cm  &
+   marker_name = .RearHitch.PART_Cyl_HitchL_pis.cm  &
    adams_id = 55  &
-   location = 0.3192216037, -0.6201797051, -6.7364976985E-002  &
-   orientation = 12.4074185274d, 8.8813926566d, -1.9453431856d
+   location = -0.3192216037, 0.6201797051, -6.7364976985E-002  &
+   orientation = 216.0273733852d, 15.2178956984d, 142.9946079359d
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchL_pis.cyl_MKR_4  &
+   marker_name = .RearHitch.PART_Cyl_HitchL_pis.cyl_MKR_4  &
    adams_id = 56  &
-   location = 0.3274845668, -0.708290575, -1.572145719E-002  &
-   orientation = -77.8930347988d, 1.9220098262d, 8.8864325542d
+   location = -0.3325154332, 0.561709425, 1.572145719E-002  &
+   orientation = 178.0343017818d, 102.1000507629d, 170.7013642781d
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchL_pis.cyl_MKR_5  &
+   marker_name = .RearHitch.PART_Cyl_HitchL_pis.cyl_MKR_5  &
    adams_id = 57  &
-   location = 0.33, -0.635, 0.0  &
-   orientation = 12.4074185274d, 8.8813926566d, -1.9453431856d
+   location = -0.33, 0.635, 0.0  &
+   orientation = 216.0273733851d, 15.2178956985d, 142.994607936d
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchL_pis.cyl_MKR_12  &
+   marker_name = .RearHitch.PART_Cyl_HitchL_pis.cyl_MKR_12  &
    adams_id = 58  &
-   location = 0.25, -0.525, -0.5  &
-   orientation = 12.4074185274d, 8.8813926566d, -1.9453431856d
+   location = -0.25, 0.525, -0.5  &
+   orientation = 216.0273733851d, 15.2178956985d, 142.994607936d
 !
 part create rigid_body mass_properties  &
-   part_name = .Model_1.PART_Cyl_HitchL_pis  &
-   material_type = .Model_1.steel_3
+   part_name = .RearHitch.PART_Cyl_HitchL_pis  &
+   material_type = .RearHitch.steel_3
 !
 ! ****** Graphics for current part ******
 !
 geometry create shape cylinder  &
-   cylinder_name = .Model_1.PART_Cyl_HitchL_pis.CYLINDER_3  &
+   cylinder_name = .RearHitch.PART_Cyl_HitchL_pis.CYLINDER_3  &
    adams_id = 94  &
-   center_marker = .Model_1.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave  &
+   center_marker = .RearHitch.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave  &
    angle_extent = 360.0  &
    length = 0.35  &
    radius = 4.0E-002  &
@@ -1164,9 +1176,9 @@ geometry create shape cylinder  &
    segment_count_for_ends = 20
 !
 geometry create shape cylinder  &
-   cylinder_name = .Model_1.PART_Cyl_HitchL_pis.CYLINDER_4  &
+   cylinder_name = .RearHitch.PART_Cyl_HitchL_pis.CYLINDER_4  &
    adams_id = 95  &
-   center_marker = .Model_1.PART_Cyl_HitchL_pis.cyl_MKR_4  &
+   center_marker = .RearHitch.PART_Cyl_HitchL_pis.cyl_MKR_4  &
    angle_extent = 360.0  &
    length = 0.15  &
    radius = 7.5E-002  &
@@ -1174,7 +1186,7 @@ geometry create shape cylinder  &
    segment_count_for_ends = 20
 !
 part attributes  &
-   part_name = .Model_1.PART_Cyl_HitchL_pis  &
+   part_name = .RearHitch.PART_Cyl_HitchL_pis  &
    color = DARK_GRAY  &
    name_visibility = off
 !
@@ -1182,59 +1194,59 @@ part attributes  &
 !
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 part create rigid_body name_and_position  &
-   part_name = .Model_1.PART_Cyl_HitchR_cyl  &
+   part_name = .RearHitch.PART_Cyl_HitchR_cyl  &
    adams_id = 13  &
    location = 0.0, 0.0, 0.0  &
    orientation = 0.0d, 0.0d, 0.0d
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.PART_Cyl_HitchR_cyl
+   default_coordinate_system = .RearHitch.PART_Cyl_HitchR_cyl
 !
 ! ****** Markers for current part ******
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master  &
+   marker_name = .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master  &
    adams_id = 59  &
-   location = 0.25, 0.525, -0.5  &
-   orientation = -12.4074185274d, 8.8813926566d, 1.9453431856d
+   location = -0.25, -0.525, -0.5  &
+   orientation = 323.9726266149d, 15.2178956985d, 37.005392064d
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchR_cyl.cm  &
+   marker_name = .RearHitch.PART_Cyl_HitchR_cyl.cm  &
    adams_id = 60  &
-   location = 0.2637361272, 0.5438871749, -0.414149205  &
-   orientation = -12.4074185274d, 8.8813926566d, 1.9453431856d
+   location = -0.2637361272, -0.5438871749, -0.414149205  &
+   orientation = 323.9726266148d, 15.2178956984d, 37.005392064d
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchR_cyl.cyl_MKR_2  &
+   marker_name = .RearHitch.PART_Cyl_HitchR_cyl.cyl_MKR_2  &
    adams_id = 61  &
-   location = 0.2474845668, 0.598290575, -0.5157214572  &
-   orientation = 77.8930347988d, 1.9220098262d, -8.8864325542d
+   location = -0.2525154332, -0.451709425, -0.4842785428  &
+   orientation = 1.9656982182d, 102.1000507629d, 9.2986357219d
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchR_cyl.cyl_MKR_6  &
+   marker_name = .RearHitch.PART_Cyl_HitchR_cyl.cyl_MKR_6  &
    adams_id = 62  &
-   location = 0.25, 0.525, -0.5  &
-   orientation = -12.4074185274d, 8.8813926566d, 1.9453431856d
+   location = -0.25, -0.525, -0.5  &
+   orientation = 323.9726266149d, 15.2178956985d, 37.005392064d
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchR_cyl.cyl_MKR_11  &
+   marker_name = .RearHitch.PART_Cyl_HitchR_cyl.cyl_MKR_11  &
    adams_id = 63  &
-   location = 0.25, 0.525, -0.5  &
-   orientation = -12.4074185274d, 8.8813926566d, 1.9453431856d
+   location = -0.25, -0.525, -0.5  &
+   orientation = 323.9726266149d, 15.2178956985d, 37.005392064d
 !
 part create rigid_body mass_properties  &
-   part_name = .Model_1.PART_Cyl_HitchR_cyl  &
-   material_type = .Model_1.steel_4
+   part_name = .RearHitch.PART_Cyl_HitchR_cyl  &
+   material_type = .RearHitch.steel_4
 !
 ! ****** Graphics for current part ******
 !
 geometry create shape cylinder  &
-   cylinder_name = .Model_1.PART_Cyl_HitchR_cyl.CYLINDER  &
+   cylinder_name = .RearHitch.PART_Cyl_HitchR_cyl.CYLINDER  &
    adams_id = 96  &
-   center_marker = .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master  &
+   center_marker = .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master  &
    angle_extent = 360.0  &
    length = 0.275  &
    radius = 7.5E-002  &
@@ -1242,9 +1254,9 @@ geometry create shape cylinder  &
    segment_count_for_ends = 20
 !
 geometry create shape cylinder  &
-   cylinder_name = .Model_1.PART_Cyl_HitchR_cyl.CYLINDER_2  &
+   cylinder_name = .RearHitch.PART_Cyl_HitchR_cyl.CYLINDER_2  &
    adams_id = 97  &
-   center_marker = .Model_1.PART_Cyl_HitchR_cyl.cyl_MKR_2  &
+   center_marker = .RearHitch.PART_Cyl_HitchR_cyl.cyl_MKR_2  &
    angle_extent = 360.0  &
    length = 0.15  &
    radius = 7.5E-002  &
@@ -1252,7 +1264,7 @@ geometry create shape cylinder  &
    segment_count_for_ends = 20
 !
 part attributes  &
-   part_name = .Model_1.PART_Cyl_HitchR_cyl  &
+   part_name = .RearHitch.PART_Cyl_HitchR_cyl  &
    color = YELLOW  &
    name_visibility = off
 !
@@ -1260,59 +1272,59 @@ part attributes  &
 !
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 part create rigid_body name_and_position  &
-   part_name = .Model_1.PART_Cyl_HitchR_pis  &
+   part_name = .RearHitch.PART_Cyl_HitchR_pis  &
    adams_id = 14  &
    location = 0.0, 0.0, 0.0  &
    orientation = 0.0d, 0.0d, 0.0d
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.PART_Cyl_HitchR_pis
+   default_coordinate_system = .RearHitch.PART_Cyl_HitchR_pis
 !
 ! ****** Markers for current part ******
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave  &
+   marker_name = .RearHitch.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave  &
    adams_id = 64  &
-   location = 0.33, 0.635, 0.0  &
-   orientation = 167.5925814726d, -8.8813926566d, -1.9453431856d
+   location = -0.33, -0.635, 0.0  &
+   orientation = 143.9726266149d, 164.7821043015d, 142.994607936d
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchR_pis.cm  &
+   marker_name = .RearHitch.PART_Cyl_HitchR_pis.cm  &
    adams_id = 65  &
-   location = 0.3192216037, 0.6201797051, -6.7364976985E-002  &
-   orientation = -12.4074185274d, 8.8813926566d, 1.9453431856d
+   location = -0.3192216037, -0.6201797051, -6.7364976985E-002  &
+   orientation = 323.9726266148d, 15.2178956984d, 37.0053920641d
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchR_pis.cyl_MKR_4  &
+   marker_name = .RearHitch.PART_Cyl_HitchR_pis.cyl_MKR_4  &
    adams_id = 66  &
-   location = 0.3325154332, 0.561709425, 1.572145719E-002  &
-   orientation = -102.1069652012d, -1.9220098262d, 8.8864325542d
+   location = -0.3274845668, -0.708290575, -1.572145719E-002  &
+   orientation = 181.9656982182d, 77.8999492371d, 170.7013642781d
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchR_pis.cyl_MKR_5  &
+   marker_name = .RearHitch.PART_Cyl_HitchR_pis.cyl_MKR_5  &
    adams_id = 67  &
-   location = 0.33, 0.635, 0.0  &
-   orientation = -12.4074185274d, 8.8813926566d, 1.9453431856d
+   location = -0.33, -0.635, 0.0  &
+   orientation = 323.9726266149d, 15.2178956985d, 37.005392064d
 !
 marker create  &
-   marker_name = .Model_1.PART_Cyl_HitchR_pis.cyl_MKR_12  &
+   marker_name = .RearHitch.PART_Cyl_HitchR_pis.cyl_MKR_12  &
    adams_id = 68  &
-   location = 0.25, 0.525, -0.5  &
-   orientation = -12.4074185274d, 8.8813926566d, 1.9453431856d
+   location = -0.25, -0.525, -0.5  &
+   orientation = 323.9726266149d, 15.2178956985d, 37.005392064d
 !
 part create rigid_body mass_properties  &
-   part_name = .Model_1.PART_Cyl_HitchR_pis  &
-   material_type = .Model_1.steel_4
+   part_name = .RearHitch.PART_Cyl_HitchR_pis  &
+   material_type = .RearHitch.steel_4
 !
 ! ****** Graphics for current part ******
 !
 geometry create shape cylinder  &
-   cylinder_name = .Model_1.PART_Cyl_HitchR_pis.CYLINDER_3  &
+   cylinder_name = .RearHitch.PART_Cyl_HitchR_pis.CYLINDER_3  &
    adams_id = 98  &
-   center_marker = .Model_1.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave  &
+   center_marker = .RearHitch.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave  &
    angle_extent = 360.0  &
    length = 0.35  &
    radius = 4.0E-002  &
@@ -1320,9 +1332,9 @@ geometry create shape cylinder  &
    segment_count_for_ends = 20
 !
 geometry create shape cylinder  &
-   cylinder_name = .Model_1.PART_Cyl_HitchR_pis.CYLINDER_4  &
+   cylinder_name = .RearHitch.PART_Cyl_HitchR_pis.CYLINDER_4  &
    adams_id = 99  &
-   center_marker = .Model_1.PART_Cyl_HitchR_pis.cyl_MKR_4  &
+   center_marker = .RearHitch.PART_Cyl_HitchR_pis.cyl_MKR_4  &
    angle_extent = 360.0  &
    length = 0.15  &
    radius = 7.5E-002  &
@@ -1330,7 +1342,7 @@ geometry create shape cylinder  &
    segment_count_for_ends = 20
 !
 part attributes  &
-   part_name = .Model_1.PART_Cyl_HitchR_pis  &
+   part_name = .RearHitch.PART_Cyl_HitchR_pis  &
    color = DARK_GRAY  &
    name_visibility = off
 !
@@ -1338,7 +1350,7 @@ part attributes  &
 !
 !
 part create equation differential_equation  &
-   differential_equation_name = .Model_1.DIFF_cyl_HitchL_ForceStatic  &
+   differential_equation_name = .RearHitch.DIFF_cyl_HitchL_ForceStatic  &
    adams_id = 1  &
    initial_condition = 0.0  &
    function = ""  &
@@ -1346,7 +1358,7 @@ part create equation differential_equation  &
    static_hold = off
 !
 part create equation differential_equation  &
-   differential_equation_name = .Model_1.DIFF_cyl_HitchR_ForceStatic  &
+   differential_equation_name = .RearHitch.DIFF_cyl_HitchR_ForceStatic  &
    adams_id = 2  &
    initial_condition = 0.0  &
    function = ""  &
@@ -1357,133 +1369,133 @@ part create equation differential_equation  &
 !
 !
 constraint create joint spherical  &
-   joint_name = .Model_1.Jt_HitchL_Pis  &
+   joint_name = .RearHitch.Jt_HitchL_Pis  &
    adams_id = 13  &
-   i_marker_name = .Model_1.TopLinkL.Mkr_CylMount  &
-   j_marker_name = .Model_1.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave
+   i_marker_name = .RearHitch.TopLinkL.Mkr_CylMount  &
+   j_marker_name = .RearHitch.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave
 !
 constraint attributes  &
-   constraint_name = .Model_1.Jt_HitchL_Pis  &
+   constraint_name = .RearHitch.Jt_HitchL_Pis  &
    name_visibility = off
 !
 constraint create joint cylindrical  &
-   joint_name = .Model_1.JT_Cyl_HitchL_cyl_pis  &
+   joint_name = .RearHitch.JT_Cyl_HitchL_cyl_pis  &
    adams_id = 2  &
-   i_marker_name = .Model_1.PART_Cyl_HitchL_cyl.cyl_MKR_11  &
-   j_marker_name = .Model_1.PART_Cyl_HitchL_pis.cyl_MKR_12
+   i_marker_name = .RearHitch.PART_Cyl_HitchL_cyl.cyl_MKR_11  &
+   j_marker_name = .RearHitch.PART_Cyl_HitchL_pis.cyl_MKR_12
 !
 constraint attributes  &
-   constraint_name = .Model_1.JT_Cyl_HitchL_cyl_pis  &
+   constraint_name = .RearHitch.JT_Cyl_HitchL_cyl_pis  &
    name_visibility = off
 !
 constraint create joint spherical  &
-   joint_name = .Model_1.Jt_HitchL_Cyl  &
+   joint_name = .RearHitch.Jt_HitchL_Cyl  &
    adams_id = 14  &
-   i_marker_name = .Model_1.MainBody.CylL1  &
-   j_marker_name = .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master
+   i_marker_name = .RearHitch.MainBody.CylL  &
+   j_marker_name = .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master
 !
 constraint attributes  &
-   constraint_name = .Model_1.Jt_HitchL_Cyl  &
+   constraint_name = .RearHitch.Jt_HitchL_Cyl  &
    name_visibility = off
 !
 constraint create joint spherical  &
-   joint_name = .Model_1.Jt_HitchR_Pis  &
+   joint_name = .RearHitch.Jt_HitchR_Pis  &
    adams_id = 15  &
-   i_marker_name = .Model_1.TopLinkR.Mkr_CylMount  &
-   j_marker_name = .Model_1.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave
+   i_marker_name = .RearHitch.TopLinkR.Mkr_CylMount  &
+   j_marker_name = .RearHitch.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave
 !
 constraint attributes  &
-   constraint_name = .Model_1.Jt_HitchR_Pis  &
+   constraint_name = .RearHitch.Jt_HitchR_Pis  &
    name_visibility = off
 !
 constraint create joint cylindrical  &
-   joint_name = .Model_1.JT_Cyl_HitchR_cyl_pis  &
+   joint_name = .RearHitch.JT_Cyl_HitchR_cyl_pis  &
    adams_id = 3  &
-   i_marker_name = .Model_1.PART_Cyl_HitchR_cyl.cyl_MKR_11  &
-   j_marker_name = .Model_1.PART_Cyl_HitchR_pis.cyl_MKR_12
+   i_marker_name = .RearHitch.PART_Cyl_HitchR_cyl.cyl_MKR_11  &
+   j_marker_name = .RearHitch.PART_Cyl_HitchR_pis.cyl_MKR_12
 !
 constraint attributes  &
-   constraint_name = .Model_1.JT_Cyl_HitchR_cyl_pis  &
+   constraint_name = .RearHitch.JT_Cyl_HitchR_cyl_pis  &
    name_visibility = off
 !
 constraint create joint spherical  &
-   joint_name = .Model_1.Jt_HitchR_Cyl  &
+   joint_name = .RearHitch.Jt_HitchR_Cyl  &
    adams_id = 16  &
-   i_marker_name = .Model_1.MainBody.CylR1  &
-   j_marker_name = .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master
+   i_marker_name = .RearHitch.MainBody.CylR  &
+   j_marker_name = .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master
 !
 constraint attributes  &
-   constraint_name = .Model_1.Jt_HitchR_Cyl  &
+   constraint_name = .RearHitch.Jt_HitchR_Cyl  &
    name_visibility = off
 !
 constraint create joint revolute  &
-   joint_name = .Model_1.JOINT_4  &
+   joint_name = .RearHitch.JOINT_4  &
    adams_id = 4  &
-   i_marker_name = .Model_1.MainBody.MARKER_69  &
-   j_marker_name = .Model_1.TopLinkL.MARKER_70
+   i_marker_name = .RearHitch.MainBody.MARKER_69  &
+   j_marker_name = .RearHitch.TopLinkL.MARKER_70
 !
 constraint attributes  &
-   constraint_name = .Model_1.JOINT_4  &
+   constraint_name = .RearHitch.JOINT_4  &
    name_visibility = off
 !
 constraint create joint revolute  &
-   joint_name = .Model_1.JOINT_5  &
+   joint_name = .RearHitch.JOINT_5  &
    adams_id = 5  &
-   i_marker_name = .Model_1.MainBody.MARKER_71  &
-   j_marker_name = .Model_1.TopLinkR.MARKER_72
+   i_marker_name = .RearHitch.MainBody.MARKER_71  &
+   j_marker_name = .RearHitch.TopLinkR.MARKER_72
 !
 constraint attributes  &
-   constraint_name = .Model_1.JOINT_5  &
+   constraint_name = .RearHitch.JOINT_5  &
    name_visibility = off
 !
 constraint create joint spherical  &
-   joint_name = .Model_1.JOINT_8  &
+   joint_name = .RearHitch.JOINT_8  &
    adams_id = 8  &
-   i_marker_name = .Model_1.LowerLinkL.MARKER_77  &
-   j_marker_name = .Model_1.LinkageL.MARKER_78
+   i_marker_name = .RearHitch.LowerLinkL.MARKER_77  &
+   j_marker_name = .RearHitch.LinkageL.MARKER_78
 !
 constraint attributes  &
-   constraint_name = .Model_1.JOINT_8  &
+   constraint_name = .RearHitch.JOINT_8  &
    name_visibility = off
 !
 constraint create joint spherical  &
-   joint_name = .Model_1.JOINT_9  &
+   joint_name = .RearHitch.JOINT_9  &
    adams_id = 9  &
-   i_marker_name = .Model_1.TopLinkL.MARKER_79  &
-   j_marker_name = .Model_1.LinkageL.MARKER_80
+   i_marker_name = .RearHitch.TopLinkL.MARKER_79  &
+   j_marker_name = .RearHitch.LinkageL.MARKER_80
 !
 constraint attributes  &
-   constraint_name = .Model_1.JOINT_9  &
+   constraint_name = .RearHitch.JOINT_9  &
    name_visibility = off
 !
 constraint create joint spherical  &
-   joint_name = .Model_1.JOINT_10  &
+   joint_name = .RearHitch.JOINT_10  &
    adams_id = 10  &
-   i_marker_name = .Model_1.LowerLinkR.MARKER_81  &
-   j_marker_name = .Model_1.LinkageR.MARKER_82
+   i_marker_name = .RearHitch.LowerLinkR.MARKER_81  &
+   j_marker_name = .RearHitch.LinkageR.MARKER_82
 !
 constraint attributes  &
-   constraint_name = .Model_1.JOINT_10  &
+   constraint_name = .RearHitch.JOINT_10  &
    name_visibility = off
 !
 constraint create joint spherical  &
-   joint_name = .Model_1.JOINT_11  &
+   joint_name = .RearHitch.JOINT_11  &
    adams_id = 11  &
-   i_marker_name = .Model_1.TopLinkR.MARKER_83  &
-   j_marker_name = .Model_1.LinkageR.MARKER_84
+   i_marker_name = .RearHitch.TopLinkR.MARKER_83  &
+   j_marker_name = .RearHitch.LinkageR.MARKER_84
 !
 constraint attributes  &
-   constraint_name = .Model_1.JOINT_11  &
+   constraint_name = .RearHitch.JOINT_11  &
    name_visibility = off
 !
 !----------------------------------- Forces -----------------------------------!
 !
 !
 force create element_like bushing  &
-   bushing_name = .Model_1.BUSHING_1  &
+   bushing_name = .RearHitch.BUSHING_1  &
    adams_id = 1  &
-   i_marker_name = .Model_1.LowerLinkL.MARKER_101  &
-   j_marker_name = .Model_1.MainBody.MARKER_102  &
+   i_marker_name = .RearHitch.LowerLinkL.MARKER_101  &
+   j_marker_name = .RearHitch.MainBody.MARKER_102  &
    damping = 1.2E+005, 1.2E+005, 1.2E+005  &
    stiffness = 4.7E+006, 4.7E+006, 4.7E+006  &
    force_preload = 0.0, 0.0, 0.0  &
@@ -1492,10 +1504,10 @@ force create element_like bushing  &
    torque_preload = 0.0, 0.0, 0.0
 !
 force create element_like bushing  &
-   bushing_name = .Model_1.BUSHING_2  &
+   bushing_name = .RearHitch.BUSHING_2  &
    adams_id = 2  &
-   i_marker_name = .Model_1.LowerLinkR.MARKER_103  &
-   j_marker_name = .Model_1.MainBody.MARKER_104  &
+   i_marker_name = .RearHitch.LowerLinkR.MARKER_103  &
+   j_marker_name = .RearHitch.MainBody.MARKER_104  &
    damping = 1.2E+005, 1.2E+005, 1.2E+005  &
    stiffness = 4.7E+006, 4.7E+006, 4.7E+006  &
    force_preload = 0.0, 0.0, 0.0  &
@@ -1504,38 +1516,38 @@ force create element_like bushing  &
    torque_preload = 0.0, 0.0, 0.0
 !
 force create direct single_component_force  &
-   single_component_force_name = .Model_1.SFORCE_ChainL  &
+   single_component_force_name = .RearHitch.SFORCE_ChainL  &
    adams_id = 3  &
    type_of_freedom = translational  &
-   i_marker_name = .Model_1.LowerLinkL.MARKER_89  &
-   j_marker_name = .Model_1.MainBody.MARKER_90  &
+   i_marker_name = .RearHitch.LowerLinkL.MARKER_89  &
+   j_marker_name = .RearHitch.MainBody.MARKER_90  &
    action_only = off  &
    function = ""
 !
 force create direct single_component_force  &
-   single_component_force_name = .Model_1.F_Cyl_HitchL_force  &
+   single_component_force_name = .RearHitch.F_Cyl_HitchL_force  &
    adams_id = 1  &
    type_of_freedom = translational  &
-   i_marker_name = .Model_1.PART_Cyl_HitchL_pis.cyl_MKR_5  &
-   j_marker_name = .Model_1.PART_Cyl_HitchL_cyl.cyl_MKR_6  &
+   i_marker_name = .RearHitch.PART_Cyl_HitchL_pis.cyl_MKR_5  &
+   j_marker_name = .RearHitch.PART_Cyl_HitchL_cyl.cyl_MKR_6  &
    action_only = off  &
    function = ""
 !
 force create direct single_component_force  &
-   single_component_force_name = .Model_1.F_Cyl_HitchR_force  &
+   single_component_force_name = .RearHitch.F_Cyl_HitchR_force  &
    adams_id = 2  &
    type_of_freedom = translational  &
-   i_marker_name = .Model_1.PART_Cyl_HitchR_pis.cyl_MKR_5  &
-   j_marker_name = .Model_1.PART_Cyl_HitchR_cyl.cyl_MKR_6  &
+   i_marker_name = .RearHitch.PART_Cyl_HitchR_pis.cyl_MKR_5  &
+   j_marker_name = .RearHitch.PART_Cyl_HitchR_cyl.cyl_MKR_6  &
    action_only = off  &
    function = ""
 !
 force create direct single_component_force  &
-   single_component_force_name = .Model_1.SFORCE_ChainR  &
+   single_component_force_name = .RearHitch.SFORCE_ChainR  &
    adams_id = 4  &
    type_of_freedom = translational  &
-   i_marker_name = .Model_1.LowerLinkR.MARKER_91  &
-   j_marker_name = .Model_1.MainBody.MARKER_92  &
+   i_marker_name = .RearHitch.LowerLinkR.MARKER_91  &
+   j_marker_name = .RearHitch.MainBody.MARKER_92  &
    action_only = off  &
    function = ""
 !
@@ -1543,13 +1555,13 @@ force create direct single_component_force  &
 !
 !
 simulation script create  &
-   sim_script_name = .Model_1.Last_Sim  &
+   sim_script_name = .RearHitch.Last_Sim  &
    commands = "simulation single_run equilibrium model_name=.Model_1",  &
               "simulation single_run equilibrium model_name=.Model_1",  &
               "simulation single_run transient type=auto_select end_time=5.0 number_of_steps=500 model_name=.Model_1 initial_static=no"
 !
 simulation script create  &
-   sim_script_name = .Model_1.Last_Sim_2  &
+   sim_script_name = .RearHitch.Last_Sim_2  &
    commands =   &
               "simulation single_run transient type=auto_select end_time=0.5 number_of_steps=100 model_name=.cyl1 initial_static=no"
 !
@@ -1557,40 +1569,31 @@ simulation script create  &
 !
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 geometry create shape force  &
-   force_name = .Model_1.SFORCE_3_force_graphic_1  &
+   force_name = .RearHitch.SFORCE_3_force_graphic_1  &
    adams_id = 100  &
-   force_element_name = .Model_1.SFORCE_ChainL  &
-   applied_at_marker_name = .Model_1.LowerLinkL.MARKER_89
+   force_element_name = .RearHitch.SFORCE_ChainL  &
+   applied_at_marker_name = .RearHitch.LowerLinkL.MARKER_89
 !
 geometry create shape force  &
-   force_name = .Model_1.SFORCE_4_force_graphic_1  &
+   force_name = .RearHitch.SFORCE_4_force_graphic_1  &
    adams_id = 101  &
-   force_element_name = .Model_1.SFORCE_ChainR  &
-   applied_at_marker_name = .Model_1.LowerLinkR.MARKER_91
+   force_element_name = .RearHitch.SFORCE_ChainR  &
+   applied_at_marker_name = .RearHitch.LowerLinkR.MARKER_91
 !
 geometry create shape force  &
-   force_name = .Model_1.BUSHING_1_force_graphic_1  &
+   force_name = .RearHitch.BUSHING_1_force_graphic_1  &
    adams_id = 102  &
-   force_element_name = .Model_1.BUSHING_1  &
-   applied_at_marker_name = .Model_1.LowerLinkL.MARKER_101
+   force_element_name = .RearHitch.BUSHING_1  &
+   applied_at_marker_name = .RearHitch.LowerLinkL.MARKER_101
 !
 geometry create shape force  &
-   force_name = .Model_1.BUSHING_2_force_graphic_1  &
+   force_name = .RearHitch.BUSHING_2_force_graphic_1  &
    adams_id = 103  &
-   force_element_name = .Model_1.BUSHING_2  &
-   applied_at_marker_name = .Model_1.LowerLinkR.MARKER_103
-!
-!---------------------------------- Accgrav -----------------------------------!
-!
-!
-force create body gravitational  &
-   gravity_field_name = gravity  &
-   x_component_gravity = 0.0  &
-   y_component_gravity = 0.0  &
-   z_component_gravity = -9.80665
+   force_element_name = .RearHitch.BUSHING_2  &
+   applied_at_marker_name = .RearHitch.LowerLinkR.MARKER_103
 !
 !----------------------------- Analysis settings ------------------------------!
 !
@@ -1599,7 +1602,7 @@ force create body gravitational  &
 !
 !
 variable create  &
-   variable_name = .Model_1.DV_TopLinkWidth  &
+   variable_name = .RearHitch.DV_TopLinkWidth  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1607,7 +1610,7 @@ variable create  &
    real_value = 0.9
 !
 variable create  &
-   variable_name = .Model_1.DV_CylMountBodyWidth  &
+   variable_name = .RearHitch.DV_CylMountBodyWidth  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1615,7 +1618,7 @@ variable create  &
    real_value = 1.05
 !
 variable create  &
-   variable_name = .Model_1.DV_BottLinkMountWidth  &
+   variable_name = .RearHitch.DV_BottLinkMountWidth  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1623,7 +1626,7 @@ variable create  &
    real_value = 0.9
 !
 variable create  &
-   variable_name = .Model_1.DV_CylMountBodyOffset  &
+   variable_name = .RearHitch.DV_CylMountBodyOffset  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1631,7 +1634,7 @@ variable create  &
    real_value = 0.5
 !
 variable create  &
-   variable_name = .Model_1.DV_BottLinkMountOffset  &
+   variable_name = .RearHitch.DV_BottLinkMountOffset  &
    units = "no_units"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1639,7 +1642,7 @@ variable create  &
    real_value = 0.7
 !
 variable create  &
-   variable_name = .Model_1.DV_TopLinkOffsetX  &
+   variable_name = .RearHitch.DV_TopLinkOffsetX  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1647,7 +1650,7 @@ variable create  &
    real_value = 0.3
 !
 variable create  &
-   variable_name = .Model_1.DV_TopLink1OffsetZ  &
+   variable_name = .RearHitch.DV_TopLink1OffsetZ  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1655,7 +1658,7 @@ variable create  &
    real_value = 0.0
 !
 variable create  &
-   variable_name = .Model_1.DV_TopLink2OffsetZ  &
+   variable_name = .RearHitch.DV_TopLink2OffsetZ  &
    units = "no_units"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1663,7 +1666,7 @@ variable create  &
    real_value = 5.0E-002
 !
 variable create  &
-   variable_name = .Model_1.DV_TopLink3OffsetZ  &
+   variable_name = .RearHitch.DV_TopLink3OffsetZ  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1671,7 +1674,7 @@ variable create  &
    real_value = 0.1
 !
 variable create  &
-   variable_name = .Model_1.DV_BottLinkMountOffsetX  &
+   variable_name = .RearHitch.DV_BottLinkMountOffsetX  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1679,7 +1682,7 @@ variable create  &
    real_value = 0.15
 !
 variable create  &
-   variable_name = .Model_1.DV_CylMountOffsetX  &
+   variable_name = .RearHitch.DV_CylMountOffsetX  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1687,7 +1690,7 @@ variable create  &
    real_value = 0.25
 !
 variable create  &
-   variable_name = .Model_1.DV_L1  &
+   variable_name = .RearHitch.DV_L1  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1695,7 +1698,7 @@ variable create  &
    real_value = 0.15
 !
 variable create  &
-   variable_name = .Model_1.DV_R1  &
+   variable_name = .RearHitch.DV_R1  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1703,7 +1706,7 @@ variable create  &
    real_value = 7.5E-002
 !
 variable create  &
-   variable_name = .Model_1.DV_L2  &
+   variable_name = .RearHitch.DV_L2  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1711,7 +1714,7 @@ variable create  &
    real_value = 0.2
 !
 variable create  &
-   variable_name = .Model_1.DV_L3  &
+   variable_name = .RearHitch.DV_L3  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1719,7 +1722,7 @@ variable create  &
    real_value = 0.6
 !
 variable create  &
-   variable_name = .Model_1.DV_L4  &
+   variable_name = .RearHitch.DV_L4  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1727,7 +1730,7 @@ variable create  &
    real_value = 0.15
 !
 variable create  &
-   variable_name = .Model_1.DV_L5  &
+   variable_name = .RearHitch.DV_L5  &
    units = "no_units"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1735,7 +1738,7 @@ variable create  &
    real_value = 0.2
 !
 variable create  &
-   variable_name = .Model_1.DV_L6  &
+   variable_name = .RearHitch.DV_L6  &
    units = "no_units"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1743,7 +1746,7 @@ variable create  &
    real_value = 0.5
 !
 variable create  &
-   variable_name = .Model_1.DV_Cyl_HitchL_min_length  &
+   variable_name = .RearHitch.DV_Cyl_HitchL_min_length  &
    units = "no_units"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1751,7 +1754,7 @@ variable create  &
    real_value = 0.35
 !
 variable create  &
-   variable_name = .Model_1.DV_Cyl_HitchL_rc  &
+   variable_name = .RearHitch.DV_Cyl_HitchL_rc  &
    units = "no_units"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1759,7 +1762,7 @@ variable create  &
    real_value = 7.5E-002
 !
 variable create  &
-   variable_name = .Model_1.DV_Cyl_HitchL_max_length  &
+   variable_name = .RearHitch.DV_Cyl_HitchL_max_length  &
    units = "no_units"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1767,7 +1770,7 @@ variable create  &
    real_value = 0.6
 !
 variable create  &
-   variable_name = .Model_1.DV_Cyl_HitchL_ini_length  &
+   variable_name = .RearHitch.DV_Cyl_HitchL_ini_length  &
    units = "no_units"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1775,7 +1778,7 @@ variable create  &
    real_value = 0.5181
 !
 variable create  &
-   variable_name = .Model_1.DV_Cyl_HitchL_rp  &
+   variable_name = .RearHitch.DV_Cyl_HitchL_rp  &
    units = "no_units"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1783,7 +1786,7 @@ variable create  &
    real_value = 4.0E-002
 !
 variable create  &
-   variable_name = .Model_1.DV_Cyl_HitchR_min_length  &
+   variable_name = .RearHitch.DV_Cyl_HitchR_min_length  &
    units = "no_units"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1791,7 +1794,7 @@ variable create  &
    real_value = 0.35
 !
 variable create  &
-   variable_name = .Model_1.DV_Cyl_HitchR_rc  &
+   variable_name = .RearHitch.DV_Cyl_HitchR_rc  &
    units = "no_units"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1799,7 +1802,7 @@ variable create  &
    real_value = 7.5E-002
 !
 variable create  &
-   variable_name = .Model_1.DV_Cyl_HitchR_max_length  &
+   variable_name = .RearHitch.DV_Cyl_HitchR_max_length  &
    units = "no_units"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1807,7 +1810,7 @@ variable create  &
    real_value = 0.6
 !
 variable create  &
-   variable_name = .Model_1.DV_Cyl_HitchR_ini_length  &
+   variable_name = .RearHitch.DV_Cyl_HitchR_ini_length  &
    units = "no_units"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1815,7 +1818,7 @@ variable create  &
    real_value = 0.5181
 !
 variable create  &
-   variable_name = .Model_1.DV_Cyl_HitchR_rp  &
+   variable_name = .RearHitch.DV_Cyl_HitchR_rp  &
    units = "no_units"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1823,7 +1826,7 @@ variable create  &
    real_value = 4.0E-002
 !
 variable create  &
-   variable_name = .Model_1.DV_ChainX  &
+   variable_name = .RearHitch.DV_ChainX  &
    units = "no_units"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1831,7 +1834,7 @@ variable create  &
    real_value = 0.0
 !
 variable create  &
-   variable_name = .Model_1.DV_ChainY  &
+   variable_name = .RearHitch.DV_ChainY  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1839,7 +1842,7 @@ variable create  &
    real_value = 1.2
 !
 variable create  &
-   variable_name = .Model_1.DV_ChainZ  &
+   variable_name = .RearHitch.DV_ChainZ  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1847,7 +1850,7 @@ variable create  &
    real_value = 0.9
 !
 variable create  &
-   variable_name = .Model_1.DV_LowerLinkChain  &
+   variable_name = .RearHitch.DV_LowerLinkChain  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1855,7 +1858,7 @@ variable create  &
    real_value = 0.27
 !
 variable create  &
-   variable_name = .Model_1.DV_ChainMax  &
+   variable_name = .RearHitch.DV_ChainMax  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1863,7 +1866,7 @@ variable create  &
    real_value = 0.35
 !
 variable create  &
-   variable_name = .Model_1.DV_ChainMin  &
+   variable_name = .RearHitch.DV_ChainMin  &
    units = "length"  &
    range = -1.0, 1.0  &
    use_allowed_values = no  &
@@ -1874,86 +1877,86 @@ variable create  &
 !
 !
 data_element modify variable  &
-   variable_name = .Model_1.SV_Cyl_HitchL_F  &
+   variable_name = .RearHitch.SV_Cyl_HitchL_F  &
    function = "0"
 !
 data_element modify variable  &
-   variable_name = .Model_1.SV_Cyl_HitchL_P  &
-   function = "DZ( .Model_1.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master)"
+   variable_name = .RearHitch.SV_Cyl_HitchL_P  &
+   function = "DZ( .RearHitch.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master)"
 !
 data_element modify variable  &
-   variable_name = .Model_1.SV_Cyl_HitchL_V  &
-   function = "VZ( .Model_1.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master)"
+   variable_name = .RearHitch.SV_Cyl_HitchL_V  &
+   function = "VZ( .RearHitch.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master)"
 !
 data_element modify variable  &
-   variable_name = .Model_1.SV_cyl_HitchL_Fstatic  &
-   function = "DIF(.Model_1.DIFF_cyl_HitchL_ForceStatic)"
+   variable_name = .RearHitch.SV_cyl_HitchL_Fstatic  &
+   function = "DIF(.RearHitch.DIFF_cyl_HitchL_ForceStatic)"
 !
 data_element modify variable  &
-   variable_name = .Model_1.SV_cyl_HitchL_pa  &
+   variable_name = .RearHitch.SV_cyl_HitchL_pa  &
    function = "0"
 !
 data_element modify variable  &
-   variable_name = .Model_1.SV_cyl_HitchL_pb  &
+   variable_name = .RearHitch.SV_cyl_HitchL_pb  &
    function = "0"
 !
 data_element modify variable  &
-   variable_name = .Model_1.SV_Cyl_HitchR_F  &
+   variable_name = .RearHitch.SV_Cyl_HitchR_F  &
    function = "0"
 !
 data_element modify variable  &
-   variable_name = .Model_1.SV_Cyl_HitchR_P  &
-   function = "DZ( .Model_1.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master)"
+   variable_name = .RearHitch.SV_Cyl_HitchR_P  &
+   function = "DZ( .RearHitch.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master)"
 !
 data_element modify variable  &
-   variable_name = .Model_1.SV_Cyl_HitchR_V  &
-   function = "VZ( .Model_1.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master)"
+   variable_name = .RearHitch.SV_Cyl_HitchR_V  &
+   function = "VZ( .RearHitch.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master)"
 !
 data_element modify variable  &
-   variable_name = .Model_1.SV_cyl_HitchR_Fstatic  &
-   function = "DIF(.Model_1.DIFF_cyl_HitchR_ForceStatic)"
+   variable_name = .RearHitch.SV_cyl_HitchR_Fstatic  &
+   function = "DIF(.RearHitch.DIFF_cyl_HitchR_ForceStatic)"
 !
 data_element modify variable  &
-   variable_name = .Model_1.SV_cyl_HitchR_pa  &
+   variable_name = .RearHitch.SV_cyl_HitchR_pa  &
    function = "0"
 !
 data_element modify variable  &
-   variable_name = .Model_1.SV_cyl_HitchR_pb  &
+   variable_name = .RearHitch.SV_cyl_HitchR_pb  &
    function = "0"
 !
 part modify equation differential_equation  &
-   differential_equation_name = .Model_1.DIFF_cyl_HitchL_ForceStatic  &
-   function = "IF(MODE-5:0,1,0)*(.Model_1.DV_Cyl_HitchL_ini_length-DM(.Model_1.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))"
+   differential_equation_name = .RearHitch.DIFF_cyl_HitchL_ForceStatic  &
+   function = "IF(MODE-5:0,1,0)*(.RearHitch.DV_Cyl_HitchL_ini_length-DM(.RearHitch.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))"
 !
 part modify equation differential_equation  &
-   differential_equation_name = .Model_1.DIFF_cyl_HitchR_ForceStatic  &
-   function = "IF(MODE-5:0,1,0)*(.Model_1.DV_Cyl_HitchR_ini_length-DM(.Model_1.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))"
+   differential_equation_name = .RearHitch.DIFF_cyl_HitchR_ForceStatic  &
+   function = "IF(MODE-5:0,1,0)*(.RearHitch.DV_Cyl_HitchR_ini_length-DM(.RearHitch.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))"
 !
 force modify direct single_component_force  &
-   single_component_force_name = .Model_1.SFORCE_ChainL  &
-   function = "BISTOP( DM(.Model_1.LowerLinkL.Chain, .Model_1.MainBody.ChainL),VR(.Model_1.LowerLinkL.Chain, .Model_1.MainBody.ChainL) , .Model_1.DV_ChainMin , .Model_1.DV_ChainMax , 1e5 , 1.1 , 2.5e3 , 1e-3 )"
+   single_component_force_name = .RearHitch.SFORCE_ChainL  &
+   function = "BISTOP( DM(.RearHitch.LowerLinkL.Chain, .RearHitch.MainBody.ChainL),VR(.RearHitch.LowerLinkL.Chain, .RearHitch.MainBody.ChainL) , .RearHitch.DV_ChainMin , .RearHitch.DV_ChainMax , 1e5 , 1.1 , 2.5e3 , 1e-3 )"
 !
 force modify direct single_component_force  &
-   single_component_force_name = .Model_1.F_Cyl_HitchL_force  &
-   function = "VARVAL( .Model_1.SV_Cyl_HitchL_F) + ",  &
+   single_component_force_name = .RearHitch.F_Cyl_HitchL_force  &
+   function = "VARVAL( .RearHitch.SV_Cyl_HitchL_F) + ",  &
               "BISTOP( ",  &
-              "DZ( .Model_1.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master) , ",  &
-              "VZ( .Model_1.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master) , ",  &
-              ".Model_1.DV_Cyl_HitchL_min_length , .Model_1.DV_Cyl_HitchL_max_length , 50e6 , 1.0 , 20e6 , 0.01 ) +",  &
-              "VARVAL(.Model_1.SV_cyl_HitchL_Fstatic)*IF(MODE-5:0,1,0)"
+              "DZ( .RearHitch.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master) , ",  &
+              "VZ( .RearHitch.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master) , ",  &
+              ".RearHitch.DV_Cyl_HitchL_min_length , .RearHitch.DV_Cyl_HitchL_max_length , 50e6 , 1.0 , 20e6 , 0.01 ) +",  &
+              "VARVAL(.RearHitch.SV_cyl_HitchL_Fstatic)*IF(MODE-5:0,1,0)"
 !
 force modify direct single_component_force  &
-   single_component_force_name = .Model_1.F_Cyl_HitchR_force  &
-   function = "VARVAL( .Model_1.SV_Cyl_HitchR_F) + ",  &
+   single_component_force_name = .RearHitch.F_Cyl_HitchR_force  &
+   function = "VARVAL( .RearHitch.SV_Cyl_HitchR_F) + ",  &
               "BISTOP( ",  &
-              "DZ( .Model_1.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master) , ",  &
-              "VZ( .Model_1.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master) , ",  &
-              ".Model_1.DV_Cyl_HitchR_min_length , .Model_1.DV_Cyl_HitchR_max_length , 50e6 , 1.0 , 20e6 , 0.01 ) +",  &
-              "VARVAL(.Model_1.SV_cyl_HitchR_Fstatic)*IF(MODE-5:0,1,0)"
+              "DZ( .RearHitch.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master) , ",  &
+              "VZ( .RearHitch.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master) , ",  &
+              ".RearHitch.DV_Cyl_HitchR_min_length , .RearHitch.DV_Cyl_HitchR_max_length , 50e6 , 1.0 , 20e6 , 0.01 ) +",  &
+              "VARVAL(.RearHitch.SV_cyl_HitchR_Fstatic)*IF(MODE-5:0,1,0)"
 !
 force modify direct single_component_force  &
-   single_component_force_name = .Model_1.SFORCE_ChainR  &
-   function = "BISTOP( DM(.Model_1.LowerLinkR.Chain, .Model_1.MainBody.ChainR),VR(.Model_1.LowerLinkR.Chain, .Model_1.MainBody.ChainR) ,.Model_1.DV_ChainMin , .Model_1.DV_ChainMax  , 1e5 , 1.1 , 2.5e3 , 1e-3 )"
+   single_component_force_name = .RearHitch.SFORCE_ChainR  &
+   function = "BISTOP( DM(.RearHitch.LowerLinkR.Chain, .RearHitch.MainBody.ChainR),VR(.RearHitch.LowerLinkR.Chain, .RearHitch.MainBody.ChainR) ,.RearHitch.DV_ChainMin , .RearHitch.DV_ChainMax  , 1e5 , 1.1 , 2.5e3 , 1e-3 )"
 !
 !--------------------------- Expression definitions ---------------------------!
 !
@@ -1962,956 +1965,1184 @@ defaults coordinate_system  &
    default_coordinate_system = ground
 !
 marker modify  &
-   marker_name = .Model_1.MainBody.MARKER_11  &
+   marker_name = .RearHitch.MainBody.MARKER_11  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.MainBody.TopLinkL1))  &
-   relative_to = .Model_1.MainBody
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.MainBody.TopLinkL))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.ground.Mkr_master))  &
+   relative_to = .RearHitch.MainBody
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 geometry modify shape block  &
-   block_name = .Model_1.MainBody.BOX_11  &
+   block_name = .RearHitch.MainBody.BOX_11  &
    diag_corner_coords =   &
       (0.2meter),  &
-      (.Model_1.DV_BottLinkMountOffset),  &
-      (.Model_1.DV_BottLinkMountWidth)
+      (.RearHitch.DV_BottLinkMountWidth),  &
+      (-.RearHitch.DV_BottLinkMountOffset)
 !
 marker modify  &
-   marker_name = .Model_1.MainBody.TopLinkR1  &
+   marker_name = .RearHitch.MainBody.TopLinkR  &
    location =   &
-      (LOC_RELATIVE_TO({0, .Model_1.DV_TopLinkWidth / 2, 0}, .Model_1.ground.Mkr_master))  &
-   relative_to = .Model_1.MainBody
+      (LOC_RELATIVE_TO({0, .RearHitch.DV_TopLinkWidth / 2, 0}, .RearHitch.ground.Mkr_master))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.ground.Mkr_master))  &
+   relative_to = .RearHitch.MainBody
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.MainBody.TopLinkL1  &
+   marker_name = .RearHitch.MainBody.TopLinkL  &
    location =   &
-      (LOC_RELATIVE_TO({0, -.Model_1.DV_TopLinkWidth / 2, 0}, .Model_1.ground.Mkr_master))  &
-   relative_to = .Model_1.MainBody
+      (LOC_RELATIVE_TO({0, -.RearHitch.DV_TopLinkWidth / 2, 0}, .RearHitch.ground.Mkr_master))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.ground.Mkr_master))  &
+   relative_to = .RearHitch.MainBody
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.MainBody.BottLinkR1  &
+   marker_name = .RearHitch.MainBody.BottLinkR  &
    location =   &
-      (LOC_RELATIVE_TO({.Model_1.DV_BottLinkMountOffsetX, .Model_1.DV_BottLinkMountWidth / 2, -.Model_1.DV_BottLinkMountOffset}, .Model_1.ground.Mkr_master))  &
-   relative_to = .Model_1.MainBody
+      (LOC_RELATIVE_TO({.RearHitch.DV_BottLinkMountOffsetX, .RearHitch.DV_BottLinkMountWidth / 2, -.RearHitch.DV_BottLinkMountOffset}, .RearHitch.ground.Mkr_master))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.ground.Mkr_master))  &
+   relative_to = .RearHitch.MainBody
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.MainBody.BottLinkL1  &
+   marker_name = .RearHitch.MainBody.BottLinkL  &
    location =   &
-      (LOC_RELATIVE_TO({.Model_1.DV_BottLinkMountOffsetX, -.Model_1.DV_BottLinkMountWidth / 2, -.Model_1.DV_BottLinkMountOffset}, .Model_1.ground.Mkr_master))  &
-   relative_to = .Model_1.MainBody
+      (LOC_RELATIVE_TO({.RearHitch.DV_BottLinkMountOffsetX, -.RearHitch.DV_BottLinkMountWidth / 2, -.RearHitch.DV_BottLinkMountOffset}, .RearHitch.ground.Mkr_master))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.ground.Mkr_master))  &
+   relative_to = .RearHitch.MainBody
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.MainBody.CylL1  &
+   marker_name = .RearHitch.MainBody.CylL  &
    location =   &
-      (LOC_RELATIVE_TO({.Model_1.DV_CylMountOffsetX, -.Model_1.DV_CylMountBodyWidth / 2, -.Model_1.DV_CylMountBodyOffset}, .Model_1.ground.Mkr_master))  &
-   relative_to = .Model_1.MainBody
+      (LOC_RELATIVE_TO({.RearHitch.DV_CylMountOffsetX, -.RearHitch.DV_CylMountBodyWidth / 2, -.RearHitch.DV_CylMountBodyOffset}, .RearHitch.ground.Mkr_master))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.ground.Mkr_master))  &
+   relative_to = .RearHitch.MainBody
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.MainBody.CylR1  &
+   marker_name = .RearHitch.MainBody.CylR  &
    location =   &
-      (LOC_RELATIVE_TO({.Model_1.DV_CylMountOffsetX, .Model_1.DV_CylMountBodyWidth / 2, -.Model_1.DV_CylMountBodyOffset}, .Model_1.ground.Mkr_master))  &
-   relative_to = .Model_1.MainBody
+      (LOC_RELATIVE_TO({.RearHitch.DV_CylMountOffsetX, .RearHitch.DV_CylMountBodyWidth / 2, -.RearHitch.DV_CylMountBodyOffset}, .RearHitch.ground.Mkr_master))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.ground.Mkr_master))  &
+   relative_to = .RearHitch.MainBody
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.MainBody.TopLink11  &
+   marker_name = .RearHitch.MainBody.TopLink1  &
    location =   &
-      (LOC_RELATIVE_TO({.Model_1.DV_TopLinkOffsetX, 0, -.Model_1.DV_TopLink1OffsetZ}, .Model_1.ground.Mkr_master))  &
-   relative_to = .Model_1.MainBody
+      (LOC_RELATIVE_TO({.RearHitch.DV_TopLinkOffsetX, 0, -.RearHitch.DV_TopLink1OffsetZ}, .RearHitch.ground.Mkr_master))  &
+   relative_to = .RearHitch.MainBody
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.MainBody.TopLink21  &
+   marker_name = .RearHitch.MainBody.TopLink2  &
    location =   &
-      (LOC_RELATIVE_TO({.Model_1.DV_TopLinkOffsetX, 0, -.Model_1.DV_TopLink2OffsetZ}, .Model_1.ground.Mkr_master))  &
-   relative_to = .Model_1.MainBody
+      (LOC_RELATIVE_TO({.RearHitch.DV_TopLinkOffsetX, 0, -.RearHitch.DV_TopLink2OffsetZ}, .RearHitch.ground.Mkr_master))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.ground.Mkr_master))  &
+   relative_to = .RearHitch.MainBody
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.MainBody.TopLink31  &
+   marker_name = .RearHitch.MainBody.TopLink3  &
    location =   &
-      (LOC_RELATIVE_TO({.Model_1.DV_TopLinkOffsetX, 0, -.Model_1.DV_TopLink3OffsetZ}, .Model_1.ground.Mkr_master))  &
-   relative_to = .Model_1.MainBody
+      (LOC_RELATIVE_TO({.RearHitch.DV_TopLinkOffsetX, 0, -.RearHitch.DV_TopLink3OffsetZ}, .RearHitch.ground.Mkr_master))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.ground.Mkr_master))  &
+   relative_to = .RearHitch.MainBody
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.MainBody.MARKER_91  &
+   marker_name = .RearHitch.MainBody.MARKER_91  &
    location =   &
-      (LOC_RELATIVE_TO({0, -7.0E-002, 0}, .Model_1.ground.Mkr_master))  &
-   relative_to = .Model_1.MainBody
+      (LOC_RELATIVE_TO({0, -7.0E-002, 0}, .RearHitch.ground.Mkr_master))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.ground.Mkr_master))  &
+   relative_to = .RearHitch.MainBody
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 geometry modify shape block  &
-   block_name = .Model_1.MainBody.BOX_21  &
+   block_name = .RearHitch.MainBody.BOX_21  &
    diag_corner_coords =   &
-      (.Model_1.DV_TopLinkOffsetX + 5.0E-002),  &
-      0.15,  &
-      0.14
+      (.RearHitch.DV_TopLinkOffsetX + 5.0E-002),  &
+      0.14,  &
+      -0.15
 !
 marker modify  &
-   marker_name = .Model_1.MainBody.MARKER_13  &
+   marker_name = .RearHitch.MainBody.MARKER_13  &
    location =   &
-      (LOC_RELATIVE_TO({-5.0E-002, 0, -5.0E-002}, .Model_1.MainBody.CylL1))  &
-   relative_to = .Model_1.MainBody
+      (LOC_RELATIVE_TO({-5.0E-002, 0, -5.0E-002}, .RearHitch.MainBody.CylL))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.ground.Mkr_master))  &
+   relative_to = .RearHitch.MainBody
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 geometry modify shape block  &
-   block_name = .Model_1.MainBody.BOX_3  &
+   block_name = .RearHitch.MainBody.BOX_3  &
    diag_corner_coords =   &
-      (.Model_1.DV_CylMountOffsetX - .Model_1.DV_BottLinkMountOffsetX),  &
-      (-0.1meter),  &
-      (.Model_1.DV_CylMountBodyWidth)
+      (.RearHitch.DV_CylMountOffsetX - .RearHitch.DV_BottLinkMountOffsetX),  &
+      (.RearHitch.DV_CylMountBodyWidth),  &
+      (-0.1meter)
 !
 marker modify  &
-   marker_name = .Model_1.MainBody.ChainL  &
+   marker_name = .RearHitch.MainBody.ChainL  &
    location =   &
-      (LOC_RELATIVE_TO({.Model_1.DV_ChainX, -.Model_1.DV_ChainY / 2, -.Model_1.DV_ChainZ}, .Model_1.ground.Mkr_master))  &
-   relative_to = .Model_1.MainBody
+      (LOC_RELATIVE_TO({.RearHitch.DV_ChainX, -.RearHitch.DV_ChainY / 2, -.RearHitch.DV_ChainZ}, .RearHitch.ground.Mkr_master))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.ground.Mkr_master))  &
+   relative_to = .RearHitch.MainBody
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.MainBody.ChainR  &
+   marker_name = .RearHitch.MainBody.ChainR  &
    location =   &
-      (LOC_RELATIVE_TO({.Model_1.DV_ChainX, .Model_1.DV_ChainY / 2, -.Model_1.DV_ChainZ}, .Model_1.ground.Mkr_master))  &
-   relative_to = .Model_1.MainBody
+      (LOC_RELATIVE_TO({.RearHitch.DV_ChainX, .RearHitch.DV_ChainY / 2, -.RearHitch.DV_ChainZ}, .RearHitch.ground.Mkr_master))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.ground.Mkr_master))  &
+   relative_to = .RearHitch.MainBody
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.MainBody.MARKER_102  &
+   marker_name = .RearHitch.MainBody.MARKER_102  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkL.POINT_51))  &
-   relative_to = .Model_1.MainBody
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkL.POINT_51))  &
+   relative_to = .RearHitch.MainBody
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.MainBody.MARKER_104  &
+   marker_name = .RearHitch.MainBody.MARKER_104  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.POINT_51))  &
-   relative_to = .Model_1.MainBody
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkR.POINT_51))  &
+   relative_to = .RearHitch.MainBody
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 material modify  &
-   material_name = .Model_1.steel_2  &
+   material_name = .RearHitch.steel_2  &
    youngs_modulus = (2.07E+011(Newton/meter**2))  &
    density = (7801.0(kg/meter**3))
 !
 marker modify  &
-   marker_name = .Model_1.TopLinkL.MARKER_2  &
+   marker_name = .RearHitch.TopLinkL.MARKER_2  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.MainBody.TopLinkL1))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.MainBody.TopLinkL))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0, 90, 0}, .Model_1.MainBody.TopLinkL1))  &
-   relative_to = .Model_1.TopLinkL
+      (ORI_RELATIVE_TO({0, 90, 0}, .RearHitch.MainBody.TopLinkL))  &
+   relative_to = .RearHitch.TopLinkL
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.TopLinkL.MARKER_3  &
+   marker_name = .RearHitch.TopLinkL.MARKER_3  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkL.POINT_1))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkL.POINT_1))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.TopLinkL.POINT_1, .Model_1.TopLinkL.POINT_2, "X"))  &
-   relative_to = .Model_1.TopLinkL
+      (ORI_ALONG_AXIS(.RearHitch.TopLinkL.POINT_1, .RearHitch.TopLinkL.POINT_2, "X"))  &
+   relative_to = .RearHitch.TopLinkL
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.TopLinkL.MARKER_4  &
+   marker_name = .RearHitch.TopLinkL.MARKER_4  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkL.POINT_2))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkL.POINT_2))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkL.MARKER_3))  &
-   relative_to = .Model_1.TopLinkL
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkL.MARKER_3))  &
+   relative_to = .RearHitch.TopLinkL
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.TopLinkL.MARKER_5  &
+   marker_name = .RearHitch.TopLinkL.MARKER_5  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkL.POINT_2))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkL.POINT_2))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.TopLinkL.POINT_2, .Model_1.TopLinkL.POINT_3, "X"))  &
-   relative_to = .Model_1.TopLinkL
+      (ORI_ALONG_AXIS(.RearHitch.TopLinkL.POINT_2, .RearHitch.TopLinkL.POINT_3, "X"))  &
+   relative_to = .RearHitch.TopLinkL
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.TopLinkL.MARKER_6  &
+   marker_name = .RearHitch.TopLinkL.MARKER_6  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkL.POINT_3))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkL.POINT_3))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.TopLinkL.POINT_2, .Model_1.TopLinkL.POINT_3, "X"))  &
-   relative_to = .Model_1.TopLinkL
+      (ORI_ALONG_AXIS(.RearHitch.TopLinkL.POINT_2, .RearHitch.TopLinkL.POINT_3, "X"))  &
+   relative_to = .RearHitch.TopLinkL
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.TopLinkL.MARKER_7  &
+   marker_name = .RearHitch.TopLinkL.MARKER_7  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkL.POINT_3))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkL.POINT_3))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.TopLinkL.POINT_3, .Model_1.TopLinkL.POINT_4, "X"))  &
-   relative_to = .Model_1.TopLinkL
+      (ORI_ALONG_AXIS(.RearHitch.TopLinkL.POINT_3, .RearHitch.TopLinkL.POINT_4, "X"))  &
+   relative_to = .RearHitch.TopLinkL
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.TopLinkL.MARKER_8  &
+   marker_name = .RearHitch.TopLinkL.MARKER_8  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkL.POINT_4))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkL.POINT_4))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.TopLinkL.POINT_3, .Model_1.TopLinkL.POINT_4, "X"))  &
-   relative_to = .Model_1.TopLinkL
+      (ORI_ALONG_AXIS(.RearHitch.TopLinkL.POINT_3, .RearHitch.TopLinkL.POINT_4, "X"))  &
+   relative_to = .RearHitch.TopLinkL
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
+!
+point modify  &
+   point_name = .RearHitch.TopLinkL.POINT_2  &
+   location =   &
+      (LOC_RELATIVE_TO({0.2, 0, 0.15}, .RearHitch.TopLinkL.MARKER_2))  &
+   relative_to = .RearHitch.TopLinkL
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+point modify  &
+   point_name = .RearHitch.TopLinkL.POINT_3  &
+   location =   &
+      (LOC_RELATIVE_TO({0.45, 0, 0.2}, .RearHitch.TopLinkL.MARKER_2))  &
+   relative_to = .RearHitch.TopLinkL
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+point modify  &
+   point_name = .RearHitch.TopLinkL.POINT_4  &
+   location =   &
+      (LOC_RELATIVE_TO({0.5, 0, 0.2}, .RearHitch.TopLinkL.MARKER_2))  &
+   relative_to = .RearHitch.TopLinkL
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+point modify  &
+   point_name = .RearHitch.TopLinkL.POINT_1  &
+   location =   &
+      (LOC_RELATIVE_TO({-5.0E-002, 0, 0.15}, .RearHitch.TopLinkL.MARKER_2))  &
+   relative_to = .RearHitch.TopLinkL
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
 !
 geometry modify shape cylinder  &
-   cylinder_name = .Model_1.TopLinkL.CYLINDER_1  &
-   length = (.Model_1.DV_L1)  &
-   radius = (.Model_1.DV_R1)
+   cylinder_name = .RearHitch.TopLinkL.CYLINDER_1  &
+   length = (.RearHitch.DV_L1)  &
+   radius = (.RearHitch.DV_R1)
 !
 geometry modify shape link  &
-   link_name = .Model_1.TopLinkL.LINK_6  &
+   link_name = .RearHitch.TopLinkL.LINK_6  &
    width = (5.0cm)  &
    depth = (14.0cm)
 !
 geometry modify shape link  &
-   link_name = .Model_1.TopLinkL.LINK_7  &
+   link_name = .RearHitch.TopLinkL.LINK_7  &
    width = (5.0cm)  &
    depth = (14.0cm)
 !
 geometry modify shape link  &
-   link_name = .Model_1.TopLinkL.LINK_8  &
+   link_name = .RearHitch.TopLinkL.LINK_8  &
    width = (5.0cm)  &
    depth = (14.0cm)
 !
 marker modify  &
-   marker_name = .Model_1.TopLinkL.Mkr_CylMount  &
+   marker_name = .RearHitch.TopLinkL.Mkr_CylMount  &
    location =   &
-      (LOC_RELATIVE_TO({0.33, 0, 0.185}, .Model_1.TopLinkL.MARKER_2))  &
-   relative_to = .Model_1.TopLinkL
+      (LOC_RELATIVE_TO({0.33, 0, 0.185}, .RearHitch.TopLinkL.MARKER_2))  &
+   relative_to = .RearHitch.TopLinkL
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.TopLinkL.MARKER_79  &
+   marker_name = .RearHitch.TopLinkL.MARKER_79  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkL.POINT_4))  &
-   relative_to = .Model_1.TopLinkL
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkL.POINT_4))  &
+   relative_to = .RearHitch.TopLinkL
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.TopLinkR.MARKER_2  &
+   marker_name = .RearHitch.TopLinkR.MARKER_2  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.MainBody.TopLinkR1))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.MainBody.TopLinkR))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0, 90, 0}, .Model_1.MainBody.TopLinkR1))  &
-   relative_to = .Model_1.TopLinkR
+      (ORI_RELATIVE_TO({0, 90, 0}, .RearHitch.MainBody.TopLinkR))  &
+   relative_to = .RearHitch.TopLinkR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.TopLinkR.MARKER_3  &
+   marker_name = .RearHitch.TopLinkR.MARKER_3  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkR.POINT_1))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkR.POINT_1))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.TopLinkR.POINT_1, .Model_1.TopLinkR.POINT_2, "X"))  &
-   relative_to = .Model_1.TopLinkR
+      (ORI_ALONG_AXIS(.RearHitch.TopLinkR.POINT_1, .RearHitch.TopLinkR.POINT_2, "X"))  &
+   relative_to = .RearHitch.TopLinkR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.TopLinkR.MARKER_4  &
+   marker_name = .RearHitch.TopLinkR.MARKER_4  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkR.POINT_2))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkR.POINT_2))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkR.MARKER_3))  &
-   relative_to = .Model_1.TopLinkR
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkR.MARKER_3))  &
+   relative_to = .RearHitch.TopLinkR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.TopLinkR.MARKER_5  &
+   marker_name = .RearHitch.TopLinkR.MARKER_5  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkR.POINT_2))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkR.POINT_2))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.TopLinkR.POINT_2, .Model_1.TopLinkR.POINT_3, "X"))  &
-   relative_to = .Model_1.TopLinkR
+      (ORI_ALONG_AXIS(.RearHitch.TopLinkR.POINT_2, .RearHitch.TopLinkR.POINT_3, "X"))  &
+   relative_to = .RearHitch.TopLinkR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.TopLinkR.MARKER_6  &
+   marker_name = .RearHitch.TopLinkR.MARKER_6  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkR.POINT_3))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkR.POINT_3))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.TopLinkR.POINT_2, .Model_1.TopLinkR.POINT_3, "X"))  &
-   relative_to = .Model_1.TopLinkR
+      (ORI_ALONG_AXIS(.RearHitch.TopLinkR.POINT_2, .RearHitch.TopLinkR.POINT_3, "X"))  &
+   relative_to = .RearHitch.TopLinkR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.TopLinkR.MARKER_7  &
+   marker_name = .RearHitch.TopLinkR.MARKER_7  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkR.POINT_3))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkR.POINT_3))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.TopLinkR.POINT_3, .Model_1.TopLinkR.POINT_4, "X"))  &
-   relative_to = .Model_1.TopLinkR
+      (ORI_ALONG_AXIS(.RearHitch.TopLinkR.POINT_3, .RearHitch.TopLinkR.POINT_4, "X"))  &
+   relative_to = .RearHitch.TopLinkR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.TopLinkR.MARKER_8  &
+   marker_name = .RearHitch.TopLinkR.MARKER_8  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkR.POINT_4))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkR.POINT_4))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.TopLinkR.POINT_3, .Model_1.TopLinkR.POINT_4, "X"))  &
-   relative_to = .Model_1.TopLinkR
+      (ORI_ALONG_AXIS(.RearHitch.TopLinkR.POINT_3, .RearHitch.TopLinkR.POINT_4, "X"))  &
+   relative_to = .RearHitch.TopLinkR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
+!
+point modify  &
+   point_name = .RearHitch.TopLinkR.POINT_2  &
+   location =   &
+      (LOC_RELATIVE_TO({0.2, 0, -0.15}, .RearHitch.TopLinkR.MARKER_2))  &
+   relative_to = .RearHitch.TopLinkR
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+point modify  &
+   point_name = .RearHitch.TopLinkR.POINT_3  &
+   location =   &
+      (LOC_RELATIVE_TO({0.45, 0, -0.2}, .RearHitch.TopLinkR.MARKER_2))  &
+   relative_to = .RearHitch.TopLinkR
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+point modify  &
+   point_name = .RearHitch.TopLinkR.POINT_4  &
+   location =   &
+      (LOC_RELATIVE_TO({0.5, 0, -0.2}, .RearHitch.TopLinkR.MARKER_2))  &
+   relative_to = .RearHitch.TopLinkR
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+point modify  &
+   point_name = .RearHitch.TopLinkR.POINT_1  &
+   location =   &
+      (LOC_RELATIVE_TO({-5.0E-002, 0, -0.15}, .RearHitch.TopLinkR.MARKER_2))  &
+   relative_to = .RearHitch.TopLinkR
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
 !
 geometry modify shape cylinder  &
-   cylinder_name = .Model_1.TopLinkR.CYLINDER_1  &
-   length = (-.Model_1.DV_L1)  &
-   radius = (.Model_1.DV_R1)
+   cylinder_name = .RearHitch.TopLinkR.CYLINDER_1  &
+   length = (-.RearHitch.DV_L1)  &
+   radius = (.RearHitch.DV_R1)
 !
 geometry modify shape link  &
-   link_name = .Model_1.TopLinkR.LINK_6  &
+   link_name = .RearHitch.TopLinkR.LINK_6  &
    width = (5.0cm)  &
    depth = (14.0cm)
 !
 geometry modify shape link  &
-   link_name = .Model_1.TopLinkR.LINK_7  &
+   link_name = .RearHitch.TopLinkR.LINK_7  &
    width = (5.0cm)  &
    depth = (14.0cm)
 !
 geometry modify shape link  &
-   link_name = .Model_1.TopLinkR.LINK_8  &
+   link_name = .RearHitch.TopLinkR.LINK_8  &
    width = (5.0cm)  &
    depth = (14.0cm)
 !
 marker modify  &
-   marker_name = .Model_1.TopLinkR.Mkr_CylMount  &
+   marker_name = .RearHitch.TopLinkR.Mkr_CylMount  &
    location =   &
-      (LOC_RELATIVE_TO({0.33, 0, -0.185}, .Model_1.TopLinkR.MARKER_2))  &
-   relative_to = .Model_1.TopLinkR
+      (LOC_RELATIVE_TO({0.33, 0, -0.185}, .RearHitch.TopLinkR.MARKER_2))  &
+   relative_to = .RearHitch.TopLinkR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.TopLinkR.MARKER_83  &
+   marker_name = .RearHitch.TopLinkR.MARKER_83  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkR.POINT_4))  &
-   relative_to = .Model_1.TopLinkR
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkR.POINT_4))  &
+   relative_to = .RearHitch.TopLinkR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
+!
+point modify  &
+   point_name = .RearHitch.LowerLinkL.POINT_51  &
+   location =   &
+      (LOC_RELATIVE_TO({0.0, 0.0, 0.0}, .RearHitch.LowerLinkL.MARKER_105))  &
+   relative_to = .RearHitch.LowerLinkL
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+point modify  &
+   point_name = .RearHitch.LowerLinkL.POINT_52  &
+   location =   &
+      (LOC_RELATIVE_TO({0.1, 0.0, 0.0}, .RearHitch.LowerLinkL.MARKER_105))  &
+   relative_to = .RearHitch.LowerLinkL
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+point modify  &
+   point_name = .RearHitch.LowerLinkL.POINT_53  &
+   location =   &
+      (LOC_RELATIVE_TO({0.55, -0.35, 0.0}, .RearHitch.LowerLinkL.MARKER_105))  &
+   relative_to = .RearHitch.LowerLinkL
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+point modify  &
+   point_name = .RearHitch.LowerLinkL.POINT_54  &
+   location =   &
+      (LOC_RELATIVE_TO({0.75, -0.35, 0.0}, .RearHitch.LowerLinkL.MARKER_105))  &
+   relative_to = .RearHitch.LowerLinkL
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.LowerLinkL.MARKER_30  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_30  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkL.POINT_51))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkL.POINT_51))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.LowerLinkL.POINT_51, .Model_1.LowerLinkL.POINT_52, "X"))  &
-   relative_to = .Model_1.LowerLinkL
+      (ORI_ALONG_AXIS(.RearHitch.LowerLinkL.POINT_51, .RearHitch.LowerLinkL.POINT_52, "X"))  &
+   relative_to = .RearHitch.LowerLinkL
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.LowerLinkL.MARKER_31  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_31  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkL.POINT_52))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkL.POINT_52))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.LowerLinkL.POINT_51, .Model_1.LowerLinkL.POINT_52, "X"))  &
-   relative_to = .Model_1.LowerLinkL
+      (ORI_ALONG_AXIS(.RearHitch.LowerLinkL.POINT_51, .RearHitch.LowerLinkL.POINT_52, "X"))  &
+   relative_to = .RearHitch.LowerLinkL
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 geometry modify shape link  &
-   link_name = .Model_1.LowerLinkL.LINK_54  &
+   link_name = .RearHitch.LowerLinkL.LINK_54  &
    width = (5.0cm)  &
    depth = (14.0cm)
 !
 marker modify  &
-   marker_name = .Model_1.LowerLinkL.MARKER_32  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_32  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkL.POINT_52))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkL.POINT_52))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.LowerLinkL.POINT_52, .Model_1.LowerLinkL.POINT_53, "X"))  &
-   relative_to = .Model_1.LowerLinkL
+      (ORI_ALONG_AXIS(.RearHitch.LowerLinkL.POINT_52, .RearHitch.LowerLinkL.POINT_53, "X"))  &
+   relative_to = .RearHitch.LowerLinkL
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.LowerLinkL.MARKER_33  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_33  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkL.POINT_53))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkL.POINT_53))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.LowerLinkL.POINT_52, .Model_1.LowerLinkL.POINT_53, "X"))  &
-   relative_to = .Model_1.LowerLinkL
+      (ORI_ALONG_AXIS(.RearHitch.LowerLinkL.POINT_52, .RearHitch.LowerLinkL.POINT_53, "X"))  &
+   relative_to = .RearHitch.LowerLinkL
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 geometry modify shape link  &
-   link_name = .Model_1.LowerLinkL.LINK_55  &
+   link_name = .RearHitch.LowerLinkL.LINK_55  &
    width = (5.0cm)  &
    depth = (14.0cm)
 !
 marker modify  &
-   marker_name = .Model_1.LowerLinkL.MARKER_34  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_34  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkL.POINT_53))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkL.POINT_53))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.LowerLinkL.POINT_53, .Model_1.LowerLinkL.POINT_54, "X"))  &
-   relative_to = .Model_1.LowerLinkL
+      (ORI_ALONG_AXIS(.RearHitch.LowerLinkL.POINT_53, .RearHitch.LowerLinkL.POINT_54, "X"))  &
+   relative_to = .RearHitch.LowerLinkL
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.LowerLinkL.MARKER_35  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_35  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkL.POINT_54))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkL.POINT_54))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.LowerLinkL.POINT_53, .Model_1.LowerLinkL.POINT_54, "X"))  &
-   relative_to = .Model_1.LowerLinkL
+      (ORI_ALONG_AXIS(.RearHitch.LowerLinkL.POINT_53, .RearHitch.LowerLinkL.POINT_54, "X"))  &
+   relative_to = .RearHitch.LowerLinkL
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 geometry modify shape link  &
-   link_name = .Model_1.LowerLinkL.LINK_56  &
+   link_name = .RearHitch.LowerLinkL.LINK_56  &
+   width = (5.0cm)  &
+   depth = (14.0cm)
+!
+point modify  &
+   point_name = .RearHitch.LowerLinkL.LinkagePoint  &
+   location =   &
+      (LOC_RELATIVE_TO({0.35, -0.21, 0.0}, .RearHitch.LowerLinkL.MARKER_105))  &
+   relative_to = .RearHitch.LowerLinkL
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+marker modify  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_77  &
+   location =   &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkL.LinkagePoint))  &
+   relative_to = .RearHitch.LowerLinkL
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+marker modify  &
+   marker_name = .RearHitch.LowerLinkL.Chain  &
+   location =   &
+      (LOC_RELATIVE_TO({.RearHitch.DV_LowerLinkChain, 0, 0}, .RearHitch.LowerLinkL.MARKER_32))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkL.cm))  &
+   relative_to = .RearHitch.LowerLinkL
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+marker modify  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_89  &
+   location =   &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkR.Chain))  &
+   relative_to = .RearHitch.LowerLinkL
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+marker modify  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_101  &
+   location =   &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkL.POINT_51))  &
+   relative_to = .RearHitch.LowerLinkL
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+marker modify  &
+   marker_name = .RearHitch.LowerLinkL.MARKER_105  &
+   location =   &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.MainBody.BottLinkL))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.MainBody.BottLinkL))  &
+   relative_to = .RearHitch.LowerLinkL
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+point modify  &
+   point_name = .RearHitch.LowerLinkR.POINT_51  &
+   location =   &
+      (LOC_RELATIVE_TO({0.0, 0.0, 0.0}, .RearHitch.LowerLinkR.MARKER_105))  &
+   relative_to = .RearHitch.LowerLinkR
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+point modify  &
+   point_name = .RearHitch.LowerLinkR.POINT_52  &
+   location =   &
+      (LOC_RELATIVE_TO({0.1, 0.0, 0.0}, .RearHitch.LowerLinkR.MARKER_105))  &
+   relative_to = .RearHitch.LowerLinkR
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+point modify  &
+   point_name = .RearHitch.LowerLinkR.POINT_53  &
+   location =   &
+      (LOC_RELATIVE_TO({0.55, 0.35, 0.0}, .RearHitch.LowerLinkR.MARKER_105))  &
+   relative_to = .RearHitch.LowerLinkR
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+point modify  &
+   point_name = .RearHitch.LowerLinkR.POINT_54  &
+   location =   &
+      (LOC_RELATIVE_TO({0.75, 0.35, 0.0}, .RearHitch.LowerLinkR.MARKER_105))  &
+   relative_to = .RearHitch.LowerLinkR
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+marker modify  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_30  &
+   location =   &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkR.POINT_51))  &
+   orientation =   &
+      (ORI_ALONG_AXIS(.RearHitch.LowerLinkR.POINT_51, .RearHitch.LowerLinkR.POINT_52, "X"))  &
+   relative_to = .RearHitch.LowerLinkR
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+marker modify  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_31  &
+   location =   &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkR.POINT_52))  &
+   orientation =   &
+      (ORI_ALONG_AXIS(.RearHitch.LowerLinkR.POINT_51, .RearHitch.LowerLinkR.POINT_52, "X"))  &
+   relative_to = .RearHitch.LowerLinkR
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+geometry modify shape link  &
+   link_name = .RearHitch.LowerLinkR.LINK_54  &
    width = (5.0cm)  &
    depth = (14.0cm)
 !
 marker modify  &
-   marker_name = .Model_1.LowerLinkL.MARKER_77  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_32  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkL.LinkagePoint))  &
-   relative_to = .Model_1.LowerLinkL
-!
-defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
-!
-marker modify  &
-   marker_name = .Model_1.LowerLinkL.Chain  &
-   location =   &
-      (LOC_RELATIVE_TO({.Model_1.DV_LowerLinkChain, 0, 0}, .Model_1.LowerLinkL.MARKER_32))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkR.POINT_52))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkL.cm))  &
-   relative_to = .Model_1.LowerLinkL
+      (ORI_ALONG_AXIS(.RearHitch.LowerLinkR.POINT_52, .RearHitch.LowerLinkR.POINT_53, "X"))  &
+   relative_to = .RearHitch.LowerLinkR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.LowerLinkL.MARKER_101  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_33  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkL.POINT_51))  &
-   relative_to = .Model_1.LowerLinkL
-!
-defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
-!
-marker modify  &
-   marker_name = .Model_1.LowerLinkR.MARKER_30  &
-   location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.POINT_51))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkR.POINT_53))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.LowerLinkR.POINT_51, .Model_1.LowerLinkR.POINT_52, "X"))  &
-   relative_to = .Model_1.LowerLinkR
+      (ORI_ALONG_AXIS(.RearHitch.LowerLinkR.POINT_52, .RearHitch.LowerLinkR.POINT_53, "X"))  &
+   relative_to = .RearHitch.LowerLinkR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
-!
-marker modify  &
-   marker_name = .Model_1.LowerLinkR.MARKER_31  &
-   location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.POINT_52))  &
-   orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.LowerLinkR.POINT_51, .Model_1.LowerLinkR.POINT_52, "X"))  &
-   relative_to = .Model_1.LowerLinkR
-!
-defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 geometry modify shape link  &
-   link_name = .Model_1.LowerLinkR.LINK_54  &
+   link_name = .RearHitch.LowerLinkR.LINK_55  &
    width = (5.0cm)  &
    depth = (14.0cm)
 !
 marker modify  &
-   marker_name = .Model_1.LowerLinkR.MARKER_32  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_34  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.POINT_52))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkR.POINT_53))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.LowerLinkR.POINT_52, .Model_1.LowerLinkR.POINT_53, "X"))  &
-   relative_to = .Model_1.LowerLinkR
+      (ORI_ALONG_AXIS(.RearHitch.LowerLinkR.POINT_53, .RearHitch.LowerLinkR.POINT_54, "X"))  &
+   relative_to = .RearHitch.LowerLinkR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.LowerLinkR.MARKER_33  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_35  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.POINT_53))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkR.POINT_54))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.LowerLinkR.POINT_52, .Model_1.LowerLinkR.POINT_53, "X"))  &
-   relative_to = .Model_1.LowerLinkR
+      (ORI_ALONG_AXIS(.RearHitch.LowerLinkR.POINT_53, .RearHitch.LowerLinkR.POINT_54, "X"))  &
+   relative_to = .RearHitch.LowerLinkR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 geometry modify shape link  &
-   link_name = .Model_1.LowerLinkR.LINK_55  &
+   link_name = .RearHitch.LowerLinkR.LINK_56  &
    width = (5.0cm)  &
    depth = (14.0cm)
 !
-marker modify  &
-   marker_name = .Model_1.LowerLinkR.MARKER_34  &
+point modify  &
+   point_name = .RearHitch.LowerLinkR.LinkagePoint  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.POINT_53))  &
-   orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.LowerLinkR.POINT_53, .Model_1.LowerLinkR.POINT_54, "X"))  &
-   relative_to = .Model_1.LowerLinkR
+      (LOC_RELATIVE_TO({0.35, 0.21, 0.0}, .RearHitch.LowerLinkR.MARKER_105))  &
+   relative_to = .RearHitch.LowerLinkR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.LowerLinkR.MARKER_35  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_81  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.POINT_54))  &
-   orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.LowerLinkR.POINT_53, .Model_1.LowerLinkR.POINT_54, "X"))  &
-   relative_to = .Model_1.LowerLinkR
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkR.LinkagePoint))  &
+   relative_to = .RearHitch.LowerLinkR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
+!
+marker modify  &
+   marker_name = .RearHitch.LowerLinkR.Chain  &
+   location =   &
+      (LOC_RELATIVE_TO({.RearHitch.DV_LowerLinkChain, 0, 0}, .RearHitch.LowerLinkR.MARKER_32))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkR.cm))  &
+   relative_to = .RearHitch.LowerLinkR
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+marker modify  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_91  &
+   location =   &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkL.Chain))  &
+   relative_to = .RearHitch.LowerLinkR
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+marker modify  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_103  &
+   location =   &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkR.POINT_51))  &
+   relative_to = .RearHitch.LowerLinkR
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+marker modify  &
+   marker_name = .RearHitch.LowerLinkR.MARKER_105  &
+   location =   &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.MainBody.BottLinkR))  &
+   orientation =   &
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.MainBody.BottLinkR))  &
+   relative_to = .RearHitch.LowerLinkR
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+marker modify  &
+   marker_name = .RearHitch.LinkageL.MARKER_43  &
+   location =   &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkL.POINT_4))  &
+   orientation =   &
+      (ORI_ALONG_AXIS(.RearHitch.TopLinkL.POINT_4, .RearHitch.LowerLinkL.LinkagePoint, "X"))  &
+   relative_to = .RearHitch.LinkageL
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
+!
+marker modify  &
+   marker_name = .RearHitch.LinkageL.MARKER_44  &
+   location =   &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkL.LinkagePoint))  &
+   orientation =   &
+      (ORI_ALONG_AXIS(.RearHitch.TopLinkL.POINT_4, .RearHitch.LowerLinkL.LinkagePoint, "X"))  &
+   relative_to = .RearHitch.LinkageL
+!
+defaults coordinate_system  &
+   default_coordinate_system = .RearHitch.ground
 !
 geometry modify shape link  &
-   link_name = .Model_1.LowerLinkR.LINK_56  &
-   width = (5.0cm)  &
-   depth = (14.0cm)
-!
-marker modify  &
-   marker_name = .Model_1.LowerLinkR.MARKER_81  &
-   location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.LinkagePoint))  &
-   relative_to = .Model_1.LowerLinkR
-!
-defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
-!
-marker modify  &
-   marker_name = .Model_1.LowerLinkR.Chain  &
-   location =   &
-      (LOC_RELATIVE_TO({.Model_1.DV_LowerLinkChain, 0, 0}, .Model_1.LowerLinkR.MARKER_32))  &
-   orientation =   &
-      (ORI_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.cm))  &
-   relative_to = .Model_1.LowerLinkR
-!
-defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
-!
-marker modify  &
-   marker_name = .Model_1.LowerLinkR.MARKER_103  &
-   location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.POINT_51))  &
-   relative_to = .Model_1.LowerLinkR
-!
-defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
-!
-marker modify  &
-   marker_name = .Model_1.LinkageL.MARKER_43  &
-   location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkL.POINT_4))  &
-   orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.TopLinkL.POINT_4, .Model_1.LowerLinkL.LinkagePoint, "X"))  &
-   relative_to = .Model_1.LinkageL
-!
-defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
-!
-marker modify  &
-   marker_name = .Model_1.LinkageL.MARKER_44  &
-   location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkL.LinkagePoint))  &
-   orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.TopLinkL.POINT_4, .Model_1.LowerLinkL.LinkagePoint, "X"))  &
-   relative_to = .Model_1.LinkageL
-!
-defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
-!
-geometry modify shape link  &
-   link_name = .Model_1.LinkageL.LINK_92  &
+   link_name = .RearHitch.LinkageL.LINK_92  &
    width = (5.0cm)  &
    depth = (5.0cm)
 !
 marker modify  &
-   marker_name = .Model_1.LinkageL.MARKER_78  &
+   marker_name = .RearHitch.LinkageL.MARKER_78  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkL.LinkagePoint))  &
-   relative_to = .Model_1.LinkageL
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkL.LinkagePoint))  &
+   relative_to = .RearHitch.LinkageL
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.LinkageL.MARKER_80  &
+   marker_name = .RearHitch.LinkageL.MARKER_80  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkL.POINT_4))  &
-   relative_to = .Model_1.LinkageL
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkL.POINT_4))  &
+   relative_to = .RearHitch.LinkageL
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.LinkageR.MARKER_45  &
+   marker_name = .RearHitch.LinkageR.MARKER_45  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkR.POINT_4))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkR.POINT_4))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.TopLinkR.POINT_4, .Model_1.LowerLinkR.LinkagePoint, "X"))  &
-   relative_to = .Model_1.LinkageR
+      (ORI_ALONG_AXIS(.RearHitch.TopLinkR.POINT_4, .RearHitch.LowerLinkR.LinkagePoint, "X"))  &
+   relative_to = .RearHitch.LinkageR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.LinkageR.MARKER_46  &
+   marker_name = .RearHitch.LinkageR.MARKER_46  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.LinkagePoint))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkR.LinkagePoint))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.TopLinkR.POINT_4, .Model_1.LowerLinkR.LinkagePoint, "X"))  &
-   relative_to = .Model_1.LinkageR
+      (ORI_ALONG_AXIS(.RearHitch.TopLinkR.POINT_4, .RearHitch.LowerLinkR.LinkagePoint, "X"))  &
+   relative_to = .RearHitch.LinkageR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 geometry modify shape link  &
-   link_name = .Model_1.LinkageR.LINK_94  &
+   link_name = .RearHitch.LinkageR.LINK_94  &
    width = (5.0cm)  &
    depth = (5.0cm)
 !
 marker modify  &
-   marker_name = .Model_1.LinkageR.MARKER_82  &
+   marker_name = .RearHitch.LinkageR.MARKER_82  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.LowerLinkR.LinkagePoint))  &
-   relative_to = .Model_1.LinkageR
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.LowerLinkR.LinkagePoint))  &
+   relative_to = .RearHitch.LinkageR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.LinkageR.MARKER_84  &
+   marker_name = .RearHitch.LinkageR.MARKER_84  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkR.POINT_4))  &
-   relative_to = .Model_1.LinkageR
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkR.POINT_4))  &
+   relative_to = .RearHitch.LinkageR
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 material modify  &
-   material_name = .Model_1.steel  &
+   material_name = .RearHitch.steel  &
    youngs_modulus = (2.07E+011(Newton/meter**2))  &
    density = (7801.0(kg/meter**3))
 !
 material modify  &
-   material_name = .Model_1.steel_3  &
+   material_name = .RearHitch.steel_3  &
    youngs_modulus = (2.07E+011(Newton/meter**2))  &
    density = (7801.0(kg/meter**3))
 !
 marker modify  &
-   marker_name = .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master  &
+   marker_name = .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.MainBody.CylL1))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.MainBody.CylL))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.MainBody.CylL1, .Model_1.TopLinkL.Mkr_CylMount, "z"))  &
-   relative_to = .Model_1.PART_Cyl_HitchL_cyl
+      (ORI_ALONG_AXIS(.RearHitch.MainBody.CylL, .RearHitch.TopLinkL.Mkr_CylMount, "z"))  &
+   relative_to = .RearHitch.PART_Cyl_HitchL_cyl
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.PART_Cyl_HitchL_cyl.cyl_MKR_2  &
+   marker_name = .RearHitch.PART_Cyl_HitchL_cyl.cyl_MKR_2  &
    location =   &
-      (LOC_RELATIVE_TO({0, .Model_1.DV_Cyl_HitchL_rc, 0}, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
+      (LOC_RELATIVE_TO({0, .RearHitch.DV_Cyl_HitchL_rc, 0}, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0, 90, 0}, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
-   relative_to = .Model_1.PART_Cyl_HitchL_cyl
+      (ORI_RELATIVE_TO({0, 90, 0}, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
+   relative_to = .RearHitch.PART_Cyl_HitchL_cyl
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.PART_Cyl_HitchL_cyl.cyl_MKR_6  &
+   marker_name = .RearHitch.PART_Cyl_HitchL_cyl.cyl_MKR_6  &
    location =   &
-      (LOC_RELATIVE_TO({0.0, 0.0, 0.0}, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
+      (LOC_RELATIVE_TO({0.0, 0.0, 0.0}, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0.0, 0.0, 0.0}, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
-   relative_to = .Model_1.PART_Cyl_HitchL_cyl
+      (ORI_RELATIVE_TO({0.0, 0.0, 0.0}, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
+   relative_to = .RearHitch.PART_Cyl_HitchL_cyl
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.PART_Cyl_HitchL_cyl.cyl_MKR_11  &
+   marker_name = .RearHitch.PART_Cyl_HitchL_cyl.cyl_MKR_11  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0, 0, 0}, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
-   relative_to = .Model_1.PART_Cyl_HitchL_cyl
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
+   relative_to = .RearHitch.PART_Cyl_HitchL_cyl
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 geometry modify shape cylinder  &
-   cylinder_name = .Model_1.PART_Cyl_HitchL_cyl.CYLINDER  &
-   length = (.Model_1.DV_Cyl_HitchL_min_length - .Model_1.DV_Cyl_HitchL_rc)  &
-   radius = (.Model_1.DV_Cyl_HitchL_rc)
+   cylinder_name = .RearHitch.PART_Cyl_HitchL_cyl.CYLINDER  &
+   length = (.RearHitch.DV_Cyl_HitchL_min_length - .RearHitch.DV_Cyl_HitchL_rc)  &
+   radius = (.RearHitch.DV_Cyl_HitchL_rc)
 !
 geometry modify shape cylinder  &
-   cylinder_name = .Model_1.PART_Cyl_HitchL_cyl.CYLINDER_2  &
-   length = (.Model_1.DV_Cyl_HitchL_rc * 2)  &
-   radius = (.Model_1.DV_Cyl_HitchL_rc)
+   cylinder_name = .RearHitch.PART_Cyl_HitchL_cyl.CYLINDER_2  &
+   length = (.RearHitch.DV_Cyl_HitchL_rc * 2)  &
+   radius = (.RearHitch.DV_Cyl_HitchL_rc)
 !
 marker modify  &
-   marker_name = .Model_1.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave  &
+   marker_name = .RearHitch.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkL.Mkr_CylMount))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkL.Mkr_CylMount))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0, 180, 0}, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
-   relative_to = .Model_1.PART_Cyl_HitchL_pis
+      (ORI_RELATIVE_TO({0, 180, 0}, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
+   relative_to = .RearHitch.PART_Cyl_HitchL_pis
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.PART_Cyl_HitchL_pis.cyl_MKR_4  &
+   marker_name = .RearHitch.PART_Cyl_HitchL_pis.cyl_MKR_4  &
    location =   &
-      (LOC_RELATIVE_TO({0, .Model_1.DV_Cyl_HitchL_rc, 0}, .Model_1.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave))  &
+      (LOC_RELATIVE_TO({0, .RearHitch.DV_Cyl_HitchL_rc, 0}, .RearHitch.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0, 90, 0}, .Model_1.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave))  &
-   relative_to = .Model_1.PART_Cyl_HitchL_pis
+      (ORI_RELATIVE_TO({0, 90, 0}, .RearHitch.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave))  &
+   relative_to = .RearHitch.PART_Cyl_HitchL_pis
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.PART_Cyl_HitchL_pis.cyl_MKR_5  &
+   marker_name = .RearHitch.PART_Cyl_HitchL_pis.cyl_MKR_5  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.PART_Cyl_HitchL_pis.MKR_HitchL_pis_slave))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0, 0, 0}, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
-   relative_to = .Model_1.PART_Cyl_HitchL_pis
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
+   relative_to = .RearHitch.PART_Cyl_HitchL_pis
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.PART_Cyl_HitchL_pis.cyl_MKR_12  &
+   marker_name = .RearHitch.PART_Cyl_HitchL_pis.cyl_MKR_12  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0, 0, 0}, .Model_1.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
-   relative_to = .Model_1.PART_Cyl_HitchL_pis
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.PART_Cyl_HitchL_cyl.MKR_HitchL_cyl_master))  &
+   relative_to = .RearHitch.PART_Cyl_HitchL_pis
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 geometry modify shape cylinder  &
-   cylinder_name = .Model_1.PART_Cyl_HitchL_pis.CYLINDER_3  &
-   length = (.Model_1.DV_Cyl_HitchL_min_length)  &
-   radius = (.Model_1.DV_Cyl_HitchL_rp)
+   cylinder_name = .RearHitch.PART_Cyl_HitchL_pis.CYLINDER_3  &
+   length = (.RearHitch.DV_Cyl_HitchL_min_length)  &
+   radius = (.RearHitch.DV_Cyl_HitchL_rp)
 !
 geometry modify shape cylinder  &
-   cylinder_name = .Model_1.PART_Cyl_HitchL_pis.CYLINDER_4  &
-   length = (.Model_1.DV_Cyl_HitchL_rc * 2)  &
-   radius = (.Model_1.DV_Cyl_HitchL_rc)
+   cylinder_name = .RearHitch.PART_Cyl_HitchL_pis.CYLINDER_4  &
+   length = (.RearHitch.DV_Cyl_HitchL_rc * 2)  &
+   radius = (.RearHitch.DV_Cyl_HitchL_rc)
 !
 material modify  &
-   material_name = .Model_1.steel_4  &
+   material_name = .RearHitch.steel_4  &
    youngs_modulus = (2.07E+011(Newton/meter**2))  &
    density = (7801.0(kg/meter**3))
 !
 marker modify  &
-   marker_name = .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master  &
+   marker_name = .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.MainBody.CylR1))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.MainBody.CylR))  &
    orientation =   &
-      (ORI_ALONG_AXIS(.Model_1.MainBody.CylR1, .Model_1.TopLinkR.Mkr_CylMount, "z"))  &
-   relative_to = .Model_1.PART_Cyl_HitchR_cyl
+      (ORI_ALONG_AXIS(.RearHitch.MainBody.CylR, .RearHitch.TopLinkR.Mkr_CylMount, "z"))  &
+   relative_to = .RearHitch.PART_Cyl_HitchR_cyl
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.PART_Cyl_HitchR_cyl.cyl_MKR_2  &
+   marker_name = .RearHitch.PART_Cyl_HitchR_cyl.cyl_MKR_2  &
    location =   &
-      (LOC_RELATIVE_TO({0, .Model_1.DV_Cyl_HitchR_rc, 0}, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
+      (LOC_RELATIVE_TO({0, .RearHitch.DV_Cyl_HitchR_rc, 0}, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0, 90, 0}, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
-   relative_to = .Model_1.PART_Cyl_HitchR_cyl
+      (ORI_RELATIVE_TO({0, 90, 0}, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
+   relative_to = .RearHitch.PART_Cyl_HitchR_cyl
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.PART_Cyl_HitchR_cyl.cyl_MKR_6  &
+   marker_name = .RearHitch.PART_Cyl_HitchR_cyl.cyl_MKR_6  &
    location =   &
-      (LOC_RELATIVE_TO({0.0, 0.0, 0.0}, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
+      (LOC_RELATIVE_TO({0.0, 0.0, 0.0}, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0.0, 0.0, 0.0}, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
-   relative_to = .Model_1.PART_Cyl_HitchR_cyl
+      (ORI_RELATIVE_TO({0.0, 0.0, 0.0}, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
+   relative_to = .RearHitch.PART_Cyl_HitchR_cyl
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.PART_Cyl_HitchR_cyl.cyl_MKR_11  &
+   marker_name = .RearHitch.PART_Cyl_HitchR_cyl.cyl_MKR_11  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0, 0, 0}, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
-   relative_to = .Model_1.PART_Cyl_HitchR_cyl
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
+   relative_to = .RearHitch.PART_Cyl_HitchR_cyl
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 geometry modify shape cylinder  &
-   cylinder_name = .Model_1.PART_Cyl_HitchR_cyl.CYLINDER  &
-   length = (.Model_1.DV_Cyl_HitchR_min_length - .Model_1.DV_Cyl_HitchR_rc)  &
-   radius = (.Model_1.DV_Cyl_HitchR_rc)
+   cylinder_name = .RearHitch.PART_Cyl_HitchR_cyl.CYLINDER  &
+   length = (.RearHitch.DV_Cyl_HitchR_min_length - .RearHitch.DV_Cyl_HitchR_rc)  &
+   radius = (.RearHitch.DV_Cyl_HitchR_rc)
 !
 geometry modify shape cylinder  &
-   cylinder_name = .Model_1.PART_Cyl_HitchR_cyl.CYLINDER_2  &
-   length = (.Model_1.DV_Cyl_HitchR_rc * 2)  &
-   radius = (.Model_1.DV_Cyl_HitchR_rc)
+   cylinder_name = .RearHitch.PART_Cyl_HitchR_cyl.CYLINDER_2  &
+   length = (.RearHitch.DV_Cyl_HitchR_rc * 2)  &
+   radius = (.RearHitch.DV_Cyl_HitchR_rc)
 !
 marker modify  &
-   marker_name = .Model_1.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave  &
+   marker_name = .RearHitch.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.TopLinkR.Mkr_CylMount))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.TopLinkR.Mkr_CylMount))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0, 180, 0}, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
-   relative_to = .Model_1.PART_Cyl_HitchR_pis
+      (ORI_RELATIVE_TO({0, 180, 0}, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
+   relative_to = .RearHitch.PART_Cyl_HitchR_pis
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.PART_Cyl_HitchR_pis.cyl_MKR_4  &
+   marker_name = .RearHitch.PART_Cyl_HitchR_pis.cyl_MKR_4  &
    location =   &
-      (LOC_RELATIVE_TO({0, .Model_1.DV_Cyl_HitchR_rc, 0}, .Model_1.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave))  &
+      (LOC_RELATIVE_TO({0, .RearHitch.DV_Cyl_HitchR_rc, 0}, .RearHitch.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0, 90, 0}, .Model_1.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave))  &
-   relative_to = .Model_1.PART_Cyl_HitchR_pis
+      (ORI_RELATIVE_TO({0, 90, 0}, .RearHitch.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave))  &
+   relative_to = .RearHitch.PART_Cyl_HitchR_pis
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.PART_Cyl_HitchR_pis.cyl_MKR_5  &
+   marker_name = .RearHitch.PART_Cyl_HitchR_pis.cyl_MKR_5  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.PART_Cyl_HitchR_pis.MKR_HitchR_pis_slave))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0, 0, 0}, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
-   relative_to = .Model_1.PART_Cyl_HitchR_pis
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
+   relative_to = .RearHitch.PART_Cyl_HitchR_pis
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 marker modify  &
-   marker_name = .Model_1.PART_Cyl_HitchR_pis.cyl_MKR_12  &
+   marker_name = .RearHitch.PART_Cyl_HitchR_pis.cyl_MKR_12  &
    location =   &
-      (LOC_RELATIVE_TO({0, 0, 0}, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
+      (LOC_RELATIVE_TO({0, 0, 0}, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
    orientation =   &
-      (ORI_RELATIVE_TO({0, 0, 0}, .Model_1.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
-   relative_to = .Model_1.PART_Cyl_HitchR_pis
+      (ORI_RELATIVE_TO({0, 0, 0}, .RearHitch.PART_Cyl_HitchR_cyl.MKR_HitchR_cyl_master))  &
+   relative_to = .RearHitch.PART_Cyl_HitchR_pis
 !
 defaults coordinate_system  &
-   default_coordinate_system = .Model_1.ground
+   default_coordinate_system = .RearHitch.ground
 !
 geometry modify shape cylinder  &
-   cylinder_name = .Model_1.PART_Cyl_HitchR_pis.CYLINDER_3  &
-   length = (.Model_1.DV_Cyl_HitchR_min_length)  &
-   radius = (.Model_1.DV_Cyl_HitchR_rp)
+   cylinder_name = .RearHitch.PART_Cyl_HitchR_pis.CYLINDER_3  &
+   length = (.RearHitch.DV_Cyl_HitchR_min_length)  &
+   radius = (.RearHitch.DV_Cyl_HitchR_rp)
 !
 geometry modify shape cylinder  &
-   cylinder_name = .Model_1.PART_Cyl_HitchR_pis.CYLINDER_4  &
-   length = (.Model_1.DV_Cyl_HitchR_rc * 2)  &
-   radius = (.Model_1.DV_Cyl_HitchR_rc)
+   cylinder_name = .RearHitch.PART_Cyl_HitchR_pis.CYLINDER_4  &
+   length = (.RearHitch.DV_Cyl_HitchR_rc * 2)  &
+   radius = (.RearHitch.DV_Cyl_HitchR_rc)
 !
 geometry modify shape force  &
-   force_name = .Model_1.SFORCE_3_force_graphic_1  &
-   applied_at_marker_name = (.Model_1.SFORCE_ChainL.i)
+   force_name = .RearHitch.SFORCE_3_force_graphic_1  &
+   applied_at_marker_name = (.RearHitch.SFORCE_ChainL.i)
 !
 geometry modify shape force  &
-   force_name = .Model_1.SFORCE_4_force_graphic_1  &
-   applied_at_marker_name = (.Model_1.SFORCE_ChainR.i)
+   force_name = .RearHitch.SFORCE_4_force_graphic_1  &
+   applied_at_marker_name = (.RearHitch.SFORCE_ChainR.i)
 !
 force modify element_like bushing  &
-   bushing_name = .Model_1.BUSHING_1  &
+   bushing_name = .RearHitch.BUSHING_1  &
    damping =   &
       (1.2E+005(newton-sec/meter)),  &
       (1.2E+005(newton-sec/meter)),  &
@@ -2930,11 +3161,11 @@ force modify element_like bushing  &
       (2.72664626(newton-meter/deg))
 !
 geometry modify shape force  &
-   force_name = .Model_1.BUSHING_1_force_graphic_1  &
-   applied_at_marker_name = (.Model_1.BUSHING_1.i)
+   force_name = .RearHitch.BUSHING_1_force_graphic_1  &
+   applied_at_marker_name = (.RearHitch.BUSHING_1.i)
 !
 force modify element_like bushing  &
-   bushing_name = .Model_1.BUSHING_2  &
+   bushing_name = .RearHitch.BUSHING_2  &
    damping =   &
       (1.2E+005(newton-sec/meter)),  &
       (1.2E+005(newton-sec/meter)),  &
@@ -2953,8 +3184,8 @@ force modify element_like bushing  &
       (2.72664626(newton-meter/deg))
 !
 geometry modify shape force  &
-   force_name = .Model_1.BUSHING_2_force_graphic_1  &
-   applied_at_marker_name = (.Model_1.BUSHING_2.i)
+   force_name = .RearHitch.BUSHING_2_force_graphic_1  &
+   applied_at_marker_name = (.RearHitch.BUSHING_2.i)
 !
 model display  &
-   model_name = Model_1
+   model_name = RearHitch
