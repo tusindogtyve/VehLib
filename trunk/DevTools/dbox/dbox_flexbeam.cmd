@@ -723,8 +723,7 @@ interface label create  &
    horiz_resizing = attach_left  &
    vert_resizing = attach_top  &
    justified = left  &
-!   icon_file = "(eval(getenv(\"MDI_USER_PLUGIN_DIR\")// \" /myplugin/IconFiles/rect \"))"
-   icon_file = "F:\Arbejde\1.0.2\DevTools\dbox\rect"
+   icon_file = "rect.png"
 !
 interface container create  &
    container_name = .SDlib_plugin.dboxes.dbox_flexbeam.cont_hex  &
@@ -787,7 +786,7 @@ interface label create  &
    horiz_resizing = attach_left  &
    vert_resizing = attach_top  &
    justified = center  &
-   icon_file = "F:\Arbejde\1.0.2\DevTools\dbox\hex"
+   icon_file = "hex.png"
 !
 interface separator create  &
    separator_name = .SDlib_plugin.dboxes.dbox_flexbeam.sep_2  &

@@ -141,7 +141,11 @@ macro create &
 			      "      x_comp = 0.0 & ", &
 			      "      y_comp = 0.0 & ", &
 			      "      z_comp = -9.80665 ", &
-			      "  end "
+			      "  end ", &
+			      " var cre variable_name = check_graphics_sd real = (putenv('MDI_AVIEW_BITMAPS',(getenv('MDI_AVIEW_BITMAPS')//';'//(getenv('MDI_SD_LIBRARY_SITE'))//'/DboxGraphics'))) ", &
+			      " if cond = (db_exists('check_graphics_sd')==1) ", &
+			      "      variable delete variable_name = check_graphics_sd ", &
+			      " end "
 ! Unload plugin macro
 macro create &
       macro=.SDlib_plugin.unload  &
