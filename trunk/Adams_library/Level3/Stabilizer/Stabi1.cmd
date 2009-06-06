@@ -1,25 +1,3 @@
-! This file is part of SDlib_plugin.
-!    
-! Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
-! 
-!  Permission is hereby granted, free of charge, to any person obtaining
-!  a copy of this software and associated documentation files (the
-!  "Software"), to deal in the Software without restriction, including
-!  without limitation the rights to use, copy, modify, merge, publish,
-!  distribute, sublicense, and/or sell copies of the Software, and to
-!  permit persons to whom the Software is furnished to do so, subject to
-!  the following conditions:
-!
-!  The above copyright notice and this permission notice shall be
-!  included in all copies or substantial portions of the Software.
-! 
-!  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-!  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-!  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-!  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-!  LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-!  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-!  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 !
 !-------------------------- Default Units for Model ---------------------------!
 !
@@ -87,6 +65,18 @@ data_element create variable  &
 data_element create variable  &
    variable_name = .Stabi1.SV_Cyl_R_V  &
    adams_id = 7  &
+   initial_condition = 0.0  &
+   function = ""
+!
+data_element create variable  &
+   variable_name = .Stabi1.SV_Cyl_L_Fstatic  &
+   adams_id = 8  &
+   initial_condition = 0.0  &
+   function = ""
+!
+data_element create variable  &
+   variable_name = .Stabi1.SV_Cyl_R_Fstatic  &
+   adams_id = 9  &
    initial_condition = 0.0  &
    function = ""
 !
@@ -300,7 +290,7 @@ marker create  &
    marker_name = .Stabi1.PART_L_Leg.cm  &
    adams_id = 36  &
    location = -0.7788694791, 0.1844246308, -7.4738816258E-002  &
-   orientation = -117.6353809289d, -67.3794608752d, -101.3834880141d
+   orientation = -117.6353809283d, -67.3794608751d, -101.3834880128d
 !
 marker create  &
    marker_name = .Stabi1.PART_L_Leg.MARKER_24  &
@@ -612,7 +602,7 @@ marker create  &
    marker_name = .Stabi1.PART_L_Plate.cm  &
    adams_id = 39  &
    location = -1.0187158436, 0.2732710053, -0.1738863152  &
-   orientation = 89.9999999985d, -70.0000000115d, 89.9999999986d
+   orientation = 89.9999999981d, -70.0000000129d, 89.9999999982d
 !
 part create rigid_body mass_properties  &
    part_name = .Stabi1.PART_L_Plate  &
@@ -762,7 +752,7 @@ marker create  &
    marker_name = .Stabi1.PART_R_Leg.cm  &
    adams_id = 56  &
    location = 0.7788694791, 0.1844246308, -7.4738816258E-002  &
-   orientation = 62.3646190699d, -67.379460874d, 78.6165119828d
+   orientation = 62.3646190698d, -67.3794608732d, 78.6165119822d
 !
 marker create  &
    marker_name = .Stabi1.PART_R_Leg.MARKER_24  &
@@ -928,7 +918,7 @@ marker create  &
    marker_name = .Stabi1.PART_Cyl_R_pis.cm  &
    adams_id = 66  &
    location = 0.6878298796, 0.2413106111, -3.5196082845E-002  &
-   orientation = 32.065569763d, -10.936364847d, 6.7778929178d
+   orientation = 32.065569763d, -10.936364847d, 6.7778929177d
 !
 marker create  &
    marker_name = .Stabi1.PART_Cyl_R_pis.cyl_MKR_4  &
@@ -1048,7 +1038,7 @@ marker create  &
    marker_name = .Stabi1.PART_R_Plate.cm  &
    adams_id = 78  &
    location = 1.0187158436, 0.2732710053, -0.1738863152  &
-   orientation = -89.9999999985d, -69.9999999884d, -89.9999999986d
+   orientation = -89.9999999981d, -69.9999999871d, -89.9999999982d
 !
 part create rigid_body mass_properties  &
    part_name = .Stabi1.PART_R_Plate  &
@@ -1146,6 +1136,25 @@ part attributes  &
    part_name = .Stabi1.PART_R_Plate  &
    color = WHITE  &
    name_visibility = off
+!
+!--------------------------------- Equations ----------------------------------!
+!
+!
+part create equation differential_equation  &
+   differential_equation_name = .Stabi1.DIFF_CylLStat  &
+   adams_id = 1  &
+   initial_condition = 0.0  &
+   function = ""  &
+   implicit = off  &
+   static_hold = on
+!
+part create equation differential_equation  &
+   differential_equation_name = .Stabi1.DIFF_CylRStat  &
+   adams_id = 2  &
+   initial_condition = 0.0  &
+   function = ""  &
+   implicit = off  &
+   static_hold = on
 !
 !----------------------------------- Joints -----------------------------------!
 !
@@ -1253,6 +1262,120 @@ constraint attributes  &
 !----------------------------------- Forces -----------------------------------!
 !
 !
+force create element_like friction  &
+   friction_name = .Stabi1.FRICTION_1  &
+   adams_id = 1  &
+   joint_name = .Stabi1.JT_Cyl_R_cyl_pis  &
+   mu_static = 0.5  &
+   mu_dynamic = 0.3  &
+   initial_overlap = 1000.0  &
+   pin_radius = 1.0  &
+   stiction_transition_velocity = 0.1  &
+   max_stiction_deformation = 1.0E-002  &
+   friction_force_preload = 0.0  &
+   friction_torque_preload = 5.0E-002  &
+   overlap_delta = constant  &
+   effect = all  &
+   inactive_during_static = off
+!
+force create element_like friction  &
+   friction_name = .Stabi1.FRICTION_2  &
+   adams_id = 2  &
+   joint_name = .Stabi1.JT_Cyl_L_cyl_pis  &
+   mu_static = 0.5  &
+   mu_dynamic = 0.3  &
+   initial_overlap = 1000.0  &
+   pin_radius = 1.0  &
+   stiction_transition_velocity = 0.1  &
+   max_stiction_deformation = 1.0E-002  &
+   friction_force_preload = 0.0  &
+   friction_torque_preload = 5.0E-002  &
+   overlap_delta = constant  &
+   effect = all  &
+   inactive_during_static = off
+!
+force create element_like friction  &
+   friction_name = .Stabi1.FRICTION_3  &
+   adams_id = 3  &
+   joint_name = .Stabi1.Jt_R_Cs_Cyl  &
+   mu_static = 0.5  &
+   mu_dynamic = 0.3  &
+   ball_radius = 1.0  &
+   stiction_transition_velocity = 0.1  &
+   max_stiction_deformation = 1.0E-002  &
+   friction_torque_preload = 5.0E-002  &
+   effect = all  &
+   inactive_during_static = off
+!
+force create element_like friction  &
+   friction_name = .Stabi1.FRICTION_4  &
+   adams_id = 4  &
+   joint_name = .Stabi1.Jt__R_Cyl_Leg  &
+   mu_static = 0.5  &
+   mu_dynamic = 0.3  &
+   ball_radius = 1.0  &
+   stiction_transition_velocity = 0.1  &
+   max_stiction_deformation = 1.0E-002  &
+   friction_torque_preload = 5.0E-002  &
+   effect = all  &
+   inactive_during_static = off
+!
+force create element_like friction  &
+   friction_name = .Stabi1.FRICTION_5  &
+   adams_id = 5  &
+   joint_name = .Stabi1.Jt_L_Cs_Cyl  &
+   mu_static = 0.5  &
+   mu_dynamic = 0.3  &
+   ball_radius = 1.0  &
+   stiction_transition_velocity = 0.1  &
+   max_stiction_deformation = 1.0E-002  &
+   friction_torque_preload = 5.0E-002  &
+   effect = all  &
+   inactive_during_static = off
+!
+force create element_like friction  &
+   friction_name = .Stabi1.FRICTION_6  &
+   adams_id = 6  &
+   joint_name = .Stabi1.Jt_L_Cyl_Leg  &
+   mu_static = 0.5  &
+   mu_dynamic = 0.3  &
+   ball_radius = 1.0  &
+   stiction_transition_velocity = 0.1  &
+   max_stiction_deformation = 1.0E-002  &
+   friction_torque_preload = 5.0E-002  &
+   effect = all  &
+   inactive_during_static = off
+!
+force create element_like friction  &
+   friction_name = .Stabi1.FRICTION_7  &
+   adams_id = 7  &
+   joint_name = .Stabi1.Jt_L_Leg_Plate  &
+   mu_static = 0.5  &
+   mu_dynamic = 0.3  &
+   friction_arm = 1.0  &
+   bending_reaction_arm = 1.0  &
+   pin_radius = 1.0  &
+   stiction_transition_velocity = 0.1  &
+   max_stiction_deformation = 1.0E-002  &
+   friction_torque_preload = 5.0E-003  &
+   effect = all  &
+   inactive_during_static = off
+!
+force create element_like friction  &
+   friction_name = .Stabi1.FRICTION_8  &
+   adams_id = 8  &
+   joint_name = .Stabi1.JOINT_14  &
+   mu_static = 0.5  &
+   mu_dynamic = 0.3  &
+   friction_arm = 1.0  &
+   bending_reaction_arm = 1.0  &
+   pin_radius = 1.0  &
+   stiction_transition_velocity = 0.1  &
+   max_stiction_deformation = 1.0E-002  &
+   friction_torque_preload = 5.0E-003  &
+   effect = all  &
+   inactive_during_static = off
+!
 force create direct single_component_force  &
    single_component_force_name = .Stabi1.F_Cyl_L_force  &
    adams_id = 1  &
@@ -1280,8 +1403,7 @@ force create direct single_component_force  &
 !
 simulation script create  &
    sim_script_name = .Stabi1.Last_Sim  &
-   commands =   &
-              "simulation single_run transient type=auto_select end_time=1.0 number_of_steps=50 model_name=.Stabi1 initial_static=no"
+   commands = "simulation single_run equilibrium model_name=.Stabi1"
 !
 simulation script create  &
    sim_script_name = .Stabi1.Last_Sim_2  &
@@ -1309,6 +1431,13 @@ force create body gravitational  &
 !
 !----------------------------- Analysis settings ------------------------------!
 !
+!
+executive_control set equilibrium_parameters  &
+   model_name = Stabi1  &
+   alimit = 5.0d  &
+   error = 1.0E-003  &
+   maxit = 200  &
+   tlimit = 0.1
 !
 !---------------------------- Adams/View Variables ----------------------------!
 !
@@ -1500,13 +1629,30 @@ data_element modify variable  &
    variable_name = .Stabi1.SV_Cyl_R_V  &
    function = "VZ( .Stabi1.PART_Cyl_R_pis.MKR_R_pis_slave, .Stabi1.PART_Cyl_R_cyl.MKR_R_cyl_master, .Stabi1.PART_Cyl_R_cyl.MKR_R_cyl_master, .Stabi1.PART_Cyl_R_cyl.MKR_R_cyl_master)"
 !
+data_element modify variable  &
+   variable_name = .Stabi1.SV_Cyl_L_Fstatic  &
+   function = "DIF(.Stabi1.DIFF_CylLStat)"
+!
+data_element modify variable  &
+   variable_name = .Stabi1.SV_Cyl_R_Fstatic  &
+   function = "DIF(.Stabi1.DIFF_CylRStat)"
+!
+part modify equation differential_equation  &
+   differential_equation_name = .Stabi1.DIFF_CylLStat  &
+   function = "IF(MODE-5:0,1,0)*(.Stabi1.DV_Cyl_L_ini_length - DM(.Stabi1.PART_Cyl_L_pis.MKR_L_pis_slave, .Stabi1.PART_Cyl_L_cyl.MKR_L_cyl_master))"
+!
+part modify equation differential_equation  &
+   differential_equation_name = .Stabi1.DIFF_CylRStat  &
+   function = "IF(MODE-5:0,1,0)*(.Stabi1.DV_Cyl_R_ini_length - DM(.Stabi1.PART_Cyl_R_pis.MKR_R_pis_slave, .Stabi1.PART_Cyl_R_cyl.MKR_R_cyl_master))"
+!
 force modify direct single_component_force  &
    single_component_force_name = .Stabi1.F_Cyl_L_force  &
    function = "VARVAL( .Stabi1.SV_Cyl_L_F) + ",  &
               "BISTOP( ",  &
               "DZ( .Stabi1.PART_Cyl_L_pis.MKR_L_pis_slave, .Stabi1.PART_Cyl_L_cyl.MKR_L_cyl_master, .Stabi1.PART_Cyl_L_cyl.MKR_L_cyl_master) , ",  &
               "VZ( .Stabi1.PART_Cyl_L_pis.MKR_L_pis_slave, .Stabi1.PART_Cyl_L_cyl.MKR_L_cyl_master, .Stabi1.PART_Cyl_L_cyl.MKR_L_cyl_master, .Stabi1.PART_Cyl_L_cyl.MKR_L_cyl_master) , ",  &
-              ".Stabi1.DV_Cyl_L_min_length , .Stabi1.DV_Cyl_L_max_length , 50e6 , 1.0 , 20e6 , 0.01 )"
+              ".Stabi1.DV_Cyl_L_min_length , .Stabi1.DV_Cyl_L_max_length , 50e6 , 1.0 , 20e6 , 0.01 ) +",  &
+              "VARVAL(.Stabi1.SV_Cyl_L_Fstatic)"
 !
 force modify direct single_component_force  &
    single_component_force_name = .Stabi1.F_Cyl_R_force  &
@@ -1514,7 +1660,8 @@ force modify direct single_component_force  &
               "BISTOP( ",  &
               "DZ( .Stabi1.PART_Cyl_R_pis.MKR_R_pis_slave, .Stabi1.PART_Cyl_R_cyl.MKR_R_cyl_master, .Stabi1.PART_Cyl_R_cyl.MKR_R_cyl_master) , ",  &
               "VZ( .Stabi1.PART_Cyl_R_pis.MKR_R_pis_slave, .Stabi1.PART_Cyl_R_cyl.MKR_R_cyl_master, .Stabi1.PART_Cyl_R_cyl.MKR_R_cyl_master, .Stabi1.PART_Cyl_R_cyl.MKR_R_cyl_master) , ",  &
-              ".Stabi1.DV_Cyl_R_min_length , .Stabi1.DV_Cyl_R_max_length , 50e6 , 1.0 , 20e6 , 0.01 )"
+              ".Stabi1.DV_Cyl_R_min_length , .Stabi1.DV_Cyl_R_max_length , 50e6 , 1.0 , 20e6 , 0.01 ) +",  &
+              "VARVAL(.Stabi1.SV_Cyl_R_Fstatic)"
 !
 !--------------------------- Expression definitions ---------------------------!
 !
