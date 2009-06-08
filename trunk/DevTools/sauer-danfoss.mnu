@@ -1207,3 +1207,7 @@ MENU1  Sauer &Danfoss
           BUTTON3  &3 beam, boom
                  NAME=telboom
                  CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_Telboom
+     MENU2  &Tractor
+	  BUTTON3  &Rear hitch
+		 NAME=RearHitch
+		 CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_RearHitch

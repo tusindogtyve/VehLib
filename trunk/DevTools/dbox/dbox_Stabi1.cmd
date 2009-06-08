@@ -92,8 +92,8 @@ interface dialog_box create  &
    execution_commands = "! Get the new name of the sub model",  &
                         "var mod var = $_self.NewModelName string_value = \"$field_18\"",  &
                         "",  &
-                        "! If there is a old sub model put the name in a variable",  &
-                        "if cond = ((STR_IS_SPACE(\"$field_13\"))==0)",  &
+                        "! If there is an old sub model put the name in a variable",  &
+                        "if cond = ((STR_IS_SPACE(\"$field_17\"))==0 && !(STR_IS_SPACE('$field_18')))",  &
                         " var mod var = $_self.OldModelName string_value = \"$field_17\"",  &
                         "else ",  &
                         " var mod var = $_self.OldModelName string_value = \"\"",  &

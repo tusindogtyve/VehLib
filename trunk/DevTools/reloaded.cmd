@@ -88,6 +88,7 @@ file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Add_spherica
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_Add_revolute_joint.cmd"))	! Revolute joint
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_flexbeam.cmd"))		! Generate flexible beam (finite segment)
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_contact_at_beam_elements"))	! Contact between flexible beams
+file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_RearHitch"))	! Contact between flexible beams
 !file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_flexbeam_contact.cmd"))
 !file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_backhoe.cmd"))
 
