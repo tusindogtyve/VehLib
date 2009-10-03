@@ -1,4 +1,4 @@
-! This file is part of SDlib_plugin.
+! This file is part of VehLib_plugin.
 !    
 ! Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
 ! 
@@ -22,7 +22,7 @@
 !  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 !
 interface dialog_box create  &
-   dialog_box_name = .SDlib_plugin.dboxes.dbox_Add_spherical_joint  &
+   dialog_box_name = .VehLib_plugin.dboxes.dbox_Add_spherical_joint  &
    location = 755.0, 451.0  &
    height = 143.0  &
    width = 276.0  &
@@ -52,7 +52,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_Add_spherical_joint.button_1  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_Add_spherical_joint.button_1  &
    location = 196.0, 114.0  &
    height = 25.0  &
    width = 76.0  &
@@ -63,7 +63,7 @@ interface push_button create  &
    commands = "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_Add_spherical_joint.button_3  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_Add_spherical_joint.button_3  &
    location = 118.0, 114.0  &
    height = 25.0  &
    width = 76.0  &
@@ -74,7 +74,7 @@ interface push_button create  &
    commands = "interface dialog execute dialog=$_parent undisp=yes"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Add_spherical_joint.label_1  &
+   label_name = .VehLib_plugin.dboxes.dbox_Add_spherical_joint.label_1  &
    location = 4.0, 60.0  &
    height = 25.0  &
    width = 144.0  &
@@ -85,7 +85,7 @@ interface label create  &
    text = "First marker:"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Add_spherical_joint.label_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_Add_spherical_joint.label_2  &
    location = 4.0, 87.0  &
    height = 25.0  &
    width = 144.0  &
@@ -96,7 +96,7 @@ interface label create  &
    text = "Second marker:"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Add_spherical_joint.label_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_Add_spherical_joint.label_3  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 144.0  &
@@ -107,7 +107,7 @@ interface label create  &
    text = "Joint name (Jt_XXXX):"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Add_spherical_joint.field_1  &
+   field_name = .VehLib_plugin.dboxes.dbox_Add_spherical_joint.field_1  &
    location = 150.0, 31.0  &
    height = 25.0  &
    width = 122.0  &
@@ -123,7 +123,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Add_spherical_joint.field_2  &
+   field_name = .VehLib_plugin.dboxes.dbox_Add_spherical_joint.field_2  &
    location = 150.0, 60.0  &
    height = 25.0  &
    width = 122.0  &
@@ -139,7 +139,7 @@ interface field create  &
    type_filter = marker
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Add_spherical_joint.field_3  &
+   field_name = .VehLib_plugin.dboxes.dbox_Add_spherical_joint.field_3  &
    location = 150.0, 87.0  &
    height = 25.0  &
    width = 122.0  &
@@ -155,7 +155,7 @@ interface field create  &
    type_filter = marker
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Add_spherical_joint.label_7  &
+   label_name = .VehLib_plugin.dboxes.dbox_Add_spherical_joint.label_7  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 144.0  &
@@ -166,7 +166,7 @@ interface label create  &
    text = "Add to model:"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Add_spherical_joint.field_6  &
+   field_name = .VehLib_plugin.dboxes.dbox_Add_spherical_joint.field_6  &
    location = 150.0, 4.0  &
    height = 25.0  &
    width = 122.0  &
@@ -182,7 +182,7 @@ interface field create  &
    type_filter = model
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_Add_spherical_joint.sep_2  &
+   separator_name = .VehLib_plugin.dboxes.dbox_Add_spherical_joint.sep_2  &
    location = 4.0, 58.0  &
    width = 268.0  &
    units = pixel  &

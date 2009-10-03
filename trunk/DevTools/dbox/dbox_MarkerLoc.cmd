@@ -1,4 +1,4 @@
-! This file is part of SDlib_plugin.
+! This file is part of VehLib_plugin.
 !    
 ! Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
 ! 
@@ -22,7 +22,7 @@
 !  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 !
 interface dialog_box create  &
-   dialog_box_name = .SDlib_plugin.dboxes.dbox_MarkerLoc  &
+   dialog_box_name = .VehLib_plugin.dboxes.dbox_MarkerLoc  &
    location = 808.0, 296.0  &
    height = 229.0  &
    width = 277.0  &
@@ -38,7 +38,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_MarkerLoc.button_1  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_MarkerLoc.button_1  &
    location = 197.0, 200.0  &
    height = 25.0  &
    width = 76.0  &
@@ -49,7 +49,7 @@ interface push_button create  &
    commands = "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_MarkerLoc.button_2  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_MarkerLoc.button_2  &
    location = 41.0, 200.0  &
    height = 25.0  &
    width = 76.0  &
@@ -60,7 +60,7 @@ interface push_button create  &
    commands = "interface dialog execute dialog=$_parent undisp=yes"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_MarkerLoc.field_1  &
+   field_name = .VehLib_plugin.dboxes.dbox_MarkerLoc.field_1  &
    location = 155.0, 31.0  &
    height = 25.0  &
    width = 130.0  &
@@ -76,7 +76,7 @@ interface field create  &
    type_filter = marker
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_MarkerLoc.field_2  &
+   field_name = .VehLib_plugin.dboxes.dbox_MarkerLoc.field_2  &
    location = 155.0, 58.0  &
    height = 25.0  &
    width = 130.0  &
@@ -92,7 +92,7 @@ interface field create  &
    type_filter = marker
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_MarkerLoc.label_1  &
+   label_name = .VehLib_plugin.dboxes.dbox_MarkerLoc.label_1  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 149.0  &
@@ -103,7 +103,7 @@ interface label create  &
    text = "Parametrize this marker"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_MarkerLoc.label_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_MarkerLoc.label_2  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 149.0  &
@@ -114,7 +114,7 @@ interface label create  &
    text = "Relative to this marker"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_MarkerLoc.field_4  &
+   field_name = .VehLib_plugin.dboxes.dbox_MarkerLoc.field_4  &
    location = 155.0, 114.0  &
    height = 25.0  &
    width = 132.0  &
@@ -131,7 +131,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_MarkerLoc.field_5  &
+   field_name = .VehLib_plugin.dboxes.dbox_MarkerLoc.field_5  &
    location = 155.0, 141.0  &
    height = 25.0  &
    width = 132.0  &
@@ -148,7 +148,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_MarkerLoc.field_6  &
+   field_name = .VehLib_plugin.dboxes.dbox_MarkerLoc.field_6  &
    location = 155.0, 168.0  &
    height = 25.0  &
    width = 132.0  &
@@ -165,7 +165,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_MarkerLoc.label_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_MarkerLoc.label_3  &
    location = 4.0, 114.0  &
    height = 25.0  &
    width = 149.0  &
@@ -176,7 +176,7 @@ interface label create  &
    text = "x-translation"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_MarkerLoc.label_4  &
+   label_name = .VehLib_plugin.dboxes.dbox_MarkerLoc.label_4  &
    location = 4.0, 141.0  &
    height = 25.0  &
    width = 149.0  &
@@ -187,7 +187,7 @@ interface label create  &
    text = "y-translation"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_MarkerLoc.label_5  &
+   label_name = .VehLib_plugin.dboxes.dbox_MarkerLoc.label_5  &
    location = 4.0, 168.0  &
    height = 25.0  &
    width = 149.0  &
@@ -198,7 +198,7 @@ interface label create  &
    text = "z-translation"
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_MarkerLoc.sep_2  &
+   separator_name = .VehLib_plugin.dboxes.dbox_MarkerLoc.sep_2  &
    location = 4.0, 85.0  &
    width = 281.0  &
    units = pixel  &
@@ -206,7 +206,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_MarkerLoc.label_9  &
+   label_name = .VehLib_plugin.dboxes.dbox_MarkerLoc.label_9  &
    location = 4.0, 87.0  &
    height = 25.0  &
    width = 281.0  &
@@ -217,7 +217,7 @@ interface label create  &
    text = "Input of distance from the target marker"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_MarkerLoc.label_10  &
+   label_name = .VehLib_plugin.dboxes.dbox_MarkerLoc.label_10  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 281.0  &
@@ -228,7 +228,7 @@ interface label create  &
    text = "Select the two markers for the parametrization"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_MarkerLoc.button_3  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_MarkerLoc.button_3  &
    location = 119.0, 200.0  &
    height = 25.0  &
    width = 76.0  &

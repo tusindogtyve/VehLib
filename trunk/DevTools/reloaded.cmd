@@ -1,6 +1,6 @@
-! This file is part of SDlib_plugin.
+! This file is part of VehLib.
 !    
-!  Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
+!  Copyright (c) 2009 Sauer-Danfoss & Jens Bay Madsen http://www.vehlib.dk
 !
 ! Permission is hereby granted, free of charge, to any person obtaining
 ! a copy of this software and associated documentation files (the
@@ -50,13 +50,13 @@ else
 	      z_comp = -9.80665
 end
 
-library create library=.SDlib_plugin
-library create library=.SDlib_plugin.dboxes
-library create library=.SDlib_plugin.macros
-library create library=.SDlib_plugin.variables
+library create library=.VehLib_plugin
+library create library=.VehLib_plugin.dboxes
+library create library=.VehLib_plugin.macros
+library create library=.VehLib_plugin.variables
 
 !!! Read the menu.
-interface menubar read menubar=.gui.main.mbar file=(eval(getenv("MDI_SD_DEVTOOLS")//"/sauer-danfoss.mnu"))
+interface menubar read menubar=.gui.main.mbar file=(eval(getenv("MDI_SD_DEVTOOLS")//"/VehLib_menu.mnu"))
 
 !!! Read dialog boxes.
 file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_acmCircular.cmd"))	! Ackermann axle, round appearance, symmetric cylinder
@@ -95,21 +95,21 @@ file command read file=(eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/dbox_RearHitch"))
 
 ! Write array macro, called by arrayshow
 macro read  & 
-   macro_name = .SDlib_plugin.macros.writeArray  &
+   macro_name = .VehLib_plugin.macros.writeArray  &
    file_name = (eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/writeArray.cmd"))  &
    wrap_in_undo = no  &
    create_panel = no
 
 ! Create dbox macro, called by arrayshow 
 macro read  & 
-   macro_name = .SDlib_plugin.macros.createDbox  &
+   macro_name = .VehLib_plugin.macros.createDbox  &
    file_name = (eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/createDbox.cmd"))  &
    wrap_in_undo = no  &
    create_panel = no
 
 ! Macro to calculate areaInertia of flexbeam
 macro read & 
-	macro_name = .SDlib_plugin.macros.AreaInertia &
+	macro_name = .VehLib_plugin.macros.AreaInertia &
 	file_name = (eval(getenv("MDI_SD_DEVTOOLS")//"/dbox/AreaInertia.cmd")) &
 	wrap_in_undo = no &
 	create_panel = no
@@ -117,15 +117,15 @@ macro read &
 
 ! Load plugin macro 
 macro create &
-      macro=.SDlib_plugin.load  &
+      macro=.VehLib_plugin.load  &
       wrap_in_undo=No &
-      user="mdi SDlib_plugin load" &
+      user="mdi VehLib_plugin load" &
       commands_to_be_executed="! Commands when plugin is loaded: ", &
                               "", &
                               "! Read the menu out of the binary into the current gui library", &
                               "  file binary read &", &
-                              "    file=(getenv(\"MDI_USER_PLUGIN_DIR\") // \"/SDlib_plugin\") &", &
-                              "    entity= .gui.main.mbar.SauerDanfoss", &
+                              "    file=(getenv(\"MDI_USER_PLUGIN_DIR\") // \"/VehLib_plugin\") &", &
+                              "    entity= .gui.main.mbar.VehLib_menu", &
 			      "  var set var=.MDI.up_axis      str=\"Z_pos\" ", &
 			      "  var set var=.MDI.forward_axis str=\"X_neg\" ", &
 			      " int grid modify orient=(eval(convert_angles({0,-90d,0},'BODY313'))) view_normal=no ", &
@@ -149,10 +149,10 @@ macro create &
 			      " end "
 ! Unload plugin macro
 macro create &
-      macro=.SDlib_plugin.unload  &
+      macro=.VehLib_plugin.unload  &
       wrap_in_undo=No &
-      user="mdi SDlib_plugin unload"   &
-      commands_to_be_executed="if condition=(db_exists(\".gui.main.mbar.SauerDanfoss\"))", &
-                              " entity delete entity_name = .gui.main.mbar.SauerDanfoss", &
+      user="mdi VehLib_plugin unload"   &
+      commands_to_be_executed="if condition=(db_exists(\".gui.main.mbar.VehLib_menu\"))", &
+                              " entity delete entity_name = .gui.main.mbar.VehLib_menu", &
                               "end" 
 

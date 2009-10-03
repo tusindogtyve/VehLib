@@ -1,4 +1,4 @@
-! This file is part of SDlib_plugin.
+! This file is part of VehLib_plugin.
 !    
 ! Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
 ! 
@@ -22,7 +22,7 @@
 !  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 !
 interface dialog_box create  &
-   dialog_box_name = .SDlib_plugin.dboxes.dbox_Loader1  &
+   dialog_box_name = .VehLib_plugin.dboxes.dbox_Loader1  &
    location = 862.0, 1.0001  &
    height = 658.0  &
    width = 400.0  &
@@ -360,7 +360,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_Loader1.button_1  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_Loader1.button_1  &
    location = 320.0, 629.0  &
    height = 25.0  &
    width = 76.0  &
@@ -374,7 +374,7 @@ interface push_button create  &
               "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_Loader1.button_2  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_Loader1.button_2  &
    location = 242.0, 629.0  &
    height = 25.0  &
    width = 76.0  &
@@ -386,7 +386,7 @@ interface push_button create  &
               "interface dialog display dialog= $_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_Loader1.button_3  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_Loader1.button_3  &
    location = 164.0, 629.0  &
    height = 25.0  &
    width = 76.0  &
@@ -401,7 +401,7 @@ interface push_button create  &
               "createdbox"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_1  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_1  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 214.0  &
@@ -412,7 +412,7 @@ interface label create  &
    text = "Main model name:"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_2  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 214.0  &
@@ -423,7 +423,7 @@ interface label create  &
    text = "Old sub model name"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_3  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 214.0  &
@@ -434,7 +434,7 @@ interface label create  &
    text = "New sub model name:"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_4  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_4  &
    location = 4.0, 85.0  &
    height = 25.0  &
    width = 214.0  &
@@ -445,7 +445,7 @@ interface label create  &
    text = "Sub model that contains a chassis"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_main  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_main  &
    location = 280.0, 4.0  &
    height = 25.0  &
    width = 116.0  &
@@ -461,7 +461,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_old  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_old  &
    location = 280.0, 31.0  &
    height = 25.0  &
    width = 116.0  &
@@ -477,7 +477,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_newName  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_newName  &
    location = 280.0, 58.0  &
    height = 25.0  &
    width = 116.0  &
@@ -493,7 +493,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_csModel  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_csModel  &
    location = 280.0, 85.0  &
    height = 25.0  &
    width = 116.0  &
@@ -509,7 +509,7 @@ interface field create  &
    type_filter = model
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_Loader1.sep_1  &
+   separator_name = .VehLib_plugin.dboxes.dbox_Loader1.sep_1  &
    location = 4.0, 112.0  &
    height = 4.0  &
    width = 392.0  &
@@ -518,7 +518,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_5  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_5  &
    location = 4.0, 118.0  &
    height = 22.0  &
    width = 189.0  &
@@ -529,7 +529,7 @@ interface label create  &
    text = "Armmount -> LoaderArm_P1"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_6  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_6  &
    location = 4.0, 142.0  &
    height = 22.0  &
    width = 189.0  &
@@ -540,7 +540,7 @@ interface label create  &
    text = "Cylindermount -> LoaderArm_P1 "
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_7  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_7  &
    location = 4.0, 166.0  &
    height = 22.0  &
    width = 189.0  &
@@ -551,7 +551,7 @@ interface label create  &
    text = "Armmount -> LoaderArm_P2"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_8  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_8  &
    location = 4.0, 190.0  &
    height = 22.0  &
    width = 189.0  &
@@ -562,7 +562,7 @@ interface label create  &
    text = "Cylindermount -> LoaderArm_P2"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_9  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_9  &
    location = 4.0, 214.0  &
    height = 22.0  &
    width = 189.0  &
@@ -573,7 +573,7 @@ interface label create  &
    text = "Armmount -> LoaderArm_P2"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_10  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_10  &
    location = 4.0, 238.0  &
    height = 22.0  &
    width = 189.0  &
@@ -584,7 +584,7 @@ interface label create  &
    text = "Cylindermount -> LoaderArm_P3"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_11  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_11  &
    location = 4.0, 262.0  &
    height = 22.0  &
    width = 189.0  &
@@ -595,7 +595,7 @@ interface label create  &
    text = "Armmount -> LoaderArm_P4"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_12  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_12  &
    location = 4.0, 286.0  &
    height = 22.0  &
    width = 189.0  &
@@ -606,7 +606,7 @@ interface label create  &
    text = "Cylindermount -> LoaderArm_P4"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_13  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_13  &
    location = 4.0, 310.0  &
    height = 22.0  &
    width = 189.0  &
@@ -617,7 +617,7 @@ interface label create  &
    text = "Length of link 1 "
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_14  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_14  &
    location = 4.0, 334.0  &
    height = 22.0  &
    width = 189.0  &
@@ -628,7 +628,7 @@ interface label create  &
    text = "Length of link 2"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_15  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_15  &
    location = 4.0, 502.0  &
    height = 22.0  &
    width = 189.0  &
@@ -639,7 +639,7 @@ interface label create  &
    text = "Cylinder 3&4 min. length"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_16  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_16  &
    location = 4.0, 358.0  &
    height = 22.0  &
    width = 189.0  &
@@ -650,7 +650,7 @@ interface label create  &
    text = "Length of link 3"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_17  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_17  &
    location = 4.0, 382.0  &
    height = 22.0  &
    width = 189.0  &
@@ -661,7 +661,7 @@ interface label create  &
    text = "Distance to cylindermount"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_18  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_18  &
    location = 4.0, 526.0  &
    height = 22.0  &
    width = 189.0  &
@@ -672,7 +672,7 @@ interface label create  &
    text = "Cylinder 3&4 max. length"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_19  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_19  &
    location = 4.0, 406.0  &
    height = 22.0  &
    width = 189.0  &
@@ -683,7 +683,7 @@ interface label create  &
    text = "Loader width"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_22  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_22  &
    location = 4.0, 430.0  &
    height = 22.0  &
    width = 189.0  &
@@ -694,7 +694,7 @@ interface label create  &
    text = "Cylinder 1&2 min. length"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_23  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_23  &
    location = 4.0, 454.0  &
    height = 22.0  &
    width = 189.0  &
@@ -705,7 +705,7 @@ interface label create  &
    text = "Cylinder 1&2 max. length"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_24  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_24  &
    location = 4.0, 478.0  &
    height = 22.0  &
    width = 189.0  &
@@ -716,7 +716,7 @@ interface label create  &
    text = "Cylinder 1&2 initial length"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_25  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_25  &
    location = 4.0, 550.0  &
    height = 22.0  &
    width = 189.0  &
@@ -727,7 +727,7 @@ interface label create  &
    text = "Cylinder 3&4 initial length"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_26  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_26  &
    location = 4.0, 574.0  &
    height = 22.0  &
    width = 189.0  &
@@ -738,7 +738,7 @@ interface label create  &
    text = "Radius of all cylinders"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_Loader1.label_27  &
+   label_name = .VehLib_plugin.dboxes.dbox_Loader1.label_27  &
    location = 4.0, 598.0  &
    height = 22.0  &
    width = 189.0  &
@@ -749,7 +749,7 @@ interface label create  &
    text = "Radius of all pistons"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_2  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_2  &
    location = 320.0, 118.0  &
    height = 22.0  &
    width = 76.0  &
@@ -766,7 +766,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_3  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_3  &
    location = 320.0, 142.0  &
    height = 22.0  &
    width = 76.0  &
@@ -783,7 +783,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_4  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_4  &
    location = 320.0, 166.0  &
    height = 22.0  &
    width = 76.0  &
@@ -800,7 +800,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_5  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_5  &
    location = 320.0, 190.0  &
    height = 22.0  &
    width = 76.0  &
@@ -817,7 +817,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_6  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_6  &
    location = 320.0, 214.0  &
    height = 22.0  &
    width = 76.0  &
@@ -834,7 +834,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_7  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_7  &
    location = 320.0, 238.0  &
    height = 22.0  &
    width = 76.0  &
@@ -851,7 +851,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_8  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_8  &
    location = 320.0, 262.0  &
    height = 22.0  &
    width = 76.0  &
@@ -868,7 +868,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_9  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_9  &
    location = 320.0, 286.0  &
    height = 22.0  &
    width = 76.0  &
@@ -885,7 +885,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_10  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_10  &
    location = 320.0, 310.0  &
    height = 22.0  &
    width = 76.0  &
@@ -902,7 +902,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_11  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_11  &
    location = 320.0, 334.0  &
    height = 22.0  &
    width = 76.0  &
@@ -919,7 +919,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_12  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_12  &
    location = 320.0, 358.0  &
    height = 22.0  &
    width = 76.0  &
@@ -936,7 +936,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_13  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_13  &
    location = 320.0, 382.0  &
    height = 22.0  &
    width = 76.0  &
@@ -953,7 +953,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_14  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_14  &
    location = 320.0, 406.0  &
    height = 22.0  &
    width = 76.0  &
@@ -970,7 +970,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_17  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_17  &
    location = 320.0, 430.0  &
    height = 22.0  &
    width = 76.0  &
@@ -987,7 +987,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_18  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_18  &
    location = 320.0, 454.0  &
    height = 22.0  &
    width = 76.0  &
@@ -1004,7 +1004,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_19  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_19  &
    location = 320.0, 478.0  &
    height = 22.0  &
    width = 76.0  &
@@ -1021,7 +1021,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_20  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_20  &
    location = 320.0, 502.0  &
    height = 22.0  &
    width = 76.0  &
@@ -1038,7 +1038,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_21  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_21  &
    location = 320.0, 526.0  &
    height = 24.0  &
    width = 76.0  &
@@ -1055,7 +1055,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_22  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_22  &
    location = 320.0, 552.0  &
    height = 22.0  &
    width = 76.0  &
@@ -1072,7 +1072,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_23  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_23  &
    location = 320.0, 576.0  &
    height = 22.0  &
    width = 76.0  &
@@ -1089,7 +1089,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_Loader1.field_24  &
+   field_name = .VehLib_plugin.dboxes.dbox_Loader1.field_24  &
    location = 320.0, 600.0  &
    height = 22.0  &
    width = 76.0  &

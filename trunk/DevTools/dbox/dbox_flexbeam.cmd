@@ -1,4 +1,4 @@
-! This file is part of SDlib_plugin.
+! This file is part of VehLib_plugin.
 !    
 ! Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
 ! 
@@ -22,7 +22,7 @@
 !  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 !
 interface dialog_box create  &
-   dialog_box_name = .SDlib_plugin.dboxes.dbox_flexbeam  &
+   dialog_box_name = .VehLib_plugin.dboxes.dbox_flexbeam  &
    location = 969.0, 63.0  &
    height = 690.0  &
    width = 302.0  &
@@ -406,7 +406,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_flexbeam.button_1  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_flexbeam.button_1  &
    location = 222.0, 661.0  &
    height = 25.0  &
    width = 76.0  &
@@ -417,7 +417,7 @@ interface push_button create  &
    commands = "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_flexbeam.button_2  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_flexbeam.button_2  &
    location = 144.0, 661.0  &
    height = 25.0  &
    width = 76.0  &
@@ -428,7 +428,7 @@ interface push_button create  &
    commands = "interface dialog execute dialog=$_parent undisp=no"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_flexbeam.button_3  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_flexbeam.button_3  &
    location = 66.0, 661.0  &
    height = 25.0  &
    width = 76.0  &
@@ -439,7 +439,7 @@ interface push_button create  &
    commands = "interface dialog execute dialog=$_parent undisp=yes"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_1  &
+   label_name = .VehLib_plugin.dboxes.dbox_flexbeam.label_1  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 156.0  &
@@ -450,7 +450,7 @@ interface label create  &
    text = "Name of beam"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_flexbeam.field_1  &
+   field_name = .VehLib_plugin.dboxes.dbox_flexbeam.field_1  &
    location = 162.0, 31.0  &
    height = 25.0  &
    width = 122.0  &
@@ -479,7 +479,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_flexbeam.label_2  &
    location = 4.0, 85.0  &
    height = 25.0  &
    width = 156.0  &
@@ -490,7 +490,7 @@ interface label create  &
    text = "Number of segments"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_flexbeam.field_2  &
+   field_name = .VehLib_plugin.dboxes.dbox_flexbeam.field_2  &
    location = 163.0, 85.0  &
    height = 25.0  &
    width = 122.0  &
@@ -507,7 +507,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_flexbeam.label_3  &
    location = 4.0, 141.0  &
    height = 25.0  &
    width = 220.0  &
@@ -518,7 +518,7 @@ interface label create  &
    text = "Beam height, H"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_4  &
+   label_name = .VehLib_plugin.dboxes.dbox_flexbeam.label_4  &
    location = 4.0, 168.0  &
    height = 25.0  &
    width = 220.0  &
@@ -529,7 +529,7 @@ interface label create  &
    text = "Beam width, W"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_flexbeam.field_3  &
+   field_name = .VehLib_plugin.dboxes.dbox_flexbeam.field_3  &
    location = 226.0, 141.0  &
    height = 25.0  &
    width = 60.0  &
@@ -548,7 +548,7 @@ interface field create  &
    lower_limit = 0.0
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_flexbeam.field_4  &
+   field_name = .VehLib_plugin.dboxes.dbox_flexbeam.field_4  &
    location = 226.0, 168.0  &
    height = 25.0  &
    width = 60.0  &
@@ -567,7 +567,7 @@ interface field create  &
    lower_limit = 0.0
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_flexbeam.field_5  &
+   field_name = .VehLib_plugin.dboxes.dbox_flexbeam.field_5  &
    location = 226.0, 195.0  &
    height = 25.0  &
    width = 60.0  &
@@ -586,7 +586,7 @@ interface field create  &
    lower_limit = 0.0
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_5  &
+   label_name = .VehLib_plugin.dboxes.dbox_flexbeam.label_5  &
    location = 4.0, 195.0  &
    height = 25.0  &
    width = 220.0  &
@@ -597,7 +597,7 @@ interface label create  &
    text = "Wall thickness, T"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_flexbeam.field_6  &
+   field_name = .VehLib_plugin.dboxes.dbox_flexbeam.field_6  &
    location = 162.0, 4.0  &
    height = 25.0  &
    width = 122.0  &
@@ -613,7 +613,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_6  &
+   label_name = .VehLib_plugin.dboxes.dbox_flexbeam.label_6  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 156.0  &
@@ -624,7 +624,7 @@ interface label create  &
    text = "Create in model"
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_flexbeam.sep_1  &
+   separator_name = .VehLib_plugin.dboxes.dbox_flexbeam.sep_1  &
    location = 4.0, 112.0  &
    width = 280.0  &
    units = pixel  &
@@ -632,7 +632,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface option_menu create  &
-   option_menu_name = .SDlib_plugin.dboxes.dbox_flexbeam.option_1  &
+   option_menu_name = .VehLib_plugin.dboxes.dbox_flexbeam.option_1  &
    location = 162.0, 58.0  &
    height = 25.0  &
    width = 122.0  &
@@ -654,7 +654,7 @@ interface option_menu create  &
               "end ! "
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_8  &
+   label_name = .VehLib_plugin.dboxes.dbox_flexbeam.label_8  &
    location = 4.0, 222.0  &
    height = 25.0  &
    width = 219.0  &
@@ -665,7 +665,7 @@ interface label create  &
    text = "Outer radius of corners, r"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_flexbeam.field_8  &
+   field_name = .VehLib_plugin.dboxes.dbox_flexbeam.field_8  &
    location = 225.0, 222.0  &
    height = 25.0  &
    width = 60.0  &
@@ -684,7 +684,7 @@ interface field create  &
    lower_limit = 0.0
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_10  &
+   label_name = .VehLib_plugin.dboxes.dbox_flexbeam.label_10  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 156.0  &
@@ -695,7 +695,7 @@ interface label create  &
    text = "Profile"
 !
 interface container create  &
-   container_name = .SDlib_plugin.dboxes.dbox_flexbeam.cont_rect  &
+   container_name = .VehLib_plugin.dboxes.dbox_flexbeam.cont_rect  &
    location = 4.0, 285.0  &
    height = 365.0  &
    width = 281.0  &
@@ -704,7 +704,7 @@ interface container create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.cont_rect.label_1  &
+   label_name = .VehLib_plugin.dboxes.dbox_flexbeam.cont_rect.label_1  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 226.0  &
@@ -715,7 +715,7 @@ interface label create  &
    text = "The rectangular profile"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.cont_rect.label_16  &
+   label_name = .VehLib_plugin.dboxes.dbox_flexbeam.cont_rect.label_16  &
    location = 4.0, 34.0  &
    height = 327.0  &
    width = 272.0  &
@@ -726,7 +726,7 @@ interface label create  &
    icon_file = "rect.png"
 !
 interface container create  &
-   container_name = .SDlib_plugin.dboxes.dbox_flexbeam.cont_hex  &
+   container_name = .VehLib_plugin.dboxes.dbox_flexbeam.cont_hex  &
    location = 2.0, 251.0  &
    height = 397.0  &
    width = 283.0  &
@@ -735,10 +735,10 @@ interface container create  &
    vert_resizing = attach_top
 !
 interface container undisplay  &
-   container_name = .SDlib_plugin.dboxes.dbox_flexbeam.cont_hex
+   container_name = .VehLib_plugin.dboxes.dbox_flexbeam.cont_hex
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.cont_hex.label_13  &
+   label_name = .VehLib_plugin.dboxes.dbox_flexbeam.cont_hex.label_13  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 210.0  &
@@ -749,7 +749,7 @@ interface label create  &
    text = "Small height of profile, h"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.cont_hex.label_14  &
+   label_name = .VehLib_plugin.dboxes.dbox_flexbeam.cont_hex.label_14  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 198.0  &
@@ -760,7 +760,7 @@ interface label create  &
    text = "The hexagonal profile"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_flexbeam.cont_hex.hex_sh  &
+   field_name = .VehLib_plugin.dboxes.dbox_flexbeam.cont_hex.hex_sh  &
    location = 216.0, 31.0  &
    height = 25.0  &
    width = 60.0  &
@@ -778,7 +778,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.cont_hex.label_15  &
+   label_name = .VehLib_plugin.dboxes.dbox_flexbeam.cont_hex.label_15  &
    location = 6.0, 58.0  &
    height = 329.0  &
    width = 265.0  &
@@ -789,7 +789,7 @@ interface label create  &
    icon_file = "hex.png"
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_flexbeam.sep_2  &
+   separator_name = .VehLib_plugin.dboxes.dbox_flexbeam.sep_2  &
    location = 4.0, 279.0  &
    height = 2.0  &
    width = 281.0  &
@@ -798,7 +798,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_9  &
+   label_name = .VehLib_plugin.dboxes.dbox_flexbeam.label_9  &
    location = 4.0, 114.0  &
    height = 25.0  &
    width = 281.0  &
@@ -809,7 +809,7 @@ interface label create  &
    text = "Beam profile properties"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_flexbeam.label_7  &
+   label_name = .VehLib_plugin.dboxes.dbox_flexbeam.label_7  &
    location = 4.0, 250.0  &
    height = 25.0  &
    width = 219.0  &
@@ -820,7 +820,7 @@ interface label create  &
    text = "Length of beam"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_flexbeam.field_7  &
+   field_name = .VehLib_plugin.dboxes.dbox_flexbeam.field_7  &
    location = 225.0, 250.0  &
    height = 25.0  &
    width = 60.0  &

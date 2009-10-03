@@ -1,4 +1,4 @@
-! This file is part of SDlib_plugin.
+! This file is part of VehLib_plugin.
 !    
 ! Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
 ! 
@@ -22,7 +22,7 @@
 !  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 !
 interface dialog_box create  &
-   dialog_box_name = .SDlib_plugin.dboxes.dbox_BHPlate2  &
+   dialog_box_name = .VehLib_plugin.dboxes.dbox_BHPlate2  &
    location = 907.0, 235.0  &
    height = 498.0  &
    width = 365.0  &
@@ -31,7 +31,7 @@ interface dialog_box create  &
    vert_resizing = scale_all  &
    title = "Backhoe Plate 2"  &
    iconifiable = no  &
-   start_commands = "int field set field=.SDlib_plugin.dboxes.dbox_BHPlate1.field_12 string=(eval(db_default( .system_defaults, \"model\")))",  &
+   start_commands = "int field set field=.VehLib_plugin.dboxes.dbox_BHPlate1.field_12 string=(eval(db_default( .system_defaults, \"model\")))",  &
                     "",  &
                     "",  &
                     "! These variables holds the names of the models.",  &
@@ -249,7 +249,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_BHPlate2.button_1  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_BHPlate2.button_1  &
    location = 285.0, 469.0  &
    height = 25.0  &
    width = 76.0  &
@@ -263,7 +263,7 @@ interface push_button create  &
               "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_BHPlate2.button_2  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_BHPlate2.button_2  &
    location = 207.0, 469.0  &
    height = 25.0  &
    width = 76.0  &
@@ -275,7 +275,7 @@ interface push_button create  &
               "interface dialog display dialog= $_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_BHPlate2.button_3  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_BHPlate2.button_3  &
    location = 129.0, 469.0  &
    height = 25.0  &
    width = 76.0  &
@@ -290,7 +290,7 @@ interface push_button create  &
               "createdbox"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_BHPlate2.label_1  &
+   label_name = .VehLib_plugin.dboxes.dbox_BHPlate2.label_1  &
    location = 4.0, 141.0  &
    height = 25.0  &
    width = 235.0  &
@@ -301,7 +301,7 @@ interface label create  &
    text = "x-dist to boom mount"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_BHPlate2.label_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_BHPlate2.label_3  &
    location = 4.0, 195.0  &
    height = 25.0  &
    width = 235.0  &
@@ -312,7 +312,7 @@ interface label create  &
    text = "x-dist to cyl mount on plate"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_BHPlate2.label_4  &
+   label_name = .VehLib_plugin.dboxes.dbox_BHPlate2.label_4  &
    location = 4.0, 222.0  &
    height = 25.0  &
    width = 235.0  &
@@ -323,7 +323,7 @@ interface label create  &
    text = "y-dist between cyl mount on Plate"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_BHPlate2.label_4_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_BHPlate2.label_4_2  &
    location = 4.0, 276.0  &
    height = 25.0  &
    width = 235.0  &
@@ -334,7 +334,7 @@ interface label create  &
    text = "Height of plate"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_BHPlate2.label_4_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_BHPlate2.label_4_3  &
    location = 4.0, 168.0  &
    height = 25.0  &
    width = 235.0  &
@@ -345,7 +345,7 @@ interface label create  &
    text = "z-dist to boom mount"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_BHPlate2.label_4_2_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_BHPlate2.label_4_2_2  &
    location = 4.0, 249.0  &
    height = 25.0  &
    width = 235.0  &
@@ -356,7 +356,7 @@ interface label create  &
    text = "y-dist between cyl mount on Cs"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_BHPlate2.field_1  &
+   field_name = .VehLib_plugin.dboxes.dbox_BHPlate2.field_1  &
    location = 241.0, 141.0  &
    height = 25.0  &
    width = 120.0  &
@@ -373,7 +373,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_BHPlate2.field_2  &
+   field_name = .VehLib_plugin.dboxes.dbox_BHPlate2.field_2  &
    location = 241.0, 168.0  &
    height = 25.0  &
    width = 120.0  &
@@ -390,7 +390,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_BHPlate2.field_3  &
+   field_name = .VehLib_plugin.dboxes.dbox_BHPlate2.field_3  &
    location = 241.0, 195.0  &
    height = 25.0  &
    width = 120.0  &
@@ -407,7 +407,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_BHPlate2.field_4  &
+   field_name = .VehLib_plugin.dboxes.dbox_BHPlate2.field_4  &
    location = 241.0, 222.0  &
    height = 25.0  &
    width = 120.0  &
@@ -424,7 +424,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_BHPlate2.field_6  &
+   field_name = .VehLib_plugin.dboxes.dbox_BHPlate2.field_6  &
    location = 241.0, 249.0  &
    height = 25.0  &
    width = 120.0  &
@@ -441,7 +441,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_BHPlate2.field_7  &
+   field_name = .VehLib_plugin.dboxes.dbox_BHPlate2.field_7  &
    location = 241.0, 276.0  &
    height = 25.0  &
    width = 120.0  &
@@ -458,7 +458,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_BHPlate2.label_5  &
+   label_name = .VehLib_plugin.dboxes.dbox_BHPlate2.label_5  &
    location = 4.0, 305.0  &
    height = 25.0  &
    width = 357.0  &
@@ -469,7 +469,7 @@ interface label create  &
    text = "Data for the plate rotational cylinders"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_BHPlate2.label_6  &
+   label_name = .VehLib_plugin.dboxes.dbox_BHPlate2.label_6  &
    location = 4.0, 359.0  &
    height = 25.0  &
    width = 235.0  &
@@ -480,7 +480,7 @@ interface label create  &
    text = "Min. Length"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_BHPlate2.label_7  &
+   label_name = .VehLib_plugin.dboxes.dbox_BHPlate2.label_7  &
    location = 4.0, 386.0  &
    height = 25.0  &
    width = 235.0  &
@@ -491,7 +491,7 @@ interface label create  &
    text = "Max. Length"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_BHPlate2.label_8  &
+   label_name = .VehLib_plugin.dboxes.dbox_BHPlate2.label_8  &
    location = 4.0, 413.0  &
    height = 25.0  &
    width = 235.0  &
@@ -502,7 +502,7 @@ interface label create  &
    text = "Cylinder radius"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_BHPlate2.label_9  &
+   label_name = .VehLib_plugin.dboxes.dbox_BHPlate2.label_9  &
    location = 4.0, 440.0  &
    height = 25.0  &
    width = 235.0  &
@@ -513,7 +513,7 @@ interface label create  &
    text = "Piston radius"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_BHPlate2.field_8  &
+   field_name = .VehLib_plugin.dboxes.dbox_BHPlate2.field_8  &
    location = 241.0, 359.0  &
    height = 25.0  &
    width = 120.0  &
@@ -530,7 +530,7 @@ interface field create  &
    add_quotes = no
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_BHPlate2.sep_2  &
+   separator_name = .VehLib_plugin.dboxes.dbox_BHPlate2.sep_2  &
    location = 4.0, 303.0  &
    width = 357.0  &
    units = pixel  &
@@ -538,7 +538,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_BHPlate2.field_9  &
+   field_name = .VehLib_plugin.dboxes.dbox_BHPlate2.field_9  &
    location = 241.0, 386.0  &
    height = 25.0  &
    width = 120.0  &
@@ -555,7 +555,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_BHPlate2.field_10  &
+   field_name = .VehLib_plugin.dboxes.dbox_BHPlate2.field_10  &
    location = 241.0, 413.0  &
    height = 25.0  &
    width = 120.0  &
@@ -572,7 +572,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_BHPlate2.field_11  &
+   field_name = .VehLib_plugin.dboxes.dbox_BHPlate2.field_11  &
    location = 241.0, 440.0  &
    height = 25.0  &
    width = 120.0  &
@@ -589,7 +589,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_BHPlate2.label_10  &
+   label_name = .VehLib_plugin.dboxes.dbox_BHPlate2.label_10  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 235.0  &
@@ -600,7 +600,7 @@ interface label create  &
    text = "Main model name"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_BHPlate2.field_12  &
+   field_name = .VehLib_plugin.dboxes.dbox_BHPlate2.field_12  &
    location = 241.0, 4.0  &
    height = 25.0  &
    width = 120.0  &
@@ -616,7 +616,7 @@ interface field create  &
    add_quotes = no
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_BHPlate2.sep_3  &
+   separator_name = .VehLib_plugin.dboxes.dbox_BHPlate2.sep_3  &
    location = 4.0, 139.0  &
    width = 357.0  &
    units = pixel  &
@@ -624,7 +624,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_BHPlate2.label_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_BHPlate2.label_2  &
    location = 4.0, 332.0  &
    height = 25.0  &
    width = 235.0  &
@@ -635,7 +635,7 @@ interface label create  &
    text = "Initial length"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_BHPlate2.field_5  &
+   field_name = .VehLib_plugin.dboxes.dbox_BHPlate2.field_5  &
    location = 241.0, 332.0  &
    height = 25.0  &
    width = 120.0  &
@@ -652,7 +652,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_BHPlate2.label_11  &
+   label_name = .VehLib_plugin.dboxes.dbox_BHPlate2.label_11  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 235.0  &
@@ -663,7 +663,7 @@ interface label create  &
    text = "Old name of sub model"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_BHPlate2.label_12  &
+   label_name = .VehLib_plugin.dboxes.dbox_BHPlate2.label_12  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 235.0  &
@@ -674,7 +674,7 @@ interface label create  &
    text = "Name of sub model"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_BHPlate2.label_13  &
+   label_name = .VehLib_plugin.dboxes.dbox_BHPlate2.label_13  &
    location = 4.0, 85.0  &
    height = 25.0  &
    width = 235.0  &
@@ -685,7 +685,7 @@ interface label create  &
    text = "Sub model that contains a chassis"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_BHPlate2.label_14  &
+   label_name = .VehLib_plugin.dboxes.dbox_BHPlate2.label_14  &
    location = 4.0, 112.0  &
    height = 25.0  &
    width = 235.0  &
@@ -696,7 +696,7 @@ interface label create  &
    text = "Sub model that contains a backhoe"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_BHPlate2.field_13  &
+   field_name = .VehLib_plugin.dboxes.dbox_BHPlate2.field_13  &
    location = 241.0, 31.0  &
    height = 25.0  &
    width = 120.0  &
@@ -712,7 +712,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_BHPlate2.field_14  &
+   field_name = .VehLib_plugin.dboxes.dbox_BHPlate2.field_14  &
    location = 241.0, 58.0  &
    height = 25.0  &
    width = 120.0  &
@@ -728,7 +728,7 @@ interface field create  &
    type_filter = model
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_BHPlate2.field_15  &
+   field_name = .VehLib_plugin.dboxes.dbox_BHPlate2.field_15  &
    location = 241.0, 85.0  &
    height = 25.0  &
    width = 120.0  &
@@ -744,7 +744,7 @@ interface field create  &
    type_filter = model
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_BHPlate2.field_16  &
+   field_name = .VehLib_plugin.dboxes.dbox_BHPlate2.field_16  &
    location = 241.0, 112.0  &
    height = 25.0  &
    width = 120.0  &

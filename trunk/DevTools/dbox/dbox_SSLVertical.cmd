@@ -1,4 +1,4 @@
-! This file is part of SDlib_plugin.
+! This file is part of VehLib_plugin.
 !    
 ! Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
 ! 
@@ -22,7 +22,7 @@
 !  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 !
 interface dialog_box create  &
-   dialog_box_name = .SDlib_plugin.dboxes.dbox_SSLVertical  &
+   dialog_box_name = .VehLib_plugin.dboxes.dbox_SSLVertical  &
    location = 863.0, 0.0  &
    height = 678.0  &
    width = 400.0  &
@@ -274,7 +274,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_SSLVertical.button_1  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_SSLVertical.button_1  &
    location = 320.0, 649.0  &
    height = 25.0  &
    width = 76.0  &
@@ -288,7 +288,7 @@ interface push_button create  &
               "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_SSLVertical.button_2  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_SSLVertical.button_2  &
    location = 242.0, 649.0  &
    height = 25.0  &
    width = 76.0  &
@@ -300,7 +300,7 @@ interface push_button create  &
               "interface dialog display dialog= $_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_SSLVertical.button_3  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_SSLVertical.button_3  &
    location = 164.0, 649.0  &
    height = 25.0  &
    width = 76.0  &
@@ -315,7 +315,7 @@ interface push_button create  &
               "createdbox"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_1  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_1  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 214.0  &
@@ -326,7 +326,7 @@ interface label create  &
    text = "Main model name:"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_2  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 214.0  &
@@ -337,7 +337,7 @@ interface label create  &
    text = "Old sub model name"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_3  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 214.0  &
@@ -348,7 +348,7 @@ interface label create  &
    text = "New sub model name:"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_4  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_4  &
    location = 4.0, 85.0  &
    height = 25.0  &
    width = 214.0  &
@@ -359,7 +359,7 @@ interface label create  &
    text = "Sub model that contains a chassis"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_main  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_main  &
    location = 280.0, 4.0  &
    height = 25.0  &
    width = 116.0  &
@@ -375,7 +375,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_old  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_old  &
    location = 280.0, 31.0  &
    height = 25.0  &
    width = 116.0  &
@@ -391,7 +391,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_newName  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_newName  &
    location = 280.0, 58.0  &
    height = 25.0  &
    width = 116.0  &
@@ -407,7 +407,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_csModel  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_csModel  &
    location = 280.0, 85.0  &
    height = 25.0  &
    width = 116.0  &
@@ -423,7 +423,7 @@ interface field create  &
    type_filter = model
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_SSLVertical.sep_1  &
+   separator_name = .VehLib_plugin.dboxes.dbox_SSLVertical.sep_1  &
    location = 4.0, 112.0  &
    height = 4.0  &
    width = 392.0  &
@@ -432,7 +432,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_5  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_5  &
    location = 4.0, 118.0  &
    height = 22.0  &
    width = 185.0  &
@@ -443,7 +443,7 @@ interface label create  &
    text = "2 -> 3"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_6  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_6  &
    location = 4.0, 142.0  &
    height = 22.0  &
    width = 185.0  &
@@ -454,7 +454,7 @@ interface label create  &
    text = "1 -> 3"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_7  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_7  &
    location = 4.0, 166.0  &
    height = 22.0  &
    width = 185.0  &
@@ -465,7 +465,7 @@ interface label create  &
    text = "2 -> 4"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_8  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_8  &
    location = 4.0, 190.0  &
    height = 22.0  &
    width = 185.0  &
@@ -476,7 +476,7 @@ interface label create  &
    text = "1 -> 4"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_9  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_9  &
    location = 4.0, 214.0  &
    height = 22.0  &
    width = 185.0  &
@@ -487,7 +487,7 @@ interface label create  &
    text = "2 -> 5"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_10  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_10  &
    location = 4.0, 238.0  &
    height = 22.0  &
    width = 185.0  &
@@ -498,7 +498,7 @@ interface label create  &
    text = "1 -> 5"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_11  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_11  &
    location = 4.0, 262.0  &
    height = 22.0  &
    width = 185.0  &
@@ -509,7 +509,7 @@ interface label create  &
    text = "2 -> 6"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_12  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_12  &
    location = 4.0, 286.0  &
    height = 22.0  &
    width = 185.0  &
@@ -520,7 +520,7 @@ interface label create  &
    text = "1 -> 6"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_13  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_13  &
    location = 4.0, 310.0  &
    height = 22.0  &
    width = 185.0  &
@@ -531,7 +531,7 @@ interface label create  &
    text = "2 -> 7"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_14  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_14  &
    location = 4.0, 334.0  &
    height = 22.0  &
    width = 185.0  &
@@ -542,7 +542,7 @@ interface label create  &
    text = "1 -> 7"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_15  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_15  &
    location = 4.0, 358.0  &
    height = 22.0  &
    width = 185.0  &
@@ -553,7 +553,7 @@ interface label create  &
    text = "dist 7 - 8 x"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_16  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_16  &
    location = 4.0, 382.0  &
    height = 22.0  &
    width = 185.0  &
@@ -564,7 +564,7 @@ interface label create  &
    text = "dist 7 - 8 z"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_17  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_17  &
    location = 4.0, 430.0  &
    height = 22.0  &
    width = 185.0  &
@@ -575,7 +575,7 @@ interface label create  &
    text = "Loader width"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_20  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_20  &
    location = 4.0, 454.0  &
    height = 22.0  &
    width = 185.0  &
@@ -586,7 +586,7 @@ interface label create  &
    text = "Min. length of arm cylinders"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_21  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_21  &
    location = 4.0, 478.0  &
    height = 22.0  &
    width = 185.0  &
@@ -597,7 +597,7 @@ interface label create  &
    text = "Max. length of arm cylinders"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_22  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_22  &
    location = 4.0, 502.0  &
    height = 22.0  &
    width = 185.0  &
@@ -608,7 +608,7 @@ interface label create  &
    text = "Initial length of arm cylinders"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_23  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_23  &
    location = 4.0, 526.0  &
    height = 22.0  &
    width = 185.0  &
@@ -619,7 +619,7 @@ interface label create  &
    text = "Min. length of bucket cylinders"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_24  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_24  &
    location = 4.0, 550.0  &
    height = 22.0  &
    width = 185.0  &
@@ -630,7 +630,7 @@ interface label create  &
    text = "Max. length of bucket cylinders"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_25  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_25  &
    location = 4.0, 574.0  &
    height = 22.0  &
    width = 185.0  &
@@ -641,7 +641,7 @@ interface label create  &
    text = "Initial length of bucket cylinders"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_26  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_26  &
    location = 4.0, 598.0  &
    height = 22.0  &
    width = 185.0  &
@@ -652,7 +652,7 @@ interface label create  &
    text = "Radius of all cylinders"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_27  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_27  &
    location = 4.0, 622.0  &
    height = 22.0  &
    width = 185.0  &
@@ -663,7 +663,7 @@ interface label create  &
    text = "Radius of all pistons"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_SSLVertical.label_28  &
+   label_name = .VehLib_plugin.dboxes.dbox_SSLVertical.label_28  &
    location = 4.0, 406.0  &
    height = 22.0  &
    width = 185.0  &
@@ -674,7 +674,7 @@ interface label create  &
    text = "dist 8 - 9"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_1  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_1  &
    location = 320.0, 118.0  &
    height = 22.0  &
    width = 76.0  &
@@ -691,7 +691,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_2  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_2  &
    location = 320.0, 142.0  &
    height = 22.0  &
    width = 76.0  &
@@ -708,7 +708,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_3  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_3  &
    location = 320.0, 166.0  &
    height = 22.0  &
    width = 76.0  &
@@ -725,7 +725,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_4  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_4  &
    location = 320.0, 190.0  &
    height = 22.0  &
    width = 76.0  &
@@ -742,7 +742,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_5  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_5  &
    location = 320.0, 214.0  &
    height = 22.0  &
    width = 76.0  &
@@ -759,7 +759,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_6  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_6  &
    location = 320.0, 238.0  &
    height = 22.0  &
    width = 76.0  &
@@ -776,7 +776,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_7  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_7  &
    location = 320.0, 262.0  &
    height = 22.0  &
    width = 76.0  &
@@ -793,7 +793,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_8  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_8  &
    location = 320.0, 286.0  &
    height = 22.0  &
    width = 76.0  &
@@ -810,7 +810,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_9  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_9  &
    location = 320.0, 310.0  &
    height = 22.0  &
    width = 76.0  &
@@ -827,7 +827,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_10  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_10  &
    location = 320.0, 334.0  &
    height = 22.0  &
    width = 76.0  &
@@ -844,7 +844,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_11  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_11  &
    location = 320.0, 358.0  &
    height = 22.0  &
    width = 76.0  &
@@ -861,7 +861,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_12  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_12  &
    location = 320.0, 382.0  &
    height = 22.0  &
    width = 76.0  &
@@ -878,7 +878,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_13  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_13  &
    location = 320.0, 430.0  &
    height = 22.0  &
    width = 76.0  &
@@ -895,7 +895,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_14  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_14  &
    location = 320.0, 406.0  &
    height = 22.0  &
    width = 76.0  &
@@ -912,7 +912,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_17  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_17  &
    location = 320.0, 454.0  &
    height = 22.0  &
    width = 76.0  &
@@ -929,7 +929,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_18  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_18  &
    location = 320.0, 478.0  &
    height = 22.0  &
    width = 76.0  &
@@ -946,7 +946,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_19  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_19  &
    location = 320.0, 502.0  &
    height = 22.0  &
    width = 76.0  &
@@ -963,7 +963,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_20  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_20  &
    location = 320.0, 526.0  &
    height = 22.0  &
    width = 76.0  &
@@ -980,7 +980,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_21  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_21  &
    location = 320.0, 550.0  &
    height = 22.0  &
    width = 76.0  &
@@ -997,7 +997,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_22  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_22  &
    location = 320.0, 574.0  &
    height = 22.0  &
    width = 76.0  &
@@ -1014,7 +1014,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_23  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_23  &
    location = 320.0, 598.0  &
    height = 22.0  &
    width = 76.0  &
@@ -1031,7 +1031,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_SSLVertical.field_24  &
+   field_name = .VehLib_plugin.dboxes.dbox_SSLVertical.field_24  &
    location = 320.0, 622.0  &
    height = 22.0  &
    width = 76.0  &

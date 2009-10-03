@@ -1,4 +1,4 @@
-! This file is part of SDlib_plugin.
+! This file is part of VehLib_plugin.
 !    
 ! Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
 ! 
@@ -22,7 +22,7 @@
 !  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 !
 interface dialog_box create  &
-   dialog_box_name = .SDlib_plugin.dboxes.dbox_TelBoom  &
+   dialog_box_name = .VehLib_plugin.dboxes.dbox_TelBoom  &
    location = 932.0, 144.0  &
    height = 522.0  &
    width = 340.0  &
@@ -365,7 +365,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_TelBoom.button_1  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_TelBoom.button_1  &
    location = 260.0, 493.0  &
    height = 25.0  &
    width = 76.0  &
@@ -379,7 +379,7 @@ interface push_button create  &
               "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_TelBoom.button_2  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_TelBoom.button_2  &
    location = 182.0, 493.0  &
    height = 25.0  &
    width = 76.0  &
@@ -391,7 +391,7 @@ interface push_button create  &
               "interface dialog display dialog= $_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_TelBoom.button_3  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_TelBoom.button_3  &
    location = 104.0, 493.0  &
    height = 25.0  &
    width = 76.0  &
@@ -406,7 +406,7 @@ interface push_button create  &
               "createdbox"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_TelBoom.label_1  &
+   label_name = .VehLib_plugin.dboxes.dbox_TelBoom.label_1  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 214.0  &
@@ -417,7 +417,7 @@ interface label create  &
    text = "Main model name:"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_TelBoom.label_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_TelBoom.label_2  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 214.0  &
@@ -428,7 +428,7 @@ interface label create  &
    text = "Old sub model name"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_TelBoom.label_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_TelBoom.label_3  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 214.0  &
@@ -439,7 +439,7 @@ interface label create  &
    text = "New sub model name:"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_TelBoom.label_4  &
+   label_name = .VehLib_plugin.dboxes.dbox_TelBoom.label_4  &
    location = 4.0, 85.0  &
    height = 25.0  &
    width = 214.0  &
@@ -450,7 +450,7 @@ interface label create  &
    text = "Sub model that contains a chassis"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_TelBoom.field_main  &
+   field_name = .VehLib_plugin.dboxes.dbox_TelBoom.field_main  &
    location = 220.0, 4.0  &
    height = 25.0  &
    width = 116.0  &
@@ -466,7 +466,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_TelBoom.field_old  &
+   field_name = .VehLib_plugin.dboxes.dbox_TelBoom.field_old  &
    location = 220.0, 31.0  &
    height = 25.0  &
    width = 116.0  &
@@ -482,7 +482,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_TelBoom.field_newName  &
+   field_name = .VehLib_plugin.dboxes.dbox_TelBoom.field_newName  &
    location = 220.0, 58.0  &
    height = 25.0  &
    width = 116.0  &
@@ -499,7 +499,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_TelBoom.field_csModel  &
+   field_name = .VehLib_plugin.dboxes.dbox_TelBoom.field_csModel  &
    location = 220.0, 85.0  &
    height = 25.0  &
    width = 116.0  &
@@ -515,7 +515,7 @@ interface field create  &
    type_filter = model
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_TelBoom.sep_1  &
+   separator_name = .VehLib_plugin.dboxes.dbox_TelBoom.sep_1  &
    location = 4.0, 112.0  &
    height = 4.0  &
    width = 332.0  &
@@ -524,7 +524,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_TelBoom.label_5  &
+   label_name = .VehLib_plugin.dboxes.dbox_TelBoom.label_5  &
    location = 4.0, 118.0  &
    height = 25.0  &
    width = 214.0  &
@@ -535,7 +535,7 @@ interface label create  &
    text = "Length of the first beam"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_TelBoom.label_6  &
+   label_name = .VehLib_plugin.dboxes.dbox_TelBoom.label_6  &
    location = 4.0, 145.0  &
    height = 25.0  &
    width = 214.0  &
@@ -546,7 +546,7 @@ interface label create  &
    text = "Width of the first beam"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_TelBoom.label_7  &
+   label_name = .VehLib_plugin.dboxes.dbox_TelBoom.label_7  &
    location = 4.0, 172.0  &
    height = 25.0  &
    width = 214.0  &
@@ -557,7 +557,7 @@ interface label create  &
    text = "Height of the first beam"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_TelBoom.label_8  &
+   label_name = .VehLib_plugin.dboxes.dbox_TelBoom.label_8  &
    location = 4.0, 199.0  &
    height = 25.0  &
    width = 214.0  &
@@ -568,7 +568,7 @@ interface label create  &
    text = "Thickness of the first beam"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_TelBoom.field_1  &
+   field_name = .VehLib_plugin.dboxes.dbox_TelBoom.field_1  &
    location = 220.0, 118.0  &
    height = 25.0  &
    width = 116.0  &
@@ -585,7 +585,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_TelBoom.field_2  &
+   field_name = .VehLib_plugin.dboxes.dbox_TelBoom.field_2  &
    location = 220.0, 145.0  &
    height = 25.0  &
    width = 116.0  &
@@ -602,7 +602,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_TelBoom.field_3  &
+   field_name = .VehLib_plugin.dboxes.dbox_TelBoom.field_3  &
    location = 220.0, 172.0  &
    height = 25.0  &
    width = 116.0  &
@@ -619,7 +619,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_TelBoom.field_4  &
+   field_name = .VehLib_plugin.dboxes.dbox_TelBoom.field_4  &
    location = 220.0, 199.0  &
    height = 25.0  &
    width = 116.0  &
@@ -636,7 +636,7 @@ interface field create  &
    add_quotes = no
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_TelBoom.sep_2  &
+   separator_name = .VehLib_plugin.dboxes.dbox_TelBoom.sep_2  &
    location = 4.0, 226.0  &
    height = 4.0  &
    width = 332.0  &
@@ -645,7 +645,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_TelBoom.label_9  &
+   label_name = .VehLib_plugin.dboxes.dbox_TelBoom.label_9  &
    location = 4.0, 232.0  &
    height = 25.0  &
    width = 214.0  &
@@ -656,7 +656,7 @@ interface label create  &
    text = "Length of the second beam"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_TelBoom.label_10  &
+   label_name = .VehLib_plugin.dboxes.dbox_TelBoom.label_10  &
    location = 4.0, 259.0  &
    height = 25.0  &
    width = 214.0  &
@@ -667,7 +667,7 @@ interface label create  &
    text = "Width of the second beam"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_TelBoom.label_11  &
+   label_name = .VehLib_plugin.dboxes.dbox_TelBoom.label_11  &
    location = 4.0, 286.0  &
    height = 25.0  &
    width = 214.0  &
@@ -678,7 +678,7 @@ interface label create  &
    text = "Height of the second beam"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_TelBoom.label_12  &
+   label_name = .VehLib_plugin.dboxes.dbox_TelBoom.label_12  &
    location = 4.0, 313.0  &
    height = 25.0  &
    width = 214.0  &
@@ -689,7 +689,7 @@ interface label create  &
    text = "Thickness of the second beam"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_TelBoom.field_5  &
+   field_name = .VehLib_plugin.dboxes.dbox_TelBoom.field_5  &
    location = 220.0, 232.0  &
    height = 25.0  &
    width = 116.0  &
@@ -706,7 +706,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_TelBoom.field_6  &
+   field_name = .VehLib_plugin.dboxes.dbox_TelBoom.field_6  &
    location = 220.0, 259.0  &
    height = 25.0  &
    width = 116.0  &
@@ -723,7 +723,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_TelBoom.field_7  &
+   field_name = .VehLib_plugin.dboxes.dbox_TelBoom.field_7  &
    location = 220.0, 286.0  &
    height = 25.0  &
    width = 116.0  &
@@ -740,7 +740,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_TelBoom.field_8  &
+   field_name = .VehLib_plugin.dboxes.dbox_TelBoom.field_8  &
    location = 220.0, 313.0  &
    height = 25.0  &
    width = 116.0  &
@@ -757,7 +757,7 @@ interface field create  &
    add_quotes = no
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_TelBoom.sep_3  &
+   separator_name = .VehLib_plugin.dboxes.dbox_TelBoom.sep_3  &
    location = 4.0, 340.0  &
    height = 4.0  &
    width = 332.0  &
@@ -766,7 +766,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_TelBoom.label_13  &
+   label_name = .VehLib_plugin.dboxes.dbox_TelBoom.label_13  &
    location = 4.0, 346.0  &
    height = 25.0  &
    width = 214.0  &
@@ -777,7 +777,7 @@ interface label create  &
    text = "Length of the third beam"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_TelBoom.label_14  &
+   label_name = .VehLib_plugin.dboxes.dbox_TelBoom.label_14  &
    location = 4.0, 373.0  &
    height = 25.0  &
    width = 214.0  &
@@ -788,7 +788,7 @@ interface label create  &
    text = "Width of the third beam"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_TelBoom.label_15  &
+   label_name = .VehLib_plugin.dboxes.dbox_TelBoom.label_15  &
    location = 4.0, 400.0  &
    height = 25.0  &
    width = 214.0  &
@@ -799,7 +799,7 @@ interface label create  &
    text = "Height of the third beam"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_TelBoom.label_16  &
+   label_name = .VehLib_plugin.dboxes.dbox_TelBoom.label_16  &
    location = 4.0, 427.0  &
    height = 25.0  &
    width = 214.0  &
@@ -810,7 +810,7 @@ interface label create  &
    text = "Thickness of the third beam"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_TelBoom.field_9  &
+   field_name = .VehLib_plugin.dboxes.dbox_TelBoom.field_9  &
    location = 220.0, 346.0  &
    height = 25.0  &
    width = 116.0  &
@@ -827,7 +827,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_TelBoom.field_10  &
+   field_name = .VehLib_plugin.dboxes.dbox_TelBoom.field_10  &
    location = 220.0, 373.0  &
    height = 25.0  &
    width = 116.0  &
@@ -844,7 +844,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_TelBoom.field_11  &
+   field_name = .VehLib_plugin.dboxes.dbox_TelBoom.field_11  &
    location = 220.0, 400.0  &
    height = 25.0  &
    width = 116.0  &
@@ -861,7 +861,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_TelBoom.field_12  &
+   field_name = .VehLib_plugin.dboxes.dbox_TelBoom.field_12  &
    location = 220.0, 427.0  &
    height = 25.0  &
    width = 116.0  &
@@ -878,7 +878,7 @@ interface field create  &
    add_quotes = no
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_TelBoom.sep_4  &
+   separator_name = .VehLib_plugin.dboxes.dbox_TelBoom.sep_4  &
    location = 4.0, 454.0  &
    height = 4.0  &
    width = 332.0  &
@@ -887,7 +887,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_TelBoom.label_17  &
+   label_name = .VehLib_plugin.dboxes.dbox_TelBoom.label_17  &
    location = 4.0, 460.0  &
    height = 25.0  &
    width = 214.0  &
@@ -898,7 +898,7 @@ interface label create  &
    text = "Length of the telescopic boom"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_TelBoom.field_13  &
+   field_name = .VehLib_plugin.dboxes.dbox_TelBoom.field_13  &
    location = 220.0, 460.0  &
    height = 25.0  &
    width = 116.0  &

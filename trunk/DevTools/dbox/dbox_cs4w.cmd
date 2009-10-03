@@ -1,4 +1,4 @@
-! This file is part of SDlib_plugin.
+! This file is part of VehLib_plugin.
 !    
 ! Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
 ! 
@@ -22,7 +22,7 @@
 !  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 !
 interface dialog_box create  &
-   dialog_box_name = .SDlib_plugin.dboxes.dbox_cs4w  &
+   dialog_box_name = .VehLib_plugin.dboxes.dbox_cs4w  &
    location = 601.0, 63.0  &
    height = 533.0  &
    width = 380.0  &
@@ -331,7 +331,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_1  &
+   label_name = .VehLib_plugin.dboxes.dbox_cs4w.label_1  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 152.0  &
@@ -342,7 +342,7 @@ interface label create  &
    text = "New name of submodel:"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_cs4w.label_2  &
    location = 4.0, 85.0  &
    height = 25.0  &
    width = 284.0  &
@@ -353,7 +353,7 @@ interface label create  &
    text = "Wheel base"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_cs4w.label_3  &
    location = 4.0, 112.0  &
    height = 25.0  &
    width = 284.0  &
@@ -364,7 +364,7 @@ interface label create  &
    text = "From rear axle to between boxes"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_4  &
+   label_name = .VehLib_plugin.dboxes.dbox_cs4w.label_4  &
    location = 4.0, 139.0  &
    height = 25.0  &
    width = 284.0  &
@@ -375,7 +375,7 @@ interface label create  &
    text = "Length of front box"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_5  &
+   label_name = .VehLib_plugin.dboxes.dbox_cs4w.label_5  &
    location = 4.0, 166.0  &
    height = 25.0  &
    width = 284.0  &
@@ -386,7 +386,7 @@ interface label create  &
    text = "Width of front box"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_6  &
+   label_name = .VehLib_plugin.dboxes.dbox_cs4w.label_6  &
    location = 4.0, 193.0  &
    height = 25.0  &
    width = 284.0  &
@@ -397,7 +397,7 @@ interface label create  &
    text = "Height of front box"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_7  &
+   label_name = .VehLib_plugin.dboxes.dbox_cs4w.label_7  &
    location = 4.0, 247.0  &
    height = 25.0  &
    width = 284.0  &
@@ -408,7 +408,7 @@ interface label create  &
    text = "Width of rear box"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_8  &
+   label_name = .VehLib_plugin.dboxes.dbox_cs4w.label_8  &
    location = 4.0, 274.0  &
    height = 25.0  &
    width = 284.0  &
@@ -419,7 +419,7 @@ interface label create  &
    text = "Height of rear box"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_9  &
+   label_name = .VehLib_plugin.dboxes.dbox_cs4w.label_9  &
    location = 4.0, 220.0  &
    height = 25.0  &
    width = 284.0  &
@@ -430,7 +430,7 @@ interface label create  &
    text = "Length of rear box"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_1  &
+   field_name = .VehLib_plugin.dboxes.dbox_cs4w.field_1  &
    location = 232.0, 58.0  &
    height = 25.0  &
    width = 144.0  &
@@ -443,16 +443,16 @@ interface field create  &
    required = yes  &
    execute_cmds_on_exit = no  &
    number_of_values = 1  &
-   commands = "variable modify variable_name=.SDlib_plugin.dboxes.dbox_cs4w.Tak&",  &
-              "    string_value = (STR_INSERT (eval(.SDlib_plugin.dboxes.dbox_cs4w.modelName.string_value), \"$field_1\", (STR_LENGTH (eval(.SDlib_plugin.dboxes.dbox_cs4w.modelName.string_value))+1)))",  &
+   commands = "variable modify variable_name=.VehLib_plugin.dboxes.dbox_cs4w.Tak&",  &
+              "    string_value = (STR_INSERT (eval(.VehLib_plugin.dboxes.dbox_cs4w.modelName.string_value), \"$field_1\", (STR_LENGTH (eval(.VehLib_plugin.dboxes.dbox_cs4w.modelName.string_value))+1)))",  &
               "",  &
-              "int field set field = .SDlib_plugin.dboxes.dbox_cs4w.field_18&",  &
-              "    string = (eval(.SDlib_plugin.dboxes.dbox_cs4w.Tak.string_value))"  &
+              "int field set field = .VehLib_plugin.dboxes.dbox_cs4w.field_18&",  &
+              "    string = (eval(.VehLib_plugin.dboxes.dbox_cs4w.Tak.string_value))"  &
    string_type = alpha_numeric  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_2  &
+   field_name = .VehLib_plugin.dboxes.dbox_cs4w.field_2  &
    location = 300.0, 85.0  &
    height = 25.0  &
    width = 76.0  &
@@ -469,7 +469,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_3  &
+   field_name = .VehLib_plugin.dboxes.dbox_cs4w.field_3  &
    location = 300.0, 112.0  &
    height = 25.0  &
    width = 76.0  &
@@ -486,7 +486,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_4  &
+   field_name = .VehLib_plugin.dboxes.dbox_cs4w.field_4  &
    location = 300.0, 139.0  &
    height = 25.0  &
    width = 76.0  &
@@ -503,7 +503,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_5  &
+   field_name = .VehLib_plugin.dboxes.dbox_cs4w.field_5  &
    location = 300.0, 166.0  &
    height = 25.0  &
    width = 76.0  &
@@ -520,7 +520,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_6  &
+   field_name = .VehLib_plugin.dboxes.dbox_cs4w.field_6  &
    location = 300.0, 193.0  &
    height = 25.0  &
    width = 76.0  &
@@ -537,7 +537,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_7  &
+   field_name = .VehLib_plugin.dboxes.dbox_cs4w.field_7  &
    location = 300.0, 220.0  &
    height = 25.0  &
    width = 76.0  &
@@ -554,7 +554,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_8  &
+   field_name = .VehLib_plugin.dboxes.dbox_cs4w.field_8  &
    location = 300.0, 247.0  &
    height = 25.0  &
    width = 76.0  &
@@ -571,7 +571,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_9  &
+   field_name = .VehLib_plugin.dboxes.dbox_cs4w.field_9  &
    location = 300.0, 274.0  &
    height = 25.0  &
    width = 76.0  &
@@ -588,7 +588,7 @@ interface field create  &
    add_quotes = no
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_cs4w.button_1  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_cs4w.button_1  &
    location = 87.0, 500.0  &
    height = 25.0  &
    width = 76.0  &
@@ -603,7 +603,7 @@ interface push_button create  &
               "createdbox"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_cs4w.button_2  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_cs4w.button_2  &
    location = 243.0, 500.0  &
    height = 25.0  &
    width = 76.0  &
@@ -617,7 +617,7 @@ interface push_button create  &
               "interface dialog undisplay dialog=$_parent"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_12  &
+   label_name = .VehLib_plugin.dboxes.dbox_cs4w.label_12  &
    location = 2.0, 355.0  &
    height = 25.0  &
    width = 158.0  &
@@ -628,7 +628,7 @@ interface label create  &
    text = "Front wheel type"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_13  &
+   label_name = .VehLib_plugin.dboxes.dbox_cs4w.label_13  &
    location = 2.0, 382.0  &
    height = 25.0  &
    width = 158.0  &
@@ -639,7 +639,7 @@ interface label create  &
    text = "Rear wheel type"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_cs4w.button_3  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_cs4w.button_3  &
    location = 165.0, 500.0  &
    height = 25.0  &
    width = 76.0  &
@@ -651,7 +651,7 @@ interface push_button create  &
               "interface dialog display dialog=$_parent"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_14  &
+   label_name = .VehLib_plugin.dboxes.dbox_cs4w.label_14  &
    location = 2.0, 409.0  &
    height = 25.0  &
    width = 238.0  &
@@ -662,7 +662,7 @@ interface label create  &
    text = "Position of front implement (x,y,z) [m]"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_15  &
+   label_name = .VehLib_plugin.dboxes.dbox_cs4w.label_15  &
    location = 2.0, 436.0  &
    height = 25.0  &
    width = 238.0  &
@@ -673,7 +673,7 @@ interface label create  &
    text = "Position of rear implement (x,y,z) [m]"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_16  &
+   label_name = .VehLib_plugin.dboxes.dbox_cs4w.label_16  &
    location = 2.0, 463.0  &
    height = 25.0  &
    width = 238.0  &
@@ -684,7 +684,7 @@ interface label create  &
    text = "Position of stabilizers (x,y,z) [m]"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_10  &
+   field_name = .VehLib_plugin.dboxes.dbox_cs4w.field_10  &
    location = 264.0, 409.0  &
    height = 25.0  &
    width = 112.0  &
@@ -701,7 +701,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_11  &
+   field_name = .VehLib_plugin.dboxes.dbox_cs4w.field_11  &
    location = 264.0, 436.0  &
    height = 25.0  &
    width = 112.0  &
@@ -718,7 +718,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_12  &
+   field_name = .VehLib_plugin.dboxes.dbox_cs4w.field_12  &
    location = 264.0, 463.0  &
    height = 25.0  &
    width = 112.0  &
@@ -735,7 +735,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_22  &
+   label_name = .VehLib_plugin.dboxes.dbox_cs4w.label_22  &
    location = 4.0, 301.0  &
    height = 25.0  &
    width = 284.0  &
@@ -746,7 +746,7 @@ interface label create  &
    text = "Height of front axle relative to rear axle"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_23  &
+   label_name = .VehLib_plugin.dboxes.dbox_cs4w.label_23  &
    location = 4.0, 328.0  &
    height = 25.0  &
    width = 284.0  &
@@ -757,7 +757,7 @@ interface label create  &
    text = "z-position of boxes"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_16  &
+   field_name = .VehLib_plugin.dboxes.dbox_cs4w.field_16  &
    location = 300.0, 301.0  &
    height = 25.0  &
    width = 76.0  &
@@ -774,7 +774,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_17  &
+   field_name = .VehLib_plugin.dboxes.dbox_cs4w.field_17  &
    location = 300.0, 328.0  &
    height = 25.0  &
    width = 76.0  &
@@ -791,7 +791,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_18  &
+   field_name = .VehLib_plugin.dboxes.dbox_cs4w.field_18  &
    location = 232.0, 4.0  &
    height = 25.0  &
    width = 144.0  &
@@ -807,7 +807,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_19  &
+   field_name = .VehLib_plugin.dboxes.dbox_cs4w.field_19  &
    location = 232.0, 31.0  &
    height = 25.0  &
    width = 144.0  &
@@ -823,7 +823,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_24  &
+   label_name = .VehLib_plugin.dboxes.dbox_cs4w.label_24  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 152.0  &
@@ -834,7 +834,7 @@ interface label create  &
    text = "Name of main model"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_cs4w.label_25  &
+   label_name = .VehLib_plugin.dboxes.dbox_cs4w.label_25  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 152.0  &
@@ -845,7 +845,7 @@ interface label create  &
    text = "Old name:"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_15  &
+   field_name = .VehLib_plugin.dboxes.dbox_cs4w.field_15  &
    location = 162.0, 355.0  &
    height = 25.0  &
    width = 214.0  &
@@ -864,7 +864,7 @@ interface field create  &
    alert_on_overwrite = no 
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_cs4w.field_13  &
+   field_name = .VehLib_plugin.dboxes.dbox_cs4w.field_13  &
    location = 162.0, 382.0  &
    height = 25.0  &
    width = 214.0  &

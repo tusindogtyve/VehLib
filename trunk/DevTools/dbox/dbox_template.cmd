@@ -1,4 +1,4 @@
-! This file is part of SDlib_plugin.
+! This file is part of VehLib_plugin.
 !    
 ! Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
 ! 
@@ -22,7 +22,7 @@
 !  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 !
 interface dialog_box create  &
-   dialog_box_name = .SDlib_plugin.dboxes.dbox_template  &
+   dialog_box_name = .VehLib_plugin.dboxes.dbox_template  &
    location = 743.0, 128.0  &
    height = 375.0  &
    width = 400.0  &
@@ -200,7 +200,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_template.button_1  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_template.button_1  &
    location = 320.0, 346.0  &
    height = 25.0  &
    width = 76.0  &
@@ -214,7 +214,7 @@ interface push_button create  &
               "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_template.button_2  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_template.button_2  &
    location = 242.0, 346.0  &
    height = 25.0  &
    width = 76.0  &
@@ -226,7 +226,7 @@ interface push_button create  &
               "interface dialog display dialog= $_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_template.button_3  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_template.button_3  &
    location = 164.0, 346.0  &
    height = 25.0  &
    width = 76.0  &
@@ -241,7 +241,7 @@ interface push_button create  &
               "createdbox"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_template.label_1  &
+   label_name = .VehLib_plugin.dboxes.dbox_template.label_1  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 214.0  &
@@ -252,7 +252,7 @@ interface label create  &
    text = "Main model name:"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_template.label_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_template.label_2  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 214.0  &
@@ -263,7 +263,7 @@ interface label create  &
    text = "Old sub model name"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_template.label_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_template.label_3  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 214.0  &
@@ -274,7 +274,7 @@ interface label create  &
    text = "New sub model name:"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_template.label_4  &
+   label_name = .VehLib_plugin.dboxes.dbox_template.label_4  &
    location = 4.0, 85.0  &
    height = 25.0  &
    width = 214.0  &
@@ -285,7 +285,7 @@ interface label create  &
    text = "Sub model that contains a chassis"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_template.field_main  &
+   field_name = .VehLib_plugin.dboxes.dbox_template.field_main  &
    location = 280.0, 4.0  &
    height = 25.0  &
    width = 116.0  &
@@ -301,7 +301,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_template.field_old  &
+   field_name = .VehLib_plugin.dboxes.dbox_template.field_old  &
    location = 280.0, 31.0  &
    height = 25.0  &
    width = 116.0  &
@@ -317,7 +317,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_template.field_newName  &
+   field_name = .VehLib_plugin.dboxes.dbox_template.field_newName  &
    location = 280.0, 58.0  &
    height = 25.0  &
    width = 116.0  &
@@ -333,7 +333,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_template.field_csModel  &
+   field_name = .VehLib_plugin.dboxes.dbox_template.field_csModel  &
    location = 280.0, 85.0  &
    height = 25.0  &
    width = 116.0  &
@@ -349,7 +349,7 @@ interface field create  &
    type_filter = model
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_template.sep_1  &
+   separator_name = .VehLib_plugin.dboxes.dbox_template.sep_1  &
    location = 4.0, 112.0  &
    height = 4.0  &
    width = 392.0  &

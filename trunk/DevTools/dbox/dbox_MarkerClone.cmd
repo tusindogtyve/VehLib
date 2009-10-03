@@ -1,4 +1,4 @@
-! This file is part of SDlib_plugin.
+! This file is part of VehLib_plugin.
 !    
 ! Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
 ! 
@@ -22,7 +22,7 @@
 !  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 !
 interface dialog_box create  &
-   dialog_box_name = .SDlib_plugin.dboxes.dbox_MarkerClone  &
+   dialog_box_name = .VehLib_plugin.dboxes.dbox_MarkerClone  &
    location = 864.0, 49.0  &
    height = 117.0  &
    width = 289.0  &
@@ -39,7 +39,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_MarkerClone.button_1  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_MarkerClone.button_1  &
    location = 209.0, 88.0  &
    height = 25.0  &
    width = 76.0  &
@@ -50,7 +50,7 @@ interface push_button create  &
    commands = "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_MarkerClone.button_2  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_MarkerClone.button_2  &
    location = 53.0, 88.0  &
    height = 25.0  &
    width = 76.0  &
@@ -61,7 +61,7 @@ interface push_button create  &
    commands = "interface dialog execute dialog=$_parent undisp=yes"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_MarkerClone.field_1  &
+   field_name = .VehLib_plugin.dboxes.dbox_MarkerClone.field_1  &
    location = 155.0, 31.0  &
    height = 25.0  &
    width = 130.0  &
@@ -77,7 +77,7 @@ interface field create  &
    type_filter = marker
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_MarkerClone.field_2  &
+   field_name = .VehLib_plugin.dboxes.dbox_MarkerClone.field_2  &
    location = 155.0, 58.0  &
    height = 25.0  &
    width = 130.0  &
@@ -93,7 +93,7 @@ interface field create  &
    type_filter = marker
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_MarkerClone.label_1  &
+   label_name = .VehLib_plugin.dboxes.dbox_MarkerClone.label_1  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 149.0  &
@@ -104,7 +104,7 @@ interface label create  &
    text = "Make this marker"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_MarkerClone.label_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_MarkerClone.label_2  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 149.0  &
@@ -115,7 +115,7 @@ interface label create  &
    text = "Identical to this marker"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_MarkerClone.label_10  &
+   label_name = .VehLib_plugin.dboxes.dbox_MarkerClone.label_10  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 281.0  &
@@ -126,7 +126,7 @@ interface label create  &
    text = "Select the two markers for the parametrization"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_MarkerClone.button_3  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_MarkerClone.button_3  &
    location = 131.0, 88.0  &
    height = 25.0  &
    width = 76.0  &

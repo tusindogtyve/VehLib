@@ -1,6 +1,6 @@
-! This file is part of SDlib_plugin.
+! This file is part of VehLib.
 !    
-!  Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
+!  Copyright (c) 2009 Sauer-Danfoss & Jens Bay Madsen
 !
 ! Permission is hereby granted, free of charge, to any person obtaining
 ! a copy of this software and associated documentation files (the
@@ -1105,29 +1105,29 @@ MENU1  &Controls
           BUTTON3  &Delete
                  NAME=gse_delete
                  CMD= interface dialog display dialog= .controls.gse_delete
-MENU1  Sauer &Danfoss
-     NAME=SauerDanfoss
+MENU1  VehLib
+     NAME=VehLib_menu
      BUTTON2  &Clone two Markers
             NAME=MP
-            CMD= interface dialog display dialog= .SDlib_plugin.dboxes.dbox_markerclone
+            CMD= interface dialog display dialog= .VehLib_plugin.dboxes.dbox_markerclone
      BUTTON2  &Marker Parametrization
             NAME=MP__1
-            CMD= interface dialog display dialog= .SDlib_plugin.dboxes.dbox_markerlocori
+            CMD= interface dialog display dialog= .VehLib_plugin.dboxes.dbox_markerlocori
      BUTTON2  &Marker Location Relative To
             NAME=MP2
-            CMD= interface dialog display dialog= .SDlib_plugin.dboxes.dbox_markerloc
+            CMD= interface dialog display dialog= .VehLib_plugin.dboxes.dbox_markerloc
      BUTTON2  &Marker Orientation Relative To
             NAME=MP3
-            CMD= interface dialog display dialog= .SDlib_plugin.dboxes.dbox_markerorientrelativeto
+            CMD= interface dialog display dialog= .VehLib_plugin.dboxes.dbox_markerorientrelativeto
      BUTTON2  &Marker Orient Along Axis
             NAME=MP4
-            CMD= interface dialog display dialog= .SDlib_plugin.dboxes.dbox_markerorialongaxis
+            CMD= interface dialog display dialog= .VehLib_plugin.dboxes.dbox_markerorialongaxis
      BUTTON2  &Revolute joint
             NAME=JT1
-            CMD= interface dialog display dialog= .SDlib_plugin.dboxes.dbox_Add_revolute_joint
+            CMD= interface dialog display dialog= .VehLib_plugin.dboxes.dbox_Add_revolute_joint
      BUTTON2  &Spherical joint
             NAME=JT2
-            CMD= interface dialog display dialog= .SDlib_plugin.dboxes.dbox_Add_spherical_joint
+            CMD= interface dialog display dialog= .VehLib_plugin.dboxes.dbox_Add_spherical_joint
      SEPARATOR2
      BUTTON2  Modif&y sub system
             NAME=diff__1
@@ -1135,7 +1135,7 @@ MENU1  Sauer &Danfoss
      MENU2  Arrays
           BUTTON3  Select Variable
                  NAME=var
-                 CMD= interface dialog display dialog= .SDlib_plugin.dboxes.arrayShow 
+                 CMD= interface dialog display dialog= .VehLib_plugin.dboxes.arrayShow 
           BUTTON3  DV_&subs
                  NAME=subs
                  CMD=writeArray DV=DV_subs
@@ -1146,68 +1146,68 @@ MENU1  Sauer &Danfoss
      MENU2 Flex
 	  BUTTON3 Beam element
 		NAME=var
-		CMD= interface dialog display dialog= .SDlib_plugin.dboxes.dbox_flexbeam
+		CMD= interface dialog display dialog= .VehLib_plugin.dboxes.dbox_flexbeam
 	  BUTTON3 Beam contact
 		NAME=var
-		CMD= interface dialog display dialog= .SDlib_plugin.dboxes.dbox_contact_at_beam_elements
+		CMD= interface dialog display dialog= .VehLib_plugin.dboxes.dbox_contact_at_beam_elements
      SEPARATOR2
      BUTTON2  &Cylinder
             NAME=cylinder
-            CMD= interface dialog display dialog= .SDlib_plugin.dboxes.dbox_cylinder
+            CMD= interface dialog display dialog= .VehLib_plugin.dboxes.dbox_cylinder
      BUTTON2  &Differential
             NAME=diff
-            CMD= interface dialog display dialog= .SDlib_plugin.dboxes.dbox_differential
+            CMD= interface dialog display dialog= .VehLib_plugin.dboxes.dbox_differential
      SEPARATOR2
      MENU2  &Steering
           BUTTON3  &Ackermann, Round axle
                  NAME=acmCircularF
-                 CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_acmCircular
+                 CMD=interface dialog display dialog= .VehLib_plugin.dboxes.dbox_acmCircular
           BUTTON3  &Ackermann, Rectangular axle
                  NAME=acmRectF
-                 CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_acmRect
+                 CMD=interface dialog display dialog= .VehLib_plugin.dboxes.dbox_acmRect
           BUTTON3  &Ackermann, For telehandler
                  NAME=acmtele
-                 CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_acmTeleF
+                 CMD=interface dialog display dialog= .VehLib_plugin.dboxes.dbox_acmTeleF
           BUTTON3  &Stiff axle
                  NAME=stiffaxlef
-                 CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_stiffAxle
+                 CMD=interface dialog display dialog= .VehLib_plugin.dboxes.dbox_stiffAxle
      MENU2  &Backhoe
           BUTTON3  &Backhoe
                  NAME=backhoe
-                 CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_BH1
+                 CMD=interface dialog display dialog= .VehLib_plugin.dboxes.dbox_BH1
           BUTTON3  Backhoe &plate 1
                  NAME=backhoemount
-                 CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_BHPlate1
+                 CMD=interface dialog display dialog= .VehLib_plugin.dboxes.dbox_BHPlate1
           BUTTON3  Backhoe &plate 2
                  NAME=backhoemount2
-                 CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_BHPlate2
+                 CMD=interface dialog display dialog= .VehLib_plugin.dboxes.dbox_BHPlate2
      MENU2  &Loader mechanism
           BUTTON3  &Front loader
                  NAME=Loader
-                 CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_Loader1
+                 CMD=interface dialog display dialog= .VehLib_plugin.dboxes.dbox_Loader1
           BUTTON3  &Radial Skid Steer Loader
                  NAME=Radial
-                 CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_SSLRadial
+                 CMD=interface dialog display dialog= .VehLib_plugin.dboxes.dbox_SSLRadial
           BUTTON3  &Vertical Skid Steer Loader
                  NAME=Vertical
-                 CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_SSLVertical
+                 CMD=interface dialog display dialog= .VehLib_plugin.dboxes.dbox_SSLVertical
      MENU2  Ch&assis
           BUTTON3  &4 wheels
                  NAME=cs4w
-                 CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_cs4w
+                 CMD=interface dialog display dialog= .VehLib_plugin.dboxes.dbox_cs4w
      MENU2  St&abilizer
           BUTTON3  &Stabilizer 1
                  NAME=st1
-                 CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_stabi1
+                 CMD=interface dialog display dialog= .VehLib_plugin.dboxes.dbox_stabi1
      MENU2  Dri&veline
           BUTTON3  &4WD, center differential
                  NAME=drive1
-                 CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_driveline
+                 CMD=interface dialog display dialog= .VehLib_plugin.dboxes.dbox_driveline
      MENU2  T&elescopic boom
           BUTTON3  &3 beam, boom
                  NAME=telboom
-                 CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_Telboom
+                 CMD=interface dialog display dialog= .VehLib_plugin.dboxes.dbox_Telboom
      MENU2  &Tractor
 	  BUTTON3  &Rear hitch
 		 NAME=RearHitch
-		 CMD=interface dialog display dialog= .SDlib_plugin.dboxes.dbox_RearHitch
+		 CMD=interface dialog display dialog= .VehLib_plugin.dboxes.dbox_RearHitch

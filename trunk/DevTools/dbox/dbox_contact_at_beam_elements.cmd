@@ -1,4 +1,4 @@
-! This file is part of SDlib_plugin.
+! This file is part of VehLib_plugin.
 !    
 ! Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
 ! 
@@ -22,7 +22,7 @@
 !  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 !
 interface dialog_box create  &
-   dialog_box_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements  &
+   dialog_box_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements  &
    location = 761.0, 43.0  &
    height = 393.0  &
    width = 333.0  &
@@ -142,11 +142,11 @@ interface dialog_box create  &
                         "      j_part_name= ground &",  &
                         "      ref_marker_name= (eval($_self.iM)) &",  &
                         "      user_function = (eval($_self.rM).ID),(eval($_self.hM).ID),(eval($_self.iM).ID),(eval($_self.jM).ID),(DV_$'InnerBeam'_length),(eval($_self.beamType.integer_value)),(eval($_self.KTY.object_value).real_value),(eval($_self.CTY.object_value).real_value),(eval($_self.KTZ.object_value).real_value),(eval($_self.CTZ.object_value).real_value),(eval($_self.KR.object_value).real_value),(eval($_self.CR.object_value).real_value),(eval($_self.METHOD.object_value).real_value)",  &
-			"      !routine = \"SDlib_plugin::GFOSUB\" &",	&
+			"      !routine = \"VehLib_plugin::GFOSUB\" &",	&
                         "  !",  &
 			"  force modify direct general_force &", &
 			"	general_force_name=(eval($ModelName//\".\"// \"Contact_$'InnerBeam'_$'OuterBeam'_Seg_\" //RTOI(i))) &",  &
-			"	routine = \"SDlib_plugin::GFOSUB\" ", &
+			"	routine = \"VehLib_plugin::GFOSUB\" ", &
                         "  !",  &
                         "  !Nice color",  &
                         "  force attributes force_name=(eval($ModelName//\".\"// \"Contact_$'InnerBeam'_$'OuterBeam'_Seg_\" //RTOI(i)))&",  &
@@ -231,10 +231,10 @@ interface dialog_box create  &
                         "      j_part_name= ground &",  &
                         "      ref_marker_name= (eval($_self.iM)) &",  &
                         "      user_function = (eval($_self.rM).ID),(eval($_self.hM).ID),(eval($_self.iM).ID),(eval($_self.jM).ID),(DV_$'OuterBeam'_length),(eval($_self.beamType.integer_value)),(eval($_self.KTY.object_value).real_value),(eval($_self.CTY.object_value).real_value),(eval($_self.KTZ.object_value).real_value),(eval($_self.CTZ.object_value).real_value),(eval($_self.KR.object_value).real_value),(eval($_self.CR.object_value).real_value),(eval($_self.METHOD.object_value).real_value)",  &
-			"      !routine = \"SDlib_plugin::GFOSUB\" &",	&
+			"      !routine = \"VehLib_plugin::GFOSUB\" &",	&
 			"  force modify direct general_force &", &
 			"      general_force_name=(eval($ModelName//\".\"// \"Contact_$'OuterBeam'_$'InnerBeam'_Seg_\" //RTOI(i))) &",  &
-			"	routine = \"SDlib_plugin::GFOSUB\" ", &
+			"	routine = \"VehLib_plugin::GFOSUB\" ", &
                         "  !",  &
                         "  !Nice color",  &
                         "  force attributes force_name=(eval($ModelName//\".\"// \"Contact_$'OuterBeam'_$'InnerBeam'_Seg_\" //RTOI(i)))&",  &
@@ -270,7 +270,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.button_1  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.button_1  &
    location = 253.0, 364.0  &
    height = 25.0  &
    width = 76.0  &
@@ -281,7 +281,7 @@ interface push_button create  &
    commands = "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.button_2  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.button_2  &
    location = 175.0, 364.0  &
    height = 25.0  &
    width = 76.0  &
@@ -292,7 +292,7 @@ interface push_button create  &
    commands = "interface dialog execute dialog=$_parent undisp=no"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.button_3  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.button_3  &
    location = 97.0, 364.0  &
    height = 25.0  &
    width = 76.0  &
@@ -303,7 +303,7 @@ interface push_button create  &
    commands = "interface dialog execute dialog=$_parent undisp=yes"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.label_1  &
+   label_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.label_1  &
    location = 5.0, 4.0  &
    height = 25.0  &
    width = 200.0  &
@@ -314,7 +314,7 @@ interface label create  &
    text = "Create in model"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.ModelName  &
+   field_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.ModelName  &
    location = 207.0, 4.0  &
    height = 25.0  &
    width = 122.0  &
@@ -330,7 +330,7 @@ interface field create  &
    add_quotes = no
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.label_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.label_2  &
    location = 21.0, 60.0  &
    height = 25.0  &
    width = 180.0  &
@@ -341,7 +341,7 @@ interface label create  &
    text = "Inner beam section"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.label_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.label_3  &
    location = 21.0, 87.0  &
    height = 25.0  &
    width = 174.0  &
@@ -352,7 +352,7 @@ interface label create  &
    text = "Outer beam section"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.InnerBeam  &
+   field_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.InnerBeam  &
    location = 206.0, 60.0  &
    height = 25.0  &
    width = 122.0  &
@@ -369,7 +369,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.OuterBeam  &
+   field_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.OuterBeam  &
    location = 206.0, 87.0  &
    height = 25.0  &
    width = 122.0  &
@@ -386,7 +386,7 @@ interface field create  &
    add_quotes = no
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.sep_1  &
+   separator_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.sep_1  &
    location = 4.0, 31.0  &
    width = 325.0  &
    units = pixel  &
@@ -394,7 +394,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.label_4  &
+   label_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.label_4  &
    location = 4.0, 33.0  &
    height = 25.0  &
    width = 226.0  &
@@ -405,7 +405,7 @@ interface label create  &
    text = "The two beam sections to connect"
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.sep_2  &
+   separator_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.sep_2  &
    location = 4.0, 114.0  &
    width = 325.0  &
    units = pixel  &
@@ -413,7 +413,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.label_5  &
+   label_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.label_5  &
    location = 4.0, 116.0  &
    height = 25.0  &
    width = 325.0  &
@@ -424,7 +424,7 @@ interface label create  &
    text = "Input spring stiffness and damping"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.label_6  &
+   label_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.label_6  &
    location = 21.0, 225.0  &
    height = 25.0  &
    width = 188.0  &
@@ -435,7 +435,7 @@ interface label create  &
    text = "Spring stiffness, z"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.label_7  &
+   label_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.label_7  &
    location = 4.0, 143.0  &
    height = 160.0  &
    width = 15.0  &
@@ -446,7 +446,7 @@ interface label create  &
    text = "                -"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.label_9  &
+   label_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.label_9  &
    location = 21.0, 252.0  &
    height = 25.0  &
    width = 188.0  &
@@ -457,7 +457,7 @@ interface label create  &
    text = "Damping, z"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.label_10  &
+   label_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.label_10  &
    location = 21.0, 279.0  &
    height = 25.0  &
    width = 188.0  &
@@ -468,7 +468,7 @@ interface label create  &
    text = "Torsional spring stiffness"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.label_11  &
+   label_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.label_11  &
    location = 21.0, 306.0  &
    height = 25.0  &
    width = 188.0  &
@@ -479,7 +479,7 @@ interface label create  &
    text = "Torsional damping"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.label_12  &
+   label_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.label_12  &
    location = 4.0, 60.0  &
    height = 52.0  &
    width = 15.0  &
@@ -490,7 +490,7 @@ interface label create  &
    text = "                -"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.SpringStiffness  &
+   field_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.SpringStiffness  &
    location = 263.0, 225.0  &
    height = 25.0  &
    width = 66.0  &
@@ -507,7 +507,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.Damping  &
+   field_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.Damping  &
    location = 263.0, 252.0  &
    height = 25.0  &
    width = 66.0  &
@@ -524,7 +524,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.TorsionalSpringStiffness  &
+   field_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.TorsionalSpringStiffness  &
    location = 263.0, 279.0  &
    height = 25.0  &
    width = 66.0  &
@@ -541,7 +541,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.TorsionalDamping  &
+   field_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.TorsionalDamping  &
    location = 263.0, 306.0  &
    height = 25.0  &
    width = 66.0  &
@@ -558,7 +558,7 @@ interface field create  &
    add_quotes = no
 !
 interface toggle_button create  &
-   toggle_button_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.toggle_1  &
+   toggle_button_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.toggle_1  &
    location = 21.0, 144.0  &
    height = 25.0  &
    width = 308.0  &
@@ -571,7 +571,7 @@ interface toggle_button create  &
    off_value = "off"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.label_8  &
+   label_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.label_8  &
    location = 21.0, 171.0  &
    height = 25.0  &
    width = 188.0  &
@@ -582,7 +582,7 @@ interface label create  &
    text = "Spring stiffness, y"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.label_13  &
+   label_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.label_13  &
    location = 21.0, 198.0  &
    height = 25.0  &
    width = 188.0  &
@@ -593,7 +593,7 @@ interface label create  &
    text = "Damping, y"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.field_1  &
+   field_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.field_1  &
    location = 263.0, 171.0  &
    height = 25.0  &
    width = 66.0  &
@@ -610,7 +610,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.field_2  &
+   field_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.field_2  &
    location = 263.0, 198.0  &
    height = 25.0  &
    width = 66.0  &
@@ -627,7 +627,7 @@ interface field create  &
    add_quotes = no
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.sep_2_2  &
+   separator_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.sep_2_2  &
    location = 4.0, 333.0  &
    width = 325.0  &
    units = pixel  &
@@ -635,7 +635,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.label_14  &
+   label_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.label_14  &
    location = 4.0, 335.0  &
    height = 25.0  &
    width = 248.0  &
@@ -646,7 +646,7 @@ interface label create  &
    text = "Method. (1=Discrete, 2=Ramp, 3=CENL)"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_contact_at_beam_elements.field_3  &
+   field_name = .VehLib_plugin.dboxes.dbox_contact_at_beam_elements.field_3  &
    location = 253.0, 335.0  &
    height = 25.0  &
    width = 76.0  &

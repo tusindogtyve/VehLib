@@ -5,7 +5,7 @@
   <kernel:Bibliography>
     <File schema="plugin" version="1.0.2" publicationDate="2008-18-07 00:00:48 -0500" />
     <Revision version="1.0.2" />
-    <Corporation author="Sauer-Danfoss" URI="http://www.Sauer-Danfoss.com/" />
+    <Corporation author="Sauer-Danfoss/Jens Bay Madsen" URI="http://www.vehlib.dk/" />
     <Author user="jensbmadsen" name="Sauer-Danfoss" />
     <Environment hostName="Unkown" operatingSystem="Windows" />
     <Application name="MSC.ADAMS" version="2008.R1" />
@@ -15,7 +15,7 @@
     <Description>
       <![CDATA[Off-road vehicle library
 	  
-Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
+Copyright (c) 2009 Sauer-Danfoss & Jens Bay Madsen
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

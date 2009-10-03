@@ -1,6 +1,6 @@
 !
 interface dialog_box create  &
-   dialog_box_name = .SDlib_plugin.dboxes.dbox_RearHitch  &
+   dialog_box_name = .VehLib_plugin.dboxes.dbox_RearHitch  &
    location = 687.0, 307.0  &
    height = 625.0  &
    width = 498.0  &
@@ -231,7 +231,7 @@ interface dialog_box create  &
    grab_all_input = no
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_RearHitch.button_1  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_RearHitch.button_1  &
    location = 418.0, 596.0  &
    height = 25.0  &
    width = 76.0  &
@@ -245,7 +245,7 @@ interface push_button create  &
               "interface dialog undisplay dialog=$_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_RearHitch.button_2  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_RearHitch.button_2  &
    location = 340.0, 596.0  &
    height = 25.0  &
    width = 76.0  &
@@ -257,7 +257,7 @@ interface push_button create  &
               "interface dialog display dialog= $_parent"
 !
 interface push_button create  &
-   push_button_name = .SDlib_plugin.dboxes.dbox_RearHitch.button_3  &
+   push_button_name = .VehLib_plugin.dboxes.dbox_RearHitch.button_3  &
    location = 262.0, 596.0  &
    height = 25.0  &
    width = 76.0  &
@@ -272,7 +272,7 @@ interface push_button create  &
               "createdbox"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_1  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.label_1  &
    location = 4.0, 4.0  &
    height = 25.0  &
    width = 214.0  &
@@ -283,7 +283,7 @@ interface label create  &
    text = "Main model name:"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.label_2  &
    location = 4.0, 31.0  &
    height = 25.0  &
    width = 214.0  &
@@ -294,7 +294,7 @@ interface label create  &
    text = "Old sub model name"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.label_3  &
    location = 4.0, 58.0  &
    height = 25.0  &
    width = 214.0  &
@@ -305,7 +305,7 @@ interface label create  &
    text = "New sub model name:"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_4  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.label_4  &
    location = 4.0, 85.0  &
    height = 25.0  &
    width = 214.0  &
@@ -316,7 +316,7 @@ interface label create  &
    text = "Sub model that contains a chassis"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_main  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.field_main  &
    location = 375.0, 4.0  &
    height = 25.0  &
    width = 116.0  &
@@ -332,7 +332,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_old  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.field_old  &
    location = 375.0, 31.0  &
    height = 25.0  &
    width = 116.0  &
@@ -348,7 +348,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_newName  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.field_newName  &
    location = 375.0, 58.0  &
    height = 25.0  &
    width = 116.0  &
@@ -364,7 +364,7 @@ interface field create  &
    add_quotes = no
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_csModel  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.field_csModel  &
    location = 375.0, 85.0  &
    height = 25.0  &
    width = 116.0  &
@@ -380,7 +380,7 @@ interface field create  &
    type_filter = model
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_RearHitch.sep_1  &
+   separator_name = .VehLib_plugin.dboxes.dbox_RearHitch.sep_1  &
    location = 4.0, 112.0  &
    height = 4.0  &
    width = 488.0  &
@@ -389,7 +389,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_5  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.label_5  &
    location = 4.0, 155.0  &
    height = 25.0  &
    width = 112.0  &
@@ -400,7 +400,7 @@ interface label create  &
    text = "3 point carriers"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_1  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.field_1  &
    location = 208.0, 153.0  &
    height = 25.0  &
    width = 76.0  &
@@ -420,7 +420,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_2  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.field_2  &
    location = 308.0, 153.0  &
    height = 25.0  &
    width = 76.0  &
@@ -440,7 +440,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_3  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.field_3  &
    location = 406.0, 153.0  &
    height = 27.0  &
    width = 76.0  &
@@ -460,7 +460,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_6  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.label_6  &
    location = 208.0, 123.0  &
    height = 25.0  &
    width = 76.0  &
@@ -471,7 +471,7 @@ interface label create  &
    text = "Width"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_7  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.label_7  &
    location = 308.0, 123.0  &
    height = 25.0  &
    width = 76.0  &
@@ -482,7 +482,7 @@ interface label create  &
    text = "Offset Z"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_8  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.label_8  &
    location = 406.0, 124.0  &
    height = 25.0  &
    width = 76.0  &
@@ -493,7 +493,7 @@ interface label create  &
    text = "Offset X"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_4  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.field_4  &
    location = 308.0, 186.0  &
    height = 25.0  &
    width = 76.0  &
@@ -513,7 +513,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_5  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.field_5  &
    location = 406.0, 186.0  &
    height = 27.0  &
    width = 76.0  &
@@ -533,7 +533,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_6  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.field_6  &
    location = 208.0, 186.0  &
    height = 25.0  &
    width = 76.0  &
@@ -553,7 +553,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_5_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.label_5_2  &
    location = 4.0, 188.0  &
    height = 25.0  &
    width = 112.0  &
@@ -564,7 +564,7 @@ interface label create  &
    text = "3 point top linkage"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_7  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.field_7  &
    location = 308.0, 220.0  &
    height = 25.0  &
    width = 76.0  &
@@ -584,7 +584,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_8  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.field_8  &
    location = 406.0, 220.0  &
    height = 27.0  &
    width = 76.0  &
@@ -604,7 +604,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.field_9  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.field_9  &
    location = 208.0, 220.0  &
    height = 25.0  &
    width = 76.0  &
@@ -624,7 +624,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.label_5_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.label_5_3  &
    location = 4.0, 222.0  &
    height = 25.0  &
    width = 168.0  &
@@ -635,7 +635,7 @@ interface label create  &
    text = "3 point cylinder mounts"
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_RearHitch.sep_2  &
+   separator_name = .VehLib_plugin.dboxes.dbox_RearHitch.sep_2  &
    location = 4.0, 250.0  &
    height = 4.0  &
    width = 488.0  &
@@ -644,7 +644,7 @@ interface separator create  &
    vert_resizing = attach_top
 !
 interface tab_container create  &
-   tab_container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1  &
+   tab_container_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1  &
    location = 8.0, 260.0  &
    height = 327.0  &
    width = 482.0  &
@@ -654,7 +654,7 @@ interface tab_container create  &
    current_choice = "Upper carrier"
 !
 interface container create  &
-   container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1  &
+   container_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1  &
    height = 21.0  &
    width = 449.0  &
    units = pixel  &
@@ -663,7 +663,7 @@ interface container create  &
    tab_label = "Upper carrier"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_2  &
    location = 250.0, 2.0  &
    height = 292.0  &
    width = 186.0  &
@@ -675,7 +675,7 @@ interface label create  &
 		  "RearHitch.png"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3  &
    location = 50.0, 2.0  &
    height = 25.0  &
    width = 15.0  &
@@ -686,7 +686,7 @@ interface label create  &
    text = "A"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_2  &
    location = 50.0, 29.0  &
    height = 25.0  &
    width = 15.0  &
@@ -697,7 +697,7 @@ interface label create  &
    text = "B"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_3  &
    location = 50.0, 56.0  &
    height = 25.0  &
    width = 15.0  &
@@ -708,7 +708,7 @@ interface label create  &
    text = "C"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_4  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_4  &
    location = 50.0, 83.0  &
    height = 25.0  &
    width = 15.0  &
@@ -719,7 +719,7 @@ interface label create  &
    text = "D"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_5  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_5  &
    location = 50.0, 110.0  &
    height = 25.0  &
    width = 15.0  &
@@ -730,7 +730,7 @@ interface label create  &
    text = "E"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_6  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_6  &
    location = 50.0, 137.0  &
    height = 25.0  &
    width = 15.0  &
@@ -741,7 +741,7 @@ interface label create  &
    text = "F"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_7  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_7  &
    location = 50.0, 164.0  &
    height = 25.0  &
    width = 15.0  &
@@ -752,7 +752,7 @@ interface label create  &
    text = "G"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_8  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_8  &
    location = 50.0, 191.0  &
    height = 25.0  &
    width = 15.0  &
@@ -763,7 +763,7 @@ interface label create  &
    text = "H"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_9  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_9  &
    location = 50.0, 218.0  &
    height = 25.0  &
    width = 15.0  &
@@ -774,7 +774,7 @@ interface label create  &
    text = "I"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_10  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_10  &
    location = 50.0, 245.0  &
    height = 25.0  &
    width = 15.0  &
@@ -785,7 +785,7 @@ interface label create  &
    text = "J"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_11  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.label_3_11  &
    location = 50.0, 272.0  &
    height = 25.0  &
    width = 15.0  &
@@ -796,7 +796,7 @@ interface label create  &
    text = "K"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_1  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_1  &
    location = 70.0, 2.0  &
    height = 25.0  &
    width = 76.0  &
@@ -816,7 +816,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_2  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_2  &
    location = 70.0, 29.0  &
    height = 25.0  &
    width = 76.0  &
@@ -836,7 +836,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_3  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_3  &
    location = 70.0, 56.0  &
    height = 25.0  &
    width = 76.0  &
@@ -856,7 +856,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_4  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_4  &
    location = 70.0, 83.0  &
    height = 25.0  &
    width = 76.0  &
@@ -876,7 +876,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_5  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_5  &
    location = 70.0, 110.0  &
    height = 25.0  &
    width = 76.0  &
@@ -896,7 +896,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_6  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_6  &
    location = 70.0, 137.0  &
    height = 25.0  &
    width = 76.0  &
@@ -916,7 +916,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_7  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_7  &
    location = 70.0, 164.0  &
    height = 25.0  &
    width = 76.0  &
@@ -936,7 +936,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_8  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_8  &
    location = 70.0, 191.0  &
    height = 25.0  &
    width = 76.0  &
@@ -956,7 +956,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_9  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_9  &
    location = 70.0, 218.0  &
    height = 25.0  &
    width = 76.0  &
@@ -976,7 +976,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_10  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_10  &
    location = 70.0, 245.0  &
    height = 25.0  &
    width = 76.0  &
@@ -996,7 +996,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_11  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_1.field_t1_11  &
    location = 70.0, 272.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1016,7 +1016,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface container create  &
-   container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_2  &
+   container_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_2  &
    height = 270.0  &
    width = 474.0  &
    units = pixel  &
@@ -1025,7 +1025,7 @@ interface container create  &
    tab_label = "Upper Carrier Z"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_2.label_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_2.label_2  &
    location = 250.0, 2.0  &
    height = 292.0  &
    width = 68.0  &
@@ -1037,7 +1037,7 @@ interface label create  &
                "RearHitchZ.png"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_2.label_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_2.label_3  &
    location = 50.0, 2.0  &
    height = 25.0  &
    width = 15.0  &
@@ -1048,7 +1048,7 @@ interface label create  &
    text = "A"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_2.field_t2_1  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_2.field_t2_1  &
    location = 70.0, 2.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1068,7 +1068,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface container create  &
-   container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3  &
+   container_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3  &
    height = 270.0  &
    width = 474.0  &
    units = pixel  &
@@ -1077,7 +1077,7 @@ interface container create  &
    tab_label = "Lower Carrier"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_2  &
    location = 250.0, 2.0  &
    height = 292.0  &
    width = 198.0  &
@@ -1089,7 +1089,7 @@ interface label create  &
                "RearHitchLower.png"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3  &
    location = 50.0, 2.0  &
    height = 25.0  &
    width = 15.0  &
@@ -1100,7 +1100,7 @@ interface label create  &
    text = "A"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_2  &
    location = 50.0, 29.0  &
    height = 25.0  &
    width = 15.0  &
@@ -1111,7 +1111,7 @@ interface label create  &
    text = "B"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_3  &
    location = 50.0, 56.0  &
    height = 25.0  &
    width = 15.0  &
@@ -1122,7 +1122,7 @@ interface label create  &
    text = "C"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_4  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_4  &
    location = 50.0, 83.0  &
    height = 25.0  &
    width = 15.0  &
@@ -1133,7 +1133,7 @@ interface label create  &
    text = "D"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_5  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_5  &
    location = 50.0, 110.0  &
    height = 25.0  &
    width = 15.0  &
@@ -1144,7 +1144,7 @@ interface label create  &
    text = "E"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_6  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_6  &
    location = 50.0, 137.0  &
    height = 25.0  &
    width = 15.0  &
@@ -1155,7 +1155,7 @@ interface label create  &
    text = "F"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_7  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_7  &
    location = 50.0, 164.0  &
    height = 25.0  &
    width = 15.0  &
@@ -1166,7 +1166,7 @@ interface label create  &
    text = "G"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_8  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_8  &
    location = 50.0, 191.0  &
    height = 25.0  &
    width = 15.0  &
@@ -1177,7 +1177,7 @@ interface label create  &
    text = "H"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_9  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_9  &
    location = 50.0, 218.0  &
    height = 25.0  &
    width = 15.0  &
@@ -1188,7 +1188,7 @@ interface label create  &
    text = "I"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_10  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_10  &
    location = 50.0, 245.0  &
    height = 25.0  &
    width = 15.0  &
@@ -1199,7 +1199,7 @@ interface label create  &
    text = "J"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_11  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.label_3_11  &
    location = 50.0, 272.0  &
    height = 25.0  &
    width = 15.0  &
@@ -1210,7 +1210,7 @@ interface label create  &
    text = "K"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_1  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_1  &
    location = 70.0, 2.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1230,7 +1230,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_2  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_2  &
    location = 70.0, 29.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1250,7 +1250,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_3  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_3  &
    location = 70.0, 56.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1270,7 +1270,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_4  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_4  &
    location = 70.0, 83.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1290,7 +1290,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_5  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_5  &
    location = 70.0, 110.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1310,7 +1310,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_6  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_6  &
    location = 70.0, 137.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1330,7 +1330,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_7  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_7  &
    location = 70.0, 164.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1350,7 +1350,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_8  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_8  &
    location = 70.0, 191.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1370,7 +1370,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_9  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_9  &
    location = 70.0, 218.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1390,7 +1390,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_10  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_10  &
    location = 70.0, 245.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1410,7 +1410,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_11  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_3.field_t3_11  &
    location = 70.0, 272.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1430,7 +1430,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface container create  &
-   container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_4  &
+   container_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_4  &
    height = 270.0  &
    width = 474.0  &
    units = pixel  &
@@ -1439,7 +1439,7 @@ interface container create  &
    tab_label = "Lower Carrier Z"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_4.label_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_4.label_2  &
    location = 250.0, 2.0  &
    height = 292.0  &
    width = 58.0  &
@@ -1451,7 +1451,7 @@ interface label create  &
                "RearHitchLowerZ.png"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_4.label_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_4.label_3  &
    location = 50.0, 2.0  &
    height = 25.0  &
    width = 15.0  &
@@ -1462,7 +1462,7 @@ interface label create  &
    text = "A"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_4.field_t4_1  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_4.field_t4_1  &
    location = 70.0, 2.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1482,7 +1482,7 @@ interface field create  &
    lower_limit = -0.5
 !
 interface container create  &
-   container_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5  &
+   container_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5  &
    height = 270.0  &
    width = 474.0  &
    units = pixel  &
@@ -1491,7 +1491,7 @@ interface container create  &
    tab_label = "Cylinders"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.label_1  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.label_1  &
    location = 10.0, 2.0  &
    height = 25.0  &
    width = 90.0  &
@@ -1502,7 +1502,7 @@ interface label create  &
    text = "Cylinder radius"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.label_2  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.label_2  &
    location = 10.0, 29.0  &
    height = 25.0  &
    width = 90.0  &
@@ -1513,7 +1513,7 @@ interface label create  &
    text = "Rod radius"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.label_3  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.label_3  &
    location = 10.0, 56.0  &
    height = 25.0  &
    width = 90.0  &
@@ -1524,7 +1524,7 @@ interface label create  &
    text = "Min length"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.label_4  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.label_4  &
    location = 10.0, 83.0  &
    height = 25.0  &
    width = 90.0  &
@@ -1535,7 +1535,7 @@ interface label create  &
    text = "Max length"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.label_5  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.label_5  &
    location = 10.0, 110.0  &
    height = 25.0  &
    width = 90.0  &
@@ -1546,7 +1546,7 @@ interface label create  &
    text = "Initial length"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.label_6  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.label_6  &
    location = 10.0, 145.0  &
    height = 25.0  &
    width = 90.0  &
@@ -1557,7 +1557,7 @@ interface label create  &
    text = "Stabilizer min"
 !
 interface label create  &
-   label_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.label_7  &
+   label_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.label_7  &
    location = 10.0, 172.0  &
    height = 25.0  &
    width = 90.0  &
@@ -1568,7 +1568,7 @@ interface label create  &
    text = "Stabilizer max"
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.field_t5_1  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.field_t5_1  &
    location = 120.0, 2.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1588,7 +1588,7 @@ interface field create  &
    lower_limit = 0.0
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.field_t5_2  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.field_t5_2  &
    location = 120.0, 29.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1608,7 +1608,7 @@ interface field create  &
    lower_limit = 0.0
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.field_t5_3  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.field_t5_3  &
    location = 120.0, 56.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1628,7 +1628,7 @@ interface field create  &
    lower_limit = 0.0
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.field_t5_4  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.field_t5_4  &
    location = 120.0, 83.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1648,7 +1648,7 @@ interface field create  &
    lower_limit = 0.0
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.field_t5_5  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.field_t5_5  &
    location = 120.0, 110.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1668,7 +1668,7 @@ interface field create  &
    lower_limit = 0.0
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.field_t5_6  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.field_t5_6  &
    location = 120.0, 145.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1688,7 +1688,7 @@ interface field create  &
    lower_limit = 0.0
 !
 interface field create  &
-   field_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.field_t5_7  &
+   field_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.field_t5_7  &
    location = 120.0, 172.0  &
    height = 25.0  &
    width = 76.0  &
@@ -1708,7 +1708,7 @@ interface field create  &
    lower_limit = 0.0
 !
 interface separator create  &
-   separator_name = .SDlib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.sep_1  &
+   separator_name = .VehLib_plugin.dboxes.dbox_RearHitch.tabcont_1.cont_5.sep_1  &
    location = 8.0, 140.0  &
    height = 4.0  &
    width = 200.0  &

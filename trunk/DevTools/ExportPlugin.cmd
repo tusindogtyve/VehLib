@@ -1,6 +1,6 @@
-! This file is part of SDlib_plugin.
+! This file is part of VehLib.
 !    
-!  Copyright (c) 2008 Sauer-Danfoss http://www.sauer-danfoss.com
+!  Copyright (c) 2009 Sauer-Danfoss & Jens Bay Madsen
 !
 ! Permission is hereby granted, free of charge, to any person obtaining
 ! a copy of this software and associated documentation files (the
@@ -21,5 +21,5 @@
 ! OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 ! WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-file binary write file_name = "../Adams_library/myplugins/SDlib_plugin.bin" &
-	entity_name = .SDlib_plugin, .gui.main.mbar.SauerDanfoss
+file binary write file_name = "../Adams_library/myplugins/VehLib_plugin.bin" &
+	entity_name = .VehLib_plugin, .gui.main.mbar.VehLib_menu
