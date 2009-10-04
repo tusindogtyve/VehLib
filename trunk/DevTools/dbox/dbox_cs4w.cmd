@@ -23,6 +23,8 @@
 !
 interface dialog_box create  &
    dialog_box_name = .VehLib_plugin.dboxes.dbox_cs4w  &
+   documentation_text =   &
+                        "http://www.vehlib.dk/trac/wiki/DocumentationChassis"  &
    location = 601.0, 63.0  &
    height = 533.0  &
    width = 380.0  &

@@ -23,6 +23,8 @@
 !
 interface dialog_box create  &
    dialog_box_name = .VehLib_plugin.dboxes.dbox_BHPlate2  &
+   documentation_text =   &
+                        "http://www.vehlib.dk/trac/wiki/DocumentationBackhoeplate2"  &
    location = 907.0, 235.0  &
    height = 498.0  &
    width = 365.0  &

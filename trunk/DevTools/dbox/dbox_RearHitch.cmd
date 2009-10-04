@@ -1,6 +1,8 @@
 !
 interface dialog_box create  &
    dialog_box_name = .VehLib_plugin.dboxes.dbox_RearHitch  &
+   documentation_text =   &
+                        "http://www.vehlib.dk/trac/wiki/DocumentationHitchRear"  &
    location = 687.0, 307.0  &
    height = 625.0  &
    width = 498.0  &

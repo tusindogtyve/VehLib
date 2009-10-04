@@ -23,6 +23,8 @@
 !
 interface dialog_box create  &
    dialog_box_name = .VehLib_plugin.dboxes.dbox_Stabi1  &
+   documentation_text =   &
+                        "http://www.vehlib.dk/trac/wiki/DocumentationStabilizerLegs"  &   
    location = 658.0, 88.0  &
    height = 578.0  &
    width = 387.0  &
